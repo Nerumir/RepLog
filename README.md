@@ -19,13 +19,15 @@
 
 ## Installer l'application
 
-### Depuis une release (le plus simple)
+### Installation rapide (sur Android, en 2 minutes)
 
-1. Va dans l'onglet [**Releases**](../../releases) de ce dépôt et télécharge le fichier `.apk` de la dernière version.
-2. Sur ton téléphone Android, ouvre le fichier téléchargé (autorise l'installation depuis cette source si demandé : *Paramètres → Applications → Accès spécial → Installer des applications inconnues*).
-3. Lance RepLog et crée ton profil au premier démarrage.
+1. **Sur ton téléphone**, ouvre ce lien pour télécharger directement l'APK de la dernière version :
+   👉 **[Télécharger RepLog.apk](https://github.com/Nerumir/RepLog/releases/latest/download/app-release.apk)**
+2. Une fois le téléchargement terminé, ouvre le fichier depuis tes notifications (ou ton dossier *Téléchargements*).
+3. Android va probablement afficher un avertissement (*« Installer des applications inconnues »* ou *« App non reconnue »*) : c'est normal pour une app installée hors Play Store. Appuie sur **Paramètres**, active l'autorisation pour l'app qui a servi au téléchargement (Chrome, Fichiers...), reviens en arrière et appuie sur **Installer**.
+4. Lance RepLog et crée ton profil au premier démarrage. Aucune connexion internet n'est nécessaire ensuite : tout fonctionne hors-ligne.
 
-> L'app n'est pas publiée sur le Play Store : c'est un projet personnel, à installer manuellement (« sideload »).
+Toutes les versions sont listées dans l'onglet [**Releases**](../../releases) de ce dépôt. L'app n'est pas publiée sur le Play Store : c'est un projet personnel, à installer manuellement (« sideload »).
 
 ### En buildant depuis les sources
 
