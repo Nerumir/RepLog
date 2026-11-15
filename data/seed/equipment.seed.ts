@@ -1,0 +1,16 @@
+export const equipmentSeed = [
+  { id: 'bodyweight', name: 'Poids du corps' },
+  { id: 'dumbbell', name: 'Haltères' },
+  { id: 'barbell', name: 'Barre' },
+  { id: 'ez-bar', name: 'Barre EZ' },
+  { id: 'trap-bar', name: 'Barre hexagonale' },
+  { id: 'kettlebell', name: 'Kettlebell' },
+  { id: 'cable', name: 'Poulie' },
+  { id: 'band', name: 'Élastique' },
+  { id: 'machine', name: 'Machine' },
+  { id: 'smith-machine', name: 'Machine Smith' },
+  { id: 'bench', name: 'Banc' },
+  { id: 'medicine-ball', name: 'Médecine ball' },
+  { id: 'trx', name: 'Sangles TRX' },
+  { id: 'other', name: 'Autre' },
+];

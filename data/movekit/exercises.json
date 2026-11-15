@@ -1,0 +1,1986 @@
+[
+  {
+    "slug": "90-90-hip-switches",
+    "nameEn": "90/90 Hip Switches"
+  },
+  {
+    "slug": "alternating-hammer-curl",
+    "nameEn": "Alternate Hammer Curl"
+  },
+  {
+    "slug": "anti-gravity-press",
+    "nameEn": "Anti-Gravity Press"
+  },
+  {
+    "slug": "archer-push-up",
+    "nameEn": "Archer Push-Up"
+  },
+  {
+    "slug": "arnold-press",
+    "nameEn": "Arnold Press"
+  },
+  {
+    "slug": "b-stance-hip-thrust",
+    "nameEn": "B-Stance Hip Thrust"
+  },
+  {
+    "slug": "single-leg-back-extension",
+    "nameEn": "B-stance Back Extension"
+  },
+  {
+    "slug": "back-extension",
+    "nameEn": "Back Extension"
+  },
+  {
+    "slug": "backpack-curls",
+    "nameEn": "Backpack Curls"
+  },
+  {
+    "slug": "backpack-row",
+    "nameEn": "Backpack Row"
+  },
+  {
+    "slug": "band-assisted-pull-up",
+    "nameEn": "Band Assisted Pull-Up"
+  },
+  {
+    "slug": "band-curl",
+    "nameEn": "Band Curl"
+  },
+  {
+    "slug": "band-external-rotation",
+    "nameEn": "Band External Rotation"
+  },
+  {
+    "slug": "band-glute-bridge",
+    "nameEn": "Band Glute Bridge"
+  },
+  {
+    "slug": "band-good-morning",
+    "nameEn": "Band Good Morning"
+  },
+  {
+    "slug": "band-high-face-pull",
+    "nameEn": "Band High Face Pull"
+  },
+  {
+    "slug": "band-hip-abduction",
+    "nameEn": "Band Hip Abduction"
+  },
+  {
+    "slug": "band-kneeling-pulldown",
+    "nameEn": "Band Kneeling Pulldown"
+  },
+  {
+    "slug": "band-lateral-raise",
+    "nameEn": "Band Lateral Raise"
+  },
+  {
+    "slug": "band-leg-curl",
+    "nameEn": "Band Leg Curl"
+  },
+  {
+    "slug": "band-overhead-press",
+    "nameEn": "Band Overhead Press"
+  },
+  {
+    "slug": "band-pull-through",
+    "nameEn": "Band Pull-Through"
+  },
+  {
+    "slug": "band-pullover",
+    "nameEn": "Band Pullover"
+  },
+  {
+    "slug": "band-romanian-deadlift",
+    "nameEn": "Band Romanian Deadlift"
+  },
+  {
+    "slug": "band-row",
+    "nameEn": "Band Row"
+  },
+  {
+    "slug": "band-seated-pulldown",
+    "nameEn": "Band Seated Pulldown"
+  },
+  {
+    "slug": "band-shrug",
+    "nameEn": "Band Shrug"
+  },
+  {
+    "slug": "band-single-arm-lateral-raise",
+    "nameEn": "Band Single Arm Lateral Raise"
+  },
+  {
+    "slug": "band-squat",
+    "nameEn": "Band Squat"
+  },
+  {
+    "slug": "band-straight-arm-pulldown",
+    "nameEn": "Band Straight Arm Pulldown"
+  },
+  {
+    "slug": "band-tricep-kickbacks",
+    "nameEn": "Band Tricep Kickbacks"
+  },
+  {
+    "slug": "band-wood-chopper",
+    "nameEn": "Band Wood Chopper"
+  },
+  {
+    "slug": "banded-clamshell",
+    "nameEn": "Banded Clamshell"
+  },
+  {
+    "slug": "banded-eccentric-tibialis-raise",
+    "nameEn": "Banded Eccentric Tibialis Raise"
+  },
+  {
+    "slug": "barbell-banded-back-squat",
+    "nameEn": "Barbell Banded Back Squat"
+  },
+  {
+    "slug": "barbell-behind-the-back-30-degree-shrug",
+    "nameEn": "Barbell Behind The Back 30 Degree Shrug"
+  },
+  {
+    "slug": "barbell-bench-press",
+    "nameEn": "Barbell Bench Press"
+  },
+  {
+    "slug": "barbell-bent-over-row",
+    "nameEn": "Barbell Bent Over Row"
+  },
+  {
+    "slug": "barbell-bent-over-row-overhand",
+    "nameEn": "Barbell Bent Over Row - Overhand"
+  },
+  {
+    "slug": "barbell-clean-and-jerk",
+    "nameEn": "Barbell Clean And Jerk"
+  },
+  {
+    "slug": "barbell-clean-and-press",
+    "nameEn": "Barbell Clean And Press"
+  },
+  {
+    "slug": "barbell-close-grip-bench-press",
+    "nameEn": "Barbell Close Grip Bench Press"
+  },
+  {
+    "slug": "barbell-curl",
+    "nameEn": "Barbell Curl"
+  },
+  {
+    "slug": "barbell-deadlift",
+    "nameEn": "Barbell Deadlift"
+  },
+  {
+    "slug": "barbell-drag-curl",
+    "nameEn": "Barbell Drag Curl"
+  },
+  {
+    "slug": "barbell-floor-press",
+    "nameEn": "Barbell Floor Press"
+  },
+  {
+    "slug": "barbell-front-rack-step-up-knee-drive",
+    "nameEn": "Barbell Front Rack Step Up Knee Drive"
+  },
+  {
+    "slug": "barbell-glute-bridge",
+    "nameEn": "Barbell Glute Bridge"
+  },
+  {
+    "slug": "barbell-hack-squat",
+    "nameEn": "Barbell Hack Squat"
+  },
+  {
+    "slug": "barbell-high-incline-bench-press",
+    "nameEn": "Barbell High Incline Bench Press"
+  },
+  {
+    "slug": "barbell-hip-thrust",
+    "nameEn": "Barbell Hip Thrust"
+  },
+  {
+    "slug": "barbell-incline-bench-press",
+    "nameEn": "Barbell Incline Bench Press"
+  },
+  {
+    "slug": "barbell-landmine-row",
+    "nameEn": "Barbell Landmine Row"
+  },
+  {
+    "slug": "barbell-lunge",
+    "nameEn": "Barbell Lunge"
+  },
+  {
+    "slug": "barbell-muscle-snatch",
+    "nameEn": "Barbell Muscle Snatch"
+  },
+  {
+    "slug": "barbell-overhead-press",
+    "nameEn": "Barbell Overhead Press"
+  },
+  {
+    "slug": "barbell-power-snatch",
+    "nameEn": "Barbell Power Snatch"
+  },
+  {
+    "slug": "barbell-pullover",
+    "nameEn": "Barbell Pullover"
+  },
+  {
+    "slug": "barbell-rack-pull",
+    "nameEn": "Barbell Rack Pull"
+  },
+  {
+    "slug": "barbell-rear-delt-row",
+    "nameEn": "Barbell Rear Delt Row"
+  },
+  {
+    "slug": "barbell-reverse-lunge",
+    "nameEn": "Barbell Reverse Lunge"
+  },
+  {
+    "slug": "barbell-romanian-deadlift",
+    "nameEn": "Barbell Romanian Deadlift"
+  },
+  {
+    "slug": "barbell-shrug",
+    "nameEn": "Barbell Shrug"
+  },
+  {
+    "slug": "barbell-skullcrusher",
+    "nameEn": "Barbell Skullcrusher"
+  },
+  {
+    "slug": "barbell-snatch",
+    "nameEn": "Barbell Snatch"
+  },
+  {
+    "slug": "barbell-spinal-jefferson-curl",
+    "nameEn": "Barbell Spinal Jefferson Curl"
+  },
+  {
+    "slug": "barbell-split-squat",
+    "nameEn": "Barbell Split Squat"
+  },
+  {
+    "slug": "barbell-squat",
+    "nameEn": "Barbell Squat"
+  },
+  {
+    "slug": "barbell-step-up-knee-drive",
+    "nameEn": "Barbell Step Up Knee Drive"
+  },
+  {
+    "slug": "barbell-stiff-leg-deadlifts",
+    "nameEn": "Barbell Stiff Leg Deadlifts"
+  },
+  {
+    "slug": "barbell-thruster",
+    "nameEn": "Barbell Thruster"
+  },
+  {
+    "slug": "barbell-upright-row",
+    "nameEn": "Barbell Upright Row"
+  },
+  {
+    "slug": "barbell-walking-lunge",
+    "nameEn": "Barbell Walking Lunge"
+  },
+  {
+    "slug": "barbell-wrist-curl",
+    "nameEn": "Barbell Wrist Curl"
+  },
+  {
+    "slug": "bayesian-curl",
+    "nameEn": "Bayesian Curl"
+  },
+  {
+    "slug": "behind-the-neck-press",
+    "nameEn": "Behind-the-Neck Press"
+  },
+  {
+    "slug": "belt-squat",
+    "nameEn": "Belt Squat"
+  },
+  {
+    "slug": "bench-dips",
+    "nameEn": "Bench Dips"
+  },
+  {
+    "slug": "single-arm-landmine-row",
+    "nameEn": "Bent Over One-Arm Long Bar Row"
+  },
+  {
+    "slug": "dumbbell-neutral-grip-bent-over-row",
+    "nameEn": "Bent Over Two-Dumbbell Row Palms In"
+  },
+  {
+    "slug": "bent-knee-soleus-raise",
+    "nameEn": "Bent-Knee Soleus Raise"
+  },
+  {
+    "slug": "bicycle-crunches",
+    "nameEn": "Bicycle Crunches"
+  },
+  {
+    "slug": "bird-dog",
+    "nameEn": "Bird Dog"
+  },
+  {
+    "slug": "bodyweight-alternating-lateral-lunge",
+    "nameEn": "Bodyweight Alternating Lateral Lunge"
+  },
+  {
+    "slug": "bodyweight-alternating-reverse-lunges",
+    "nameEn": "Bodyweight Alternating Reverse Lunges"
+  },
+  {
+    "slug": "bodyweight-box-squat",
+    "nameEn": "Bodyweight Box Squat"
+  },
+  {
+    "slug": "bodyweight-deadlift",
+    "nameEn": "Bodyweight Deadlift"
+  },
+  {
+    "slug": "bodyweight-deficit-reverse-lunge",
+    "nameEn": "Bodyweight Deficit Reverse Lunge"
+  },
+  {
+    "slug": "bodyweight-donkey-calf-raise",
+    "nameEn": "Bodyweight Donkey Calf Raise"
+  },
+  {
+    "slug": "bodyweight-elevated-push-up",
+    "nameEn": "Bodyweight Elevated Push Up"
+  },
+  {
+    "slug": "bodyweight-hip-abduction",
+    "nameEn": "Bodyweight Hip Abduction"
+  },
+  {
+    "slug": "bodyweight-knee-push-ups",
+    "nameEn": "Bodyweight Knee Push Ups"
+  },
+  {
+    "slug": "bodyweight-reverse-lunge",
+    "nameEn": "Bodyweight Reverse Lunge"
+  },
+  {
+    "slug": "bodyweight-russian-twist",
+    "nameEn": "Bodyweight Russian Twist"
+  },
+  {
+    "slug": "bodyweight-spinal-jefferson-curl",
+    "nameEn": "Bodyweight Spinal Jefferson Curl"
+  },
+  {
+    "slug": "bodyweight-squat",
+    "nameEn": "Bodyweight Squat"
+  },
+  {
+    "slug": "bodyweight-squat-to-stand",
+    "nameEn": "Bodyweight Squat to Stand"
+  },
+  {
+    "slug": "bounds",
+    "nameEn": "Bounds"
+  },
+  {
+    "slug": "box-jump",
+    "nameEn": "Box Jump"
+  },
+  {
+    "slug": "barbell-box-squats",
+    "nameEn": "Box Squats"
+  },
+  {
+    "slug": "bradford-press",
+    "nameEn": "Bradford/Rocky Presses"
+  },
+  {
+    "slug": "broad-jump",
+    "nameEn": "Broad Jump"
+  },
+  {
+    "slug": "bulgarian-split-squat",
+    "nameEn": "Bulgarian Split Squat"
+  },
+  {
+    "slug": "burpee",
+    "nameEn": "Burpee"
+  },
+  {
+    "slug": "cable-30-degree-shrug",
+    "nameEn": "Cable 30 Degree Shrug"
+  },
+  {
+    "slug": "cable-bar-curl",
+    "nameEn": "Cable Bar Curl"
+  },
+  {
+    "slug": "cable-bar-face-pull",
+    "nameEn": "Cable Bar Face Pull"
+  },
+  {
+    "slug": "cable-bar-pushdown",
+    "nameEn": "Cable Bar Pushdown"
+  },
+  {
+    "slug": "cable-bench-chest-fly",
+    "nameEn": "Cable Bench Chest Fly"
+  },
+  {
+    "slug": "cable-bench-press",
+    "nameEn": "Cable Bench Press"
+  },
+  {
+    "slug": "cable-bench-straight-leg-kickback",
+    "nameEn": "Cable Bench Straight Leg Kickback"
+  },
+  {
+    "slug": "cable-chest-press",
+    "nameEn": "Cable Chest Press"
+  },
+  {
+    "slug": "cable-chop",
+    "nameEn": "Cable Chop"
+  },
+  {
+    "slug": "cable-decline-bench-press",
+    "nameEn": "Cable Decline Bench Press"
+  },
+  {
+    "slug": "cable-external-rotation",
+    "nameEn": "Cable External Rotation"
+  },
+  {
+    "slug": "cable-front-raise",
+    "nameEn": "Cable Front Raise"
+  },
+  {
+    "slug": "cable-high-to-low-fly",
+    "nameEn": "Cable High-to-Low Fly"
+  },
+  {
+    "slug": "cable-hip-abduction",
+    "nameEn": "Cable Hip Abduction"
+  },
+  {
+    "slug": "cable-incline-bench-press",
+    "nameEn": "Cable Incline Bench Press"
+  },
+  {
+    "slug": "cable-kickback",
+    "nameEn": "Cable Kickback"
+  },
+  {
+    "slug": "cable-low-single-arm-lateral-raise",
+    "nameEn": "Cable Low Single Arm Lateral Raise"
+  },
+  {
+    "slug": "cable-low-to-high-fly",
+    "nameEn": "Cable Low-to-High Fly"
+  },
+  {
+    "slug": "cable-overhead-press",
+    "nameEn": "Cable Overhead Press"
+  },
+  {
+    "slug": "cable-overhead-straight-bar-extensions",
+    "nameEn": "Cable Overhead Straight Bar Extensions"
+  },
+  {
+    "slug": "cable-pallof-press",
+    "nameEn": "Cable Pallof Press"
+  },
+  {
+    "slug": "cable-pec-fly",
+    "nameEn": "Cable Pec Fly"
+  },
+  {
+    "slug": "cable-pull-through",
+    "nameEn": "Cable Pull Through"
+  },
+  {
+    "slug": "machine-face-pulls",
+    "nameEn": "Cable Rope Face Pulls"
+  },
+  {
+    "slug": "cable-rope-hammer-curl",
+    "nameEn": "Cable Rope Hammer Curl"
+  },
+  {
+    "slug": "cable-rope-kneeling-face-pull",
+    "nameEn": "Cable Rope Kneeling Face Pull"
+  },
+  {
+    "slug": "cable-rope-overhead-tricep-extension",
+    "nameEn": "Cable Rope Overhead Tricep Extension"
+  },
+  {
+    "slug": "cable-rope-pullover",
+    "nameEn": "Cable Rope Pullover"
+  },
+  {
+    "slug": "cable-rope-pushdown",
+    "nameEn": "Cable Rope Pushdown"
+  },
+  {
+    "slug": "cable-row-bar-standing-row",
+    "nameEn": "Cable Row Bar Standing Row"
+  },
+  {
+    "slug": "cable-seated-rope-face-pull",
+    "nameEn": "Cable Seated Rope Face Pull"
+  },
+  {
+    "slug": "cable-side-bend",
+    "nameEn": "Cable Side Bend"
+  },
+  {
+    "slug": "cable-single-arm-neutral-grip-row",
+    "nameEn": "Cable Single Arm Neutral Grip Row"
+  },
+  {
+    "slug": "cable-single-arm-rear-delt-row",
+    "nameEn": "Cable Single Arm Rear Delt Row"
+  },
+  {
+    "slug": "cable-single-arm-rope-pushdown",
+    "nameEn": "Cable Single Arm Rope Pushdown"
+  },
+  {
+    "slug": "cable-single-arm-underhand-grip-row",
+    "nameEn": "Cable Single Arm Underhand Grip Row"
+  },
+  {
+    "slug": "cable-standing-low-to-high-wood-chopper",
+    "nameEn": "Cable Standing Low To High Wood Chopper"
+  },
+  {
+    "slug": "cable-standing-single-arm-chest-press",
+    "nameEn": "Cable Standing Single Arm Chest Press"
+  },
+  {
+    "slug": "cable-supinating-row",
+    "nameEn": "Cable Supinating Row"
+  },
+  {
+    "slug": "cable-tricep-kickback",
+    "nameEn": "Cable Tricep Kickback"
+  },
+  {
+    "slug": "cable-wood-chopper",
+    "nameEn": "Cable Wood Chopper"
+  },
+  {
+    "slug": "cable-wrist-curl",
+    "nameEn": "Cable Wrist Curl"
+  },
+  {
+    "slug": "horizontal-leg-press-calf-press",
+    "nameEn": "Calf Press"
+  },
+  {
+    "slug": "captains-chair-knee-raise",
+    "nameEn": "Captain's Chair Knee Raise"
+  },
+  {
+    "slug": "chest-supported-dumbbell-row",
+    "nameEn": "Chest-Supported Dumbbell Row"
+  },
+  {
+    "slug": "chest-supported-t-bar-row",
+    "nameEn": "Chest-Supported T-Bar Row"
+  },
+  {
+    "slug": "chin-ups",
+    "nameEn": "Chin Ups"
+  },
+  {
+    "slug": "close-grip-barbell-curl",
+    "nameEn": "Close-Grip Barbell Curl"
+  },
+  {
+    "slug": "dumbbell-close-grip-push-up",
+    "nameEn": "Close-Grip Push-Up off a Dumbbell"
+  },
+  {
+    "slug": "cossack-squat",
+    "nameEn": "Cossack Squat"
+  },
+  {
+    "slug": "cross-body-cable-tricep-extension",
+    "nameEn": "Cross-Body Cable Tricep Extension"
+  },
+  {
+    "slug": "cross-body-hammer-curl",
+    "nameEn": "Cross-Body Hammer Curl"
+  },
+  {
+    "slug": "crunches",
+    "nameEn": "Crunches"
+  },
+  {
+    "slug": "cuban-press",
+    "nameEn": "Cuban Press"
+  },
+  {
+    "slug": "dead-bug",
+    "nameEn": "Dead Bug"
+  },
+  {
+    "slug": "dead-bug-weighted",
+    "nameEn": "Dead Bug (Weighted)"
+  },
+  {
+    "slug": "decline-barbell-bench-press",
+    "nameEn": "Decline Barbell Bench Press"
+  },
+  {
+    "slug": "decline-crunch",
+    "nameEn": "Decline Crunch"
+  },
+  {
+    "slug": "decline-machine-chest-press",
+    "nameEn": "Decline Machine Chest Press"
+  },
+  {
+    "slug": "decline-push-up",
+    "nameEn": "Decline Push Up"
+  },
+  {
+    "slug": "decline-sit-up",
+    "nameEn": "Decline Sit-Up"
+  },
+  {
+    "slug": "deficit-deadlift",
+    "nameEn": "Deficit Deadlift"
+  },
+  {
+    "slug": "deficit-dumbbell-romanian-deadlift",
+    "nameEn": "Deficit Dumbbell Romanian Deadlift"
+  },
+  {
+    "slug": "diamond-push-ups",
+    "nameEn": "Diamond Push Ups"
+  },
+  {
+    "slug": "dumbbell-alternating-forward-lunge",
+    "nameEn": "Dumbbell Alternating Forward Lunge"
+  },
+  {
+    "slug": "dumbbell-back-extension",
+    "nameEn": "Dumbbell Back Extension"
+  },
+  {
+    "slug": "dumbbell-bench-press",
+    "nameEn": "Dumbbell Bench Press"
+  },
+  {
+    "slug": "dumbbell-bulgarian-split-squat",
+    "nameEn": "Dumbbell Bulgarian Split Squat"
+  },
+  {
+    "slug": "dumbbell-chest-fly",
+    "nameEn": "Dumbbell Chest Fly"
+  },
+  {
+    "slug": "dumbbell-concentration-curl",
+    "nameEn": "Dumbbell Concentration Curl"
+  },
+  {
+    "slug": "dumbbell-cossack-squat",
+    "nameEn": "Dumbbell Cossack Squat"
+  },
+  {
+    "slug": "dumbbell-cross-body-romanian-deadlift",
+    "nameEn": "Dumbbell Cross Body Romanian Deadlift"
+  },
+  {
+    "slug": "dumbbell-curl",
+    "nameEn": "Dumbbell Curl"
+  },
+  {
+    "slug": "dumbbell-deadlift",
+    "nameEn": "Dumbbell Deadlift"
+  },
+  {
+    "slug": "dumbbell-decline-bench-press",
+    "nameEn": "Dumbbell Decline Bench Press"
+  },
+  {
+    "slug": "dumbbell-decline-chest-fly",
+    "nameEn": "Dumbbell Decline Chest Fly"
+  },
+  {
+    "slug": "dumbbell-decline-crunch-behind-head",
+    "nameEn": "Dumbbell Decline Crunch (Behind Head)"
+  },
+  {
+    "slug": "dumbbell-decline-skullcrusher",
+    "nameEn": "Dumbbell Decline Skullcrusher"
+  },
+  {
+    "slug": "dumbbell-feet-elevated-glute-bridge",
+    "nameEn": "Dumbbell Feet Elevated Glute Bridge"
+  },
+  {
+    "slug": "dumbbell-figure-four-heels-elevated-hip-thrust",
+    "nameEn": "Dumbbell Figure Four Heels Elevated Hip Thrust"
+  },
+  {
+    "slug": "dumbbell-front-raise",
+    "nameEn": "Dumbbell Front Raise"
+  },
+  {
+    "slug": "dumbbell-front-squat",
+    "nameEn": "Dumbbell Front Squat"
+  },
+  {
+    "slug": "dumbbell-front-squat-tempo",
+    "nameEn": "Dumbbell Front Squat (Tempo)"
+  },
+  {
+    "slug": "dumbbell-goblet-alternating-curtsy-lunge",
+    "nameEn": "Dumbbell Goblet Alternating Curtsy Lunge"
+  },
+  {
+    "slug": "dumbbell-goblet-bulgarian-split-squat",
+    "nameEn": "Dumbbell Goblet Bulgarian Split Squat"
+  },
+  {
+    "slug": "dumbbell-goblet-forward-lunge",
+    "nameEn": "Dumbbell Goblet Forward Lunge"
+  },
+  {
+    "slug": "dumbbell-goblet-reverse-lunge",
+    "nameEn": "Dumbbell Goblet Reverse Lunge"
+  },
+  {
+    "slug": "dumbbell-goblet-split-squat",
+    "nameEn": "Dumbbell Goblet Split Squat"
+  },
+  {
+    "slug": "dumbbell-goblet-squat",
+    "nameEn": "Dumbbell Goblet Squat"
+  },
+  {
+    "slug": "dumbbell-good-morning",
+    "nameEn": "Dumbbell Good Morning"
+  },
+  {
+    "slug": "dumbbell-halo",
+    "nameEn": "Dumbbell Halo"
+  },
+  {
+    "slug": "dumbbell-hammer-curl",
+    "nameEn": "Dumbbell Hammer Curl"
+  },
+  {
+    "slug": "dumbbell-hammer-preacher-curl",
+    "nameEn": "Dumbbell Hammer Preacher Curl"
+  },
+  {
+    "slug": "dumbbell-heels-elevated-hip-thrust",
+    "nameEn": "Dumbbell Heels Elevated Hip Thrust"
+  },
+  {
+    "slug": "dumbbell-incline-bench-press",
+    "nameEn": "Dumbbell Incline Bench Press"
+  },
+  {
+    "slug": "dumbbell-incline-chest-fly",
+    "nameEn": "Dumbbell Incline Chest Fly"
+  },
+  {
+    "slug": "dumbbell-incline-curl",
+    "nameEn": "Dumbbell Incline Curl"
+  },
+  {
+    "slug": "dumbbell-incline-front-raise",
+    "nameEn": "Dumbbell Incline Front Raise"
+  },
+  {
+    "slug": "dumbbell-incline-hammer-curl",
+    "nameEn": "Dumbbell Incline Hammer Curl"
+  },
+  {
+    "slug": "dumbbell-incline-row",
+    "nameEn": "Dumbbell Incline Row"
+  },
+  {
+    "slug": "dumbbell-lateral-lunge",
+    "nameEn": "Dumbbell Lateral Lunge"
+  },
+  {
+    "slug": "dumbbell-lateral-raise",
+    "nameEn": "Dumbbell Lateral Raise"
+  },
+  {
+    "slug": "dumbbell-laying-reverse-fly",
+    "nameEn": "Dumbbell Laying Reverse Fly"
+  },
+  {
+    "slug": "dumbbell-leg-curl",
+    "nameEn": "Dumbbell Leg Curl"
+  },
+  {
+    "slug": "dumbbell-lying-single-arm-rear-lateral-raise",
+    "nameEn": "Dumbbell Lying One-Arm Rear Lateral Raise"
+  },
+  {
+    "slug": "dumbbell-neutral-high-incline-bench-press",
+    "nameEn": "Dumbbell Neutral High Incline Bench Press"
+  },
+  {
+    "slug": "dumbbell-overhead-squat",
+    "nameEn": "Dumbbell Overhead Squat"
+  },
+  {
+    "slug": "dumbbell-preacher-curl",
+    "nameEn": "Dumbbell Preacher Curl"
+  },
+  {
+    "slug": "dumbbell-pullover",
+    "nameEn": "Dumbbell Pullover"
+  },
+  {
+    "slug": "dumbbell-push-press",
+    "nameEn": "Dumbbell Push Press"
+  },
+  {
+    "slug": "dumbbell-rear-delt-fly",
+    "nameEn": "Dumbbell Rear Delt Fly"
+  },
+  {
+    "slug": "dumbbell-reverse-lunge",
+    "nameEn": "Dumbbell Rear Lunge"
+  },
+  {
+    "slug": "dumbbell-row-bilateral",
+    "nameEn": "Dumbbell Row Bilateral"
+  },
+  {
+    "slug": "dumbbell-row-unilateral",
+    "nameEn": "Dumbbell Row Unilateral"
+  },
+  {
+    "slug": "dumbbell-russian-twist",
+    "nameEn": "Dumbbell Russian Twist"
+  },
+  {
+    "slug": "dumbbell-seated-full-lateral-raise",
+    "nameEn": "Dumbbell Seated Full Lateral Raise"
+  },
+  {
+    "slug": "dumbbell-seated-lateral-raises",
+    "nameEn": "Dumbbell Seated Lateral Raises"
+  },
+  {
+    "slug": "dumbbell-seated-overhead-press",
+    "nameEn": "Dumbbell Seated Overhead Press"
+  },
+  {
+    "slug": "dumbbell-seated-overhead-tricep-extension",
+    "nameEn": "Dumbbell Seated Overhead Tricep Extension"
+  },
+  {
+    "slug": "dumbbell-seated-rear-delt-fly",
+    "nameEn": "Dumbbell Seated Rear Delt Fly"
+  },
+  {
+    "slug": "dumbbell-seated-shrug",
+    "nameEn": "Dumbbell Seated Shrug"
+  },
+  {
+    "slug": "dumbbell-shrug",
+    "nameEn": "Dumbbell Shrug"
+  },
+  {
+    "slug": "dumbbell-side-bend",
+    "nameEn": "Dumbbell Side Bend"
+  },
+  {
+    "slug": "dumbbell-single-arm-chest-press",
+    "nameEn": "Dumbbell Single Arm Chest Press"
+  },
+  {
+    "slug": "dumbbell-single-arm-clean-and-press",
+    "nameEn": "Dumbbell Single Arm Clean And Press"
+  },
+  {
+    "slug": "dumbbell-single-arm-neutral-overhead-press",
+    "nameEn": "Dumbbell Single Arm Neutral Overhead Press"
+  },
+  {
+    "slug": "dumbbell-single-arm-row",
+    "nameEn": "Dumbbell Single Arm Row"
+  },
+  {
+    "slug": "dumbbell-single-arm-upright-row",
+    "nameEn": "Dumbbell Single Arm Upright Row"
+  },
+  {
+    "slug": "dumbbell-single-leg-calf-raise",
+    "nameEn": "Dumbbell Single Leg Calf Raise"
+  },
+  {
+    "slug": "dumbbell-single-leg-hip-thrust",
+    "nameEn": "Dumbbell Single Leg Hip Thrust"
+  },
+  {
+    "slug": "dumbbell-situp",
+    "nameEn": "Dumbbell Situp"
+  },
+  {
+    "slug": "dumbbell-skullcrusher",
+    "nameEn": "Dumbbell Skullcrusher"
+  },
+  {
+    "slug": "dumbbell-spinal-jefferson-curl",
+    "nameEn": "Dumbbell Spinal Jefferson Curl"
+  },
+  {
+    "slug": "dumbbell-squat",
+    "nameEn": "Dumbbell Squat"
+  },
+  {
+    "slug": "dumbbell-standing-single-arm-curl",
+    "nameEn": "Dumbbell Standing Single Arm Curl"
+  },
+  {
+    "slug": "dumbbell-standing-single-arm-hammer-curl",
+    "nameEn": "Dumbbell Standing Single Arm Hammer Curl"
+  },
+  {
+    "slug": "dumbbell-step-up-high",
+    "nameEn": "Dumbbell Step-Up (High)"
+  },
+  {
+    "slug": "dumbbell-step-up-low",
+    "nameEn": "Dumbbell Step-Up (Low)"
+  },
+  {
+    "slug": "dumbbell-sumo-squat",
+    "nameEn": "Dumbbell Sumo Squat"
+  },
+  {
+    "slug": "dumbbell-superman",
+    "nameEn": "Dumbbell Superman"
+  },
+  {
+    "slug": "dumbbell-thruster",
+    "nameEn": "Dumbbell Thruster"
+  },
+  {
+    "slug": "dumbbell-tibialis-raise",
+    "nameEn": "Dumbbell Tibialis Raise"
+  },
+  {
+    "slug": "dumbbell-tricep-kickback",
+    "nameEn": "Dumbbell Tricep Kickback"
+  },
+  {
+    "slug": "dumbbell-upright-row",
+    "nameEn": "Dumbbell Upright Row"
+  },
+  {
+    "slug": "dumbbell-walking-lunges",
+    "nameEn": "Dumbbell Walking Lunges"
+  },
+  {
+    "slug": "dumbbell-windmill",
+    "nameEn": "Dumbbell Windmill"
+  },
+  {
+    "slug": "dumbbell-wrist-curl",
+    "nameEn": "Dumbbell Wrist Curl"
+  },
+  {
+    "slug": "dumbbell-wrist-extension",
+    "nameEn": "Dumbbell Wrist Extension"
+  },
+  {
+    "slug": "ez-bar-preacher-curl",
+    "nameEn": "EZ Bar Preacher Curl"
+  },
+  {
+    "slug": "ez-bar-reverse-preacher-curl",
+    "nameEn": "EZ Bar Reverse Preacher Curl"
+  },
+  {
+    "slug": "ez-bar-skullcrusher",
+    "nameEn": "EZ Bar Skullcrusher"
+  },
+  {
+    "slug": "eccentric-calf-lowers",
+    "nameEn": "Eccentric Calf Lowers"
+  },
+  {
+    "slug": "fire-hydrants",
+    "nameEn": "Fire Hydrants"
+  },
+  {
+    "slug": "floor-press",
+    "nameEn": "Floor Press"
+  },
+  {
+    "slug": "forward-lunge",
+    "nameEn": "Forward Lunge"
+  },
+  {
+    "slug": "frog-pump",
+    "nameEn": "Frog Pump"
+  },
+  {
+    "slug": "front-raise-and-pullover",
+    "nameEn": "Front Raise And Pullover"
+  },
+  {
+    "slug": "front-squat",
+    "nameEn": "Front Squat"
+  },
+  {
+    "slug": "front-foot-elevated-split-squat",
+    "nameEn": "Front-Foot-Elevated Split Squat"
+  },
+  {
+    "slug": "glute-bridge",
+    "nameEn": "Glute Bridge"
+  },
+  {
+    "slug": "glute-kickback-machine",
+    "nameEn": "Glute Kickback Machine"
+  },
+  {
+    "slug": "good-mornings",
+    "nameEn": "Good Mornings"
+  },
+  {
+    "slug": "hammer-strength-high-row",
+    "nameEn": "Hammer Strength High Row"
+  },
+  {
+    "slug": "hammer-strength-iso-lateral-row",
+    "nameEn": "Hammer Strength Iso-Lateral Row"
+  },
+  {
+    "slug": "hamstring-curl",
+    "nameEn": "Hamstring Curl"
+  },
+  {
+    "slug": "hang-clean",
+    "nameEn": "Hang Clean"
+  },
+  {
+    "slug": "hang-power-clean",
+    "nameEn": "Hang Power Clean"
+  },
+  {
+    "slug": "hang-snatch",
+    "nameEn": "Hang Snatch"
+  },
+  {
+    "slug": "hanging-knee-raises",
+    "nameEn": "Hanging Knee Raises"
+  },
+  {
+    "slug": "heel-elevated-dumbbell-front-squat",
+    "nameEn": "Heel Elevated Dumbbell Front Squat"
+  },
+  {
+    "slug": "hip-hinge-drill",
+    "nameEn": "Hip Hinge Drill"
+  },
+  {
+    "slug": "hip-hinge-speed-romanian-deadlift",
+    "nameEn": "Hip Hinge Speed Romanian Deadlift"
+  },
+  {
+    "slug": "incline-dumbbell-fly-with-twist",
+    "nameEn": "Incline Dumbbell Flyes With A Twist"
+  },
+  {
+    "slug": "incline-machine-chest-press",
+    "nameEn": "Incline Machine Chest Press"
+  },
+  {
+    "slug": "incline-push-up",
+    "nameEn": "Incline Push Up"
+  },
+  {
+    "slug": "close-grip-incline-push-up",
+    "nameEn": "Incline Push-Up Close-Grip"
+  },
+  {
+    "slug": "incline-push-up-depth-jump",
+    "nameEn": "Incline Push-Up Depth Jump"
+  },
+  {
+    "slug": "reverse-grip-incline-push-up",
+    "nameEn": "Incline Push-Up Reverse Grip"
+  },
+  {
+    "slug": "wide-incline-push-up",
+    "nameEn": "Incline Push-Up Wide"
+  },
+  {
+    "slug": "inverted-row",
+    "nameEn": "Inverted Row"
+  },
+  {
+    "slug": "jm-press",
+    "nameEn": "JM Press"
+  },
+  {
+    "slug": "jump-squats",
+    "nameEn": "Jump Squats"
+  },
+  {
+    "slug": "jumping-jack",
+    "nameEn": "Jumping Jack"
+  },
+  {
+    "slug": "kettlebell-alternating-curtsy-lunge",
+    "nameEn": "Kettlebell Alternating Curtsy Lunge"
+  },
+  {
+    "slug": "kettlebell-assisted-bulgarian-split-squat",
+    "nameEn": "Kettlebell Assisted Bulgarian Split Squat"
+  },
+  {
+    "slug": "kettlebell-bench-press",
+    "nameEn": "Kettlebell Bench Press"
+  },
+  {
+    "slug": "kettlebell-calf-raise",
+    "nameEn": "Kettlebell Calf Raise"
+  },
+  {
+    "slug": "double-kettlebell-clean-and-press",
+    "nameEn": "Kettlebell Clean & Press (Double)"
+  },
+  {
+    "slug": "kettlebell-curl",
+    "nameEn": "Kettlebell Curl"
+  },
+  {
+    "slug": "kettlebell-front-raise",
+    "nameEn": "Kettlebell Front Raise"
+  },
+  {
+    "slug": "kettlebell-goblet-curl",
+    "nameEn": "Kettlebell Goblet Curl"
+  },
+  {
+    "slug": "kettlebell-goblet-squat",
+    "nameEn": "Kettlebell Goblet Squat"
+  },
+  {
+    "slug": "kettlebell-gorilla-row",
+    "nameEn": "Kettlebell Gorilla Row"
+  },
+  {
+    "slug": "kettlebell-halo",
+    "nameEn": "Kettlebell Halo"
+  },
+  {
+    "slug": "kettlebell-hip-thrust",
+    "nameEn": "Kettlebell Hip Thrust"
+  },
+  {
+    "slug": "kettlebell-incline-bench-press",
+    "nameEn": "Kettlebell Incline Bench Press"
+  },
+  {
+    "slug": "kettlebell-push-press",
+    "nameEn": "Kettlebell Push Press"
+  },
+  {
+    "slug": "kettlebell-renegade-rows",
+    "nameEn": "Kettlebell Renegade Rows"
+  },
+  {
+    "slug": "kettlebell-romanian-deadlift",
+    "nameEn": "Kettlebell Romanian Deadlift"
+  },
+  {
+    "slug": "kettlebell-row",
+    "nameEn": "Kettlebell Row"
+  },
+  {
+    "slug": "kettlebell-row-single",
+    "nameEn": "Kettlebell Row (Single)"
+  },
+  {
+    "slug": "kettlebell-seated-overhead-press",
+    "nameEn": "Kettlebell Seated Overhead Press"
+  },
+  {
+    "slug": "kettlebell-shrug",
+    "nameEn": "Kettlebell Shrug"
+  },
+  {
+    "slug": "kettlebell-single-arm-row",
+    "nameEn": "Kettlebell Single Arm Row"
+  },
+  {
+    "slug": "kettlebell-spinal-jefferson-curl",
+    "nameEn": "Kettlebell Spinal Jefferson Curl"
+  },
+  {
+    "slug": "kettlebell-sumo-deadlift",
+    "nameEn": "Kettlebell Sumo Deadlift"
+  },
+  {
+    "slug": "kettlebell-swing",
+    "nameEn": "Kettlebell Swing"
+  },
+  {
+    "slug": "kettlebell-thruster",
+    "nameEn": "Kettlebell Thruster"
+  },
+  {
+    "slug": "kettlebell-turkish-get-up",
+    "nameEn": "Kettlebell Turkish Get-Up"
+  },
+  {
+    "slug": "kettlebell-walking-lunges",
+    "nameEn": "Kettlebell Walking Lunges"
+  },
+  {
+    "slug": "kettlebell-windmill",
+    "nameEn": "Kettlebell Windmill"
+  },
+  {
+    "slug": "kickstand-dumbbell-romanian-deadlift",
+    "nameEn": "Kickstand Dumbbell Romanian Deadlift"
+  },
+  {
+    "slug": "kneeling-cable-crunch",
+    "nameEn": "Kneeling Cable Crunch"
+  },
+  {
+    "slug": "landmine-press",
+    "nameEn": "Landmine Press"
+  },
+  {
+    "slug": "landmine-t-bar-rows",
+    "nameEn": "Landmine T Bar Rows"
+  },
+  {
+    "slug": "lat-pulldown",
+    "nameEn": "Lat Pulldown"
+  },
+  {
+    "slug": "leaning-cable-lateral-raise",
+    "nameEn": "Leaning Cable Lateral Raise"
+  },
+  {
+    "slug": "leaning-single-arm-dumbbell-lateral-raise",
+    "nameEn": "Leaning Single Arm Lateral Raise"
+  },
+  {
+    "slug": "leg-press-calf-raise",
+    "nameEn": "Leg Press Calf Raise"
+  },
+  {
+    "slug": "lever-lateral-wide-pulldown",
+    "nameEn": "Lever Lateral Wide Pulldown"
+  },
+  {
+    "slug": "loaded-wrist-extensor-eccentric",
+    "nameEn": "Loaded Wrist-Extensor Eccentric"
+  },
+  {
+    "slug": "loaded-wrist-flexor-eccentric",
+    "nameEn": "Loaded Wrist-Flexor Eccentric"
+  },
+  {
+    "slug": "lying-cambered-barbell-row",
+    "nameEn": "Lying Cambered Barbell Row"
+  },
+  {
+    "slug": "lying-leg-curl",
+    "nameEn": "Lying Leg Curl"
+  },
+  {
+    "slug": "lying-single-arm-lateral-raise",
+    "nameEn": "Lying One-Arm Lateral Raise"
+  },
+  {
+    "slug": "medicine-ball-throw",
+    "nameEn": "MB Throw"
+  },
+  {
+    "slug": "machine-45-degree-back-extension",
+    "nameEn": "Machine 45 Degree Back Extension"
+  },
+  {
+    "slug": "machine-assisted-pull-up",
+    "nameEn": "Machine Assisted Pull Up"
+  },
+  {
+    "slug": "machine-back-extension",
+    "nameEn": "Machine Back Extension"
+  },
+  {
+    "slug": "machine-cable-v-bar-push-downs",
+    "nameEn": "Machine Cable V Bar Push Downs"
+  },
+  {
+    "slug": "machine-chest-press",
+    "nameEn": "Machine Chest Press"
+  },
+  {
+    "slug": "machine-crunch",
+    "nameEn": "Machine Crunch"
+  },
+  {
+    "slug": "machine-dips",
+    "nameEn": "Machine Dips"
+  },
+  {
+    "slug": "machine-goblet-sissy-squat",
+    "nameEn": "Machine Goblet Sissy Squat"
+  },
+  {
+    "slug": "machine-hack-squat",
+    "nameEn": "Machine Hack Squat"
+  },
+  {
+    "slug": "machine-hip-abduction",
+    "nameEn": "Machine Hip Abduction"
+  },
+  {
+    "slug": "machine-hip-adduction",
+    "nameEn": "Machine Hip Adduction"
+  },
+  {
+    "slug": "machine-hip-thrust",
+    "nameEn": "Machine Hip Thrust"
+  },
+  {
+    "slug": "machine-horizontal-leg-press",
+    "nameEn": "Machine Horizontal Leg Press"
+  },
+  {
+    "slug": "machine-lat-pullover",
+    "nameEn": "Machine Lat Pullover"
+  },
+  {
+    "slug": "machine-lateral-raise",
+    "nameEn": "Machine Lateral Raise"
+  },
+  {
+    "slug": "machine-leg-extension",
+    "nameEn": "Machine Leg Extension"
+  },
+  {
+    "slug": "machine-leg-press",
+    "nameEn": "Machine Leg Press"
+  },
+  {
+    "slug": "machine-neutral-row",
+    "nameEn": "Machine Neutral Row"
+  },
+  {
+    "slug": "machine-pec-fly",
+    "nameEn": "Machine Pec Fly"
+  },
+  {
+    "slug": "machine-front-military-press",
+    "nameEn": "Machine Plate Loaded Front Military Press"
+  },
+  {
+    "slug": "machine-plate-loaded-leg-extension",
+    "nameEn": "Machine Plate Loaded Leg Extension"
+  },
+  {
+    "slug": "machine-plate-loaded-t-bar-row",
+    "nameEn": "Machine Plate Loaded T Bar Row"
+  },
+  {
+    "slug": "machine-preacher-curl",
+    "nameEn": "Machine Preacher Curl"
+  },
+  {
+    "slug": "machine-pulldown",
+    "nameEn": "Machine Pulldown"
+  },
+  {
+    "slug": "machine-seated-cable-row",
+    "nameEn": "Machine Seated Cable Row"
+  },
+  {
+    "slug": "cable-single-leg-laying-leg-curl",
+    "nameEn": "Machine Single Leg Lying Leg Curl"
+  },
+  {
+    "slug": "machine-tricep-extension",
+    "nameEn": "Machine Tricep Extension"
+  },
+  {
+    "slug": "machine-underhand-row",
+    "nameEn": "Machine Underhand Row"
+  },
+  {
+    "slug": "man-maker",
+    "nameEn": "Man Maker"
+  },
+  {
+    "slug": "meadows-row",
+    "nameEn": "Meadows Row"
+  },
+  {
+    "slug": "mountain-climber",
+    "nameEn": "Mountain Climber"
+  },
+  {
+    "slug": "muscle-up",
+    "nameEn": "Muscle-up"
+  },
+  {
+    "slug": "narrow-pulldown",
+    "nameEn": "Narrow Pulldown"
+  },
+  {
+    "slug": "neck-curl",
+    "nameEn": "Neck Curl"
+  },
+  {
+    "slug": "neck-extension",
+    "nameEn": "Neck Extension"
+  },
+  {
+    "slug": "neutral-grip-dumbbell-bench-press",
+    "nameEn": "Neutral-Grip Dumbbell Bench Press"
+  },
+  {
+    "slug": "neutral-grip-lat-pulldown",
+    "nameEn": "Neutral-Grip Lat Pulldown"
+  },
+  {
+    "slug": "neutral-grip-pull-up",
+    "nameEn": "Neutral-Grip Pull-Up"
+  },
+  {
+    "slug": "nordic-hamstring-curl",
+    "nameEn": "Nordic Hamstring Curl"
+  },
+  {
+    "slug": "single-arm-dumbbell-bench-press",
+    "nameEn": "One Arm Dumbbell Bench Press"
+  },
+  {
+    "slug": "single-leg-barbell-squat",
+    "nameEn": "One Leg Barbell Squat"
+  },
+  {
+    "slug": "single-arm-incline-lateral-raise",
+    "nameEn": "One-Arm Incline Lateral Raise"
+  },
+  {
+    "slug": "single-arm-kettlebell-military-press-to-side",
+    "nameEn": "One-Arm Kettlebell Military Press To Side"
+  },
+  {
+    "slug": "pallof-press",
+    "nameEn": "Pallof Press"
+  },
+  {
+    "slug": "parralel-bar-dips",
+    "nameEn": "Parallel Bar Dips"
+  },
+  {
+    "slug": "pause-squat",
+    "nameEn": "Pause Squat"
+  },
+  {
+    "slug": "pendlay-row",
+    "nameEn": "Pendlay Row"
+  },
+  {
+    "slug": "pendulum-squat-v-squat",
+    "nameEn": "Pendulum Squat / V-Squat"
+  },
+  {
+    "slug": "pike-push-up",
+    "nameEn": "Pike Push-Up/Handstand Push-Up"
+  },
+  {
+    "slug": "pistol-squat",
+    "nameEn": "Pistol Squat"
+  },
+  {
+    "slug": "assisted-pistol-squat",
+    "nameEn": "Pistol Squat (Assisted)"
+  },
+  {
+    "slug": "plate-forward-lunge",
+    "nameEn": "Plate Forward Lunge"
+  },
+  {
+    "slug": "plate-front-raise",
+    "nameEn": "Plate Front Raise"
+  },
+  {
+    "slug": "plate-pinch",
+    "nameEn": "Plate Pinch"
+  },
+  {
+    "slug": "plyometric-kettlebell-push-up",
+    "nameEn": "Plyo Kettlebell Pushups"
+  },
+  {
+    "slug": "pogo-hops",
+    "nameEn": "Pogo Hops"
+  },
+  {
+    "slug": "power-clean",
+    "nameEn": "Power Clean - no overhead press"
+  },
+  {
+    "slug": "press-sit-up",
+    "nameEn": "Press Sit-Up"
+  },
+  {
+    "slug": "prone-lateral-raises",
+    "nameEn": "Prone Lateral Raises"
+  },
+  {
+    "slug": "prone-y-t-raises",
+    "nameEn": "Prone Y-T Raises"
+  },
+  {
+    "slug": "prying-goblet-squat",
+    "nameEn": "Prying Goblet Squat"
+  },
+  {
+    "slug": "pull-ups",
+    "nameEn": "Pull Ups"
+  },
+  {
+    "slug": "push-jerk",
+    "nameEn": "Push Jerk"
+  },
+  {
+    "slug": "push-up",
+    "nameEn": "Push Up"
+  },
+  {
+    "slug": "wide-push-up",
+    "nameEn": "Push-Up Wide"
+  },
+  {
+    "slug": "reverse-crunch",
+    "nameEn": "Reverse Crunch"
+  },
+  {
+    "slug": "reverse-grip-barbell-curl",
+    "nameEn": "Reverse Grip Barbell Curl"
+  },
+  {
+    "slug": "reverse-hack-squat",
+    "nameEn": "Reverse Hack Squat"
+  },
+  {
+    "slug": "reverse-hyperextension",
+    "nameEn": "Reverse Hyperextension"
+  },
+  {
+    "slug": "reverse-pec-deck",
+    "nameEn": "Reverse Pec Deck"
+  },
+  {
+    "slug": "reverse-grip-barbell-bench-press",
+    "nameEn": "Reverse-Grip Barbell Bench Press"
+  },
+  {
+    "slug": "reverse-grip-tricep-pushdown",
+    "nameEn": "Reverse-Grip Tricep Pushdown"
+  },
+  {
+    "slug": "romanian-deadlift-hamstring-sweeps",
+    "nameEn": "Romanian Deadlift Hamstring Sweeps"
+  },
+  {
+    "slug": "deficit-barbell-romanian-deadlift",
+    "nameEn": "Romanian Deadlift from Deficit"
+  },
+  {
+    "slug": "scapular-pull-up",
+    "nameEn": "Scapular Pull-up"
+  },
+  {
+    "slug": "seal-row",
+    "nameEn": "Seal Row"
+  },
+  {
+    "slug": "seated-barbell-military-press",
+    "nameEn": "Seated Barbell Military Press"
+  },
+  {
+    "slug": "seated-calf-raise",
+    "nameEn": "Seated Calf Raise"
+  },
+  {
+    "slug": "seated-dumbbell-curl",
+    "nameEn": "Seated Dumbbell Curl"
+  },
+  {
+    "slug": "seated-leg-curl",
+    "nameEn": "Seated Leg Curl"
+  },
+  {
+    "slug": "selectorized-overhead-press-machine",
+    "nameEn": "Selectorized Overhead Press Machine"
+  },
+  {
+    "slug": "selectorized-torso-rotation-machine",
+    "nameEn": "Selectorized Torso Rotation Machine"
+  },
+  {
+    "slug": "lateral-raise-to-front-raise",
+    "nameEn": "Side Laterals to Front Raise"
+  },
+  {
+    "slug": "single-leg-glute-bridge",
+    "nameEn": "Single Leg Glute Bridge"
+  },
+  {
+    "slug": "single-legged-romanian-deadlifts",
+    "nameEn": "Single Legged Romanian Deadlifts"
+  },
+  {
+    "slug": "single-arm-cable-fly",
+    "nameEn": "Single-Arm Cable Fly"
+  },
+  {
+    "slug": "single-arm-dumbbell-overhead-press",
+    "nameEn": "Single-Arm Dumbbell Overhead Press"
+  },
+  {
+    "slug": "dumbbell-single-arm-incline-bench-preacher-curl",
+    "nameEn": "Single-Arm Dumbbell Preacher Curl on an Incline Bench Backrest"
+  },
+  {
+    "slug": "single-arm-landmine-press",
+    "nameEn": "Single-Arm Landmine Press"
+  },
+  {
+    "slug": "single-arm-lat-pulldown",
+    "nameEn": "Single-Arm Lat Pulldown"
+  },
+  {
+    "slug": "single-arm-overhead-cable-extension",
+    "nameEn": "Single-Arm Overhead Cable Extension"
+  },
+  {
+    "slug": "single-arm-tricep-extension",
+    "nameEn": "Single-Arm Tricep Extension"
+  },
+  {
+    "slug": "single-leg-bound",
+    "nameEn": "Single-Leg Bound"
+  },
+  {
+    "slug": "single-leg-dumbbell-romanian-deadlift",
+    "nameEn": "Single-Leg Dumbbell Romanian Deadlift"
+  },
+  {
+    "slug": "single-leg-hip-thrust",
+    "nameEn": "Single-Leg Hip Thrust"
+  },
+  {
+    "slug": "single-leg-hop",
+    "nameEn": "Single-Leg Hop"
+  },
+  {
+    "slug": "single-leg-kettlebell-romanian-deadlift-deficit",
+    "nameEn": "Single-Leg Kettlebell Romanian Deadlift (Deficit)"
+  },
+  {
+    "slug": "single-leg-press",
+    "nameEn": "Single-Leg Press"
+  },
+  {
+    "slug": "single-leg-standing-calf-raise",
+    "nameEn": "Single-Leg Standing Calf Raise"
+  },
+  {
+    "slug": "single-leg-step-down",
+    "nameEn": "Single-Leg Step-Down"
+  },
+  {
+    "slug": "sissy-squat",
+    "nameEn": "Sissy Squat"
+  },
+  {
+    "slug": "sit-up",
+    "nameEn": "Sit-Up/Ab Mat Sit-Up"
+  },
+  {
+    "slug": "skater-bound",
+    "nameEn": "Skater Bound"
+  },
+  {
+    "slug": "slider-leg-curl",
+    "nameEn": "Slider Leg Curl"
+  },
+  {
+    "slug": "smith-machine-bench-press",
+    "nameEn": "Smith Machine Bench Press"
+  },
+  {
+    "slug": "smith-machine-bent-over-row",
+    "nameEn": "Smith Machine Bent-Over Row"
+  },
+  {
+    "slug": "smith-machine-calf-raise",
+    "nameEn": "Smith Machine Calf Raise"
+  },
+  {
+    "slug": "smith-machine-close-grip-bench-press",
+    "nameEn": "Smith Machine Close Grip Bench Press"
+  },
+  {
+    "slug": "smith-machine-decline-bench-press",
+    "nameEn": "Smith Machine Decline Bench Press"
+  },
+  {
+    "slug": "smith-machine-front-squat",
+    "nameEn": "Smith Machine Front Squat"
+  },
+  {
+    "slug": "smith-machine-incline-bench-press",
+    "nameEn": "Smith Machine Incline Bench Press"
+  },
+  {
+    "slug": "smith-machine-overhead-press",
+    "nameEn": "Smith Machine Overhead Press"
+  },
+  {
+    "slug": "smith-machine-seated-overhead-press",
+    "nameEn": "Smith Machine Seated Overhead Press"
+  },
+  {
+    "slug": "smith-machine-squat",
+    "nameEn": "Smith Machine Squat"
+  },
+  {
+    "slug": "smith-machine-standing-shrugs",
+    "nameEn": "Smith Machine Standing Shrugs"
+  },
+  {
+    "slug": "smith-machine-sumo-romanian-deadlift",
+    "nameEn": "Smith Machine Sumo Romanian Deadlift"
+  },
+  {
+    "slug": "snap-down-landing",
+    "nameEn": "Snap-Down Landing"
+  },
+  {
+    "slug": "snatch-pull",
+    "nameEn": "Snatch Pull"
+  },
+  {
+    "slug": "snatch-grip-deadlift",
+    "nameEn": "Snatch-Grip Deadlift"
+  },
+  {
+    "slug": "snatch-grip-high-pull",
+    "nameEn": "Snatch-Grip High Pull"
+  },
+  {
+    "slug": "spider-curl",
+    "nameEn": "Spider Curl"
+  },
+  {
+    "slug": "split-jerk",
+    "nameEn": "Split Jerk"
+  },
+  {
+    "slug": "squat-thrusts",
+    "nameEn": "Squat Thrusts"
+  },
+  {
+    "slug": "stability-ball-leg-curl",
+    "nameEn": "Stability Ball Leg Curl"
+  },
+  {
+    "slug": "standing-alternating-dumbbell-overhead-press",
+    "nameEn": "Standing Alternating Dumbbell Press"
+  },
+  {
+    "slug": "standing-cable-hip-abduction",
+    "nameEn": "Standing Cable Hip Abduction"
+  },
+  {
+    "slug": "standing-calf-raise-machine",
+    "nameEn": "Standing Calf Raise (Machine)"
+  },
+  {
+    "slug": "standing-dumbbell-overhead-press",
+    "nameEn": "Standing Dumbbell Press"
+  },
+  {
+    "slug": "standing-neutral-grip-dumbbell-overhead-press",
+    "nameEn": "Standing Palms-In Dumbbell Press"
+  },
+  {
+    "slug": "dumbbell-stiff-leg-deadlift",
+    "nameEn": "Stiff-Legged Dumbbell Deadlift"
+  },
+  {
+    "slug": "straight-arm-rope-pulldown-light",
+    "nameEn": "Straight Arm Rope Pulldown (Light)"
+  },
+  {
+    "slug": "straight-bar-bench-mid-row",
+    "nameEn": "Straight Bar Bench Mid Rows"
+  },
+  {
+    "slug": "straight-arm-lat-pulldown",
+    "nameEn": "Straight-Arm Lat Pulldown"
+  },
+  {
+    "slug": "sumo-deadlift",
+    "nameEn": "Sumo Deadlift"
+  },
+  {
+    "slug": "supermans",
+    "nameEn": "Supermans"
+  },
+  {
+    "slug": "trx-row",
+    "nameEn": "TRX Row"
+  },
+  {
+    "slug": "trx-squat",
+    "nameEn": "TRX Squat"
+  },
+  {
+    "slug": "tate-press",
+    "nameEn": "Tate Press"
+  },
+  {
+    "slug": "tibialis-raise",
+    "nameEn": "Tibialis Raise"
+  },
+  {
+    "slug": "toes-to-bar",
+    "nameEn": "Toes-to-Bar"
+  },
+  {
+    "slug": "towel-doorframe-row",
+    "nameEn": "Towel Doorframe Row"
+  },
+  {
+    "slug": "towel-slide-leg-curl",
+    "nameEn": "Towel Slide Leg Curl"
+  },
+  {
+    "slug": "trap-bar-deadlift",
+    "nameEn": "Trap Bar Deadlift"
+  },
+  {
+    "slug": "trap-bar-shrug",
+    "nameEn": "Trap Bar Shrug"
+  },
+  {
+    "slug": "tuck-jump",
+    "nameEn": "Tuck Jumps"
+  },
+  {
+    "slug": "turkish-get-up",
+    "nameEn": "Turkish Get-Up"
+  },
+  {
+    "slug": "dumbbell-turkish-get-up",
+    "nameEn": "Turkish Get-Up (Dumbbell)"
+  },
+  {
+    "slug": "two-arm-kettlebell-military-press",
+    "nameEn": "Two-Arm Kettlebell Military Press"
+  },
+  {
+    "slug": "underhand-barbell-row",
+    "nameEn": "Underhand Barbell Row"
+  },
+  {
+    "slug": "v-up",
+    "nameEn": "V-Up"
+  },
+  {
+    "slug": "lunge-walking",
+    "nameEn": "Walking Lunge"
+  },
+  {
+    "slug": "walking-lunge-with-twist",
+    "nameEn": "Walking Lunge with Twist"
+  },
+  {
+    "slug": "wall-ball",
+    "nameEn": "Wall Ball"
+  },
+  {
+    "slug": "weighted-parallel-bar-straight-leg-raise",
+    "nameEn": "Weighted Parallel-Bar Straight-Leg Raise"
+  },
+  {
+    "slug": "weighted-pull-ups",
+    "nameEn": "Weighted Pull Ups"
+  },
+  {
+    "slug": "wide-push-ups",
+    "nameEn": "Wide Push-Ups"
+  },
+  {
+    "slug": "wide-grip-barbell-bench-press",
+    "nameEn": "Wide-Grip Barbell Bench Press"
+  },
+  {
+    "slug": "wide-grip-barbell-curl",
+    "nameEn": "Wide-Grip Barbell Curl"
+  },
+  {
+    "slug": "wide-grip-lat-pulldown",
+    "nameEn": "Wide-Grip Lat Pulldown"
+  },
+  {
+    "slug": "wide-grip-pull-up",
+    "nameEn": "Wide-Grip Pull-Up"
+  },
+  {
+    "slug": "wide-grip-seated-cable-row",
+    "nameEn": "Wide-Grip Seated Cable Row"
+  },
+  {
+    "slug": "wrist-roller",
+    "nameEn": "Wrist Roller"
+  },
+  {
+    "slug": "yates-row",
+    "nameEn": "Yates Row"
+  },
+  {
+    "slug": "z-press",
+    "nameEn": "Z Press"
+  },
+  {
+    "slug": "zercher-squat",
+    "nameEn": "Zercher Squat"
+  },
+  {
+    "slug": "zottman-curl",
+    "nameEn": "Zottman Curl"
+  }
+]

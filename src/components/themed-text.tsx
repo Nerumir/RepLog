@@ -32,13 +32,13 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 48,
-    fontWeight: 600,
     lineHeight: 52,
+    fontFamily: 'Sora_700Bold',
   },
   subtitle: {
     fontSize: 32,
     lineHeight: 44,
-    fontWeight: 600,
+    fontFamily: 'Sora_600SemiBold',
   },
   link: {
     lineHeight: 30,

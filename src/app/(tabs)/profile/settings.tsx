@@ -1,0 +1,178 @@
+import { useEffect, useState } from 'react';
+import { Link } from 'expo-router';
+import { Pressable, StyleSheet } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+
+import { ThemedText } from '@/components/themed-text';
+import { ThemedView } from '@/components/themed-view';
+import { ConfirmDialog, type ConfirmDialogRequest } from '@/components/ui/ConfirmDialog';
+import { GameButton } from '@/components/ui/GameButton';
+import { Colors, Spacing } from '@/constants/theme';
+import { useColorScheme } from '@/hooks/use-color-scheme';
+import { resetAchievements } from '@/db/queries/achievements';
+import { getAppSettings, updateAppSettings, type ThemeMode } from '@/db/queries/settings';
+import { resetPerformances } from '@/db/queries/profile';
+import type { OneRmFormulaId } from '@/domain/oneRepMax';
+import { useThemeStore } from '@/state/useThemeStore';
+
+const THEME_OPTIONS: { value: ThemeMode; label: string }[] = [
+  { value: 'system', label: 'Système' },
+  { value: 'light', label: 'Clair' },
+  { value: 'dark', label: 'Sombre' },
+];
+
+const FORMULA_OPTIONS: { value: OneRmFormulaId; label: string }[] = [
+  { value: 'epley', label: 'Epley' },
+  { value: 'brzycki', label: 'Brzycki' },
+  { value: 'lombardi', label: 'Lombardi' },
+];
+
+export default function SettingsScreen() {
+  const scheme = useColorScheme();
+  const colors = Colors[scheme === 'dark' ? 'dark' : 'light'];
+
+  const [themeMode, setThemeMode] = useState<ThemeMode>('system');
+  const [oneRmFormula, setOneRmFormula] = useState<OneRmFormulaId>('epley');
+  const [debugModeEnabled, setDebugModeEnabled] = useState(false);
+  const [confirmRequest, setConfirmRequest] = useState<ConfirmDialogRequest | null>(null);
+  const setGlobalThemeMode = useThemeStore((state) => state.setMode);
+
+  useEffect(() => {
+    getAppSettings().then((settings) => {
+      if (!settings) return;
+      setThemeMode(settings.themeMode);
+      setOneRmFormula(settings.oneRmFormula);
+      setDebugModeEnabled(settings.debugModeEnabled);
+    });
+  }, []);
+
+  async function handleThemeChange(value: ThemeMode) {
+    setThemeMode(value);
+    setGlobalThemeMode(value);
+    await updateAppSettings({ themeMode: value });
+  }
+
+  async function handleFormulaChange(value: OneRmFormulaId) {
+    setOneRmFormula(value);
+    await updateAppSettings({ oneRmFormula: value });
+  }
+
+  async function handleDebugModeChange(value: boolean) {
+    setDebugModeEnabled(value);
+    await updateAppSettings({ debugModeEnabled: value });
+  }
+
+  function handleResetPerformances() {
+    setConfirmRequest({
+      title: 'Réinitialiser les performances ?',
+      message:
+        "Ton historique de séances est conservé, mais tes niveaux seront recalculés uniquement à partir de tes prochaines performances. Tes trophées débloqués repartiront aussi à zéro.",
+      confirmLabel: 'Réinitialiser',
+      onConfirm: async () => {
+        await resetPerformances();
+        await resetAchievements();
+      },
+    });
+  }
+
+  return (
+    <ThemedView style={styles.container}>
+      <SafeAreaView style={styles.safeArea}>
+        <ThemedText type="subtitle">Réglages</ThemedText>
+
+        <Link href="/profile/edit" asChild>
+          <GameButton style={StyleSheet.flatten([styles.editProfileButton, { borderColor: colors.accent }])}>
+            <ThemedText type="small" themeColor="accent">
+              Modifier le profil
+            </ThemedText>
+          </GameButton>
+        </Link>
+
+        <ThemedText type="smallBold">Thème</ThemedText>
+        <ThemedView style={styles.optionRow} type="backgroundElement">
+          {THEME_OPTIONS.map((option) => (
+            <Pressable
+              key={option.value}
+              style={[styles.option, themeMode === option.value && { backgroundColor: colors.accent }]}
+              onPress={() => handleThemeChange(option.value)}>
+              <ThemedText type="default" style={themeMode === option.value ? styles.optionLabelSelected : undefined}>
+                {option.label}
+              </ThemedText>
+            </Pressable>
+          ))}
+        </ThemedView>
+
+        <ThemedText type="smallBold" style={styles.sectionSpacing}>
+          Formule de calcul du 1RM
+        </ThemedText>
+        <ThemedView style={styles.optionRow} type="backgroundElement">
+          {FORMULA_OPTIONS.map((option) => (
+            <Pressable
+              key={option.value}
+              style={[styles.option, oneRmFormula === option.value && { backgroundColor: colors.accent }]}
+              onPress={() => handleFormulaChange(option.value)}>
+              <ThemedText type="default" style={oneRmFormula === option.value ? styles.optionLabelSelected : undefined}>
+                {option.label}
+              </ThemedText>
+            </Pressable>
+          ))}
+        </ThemedView>
+
+        <ThemedText type="smallBold" style={styles.sectionSpacing}>
+          Mode de débug
+        </ThemedText>
+        <ThemedView style={styles.optionRow} type="backgroundElement">
+          {([
+            { value: false, label: 'Désactivé' },
+            { value: true, label: 'Activé' },
+          ] as const).map((option) => (
+            <Pressable
+              key={String(option.value)}
+              style={[styles.option, debugModeEnabled === option.value && { backgroundColor: colors.accent }]}
+              onPress={() => handleDebugModeChange(option.value)}>
+              <ThemedText type="default" style={debugModeEnabled === option.value ? styles.optionLabelSelected : undefined}>
+                {option.label}
+              </ThemedText>
+            </Pressable>
+          ))}
+        </ThemedView>
+
+        <ThemedText type="smallBold" style={styles.sectionSpacing}>
+          Zone dangereuse
+        </ThemedText>
+        <GameButton
+          silent
+          onPress={handleResetPerformances}
+          style={[styles.resetButton, { borderColor: colors.danger }]}>
+          <ThemedText type="small" style={{ color: colors.danger }}>
+            Réinitialiser les performances
+          </ThemedText>
+        </GameButton>
+      </SafeAreaView>
+      <ConfirmDialog request={confirmRequest} onDismiss={() => setConfirmRequest(null)} />
+    </ThemedView>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: { flex: 1 },
+  safeArea: { flex: 1, padding: Spacing.four, gap: Spacing.two },
+  optionRow: { flexDirection: 'row', borderRadius: 999, overflow: 'hidden' },
+  option: { flex: 1, paddingVertical: Spacing.two, alignItems: 'center' },
+  optionLabelSelected: { color: '#FFFFFF', fontWeight: '700' },
+  sectionSpacing: { marginTop: Spacing.three },
+  editProfileButton: {
+    alignSelf: 'flex-start',
+    borderRadius: 999,
+    borderWidth: 1.5,
+    paddingVertical: Spacing.two,
+    paddingHorizontal: Spacing.four,
+  },
+  resetButton: {
+    alignSelf: 'flex-start',
+    borderRadius: 999,
+    borderWidth: 1.5,
+    paddingVertical: Spacing.two,
+    paddingHorizontal: Spacing.four,
+  },
+});

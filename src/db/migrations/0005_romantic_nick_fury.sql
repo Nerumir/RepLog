@@ -1,0 +1,1 @@
+ALTER TABLE `performance_standards` ADD `metric` text DEFAULT 'one_rm_kg' NOT NULL;

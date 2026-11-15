@@ -1,56 +1,66 @@
-# Welcome to your Expo app 👋
+<p align="center">
+  <img src="assets/images/icon.png" width="120" alt="RepLog" />
+</p>
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+<h1 align="center">RepLog</h1>
 
-## Get started
+<p align="center">
+  Une app de musculation 100% hors-ligne, avec suivi de niveau par groupe musculaire et une carte de progression façon jeu vidéo.
+</p>
 
-1. Install dependencies
+## Fonctionnalités
 
-   ```bash
-   npm install
-   ```
+- **Programmes & séances** : création de programmes (full body, push/pull/legs, etc.), séances guidées avec minuteur de repos, suivi des séries en temps réel.
+- **Catalogue d'exercices** : près de 500 exercices illustrés (vidéo/gif), navigables par groupe musculaire et par matériel (poids du corps / poids-haltères-barres / machines).
+- **Niveaux de performance** : pour chaque exercice pratiqué, ton 1RM (ou tes répétitions) est comparé à des barèmes par sexe et poids de corps, avec 5 paliers (Débutant → Élite) calculés par groupe musculaire.
+- **Carte d'assiduité** : une route en zigzag traversant 6 biomes (Prairie → Valhalla). Chaque séance te fait avancer, une pause trop longue te fait reculer.
+- **Trophées** : 48 succès à débloquer (progression musculaire, régularité, franchissement de biome, spécialisation poids du corps/machines...), répartis en 5 paliers (Bronze → Rubis), avec pop-up de déblocage animée.
+- **100% hors-ligne** : toutes les données sont stockées en local (SQLite), aucun compte, aucun serveur.
 
-2. Start the app
+## Installer l'application
 
-   ```bash
-   npx expo start
-   ```
+### Depuis une release (le plus simple)
 
-In the output, you'll find options to open the app in a
+1. Va dans l'onglet [**Releases**](../../releases) de ce dépôt et télécharge le fichier `.apk` de la dernière version.
+2. Sur ton téléphone Android, ouvre le fichier téléchargé (autorise l'installation depuis cette source si demandé : *Paramètres → Applications → Accès spécial → Installer des applications inconnues*).
+3. Lance RepLog et crée ton profil au premier démarrage.
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+> L'app n'est pas publiée sur le Play Store : c'est un projet personnel, à installer manuellement (« sideload »).
 
-You can start developing by editing the files inside the **src/app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+### En buildant depuis les sources
 
-## Get a fresh project
-
-When you're ready, run:
+Prérequis : [Node.js](https://nodejs.org/) 20+, [Android Studio](https://developer.android.com/studio) (SDK + un émulateur ou un téléphone en mode développeur avec le débogage USB activé).
 
 ```bash
-npm run reset-project
+git clone https://github.com/Nerumir/RepLog.git
+cd RepLog
+npm install
+
+# Génère le projet natif Android à partir de la config Expo
+npx expo prebuild --platform android
+
+# Build + installe en debug (connecté à Metro, pour développer)
+npx expo run:android
+
+# Ou build + installe une version release autonome (ne nécessite pas Metro ensuite)
+npx expo run:android --variant release
 ```
 
-This command will move the starter code to the **example** directory and create a blank **src/app** directory where you can start developing.
+## Stack technique
 
-### Other setup steps
+- [Expo](https://expo.dev) / React Native (Expo Router, New Architecture)
+- [Drizzle ORM](https://orm.drizzle.team/) sur [expo-sqlite](https://docs.expo.dev/versions/latest/sdk/sqlite/) (base locale, migrations versionnées)
+- [React Native Reanimated](https://docs.swmansion.com/react-native-reanimated/) + [React Native Skia](https://shopify.github.io/react-native-skia/) pour les animations et le rendu de la carte d'assiduité
+- TypeScript strict de bout en bout
 
-- To set up ESLint for linting, run `npx expo lint`, or follow our guide on ["Using ESLint and Prettier"](https://docs.expo.dev/guides/using-eslint/)
-- If you'd like to set up unit testing, follow our guide on ["Unit Testing with Jest"](https://docs.expo.dev/develop/unit-testing/)
-- Learn more about the TypeScript setup in this template in our guide on ["Using TypeScript"](https://docs.expo.dev/guides/typescript/)
+## Structure du projet
 
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+```
+src/
+  app/            écrans (expo-router, routage par fichiers)
+  components/     composants UI réutilisables
+  domain/         logique métier pure (niveaux, succès, assiduité...)
+  db/             schéma Drizzle, requêtes, migrations
+  audio/          effets sonores
+data/seed/        catalogue d'exercices et barèmes de performance (données versionnées en code)
+```

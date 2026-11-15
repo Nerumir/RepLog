@@ -1,0 +1,15 @@
+export const muscleGroupsSeed = [
+  { id: 'chest', name: 'Pectoraux', bodyRegion: 'upper' as const },
+  { id: 'back', name: 'Dos', bodyRegion: 'upper' as const },
+  { id: 'lats', name: 'Grand dorsal', bodyRegion: 'upper' as const },
+  { id: 'shoulders', name: 'Épaules', bodyRegion: 'upper' as const },
+  { id: 'biceps', name: 'Biceps', bodyRegion: 'upper' as const },
+  { id: 'triceps', name: 'Triceps', bodyRegion: 'upper' as const },
+  { id: 'forearms', name: 'Avant-bras', bodyRegion: 'upper' as const },
+  { id: 'traps', name: 'Trapèzes', bodyRegion: 'upper' as const },
+  { id: 'abs', name: 'Abdominaux', bodyRegion: 'core' as const },
+  { id: 'quads', name: 'Quadriceps', bodyRegion: 'lower' as const },
+  { id: 'hamstrings', name: 'Ischio-jambiers', bodyRegion: 'lower' as const },
+  { id: 'glutes', name: 'Fessiers', bodyRegion: 'lower' as const },
+  { id: 'calves', name: 'Mollets', bodyRegion: 'lower' as const },
+];

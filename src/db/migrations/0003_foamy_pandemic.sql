@@ -1,0 +1,1 @@
+ALTER TABLE `app_settings` ADD `debug_mode_enabled` integer DEFAULT false NOT NULL;

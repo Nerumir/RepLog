@@ -1,0 +1,55 @@
+{
+  "version": "7",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1794225724684,
+      "tag": "0000_quick_jack_murdock",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1794497230870,
+      "tag": "0001_wooden_pyro",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1794511088816,
+      "tag": "0002_harsh_polaris",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "6",
+      "when": 1794603474214,
+      "tag": "0003_foamy_pandemic",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "6",
+      "when": 1794656274618,
+      "tag": "0004_fantastic_zodiak",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "6",
+      "when": 1794751171592,
+      "tag": "0005_romantic_nick_fury",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "6",
+      "when": 1794775526625,
+      "tag": "0006_gorgeous_longshot",
+      "breakpoints": true
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+ALTER TABLE `user_profile` ADD `performance_reset_at` integer;

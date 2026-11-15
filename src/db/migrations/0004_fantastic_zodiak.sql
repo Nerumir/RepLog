@@ -1,0 +1,1 @@
+ALTER TABLE `exercises` ADD `name_en` text DEFAULT '' NOT NULL;
