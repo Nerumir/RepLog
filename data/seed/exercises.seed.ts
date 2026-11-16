@@ -56,7 +56,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     mediaType: 'video',
     mediaKey: "90-90-hip-switches",
     muscles: [{ muscleGroupId: "glutes", role: "primary" }, { muscleGroupId: "hamstrings", role: "secondary" }, { muscleGroupId: "back", role: "secondary" }],
-    equipmentIds: ["other"],
+    equipmentIds: ["bodyweight"],
   },  {
     id: "alternating-hammer-curl",
     isAdvanced: false,
@@ -106,7 +106,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     mediaType: 'video',
     mediaKey: "assisted-pistol-squat",
     muscles: [{ muscleGroupId: "quads", role: "primary" }, { muscleGroupId: "glutes", role: "secondary" }, { muscleGroupId: "hamstrings", role: "secondary" }],
-    equipmentIds: ["other"],
+    equipmentIds: ["bodyweight"],
   },  {
     id: "b-stance-hip-thrust",
     isAdvanced: false,
@@ -126,7 +126,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     mediaType: 'video',
     mediaKey: "back-extension",
     muscles: [{ muscleGroupId: "back", role: "primary" }, { muscleGroupId: "glutes", role: "secondary" }, { muscleGroupId: "hamstrings", role: "secondary" }],
-    equipmentIds: ["other"],
+    equipmentIds: ["bodyweight"],
   },  {
     id: "backpack-curls",
     isAdvanced: false,
@@ -576,7 +576,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     mediaType: 'video',
     mediaKey: "bent-knee-soleus-raise",
     muscles: [{ muscleGroupId: "calves", role: "primary" }],
-    equipmentIds: ["other"],
+    equipmentIds: ["bodyweight"],
   },  {
     id: "bicycle-crunches",
     isAdvanced: false,
@@ -1226,7 +1226,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     mediaType: 'video',
     mediaKey: "captains-chair-knee-raise",
     muscles: [{ muscleGroupId: "abs", role: "primary" }],
-    equipmentIds: ["other"],
+    equipmentIds: ["bodyweight"],
   },  {
     id: "chest-supported-dumbbell-row",
     isAdvanced: false,
@@ -1286,7 +1286,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     mediaType: 'video',
     mediaKey: "cossack-squat",
     muscles: [{ muscleGroupId: "quads", role: "primary" }, { muscleGroupId: "glutes", role: "secondary" }, { muscleGroupId: "hamstrings", role: "secondary" }],
-    equipmentIds: ["other"],
+    equipmentIds: ["bodyweight"],
   },  {
     id: "cross-body-cable-tricep-extension",
     isAdvanced: false,
@@ -2346,7 +2346,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     mediaType: 'video',
     mediaKey: "eccentric-calf-lowers",
     muscles: [{ muscleGroupId: "calves", role: "primary" }],
-    equipmentIds: ["other"],
+    equipmentIds: ["bodyweight"],
   },  {
     id: "ez-bar-preacher-curl",
     isAdvanced: false,
@@ -2386,7 +2386,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     mediaType: 'video',
     mediaKey: "fire-hydrants",
     muscles: [{ muscleGroupId: "glutes", role: "primary" }],
-    equipmentIds: ["other"],
+    equipmentIds: ["bodyweight"],
   },  {
     id: "floor-press",
     isAdvanced: false,
@@ -2416,7 +2416,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     mediaType: 'video',
     mediaKey: "frog-pump",
     muscles: [{ muscleGroupId: "glutes", role: "primary" }, { muscleGroupId: "hamstrings", role: "secondary" }, { muscleGroupId: "back", role: "secondary" }],
-    equipmentIds: ["other"],
+    equipmentIds: ["bodyweight"],
   },  {
     id: "front-foot-elevated-split-squat",
     isAdvanced: false,
@@ -2546,7 +2546,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     mediaType: 'video',
     mediaKey: "hanging-knee-raises",
     muscles: [{ muscleGroupId: "abs", role: "primary" }],
-    equipmentIds: ["other"],
+    equipmentIds: ["bodyweight"],
   },  {
     id: "heel-elevated-dumbbell-front-squat",
     isAdvanced: false,
@@ -2636,7 +2636,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     mediaType: 'video',
     mediaKey: "inverted-row",
     muscles: [{ muscleGroupId: "back", role: "primary" }, { muscleGroupId: "lats", role: "secondary" }, { muscleGroupId: "biceps", role: "secondary" }],
-    equipmentIds: ["other"],
+    equipmentIds: ["bodyweight"],
   },  {
     id: "jm-press",
     isAdvanced: false,
@@ -2656,7 +2656,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     mediaType: 'video',
     mediaKey: "jump-squats",
     muscles: [{ muscleGroupId: "quads", role: "primary" }, { muscleGroupId: "glutes", role: "secondary" }, { muscleGroupId: "hamstrings", role: "secondary" }],
-    equipmentIds: ["other"],
+    equipmentIds: ["bodyweight"],
   },  {
     id: "jumping-jack",
     isAdvanced: false,
@@ -3496,7 +3496,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     mediaType: 'video',
     mediaKey: "nordic-hamstring-curl",
     muscles: [{ muscleGroupId: "biceps", role: "primary" }, { muscleGroupId: "forearms", role: "secondary" }],
-    equipmentIds: ["other"],
+    equipmentIds: ["bodyweight"],
   },  {
     id: "pallof-press",
     isAdvanced: false,
@@ -3566,7 +3566,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     mediaType: 'video',
     mediaKey: "pistol-squat",
     muscles: [{ muscleGroupId: "quads", role: "primary" }, { muscleGroupId: "glutes", role: "secondary" }, { muscleGroupId: "hamstrings", role: "secondary" }],
-    equipmentIds: ["other"],
+    equipmentIds: ["bodyweight"],
   },  {
     id: "plate-forward-lunge",
     isAdvanced: false,
@@ -3606,7 +3606,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     mediaType: 'video',
     mediaKey: "plyometric-kettlebell-push-up",
     muscles: [{ muscleGroupId: "chest", role: "primary" }, { muscleGroupId: "triceps", role: "secondary" }, { muscleGroupId: "shoulders", role: "secondary" }],
-    equipmentIds: ["kettlebell"],
+    equipmentIds: ["bodyweight"],
   },  {
     id: "pogo-hops",
     isAdvanced: false,
@@ -3756,7 +3756,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     mediaType: 'video',
     mediaKey: "reverse-hyperextension",
     muscles: [{ muscleGroupId: "back", role: "primary" }, { muscleGroupId: "glutes", role: "secondary" }, { muscleGroupId: "hamstrings", role: "secondary" }],
-    equipmentIds: ["other"],
+    equipmentIds: ["bodyweight"],
   },  {
     id: "reverse-pec-deck",
     isAdvanced: false,
@@ -3966,7 +3966,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     mediaType: 'video',
     mediaKey: "single-leg-back-extension",
     muscles: [{ muscleGroupId: "back", role: "primary" }, { muscleGroupId: "glutes", role: "secondary" }, { muscleGroupId: "hamstrings", role: "secondary" }],
-    equipmentIds: ["other"],
+    equipmentIds: ["bodyweight"],
   },  {
     id: "single-leg-barbell-squat",
     isAdvanced: true,
@@ -4056,7 +4056,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     mediaType: 'video',
     mediaKey: "single-leg-standing-calf-raise",
     muscles: [{ muscleGroupId: "calves", role: "primary" }],
-    equipmentIds: ["other"],
+    equipmentIds: ["bodyweight"],
   },  {
     id: "single-leg-step-down",
     isAdvanced: false,
@@ -4066,7 +4066,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     mediaType: 'video',
     mediaKey: "single-leg-step-down",
     muscles: [{ muscleGroupId: "quads", role: "primary" }, { muscleGroupId: "glutes", role: "secondary" }, { muscleGroupId: "hamstrings", role: "secondary" }],
-    equipmentIds: ["other"],
+    equipmentIds: ["bodyweight"],
   },  {
     id: "single-legged-romanian-deadlifts",
     isAdvanced: false,
@@ -4086,7 +4086,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     mediaType: 'video',
     mediaKey: "sissy-squat",
     muscles: [{ muscleGroupId: "quads", role: "primary" }, { muscleGroupId: "glutes", role: "secondary" }, { muscleGroupId: "hamstrings", role: "secondary" }],
-    equipmentIds: ["other"],
+    equipmentIds: ["bodyweight"],
   },  {
     id: "sit-up",
     isAdvanced: false,
@@ -4116,7 +4116,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     mediaType: 'video',
     mediaKey: "slider-leg-curl",
     muscles: [{ muscleGroupId: "biceps", role: "primary" }, { muscleGroupId: "forearms", role: "secondary" }],
-    equipmentIds: ["other"],
+    equipmentIds: ["bodyweight"],
   },  {
     id: "smith-machine-bench-press",
     isAdvanced: false,
@@ -4246,7 +4246,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     mediaType: 'video',
     mediaKey: "snap-down-landing",
     muscles: [{ muscleGroupId: "quads", role: "primary" }, { muscleGroupId: "glutes", role: "secondary" }, { muscleGroupId: "calves", role: "secondary" }],
-    equipmentIds: ["other"],
+    equipmentIds: ["bodyweight"],
   },  {
     id: "snatch-grip-deadlift",
     isAdvanced: true,
@@ -4306,7 +4306,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     mediaType: 'video',
     mediaKey: "squat-thrusts",
     muscles: [{ muscleGroupId: "quads", role: "primary" }, { muscleGroupId: "glutes", role: "secondary" }, { muscleGroupId: "hamstrings", role: "secondary" }],
-    equipmentIds: ["other"],
+    equipmentIds: ["bodyweight"],
   },  {
     id: "stability-ball-leg-curl",
     isAdvanced: false,
@@ -4316,7 +4316,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     mediaType: 'video',
     mediaKey: "stability-ball-leg-curl",
     muscles: [{ muscleGroupId: "biceps", role: "primary" }, { muscleGroupId: "forearms", role: "secondary" }],
-    equipmentIds: ["other"],
+    equipmentIds: ["bodyweight"],
   },  {
     id: "standing-alternating-dumbbell-overhead-press",
     isAdvanced: false,
@@ -4436,7 +4436,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     mediaType: 'video',
     mediaKey: "tibialis-raise",
     muscles: [{ muscleGroupId: "calves", role: "primary" }],
-    equipmentIds: ["other"],
+    equipmentIds: ["bodyweight"],
   },  {
     id: "toes-to-bar",
     isAdvanced: false,
@@ -4456,7 +4456,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     mediaType: 'video',
     mediaKey: "towel-doorframe-row",
     muscles: [{ muscleGroupId: "back", role: "primary" }, { muscleGroupId: "lats", role: "secondary" }, { muscleGroupId: "biceps", role: "secondary" }],
-    equipmentIds: ["other"],
+    equipmentIds: ["bodyweight"],
   },  {
     id: "towel-slide-leg-curl",
     isAdvanced: false,
@@ -4466,7 +4466,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     mediaType: 'video',
     mediaKey: "towel-slide-leg-curl",
     muscles: [{ muscleGroupId: "biceps", role: "primary" }, { muscleGroupId: "forearms", role: "secondary" }],
-    equipmentIds: ["other"],
+    equipmentIds: ["bodyweight"],
   },  {
     id: "trap-bar-deadlift",
     isAdvanced: false,
@@ -4516,7 +4516,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     mediaType: 'video',
     mediaKey: "tuck-jump",
     muscles: [{ muscleGroupId: "quads", role: "primary" }, { muscleGroupId: "glutes", role: "secondary" }, { muscleGroupId: "calves", role: "secondary" }],
-    equipmentIds: ["other"],
+    equipmentIds: ["bodyweight"],
   },  {
     id: "turkish-get-up",
     isAdvanced: true,

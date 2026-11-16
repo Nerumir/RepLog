@@ -1,4 +1,4 @@
-import { and, eq, inArray, ne } from 'drizzle-orm';
+import { and, eq, inArray } from 'drizzle-orm';
 
 import { db } from '@/db/client';
 import {
@@ -23,14 +23,28 @@ export async function listEquipment() {
   return db.select().from(equipment);
 }
 
-/** Ids des exercices dont le seul équipement est le poids du corps : pas de poids à renseigner. */
+/**
+ * Ids des exercices sans aucun poids à renseigner : poids du corps pur, ou TRX seul (les
+ * sangles ne font que faire varier l'angle du corps, pas une résistance ajoutée) — même
+ * logique que `bucketForEquipment`.
+ */
 export async function listBodyweightOnlyExerciseIds(): Promise<Set<string>> {
-  const [bodyweightRows, otherRows] = await Promise.all([
-    db.select({ exerciseId: exerciseEquipment.exerciseId }).from(exerciseEquipment).where(eq(exerciseEquipment.equipmentId, 'bodyweight')),
-    db.select({ exerciseId: exerciseEquipment.exerciseId }).from(exerciseEquipment).where(ne(exerciseEquipment.equipmentId, 'bodyweight')),
-  ]);
-  const otherIds = new Set(otherRows.map((r) => r.exerciseId));
-  return new Set(bodyweightRows.map((r) => r.exerciseId).filter((id) => !otherIds.has(id)));
+  const rows = await db.select({ exerciseId: exerciseEquipment.exerciseId, equipmentId: exerciseEquipment.equipmentId }).from(exerciseEquipment);
+
+  const equipmentByExercise = new Map<string, Set<string>>();
+  for (const row of rows) {
+    const set = equipmentByExercise.get(row.exerciseId) ?? new Set<string>();
+    set.add(row.equipmentId);
+    equipmentByExercise.set(row.exerciseId, set);
+  }
+
+  const result = new Set<string>();
+  for (const [exerciseId, equipmentIds] of equipmentByExercise) {
+    if ([...equipmentIds].every((id) => id === 'bodyweight' || id === 'trx')) {
+      result.add(exerciseId);
+    }
+  }
+  return result;
 }
 
 export async function listExercises() {

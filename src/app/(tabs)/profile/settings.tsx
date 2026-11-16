@@ -10,9 +10,11 @@ import { GameButton } from '@/components/ui/GameButton';
 import { Colors, Spacing } from '@/constants/theme';
 import { useColorScheme } from '@/hooks/use-color-scheme';
 import { resetAchievements } from '@/db/queries/achievements';
+import { exportAllData, importAllData } from '@/db/queries/backup';
 import { getAppSettings, updateAppSettings, type ThemeMode } from '@/db/queries/settings';
 import { resetPerformances } from '@/db/queries/profile';
 import type { OneRmFormulaId } from '@/domain/oneRepMax';
+import { exportBackupToFile, pickAndReadBackupFile } from '@/io/backupFile';
 import { useThemeStore } from '@/state/useThemeStore';
 
 const THEME_OPTIONS: { value: ThemeMode; label: string }[] = [
@@ -35,6 +37,9 @@ export default function SettingsScreen() {
   const [oneRmFormula, setOneRmFormula] = useState<OneRmFormulaId>('epley');
   const [debugModeEnabled, setDebugModeEnabled] = useState(false);
   const [confirmRequest, setConfirmRequest] = useState<ConfirmDialogRequest | null>(null);
+  const [exporting, setExporting] = useState(false);
+  const [importing, setImporting] = useState(false);
+  const [importMessage, setImportMessage] = useState<string | null>(null);
   const setGlobalThemeMode = useThemeStore((state) => state.setMode);
 
   useEffect(() => {
@@ -60,6 +65,40 @@ export default function SettingsScreen() {
   async function handleDebugModeChange(value: boolean) {
     setDebugModeEnabled(value);
     await updateAppSettings({ debugModeEnabled: value });
+  }
+
+  async function handleExport() {
+    setExporting(true);
+    try {
+      const payload = await exportAllData();
+      await exportBackupToFile(payload);
+    } finally {
+      setExporting(false);
+    }
+  }
+
+  function handleImport() {
+    setConfirmRequest({
+      title: 'Importer des données ?',
+      message:
+        'Toutes tes données actuelles (profil, programmes, historique, trophées, assiduité) seront remplacées par celles du fichier choisi. Cette action est irréversible.',
+      confirmLabel: 'Choisir un fichier',
+      tone: 'danger',
+      onConfirm: async () => {
+        setImporting(true);
+        setImportMessage(null);
+        try {
+          const payload = await pickAndReadBackupFile();
+          if (!payload) return;
+          await importAllData(payload);
+          setImportMessage('Import réussi. Ferme et rouvre complètement l\'application pour voir tes données.');
+        } catch {
+          setImportMessage("Échec de l'import : le fichier n'est pas une sauvegarde RepLog valide.");
+        } finally {
+          setImporting(false);
+        }
+      },
+    });
   }
 
   function handleResetPerformances() {
@@ -138,6 +177,38 @@ export default function SettingsScreen() {
         </ThemedView>
 
         <ThemedText type="smallBold" style={styles.sectionSpacing}>
+          Sauvegarde
+        </ThemedText>
+        <ThemedText type="small" themeColor="textSecondary">
+          Pour transférer tes données vers un autre téléphone : exporte un fichier ici, puis importe-le sur l&apos;autre appareil.
+        </ThemedText>
+        <ThemedView style={styles.backupRow}>
+          <GameButton
+            silent
+            onPress={handleExport}
+            disabled={exporting}
+            style={StyleSheet.flatten([styles.backupButton, { borderColor: colors.accent }])}>
+            <ThemedText type="small" themeColor="accent">
+              {exporting ? 'Export...' : 'Exporter mes données'}
+            </ThemedText>
+          </GameButton>
+          <GameButton
+            silent
+            onPress={handleImport}
+            disabled={importing}
+            style={StyleSheet.flatten([styles.backupButton, { borderColor: colors.danger }])}>
+            <ThemedText type="small" style={{ color: colors.danger }}>
+              {importing ? 'Import...' : 'Importer des données'}
+            </ThemedText>
+          </GameButton>
+        </ThemedView>
+        {importMessage && (
+          <ThemedText type="small" themeColor="textSecondary">
+            {importMessage}
+          </ThemedText>
+        )}
+
+        <ThemedText type="smallBold" style={styles.sectionSpacing}>
           Zone dangereuse
         </ThemedText>
         <GameButton
@@ -163,6 +234,13 @@ const styles = StyleSheet.create({
   sectionSpacing: { marginTop: Spacing.three },
   editProfileButton: {
     alignSelf: 'flex-start',
+    borderRadius: 999,
+    borderWidth: 1.5,
+    paddingVertical: Spacing.two,
+    paddingHorizontal: Spacing.four,
+  },
+  backupRow: { flexDirection: 'row', flexWrap: 'wrap', gap: Spacing.two, backgroundColor: 'transparent' },
+  backupButton: {
     borderRadius: 999,
     borderWidth: 1.5,
     paddingVertical: Spacing.two,

@@ -10,12 +10,13 @@
 
 ## Fonctionnalités
 
-- **Programmes & séances** : création de programmes (full body, push/pull/legs, etc.), séances guidées avec minuteur de repos, suivi des séries en temps réel.
+- **Programmes & séances** : création manuelle ou générée aléatoirement (questionnaire : matériel, objectif, expérience, temps disponible) de programmes (full body, push/pull/legs, etc.), séances guidées avec minuteur de repos, suivi des séries en temps réel.
 - **Catalogue d'exercices** : près de 500 exercices illustrés (vidéo/gif), navigables par groupe musculaire et par matériel (poids du corps / poids-haltères-barres / machines).
 - **Niveaux de performance** : pour chaque exercice pratiqué, ton 1RM (ou tes répétitions) est comparé à des barèmes par sexe et poids de corps, avec 5 paliers (Débutant → Élite) calculés par groupe musculaire.
 - **Carte d'assiduité** : une route en zigzag traversant 6 biomes (Prairie → Valhalla). Chaque séance te fait avancer, une pause trop longue te fait reculer.
 - **Trophées** : 48 succès à débloquer (progression musculaire, régularité, franchissement de biome, spécialisation poids du corps/machines...), répartis en 5 paliers (Bronze → Rubis), avec pop-up de déblocage animée.
 - **100% hors-ligne** : toutes les données sont stockées en local (SQLite), aucun compte, aucun serveur.
+- **Import / export** : sauvegarde toutes tes données (profil, programmes, historique, trophées, assiduité) dans un fichier, pour les transférer d'un téléphone à l'autre.
 
 ## Installer l'application
 
