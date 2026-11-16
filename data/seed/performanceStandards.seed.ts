@@ -1750,11 +1750,11 @@ export const performanceStandardsSeed: PerformanceStandardSeed[] = [
   ...bracket('glute-kickback-machine', 'female', 55, 999, 'reps', { beginner: 3, novice: 15, intermediate: 31, advanced: 49, elite: 68 }),
 
   // good-mornings
-  ...bracket('good-mornings', 'male', 0, 70, 'one_rm_kg', { beginner: 15, novice: 28, intermediate: 45, advanced: 65, elite: 88 }),
-  ...bracket('good-mornings', 'male', 70, 90, 'one_rm_kg', { beginner: 22, novice: 38, intermediate: 58, advanced: 82, elite: 108 }),
-  ...bracket('good-mornings', 'male', 90, 999, 'one_rm_kg', { beginner: 28, novice: 46, intermediate: 70, advanced: 98, elite: 128 }),
-  ...bracket('good-mornings', 'female', 0, 55, 'one_rm_kg', { beginner: 8, novice: 15, intermediate: 26, advanced: 40, elite: 56 }),
-  ...bracket('good-mornings', 'female', 55, 999, 'one_rm_kg', { beginner: 11, novice: 20, intermediate: 33, advanced: 50, elite: 70 }),
+  ...bracket('good-mornings', 'male', 0, 70, 'reps', { beginner: 4, novice: 10, intermediate: 18, advanced: 30, elite: 45 }),
+  ...bracket('good-mornings', 'male', 70, 90, 'reps', { beginner: 3, novice: 9, intermediate: 16, advanced: 27, elite: 40 }),
+  ...bracket('good-mornings', 'male', 90, 999, 'reps', { beginner: 3, novice: 8, intermediate: 14, advanced: 24, elite: 36 }),
+  ...bracket('good-mornings', 'female', 0, 55, 'reps', { beginner: 3, novice: 8, intermediate: 15, advanced: 25, elite: 38 }),
+  ...bracket('good-mornings', 'female', 55, 999, 'reps', { beginner: 2, novice: 7, intermediate: 13, advanced: 22, elite: 34 }),
 
   // hammer-strength-high-row
   ...bracket('hammer-strength-high-row', 'male', 0, 70, 'one_rm_kg', { beginner: 24, novice: 39, intermediate: 60, advanced: 85, elite: 114 }),
@@ -1813,11 +1813,11 @@ export const performanceStandardsSeed: PerformanceStandardSeed[] = [
   ...bracket('heel-elevated-dumbbell-front-squat', 'female', 55, 999, 'one_rm_kg', { beginner: 8, novice: 14, intermediate: 22, advanced: 31, elite: 42 }),
 
   // hip-hinge-drill
-  ...bracket('hip-hinge-drill', 'male', 0, 70, 'one_rm_kg', { beginner: 5, novice: 10, intermediate: 18, advanced: 28, elite: 40 }),
-  ...bracket('hip-hinge-drill', 'male', 70, 90, 'one_rm_kg', { beginner: 7, novice: 13, intermediate: 23, advanced: 35, elite: 50 }),
-  ...bracket('hip-hinge-drill', 'male', 90, 999, 'one_rm_kg', { beginner: 9, novice: 16, intermediate: 28, advanced: 42, elite: 60 }),
-  ...bracket('hip-hinge-drill', 'female', 0, 55, 'one_rm_kg', { beginner: 3, novice: 6, intermediate: 11, advanced: 18, elite: 26 }),
-  ...bracket('hip-hinge-drill', 'female', 55, 999, 'one_rm_kg', { beginner: 4, novice: 8, intermediate: 14, advanced: 22, elite: 32 }),
+  ...bracket('hip-hinge-drill', 'male', 0, 70, 'reps', { beginner: 4, novice: 10, intermediate: 18, advanced: 30, elite: 45 }),
+  ...bracket('hip-hinge-drill', 'male', 70, 90, 'reps', { beginner: 3, novice: 9, intermediate: 16, advanced: 27, elite: 40 }),
+  ...bracket('hip-hinge-drill', 'male', 90, 999, 'reps', { beginner: 3, novice: 8, intermediate: 14, advanced: 24, elite: 36 }),
+  ...bracket('hip-hinge-drill', 'female', 0, 55, 'reps', { beginner: 3, novice: 8, intermediate: 15, advanced: 25, elite: 38 }),
+  ...bracket('hip-hinge-drill', 'female', 55, 999, 'reps', { beginner: 2, novice: 7, intermediate: 13, advanced: 22, elite: 34 }),
 
   // hip-hinge-speed-romanian-deadlift
   ...bracket('hip-hinge-speed-romanian-deadlift', 'male', 0, 70, 'one_rm_kg', { beginner: 5, novice: 10, intermediate: 18, advanced: 28, elite: 40 }),
@@ -2667,11 +2667,11 @@ export const performanceStandardsSeed: PerformanceStandardSeed[] = [
   ...bracket('reverse-pec-deck', 'female', 55, 999, 'one_rm_kg', { beginner: 6, novice: 11, intermediate: 19, advanced: 30, elite: 44 }),
 
   // romanian-deadlift-hamstring-sweeps
-  ...bracket('romanian-deadlift-hamstring-sweeps', 'male', 0, 70, 'one_rm_kg', { beginner: 5, novice: 10, intermediate: 18, advanced: 28, elite: 40 }),
-  ...bracket('romanian-deadlift-hamstring-sweeps', 'male', 70, 90, 'one_rm_kg', { beginner: 7, novice: 13, intermediate: 23, advanced: 35, elite: 50 }),
-  ...bracket('romanian-deadlift-hamstring-sweeps', 'male', 90, 999, 'one_rm_kg', { beginner: 9, novice: 16, intermediate: 28, advanced: 42, elite: 60 }),
-  ...bracket('romanian-deadlift-hamstring-sweeps', 'female', 0, 55, 'one_rm_kg', { beginner: 3, novice: 6, intermediate: 11, advanced: 18, elite: 26 }),
-  ...bracket('romanian-deadlift-hamstring-sweeps', 'female', 55, 999, 'one_rm_kg', { beginner: 4, novice: 8, intermediate: 14, advanced: 22, elite: 32 }),
+  ...bracket('romanian-deadlift-hamstring-sweeps', 'male', 0, 70, 'reps', { beginner: 4, novice: 10, intermediate: 18, advanced: 30, elite: 45 }),
+  ...bracket('romanian-deadlift-hamstring-sweeps', 'male', 70, 90, 'reps', { beginner: 3, novice: 9, intermediate: 16, advanced: 27, elite: 40 }),
+  ...bracket('romanian-deadlift-hamstring-sweeps', 'male', 90, 999, 'reps', { beginner: 3, novice: 8, intermediate: 14, advanced: 24, elite: 36 }),
+  ...bracket('romanian-deadlift-hamstring-sweeps', 'female', 0, 55, 'reps', { beginner: 3, novice: 8, intermediate: 15, advanced: 25, elite: 38 }),
+  ...bracket('romanian-deadlift-hamstring-sweeps', 'female', 55, 999, 'reps', { beginner: 2, novice: 7, intermediate: 13, advanced: 22, elite: 34 }),
 
   // scapular-pull-up
   ...bracket('scapular-pull-up', 'male', 0, 70, 'reps', { beginner: 3, novice: 15, intermediate: 28, advanced: 45, elite: 65 }),
@@ -2835,11 +2835,11 @@ export const performanceStandardsSeed: PerformanceStandardSeed[] = [
   ...bracket('single-leg-glute-bridge', 'female', 55, 999, 'reps', { beginner: 0, novice: 8, intermediate: 24, advanced: 44, elite: 65 }),
 
   // single-leg-hip-thrust
-  ...bracket('single-leg-hip-thrust', 'male', 0, 70, 'one_rm_kg', { beginner: 17, novice: 38, intermediate: 69, advanced: 113, elite: 163 }),
-  ...bracket('single-leg-hip-thrust', 'male', 70, 90, 'one_rm_kg', { beginner: 34, novice: 64, intermediate: 103, advanced: 155, elite: 211 }),
-  ...bracket('single-leg-hip-thrust', 'male', 90, 999, 'one_rm_kg', { beginner: 53, novice: 87, intermediate: 134, advanced: 191, elite: 255 }),
-  ...bracket('single-leg-hip-thrust', 'female', 0, 55, 'one_rm_kg', { beginner: 23, novice: 42, intermediate: 68, advanced: 104, elite: 142 }),
-  ...bracket('single-leg-hip-thrust', 'female', 55, 999, 'one_rm_kg', { beginner: 28, novice: 52, intermediate: 82, advanced: 119, elite: 161 }),
+  ...bracket('single-leg-hip-thrust', 'male', 0, 70, 'reps', { beginner: 4, novice: 10, intermediate: 18, advanced: 30, elite: 45 }),
+  ...bracket('single-leg-hip-thrust', 'male', 70, 90, 'reps', { beginner: 3, novice: 9, intermediate: 16, advanced: 27, elite: 40 }),
+  ...bracket('single-leg-hip-thrust', 'male', 90, 999, 'reps', { beginner: 3, novice: 8, intermediate: 14, advanced: 24, elite: 36 }),
+  ...bracket('single-leg-hip-thrust', 'female', 0, 55, 'reps', { beginner: 3, novice: 8, intermediate: 15, advanced: 25, elite: 38 }),
+  ...bracket('single-leg-hip-thrust', 'female', 55, 999, 'reps', { beginner: 2, novice: 7, intermediate: 13, advanced: 22, elite: 34 }),
 
   // single-leg-hop
   ...bracket('single-leg-hop', 'male', 0, 70, 'reps', { beginner: 3, novice: 8, intermediate: 15, advanced: 25, elite: 40 }),
@@ -2863,11 +2863,11 @@ export const performanceStandardsSeed: PerformanceStandardSeed[] = [
   ...bracket('single-leg-press', 'female', 55, 999, 'one_rm_kg', { beginner: 24, novice: 46, intermediate: 77, advanced: 116, elite: 160 }),
 
   // single-leg-standing-calf-raise
-  ...bracket('single-leg-standing-calf-raise', 'male', 0, 70, 'reps', { beginner: 4, novice: 19, intermediate: 44, advanced: 77, elite: 114 }),
-  ...bracket('single-leg-standing-calf-raise', 'male', 70, 90, 'reps', { beginner: 4, novice: 18, intermediate: 39, advanced: 66, elite: 96 }),
-  ...bracket('single-leg-standing-calf-raise', 'male', 90, 999, 'reps', { beginner: 3, novice: 16, intermediate: 35, advanced: 57, elite: 84 }),
-  ...bracket('single-leg-standing-calf-raise', 'female', 0, 55, 'reps', { beginner: 0, novice: 13, intermediate: 35, advanced: 64, elite: 95 }),
-  ...bracket('single-leg-standing-calf-raise', 'female', 55, 999, 'reps', { beginner: 0, novice: 13, intermediate: 31, advanced: 54, elite: 80 }),
+  ...bracket('single-leg-standing-calf-raise', 'male', 0, 70, 'one_rm_kg', { beginner: 5, novice: 12, intermediate: 22, advanced: 35, elite: 50 }),
+  ...bracket('single-leg-standing-calf-raise', 'male', 70, 90, 'one_rm_kg', { beginner: 7, novice: 15, intermediate: 26, advanced: 40, elite: 56 }),
+  ...bracket('single-leg-standing-calf-raise', 'male', 90, 999, 'one_rm_kg', { beginner: 9, novice: 18, intermediate: 30, advanced: 45, elite: 62 }),
+  ...bracket('single-leg-standing-calf-raise', 'female', 0, 55, 'one_rm_kg', { beginner: 2, novice: 6, intermediate: 12, advanced: 20, elite: 30 }),
+  ...bracket('single-leg-standing-calf-raise', 'female', 55, 999, 'one_rm_kg', { beginner: 3, novice: 8, intermediate: 15, advanced: 24, elite: 35 }),
 
   // single-leg-step-down
   ...bracket('single-leg-step-down', 'male', 0, 70, 'reps', { beginner: 5, novice: 15, intermediate: 30, advanced: 50, elite: 75 }),
@@ -2877,11 +2877,11 @@ export const performanceStandardsSeed: PerformanceStandardSeed[] = [
   ...bracket('single-leg-step-down', 'female', 55, 999, 'reps', { beginner: 3, novice: 11, intermediate: 22, advanced: 38, elite: 58 }),
 
   // single-legged-romanian-deadlifts
-  ...bracket('single-legged-romanian-deadlifts', 'male', 0, 70, 'one_rm_kg', { beginner: 8, novice: 20, intermediate: 40, advanced: 66, elite: 97 }),
-  ...bracket('single-legged-romanian-deadlifts', 'male', 70, 90, 'one_rm_kg', { beginner: 16, novice: 33, intermediate: 57, advanced: 88, elite: 124 }),
-  ...bracket('single-legged-romanian-deadlifts', 'male', 90, 999, 'one_rm_kg', { beginner: 25, novice: 45, intermediate: 73, advanced: 107, elite: 146 }),
-  ...bracket('single-legged-romanian-deadlifts', 'female', 0, 55, 'one_rm_kg', { beginner: 9, novice: 19, intermediate: 31, advanced: 47, elite: 65 }),
-  ...bracket('single-legged-romanian-deadlifts', 'female', 55, 999, 'one_rm_kg', { beginner: 13, novice: 23, intermediate: 37, advanced: 54, elite: 74 }),
+  ...bracket('single-legged-romanian-deadlifts', 'male', 0, 70, 'reps', { beginner: 4, novice: 10, intermediate: 18, advanced: 30, elite: 45 }),
+  ...bracket('single-legged-romanian-deadlifts', 'male', 70, 90, 'reps', { beginner: 3, novice: 9, intermediate: 16, advanced: 27, elite: 40 }),
+  ...bracket('single-legged-romanian-deadlifts', 'male', 90, 999, 'reps', { beginner: 3, novice: 8, intermediate: 14, advanced: 24, elite: 36 }),
+  ...bracket('single-legged-romanian-deadlifts', 'female', 0, 55, 'reps', { beginner: 3, novice: 8, intermediate: 15, advanced: 25, elite: 38 }),
+  ...bracket('single-legged-romanian-deadlifts', 'female', 55, 999, 'reps', { beginner: 2, novice: 7, intermediate: 13, advanced: 22, elite: 34 }),
 
   // sissy-squat
   ...bracket('sissy-squat', 'male', 0, 70, 'reps', { beginner: 0, novice: 7, intermediate: 22, advanced: 40, elite: 61 }),

@@ -66,7 +66,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     mediaType: 'video',
     mediaKey: "alternating-hammer-curl",
     muscles: [{ muscleGroupId: "biceps", role: "primary" }, { muscleGroupId: "forearms", role: "secondary" }],
-    equipmentIds: ["other"],
+    equipmentIds: ["dumbbell"],
   },  {
     id: "anti-gravity-press",
     isAdvanced: false,
@@ -96,7 +96,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     mediaType: 'video',
     mediaKey: "arnold-press",
     muscles: [{ muscleGroupId: "shoulders", role: "primary" }, { muscleGroupId: "triceps", role: "secondary" }],
-    equipmentIds: ["other"],
+    equipmentIds: ["dumbbell", "bench"],
   },  {
     id: "assisted-pistol-squat",
     isAdvanced: true,
@@ -116,7 +116,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     mediaType: 'video',
     mediaKey: "b-stance-hip-thrust",
     muscles: [{ muscleGroupId: "glutes", role: "primary" }, { muscleGroupId: "hamstrings", role: "secondary" }, { muscleGroupId: "back", role: "secondary" }],
-    equipmentIds: ["other"],
+    equipmentIds: ["bench"],
   },  {
     id: "back-extension",
     isAdvanced: false,
@@ -136,7 +136,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     mediaType: 'video',
     mediaKey: "backpack-curls",
     muscles: [{ muscleGroupId: "biceps", role: "primary" }, { muscleGroupId: "forearms", role: "secondary" }],
-    equipmentIds: ["other"],
+    equipmentIds: ["dumbbell"],
   },  {
     id: "backpack-row",
     isAdvanced: false,
@@ -146,7 +146,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     mediaType: 'video',
     mediaKey: "backpack-row",
     muscles: [{ muscleGroupId: "back", role: "primary" }, { muscleGroupId: "lats", role: "secondary" }, { muscleGroupId: "biceps", role: "secondary" }],
-    equipmentIds: ["other"],
+    equipmentIds: ["dumbbell"],
   },  {
     id: "barbell-behind-the-back-30-degree-shrug",
     isAdvanced: false,
@@ -186,7 +186,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     mediaType: 'video',
     mediaKey: "barbell-box-squats",
     muscles: [{ muscleGroupId: "quads", role: "primary" }, { muscleGroupId: "glutes", role: "secondary" }, { muscleGroupId: "hamstrings", role: "secondary" }],
-    equipmentIds: ["other"],
+    equipmentIds: ["barbell"],
   },  {
     id: "barbell-clean-and-jerk",
     isAdvanced: true,
@@ -452,10 +452,10 @@ export const exercisesSeed: ExerciseSeed[] = [
     isAdvanced: true,
     name: "Barre curl spinal Jefferson",
     nameEn: "Barbell Spinal Jefferson Curl",
-    description: "Barre curl spinal Jefferson. Cible principalement des biceps.",
+    description: "Barre curl spinal Jefferson. Cible principalement des abdominaux.",
     mediaType: 'video',
     mediaKey: "barbell-spinal-jefferson-curl",
-    muscles: [{ muscleGroupId: "biceps", role: "primary" }, { muscleGroupId: "forearms", role: "secondary" }],
+    muscles: [{ muscleGroupId: "abs", role: "primary" }],
     equipmentIds: ["barbell"],
   },  {
     id: "barbell-split-squat",
@@ -712,10 +712,10 @@ export const exercisesSeed: ExerciseSeed[] = [
     isAdvanced: true,
     name: "Curl spinal Jefferson",
     nameEn: "Bodyweight Spinal Jefferson Curl",
-    description: "Curl spinal Jefferson. Cible principalement des biceps.",
+    description: "Curl spinal Jefferson. Cible principalement des abdominaux.",
     mediaType: 'video',
     mediaKey: "bodyweight-spinal-jefferson-curl",
-    muscles: [{ muscleGroupId: "biceps", role: "primary" }, { muscleGroupId: "forearms", role: "secondary" }],
+    muscles: [{ muscleGroupId: "abs", role: "primary" }],
     equipmentIds: ["bodyweight"],
   },  {
     id: "bodyweight-squat",
@@ -786,7 +786,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     mediaType: 'video',
     mediaKey: "bulgarian-split-squat",
     muscles: [{ muscleGroupId: "quads", role: "primary" }, { muscleGroupId: "glutes", role: "secondary" }, { muscleGroupId: "hamstrings", role: "secondary" }],
-    equipmentIds: ["other"],
+    equipmentIds: ["dumbbell"],
   },  {
     id: "burpee",
     isAdvanced: false,
@@ -1152,10 +1152,10 @@ export const exercisesSeed: ExerciseSeed[] = [
     isAdvanced: false,
     name: "Machine unijambiste couché leg curl",
     nameEn: "Machine Single Leg Lying Leg Curl",
-    description: "Machine unijambiste couché leg curl. Cible principalement des biceps.",
+    description: "Machine unijambiste couché leg curl. Cible principalement des ischio-jambiers.",
     mediaType: 'video',
     mediaKey: "cable-single-leg-laying-leg-curl",
-    muscles: [{ muscleGroupId: "biceps", role: "primary" }, { muscleGroupId: "forearms", role: "secondary" }],
+    muscles: [{ muscleGroupId: "hamstrings", role: "primary" }],
     equipmentIds: ["machine"],
   },  {
     id: "cable-standing-low-to-high-wood-chopper",
@@ -1306,7 +1306,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     mediaType: 'video',
     mediaKey: "cross-body-hammer-curl",
     muscles: [{ muscleGroupId: "biceps", role: "primary" }, { muscleGroupId: "forearms", role: "secondary" }],
-    equipmentIds: ["other"],
+    equipmentIds: ["dumbbell"],
   },  {
     id: "crunches",
     isAdvanced: false,
@@ -1406,7 +1406,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     mediaType: 'video',
     mediaKey: "deficit-barbell-romanian-deadlift",
     muscles: [{ muscleGroupId: "glutes", role: "primary" }, { muscleGroupId: "hamstrings", role: "secondary" }, { muscleGroupId: "back", role: "secondary" }],
-    equipmentIds: ["other"],
+    equipmentIds: ["barbell"],
   },  {
     id: "deficit-deadlift",
     isAdvanced: false,
@@ -1416,7 +1416,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     mediaType: 'video',
     mediaKey: "deficit-deadlift",
     muscles: [{ muscleGroupId: "glutes", role: "primary" }, { muscleGroupId: "hamstrings", role: "secondary" }, { muscleGroupId: "back", role: "secondary" }],
-    equipmentIds: ["other"],
+    equipmentIds: ["barbell"],
   },  {
     id: "deficit-dumbbell-romanian-deadlift",
     isAdvanced: false,
@@ -1852,10 +1852,10 @@ export const exercisesSeed: ExerciseSeed[] = [
     isAdvanced: false,
     name: "Haltère leg curl",
     nameEn: "Dumbbell Leg Curl",
-    description: "Haltère leg curl. Cible principalement des biceps.",
+    description: "Haltère leg curl. Cible principalement des ischio-jambiers.",
     mediaType: 'video',
     mediaKey: "dumbbell-leg-curl",
-    muscles: [{ muscleGroupId: "biceps", role: "primary" }, { muscleGroupId: "forearms", role: "secondary" }],
+    muscles: [{ muscleGroupId: "hamstrings", role: "primary" }],
     equipmentIds: ["dumbbell"],
   },  {
     id: "dumbbell-lying-single-arm-rear-lateral-raise",
@@ -2162,10 +2162,10 @@ export const exercisesSeed: ExerciseSeed[] = [
     isAdvanced: true,
     name: "Haltère curl spinal Jefferson",
     nameEn: "Dumbbell Spinal Jefferson Curl",
-    description: "Haltère curl spinal Jefferson. Cible principalement des biceps.",
+    description: "Haltère curl spinal Jefferson. Cible principalement des abdominaux.",
     mediaType: 'video',
     mediaKey: "dumbbell-spinal-jefferson-curl",
-    muscles: [{ muscleGroupId: "biceps", role: "primary" }, { muscleGroupId: "forearms", role: "secondary" }],
+    muscles: [{ muscleGroupId: "abs", role: "primary" }],
     equipmentIds: ["dumbbell"],
   },  {
     id: "dumbbell-squat",
@@ -2396,7 +2396,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     mediaType: 'video',
     mediaKey: "floor-press",
     muscles: [{ muscleGroupId: "chest", role: "primary" }, { muscleGroupId: "triceps", role: "secondary" }, { muscleGroupId: "shoulders", role: "secondary" }],
-    equipmentIds: ["other"],
+    equipmentIds: ["dumbbell"],
   },  {
     id: "forward-lunge",
     isAdvanced: false,
@@ -2426,7 +2426,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     mediaType: 'video',
     mediaKey: "front-foot-elevated-split-squat",
     muscles: [{ muscleGroupId: "quads", role: "primary" }, { muscleGroupId: "glutes", role: "secondary" }, { muscleGroupId: "hamstrings", role: "secondary" }],
-    equipmentIds: ["other"],
+    equipmentIds: ["dumbbell"],
   },  {
     id: "front-raise-and-pullover",
     isAdvanced: false,
@@ -2446,7 +2446,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     mediaType: 'video',
     mediaKey: "front-squat",
     muscles: [{ muscleGroupId: "quads", role: "primary" }, { muscleGroupId: "glutes", role: "secondary" }, { muscleGroupId: "hamstrings", role: "secondary" }],
-    equipmentIds: ["other"],
+    equipmentIds: ["barbell"],
   },  {
     id: "glute-bridge",
     isAdvanced: false,
@@ -2476,7 +2476,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     mediaType: 'video',
     mediaKey: "good-mornings",
     muscles: [{ muscleGroupId: "back", role: "primary" }, { muscleGroupId: "glutes", role: "secondary" }, { muscleGroupId: "hamstrings", role: "secondary" }],
-    equipmentIds: ["other"],
+    equipmentIds: ["bodyweight"],
   },  {
     id: "hammer-strength-high-row",
     isAdvanced: false,
@@ -2502,11 +2502,11 @@ export const exercisesSeed: ExerciseSeed[] = [
     isAdvanced: false,
     name: "Leg curl",
     nameEn: "Hamstring Curl",
-    description: "Leg curl. Cible principalement des biceps.",
+    description: "Leg curl. Cible principalement des ischio-jambiers.",
     mediaType: 'video',
     mediaKey: "hamstring-curl",
-    muscles: [{ muscleGroupId: "biceps", role: "primary" }, { muscleGroupId: "forearms", role: "secondary" }],
-    equipmentIds: ["other"],
+    muscles: [{ muscleGroupId: "hamstrings", role: "primary" }],
+    equipmentIds: ["dumbbell"],
   },  {
     id: "hang-clean",
     isAdvanced: true,
@@ -2566,7 +2566,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     mediaType: 'video',
     mediaKey: "hip-hinge-drill",
     muscles: [{ muscleGroupId: "glutes", role: "primary" }, { muscleGroupId: "hamstrings", role: "secondary" }, { muscleGroupId: "back", role: "secondary" }],
-    equipmentIds: ["other"],
+    equipmentIds: ["bodyweight"],
   },  {
     id: "hip-hinge-speed-romanian-deadlift",
     isAdvanced: false,
@@ -2576,7 +2576,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     mediaType: 'video',
     mediaKey: "hip-hinge-speed-romanian-deadlift",
     muscles: [{ muscleGroupId: "glutes", role: "primary" }, { muscleGroupId: "hamstrings", role: "secondary" }, { muscleGroupId: "back", role: "secondary" }],
-    equipmentIds: ["other"],
+    equipmentIds: ["dumbbell"],
   },  {
     id: "horizontal-leg-press-calf-press",
     isAdvanced: false,
@@ -2646,7 +2646,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     mediaType: 'video',
     mediaKey: "jm-press",
     muscles: [{ muscleGroupId: "triceps", role: "primary" }, { muscleGroupId: "chest", role: "secondary" }],
-    equipmentIds: ["other"],
+    equipmentIds: ["barbell", "bench"],
   },  {
     id: "jump-squats",
     isAdvanced: false,
@@ -2872,10 +2872,10 @@ export const exercisesSeed: ExerciseSeed[] = [
     isAdvanced: true,
     name: "Kettlebell curl spinal Jefferson",
     nameEn: "Kettlebell Spinal Jefferson Curl",
-    description: "Kettlebell curl spinal Jefferson. Cible principalement des biceps.",
+    description: "Kettlebell curl spinal Jefferson. Cible principalement des abdominaux.",
     mediaType: 'video',
     mediaKey: "kettlebell-spinal-jefferson-curl",
-    muscles: [{ muscleGroupId: "biceps", role: "primary" }, { muscleGroupId: "forearms", role: "secondary" }],
+    muscles: [{ muscleGroupId: "abs", role: "primary" }],
     equipmentIds: ["kettlebell"],
   },  {
     id: "kettlebell-sumo-deadlift",
@@ -2996,7 +2996,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     mediaType: 'video',
     mediaKey: "lateral-raise-to-front-raise",
     muscles: [{ muscleGroupId: "shoulders", role: "primary" }],
-    equipmentIds: ["other"],
+    equipmentIds: ["dumbbell"],
   },  {
     id: "leaning-cable-lateral-raise",
     isAdvanced: false,
@@ -3016,7 +3016,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     mediaType: 'video',
     mediaKey: "leaning-single-arm-dumbbell-lateral-raise",
     muscles: [{ muscleGroupId: "shoulders", role: "primary" }],
-    equipmentIds: ["other"],
+    equipmentIds: ["dumbbell"],
   },  {
     id: "leg-press-calf-raise",
     isAdvanced: false,
@@ -3082,10 +3082,10 @@ export const exercisesSeed: ExerciseSeed[] = [
     isAdvanced: false,
     name: "Couché leg curl",
     nameEn: "Lying Leg Curl",
-    description: "Couché leg curl. Cible principalement des biceps.",
+    description: "Couché leg curl. Cible principalement des ischio-jambiers.",
     mediaType: 'video',
     mediaKey: "lying-leg-curl",
-    muscles: [{ muscleGroupId: "biceps", role: "primary" }, { muscleGroupId: "forearms", role: "secondary" }],
+    muscles: [{ muscleGroupId: "hamstrings", role: "primary" }],
     equipmentIds: ["other"],
   },  {
     id: "lying-single-arm-lateral-raise",
@@ -3096,7 +3096,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     mediaType: 'video',
     mediaKey: "lying-single-arm-lateral-raise",
     muscles: [{ muscleGroupId: "shoulders", role: "primary" }],
-    equipmentIds: ["other"],
+    equipmentIds: ["dumbbell"],
   },  {
     id: "machine-45-degree-back-extension",
     isAdvanced: false,
@@ -3386,7 +3386,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     mediaType: 'video',
     mediaKey: "man-maker",
     muscles: [{ muscleGroupId: "shoulders", role: "primary" }, { muscleGroupId: "glutes", role: "secondary" }, { muscleGroupId: "back", role: "secondary" }],
-    equipmentIds: ["other"],
+    equipmentIds: ["dumbbell"],
   },  {
     id: "meadows-row",
     isAdvanced: false,
@@ -3456,7 +3456,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     mediaType: 'video',
     mediaKey: "neck-extension",
     muscles: [{ muscleGroupId: "traps", role: "primary" }],
-    equipmentIds: ["other"],
+    equipmentIds: ["bodyweight"],
   },  {
     id: "neutral-grip-dumbbell-bench-press",
     isAdvanced: false,
@@ -3492,10 +3492,10 @@ export const exercisesSeed: ExerciseSeed[] = [
     isAdvanced: true,
     name: "Nordic curl",
     nameEn: "Nordic Hamstring Curl",
-    description: "Nordic curl. Cible principalement des biceps.",
+    description: "Nordic curl. Cible principalement des ischio-jambiers.",
     mediaType: 'video',
     mediaKey: "nordic-hamstring-curl",
-    muscles: [{ muscleGroupId: "biceps", role: "primary" }, { muscleGroupId: "forearms", role: "secondary" }],
+    muscles: [{ muscleGroupId: "hamstrings", role: "primary" }],
     equipmentIds: ["bodyweight"],
   },  {
     id: "pallof-press",
@@ -3526,7 +3526,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     mediaType: 'video',
     mediaKey: "pause-squat",
     muscles: [{ muscleGroupId: "quads", role: "primary" }, { muscleGroupId: "glutes", role: "secondary" }, { muscleGroupId: "hamstrings", role: "secondary" }],
-    equipmentIds: ["other"],
+    equipmentIds: ["bodyweight"],
   },  {
     id: "pendlay-row",
     isAdvanced: false,
@@ -3586,7 +3586,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     mediaType: 'video',
     mediaKey: "plate-front-raise",
     muscles: [{ muscleGroupId: "shoulders", role: "primary" }],
-    equipmentIds: ["other"],
+    equipmentIds: ["dumbbell"],
   },  {
     id: "plate-pinch",
     isAdvanced: false,
@@ -3646,7 +3646,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     mediaType: 'video',
     mediaKey: "prone-lateral-raises",
     muscles: [{ muscleGroupId: "shoulders", role: "primary" }],
-    equipmentIds: ["other"],
+    equipmentIds: ["dumbbell", "bench"],
   },  {
     id: "prone-y-t-raises",
     isAdvanced: false,
@@ -3656,7 +3656,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     mediaType: 'video',
     mediaKey: "prone-y-t-raises",
     muscles: [{ muscleGroupId: "shoulders", role: "primary" }, { muscleGroupId: "back", role: "secondary" }],
-    equipmentIds: ["other"],
+    equipmentIds: ["bodyweight"],
   },  {
     id: "prying-goblet-squat",
     isAdvanced: false,
@@ -3666,7 +3666,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     mediaType: 'video',
     mediaKey: "prying-goblet-squat",
     muscles: [{ muscleGroupId: "quads", role: "primary" }, { muscleGroupId: "glutes", role: "secondary" }, { muscleGroupId: "hamstrings", role: "secondary" }],
-    equipmentIds: ["other"],
+    equipmentIds: ["kettlebell"],
   },  {
     id: "push-jerk",
     isAdvanced: true,
@@ -3676,7 +3676,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     mediaType: 'video',
     mediaKey: "push-jerk",
     muscles: [{ muscleGroupId: "shoulders", role: "primary" }, { muscleGroupId: "glutes", role: "secondary" }, { muscleGroupId: "back", role: "secondary" }],
-    equipmentIds: ["other"],
+    equipmentIds: ["barbell"],
   },  {
     id: "push-up",
     isAdvanced: false,
@@ -3776,7 +3776,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     mediaType: 'video',
     mediaKey: "romanian-deadlift-hamstring-sweeps",
     muscles: [{ muscleGroupId: "hamstrings", role: "primary" }, { muscleGroupId: "glutes", role: "secondary" }],
-    equipmentIds: ["other"],
+    equipmentIds: ["bodyweight"],
   },  {
     id: "scapular-pull-up",
     isAdvanced: false,
@@ -3816,7 +3816,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     mediaType: 'video',
     mediaKey: "seated-calf-raise",
     muscles: [{ muscleGroupId: "calves", role: "primary" }],
-    equipmentIds: ["other"],
+    equipmentIds: ["dumbbell"],
   },  {
     id: "seated-dumbbell-curl",
     isAdvanced: false,
@@ -3832,10 +3832,10 @@ export const exercisesSeed: ExerciseSeed[] = [
     isAdvanced: false,
     name: "Assis leg curl",
     nameEn: "Seated Leg Curl",
-    description: "Assis leg curl. Cible principalement des biceps.",
+    description: "Assis leg curl. Cible principalement des ischio-jambiers.",
     mediaType: 'video',
     mediaKey: "seated-leg-curl",
-    muscles: [{ muscleGroupId: "biceps", role: "primary" }, { muscleGroupId: "forearms", role: "secondary" }],
+    muscles: [{ muscleGroupId: "hamstrings", role: "primary" }],
     equipmentIds: ["other"],
   },  {
     id: "selectorized-overhead-press-machine",
@@ -3896,7 +3896,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     mediaType: 'video',
     mediaKey: "single-arm-incline-lateral-raise",
     muscles: [{ muscleGroupId: "shoulders", role: "primary" }],
-    equipmentIds: ["other"],
+    equipmentIds: ["dumbbell", "bench"],
   },  {
     id: "single-arm-kettlebell-military-press-to-side",
     isAdvanced: true,
@@ -3956,7 +3956,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     mediaType: 'video',
     mediaKey: "single-arm-tricep-extension",
     muscles: [{ muscleGroupId: "triceps", role: "primary" }, { muscleGroupId: "chest", role: "secondary" }],
-    equipmentIds: ["other"],
+    equipmentIds: ["dumbbell"],
   },  {
     id: "single-leg-back-extension",
     isAdvanced: false,
@@ -4016,7 +4016,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     mediaType: 'video',
     mediaKey: "single-leg-hip-thrust",
     muscles: [{ muscleGroupId: "glutes", role: "primary" }, { muscleGroupId: "hamstrings", role: "secondary" }, { muscleGroupId: "back", role: "secondary" }],
-    equipmentIds: ["other"],
+    equipmentIds: ["bodyweight"],
   },  {
     id: "single-leg-hop",
     isAdvanced: false,
@@ -4056,7 +4056,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     mediaType: 'video',
     mediaKey: "single-leg-standing-calf-raise",
     muscles: [{ muscleGroupId: "calves", role: "primary" }],
-    equipmentIds: ["bodyweight"],
+    equipmentIds: ["dumbbell"],
   },  {
     id: "single-leg-step-down",
     isAdvanced: false,
@@ -4076,7 +4076,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     mediaType: 'video',
     mediaKey: "single-legged-romanian-deadlifts",
     muscles: [{ muscleGroupId: "glutes", role: "primary" }, { muscleGroupId: "hamstrings", role: "secondary" }, { muscleGroupId: "back", role: "secondary" }],
-    equipmentIds: ["other"],
+    equipmentIds: ["bodyweight"],
   },  {
     id: "sissy-squat",
     isAdvanced: false,
@@ -4112,10 +4112,10 @@ export const exercisesSeed: ExerciseSeed[] = [
     isAdvanced: false,
     name: "Slider leg curl",
     nameEn: "Slider Leg Curl",
-    description: "Slider leg curl. Cible principalement des biceps.",
+    description: "Slider leg curl. Cible principalement des ischio-jambiers.",
     mediaType: 'video',
     mediaKey: "slider-leg-curl",
-    muscles: [{ muscleGroupId: "biceps", role: "primary" }, { muscleGroupId: "forearms", role: "secondary" }],
+    muscles: [{ muscleGroupId: "hamstrings", role: "primary" }],
     equipmentIds: ["bodyweight"],
   },  {
     id: "smith-machine-bench-press",
@@ -4256,7 +4256,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     mediaType: 'video',
     mediaKey: "snatch-grip-deadlift",
     muscles: [{ muscleGroupId: "glutes", role: "primary" }, { muscleGroupId: "hamstrings", role: "secondary" }, { muscleGroupId: "back", role: "secondary" }],
-    equipmentIds: ["other"],
+    equipmentIds: ["barbell"],
   },  {
     id: "snatch-grip-high-pull",
     isAdvanced: true,
@@ -4312,10 +4312,10 @@ export const exercisesSeed: ExerciseSeed[] = [
     isAdvanced: false,
     name: "Stability ball leg curl",
     nameEn: "Stability Ball Leg Curl",
-    description: "Stability ball leg curl. Cible principalement des biceps.",
+    description: "Stability ball leg curl. Cible principalement des ischio-jambiers.",
     mediaType: 'video',
     mediaKey: "stability-ball-leg-curl",
-    muscles: [{ muscleGroupId: "biceps", role: "primary" }, { muscleGroupId: "forearms", role: "secondary" }],
+    muscles: [{ muscleGroupId: "hamstrings", role: "primary" }],
     equipmentIds: ["bodyweight"],
   },  {
     id: "standing-alternating-dumbbell-overhead-press",
@@ -4396,7 +4396,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     mediaType: 'video',
     mediaKey: "straight-bar-bench-mid-row",
     muscles: [{ muscleGroupId: "back", role: "primary" }, { muscleGroupId: "lats", role: "secondary" }, { muscleGroupId: "biceps", role: "secondary" }],
-    equipmentIds: ["other"],
+    equipmentIds: ["barbell", "bench"],
   },  {
     id: "sumo-deadlift",
     isAdvanced: false,
@@ -4406,7 +4406,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     mediaType: 'video',
     mediaKey: "sumo-deadlift",
     muscles: [{ muscleGroupId: "glutes", role: "primary" }, { muscleGroupId: "hamstrings", role: "secondary" }, { muscleGroupId: "back", role: "secondary" }],
-    equipmentIds: ["other"],
+    equipmentIds: ["barbell"],
   },  {
     id: "supermans",
     isAdvanced: false,
@@ -4426,7 +4426,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     mediaType: 'video',
     mediaKey: "tate-press",
     muscles: [{ muscleGroupId: "triceps", role: "primary" }, { muscleGroupId: "chest", role: "secondary" }],
-    equipmentIds: ["other"],
+    equipmentIds: ["dumbbell", "bench"],
   },  {
     id: "tibialis-raise",
     isAdvanced: false,
@@ -4462,10 +4462,10 @@ export const exercisesSeed: ExerciseSeed[] = [
     isAdvanced: false,
     name: "Towel slide leg curl",
     nameEn: "Towel Slide Leg Curl",
-    description: "Towel slide leg curl. Cible principalement des biceps.",
+    description: "Towel slide leg curl. Cible principalement des ischio-jambiers.",
     mediaType: 'video',
     mediaKey: "towel-slide-leg-curl",
-    muscles: [{ muscleGroupId: "biceps", role: "primary" }, { muscleGroupId: "forearms", role: "secondary" }],
+    muscles: [{ muscleGroupId: "hamstrings", role: "primary" }],
     equipmentIds: ["bodyweight"],
   },  {
     id: "trap-bar-deadlift",
@@ -4526,7 +4526,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     mediaType: 'video',
     mediaKey: "turkish-get-up",
     muscles: [{ muscleGroupId: "shoulders", role: "primary" }, { muscleGroupId: "glutes", role: "secondary" }, { muscleGroupId: "back", role: "secondary" }],
-    equipmentIds: ["other"],
+    equipmentIds: ["kettlebell"],
   },  {
     id: "two-arm-kettlebell-military-press",
     isAdvanced: false,
@@ -4696,7 +4696,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     mediaType: 'video',
     mediaKey: "yates-row",
     muscles: [{ muscleGroupId: "back", role: "primary" }, { muscleGroupId: "lats", role: "secondary" }, { muscleGroupId: "biceps", role: "secondary" }],
-    equipmentIds: ["other"],
+    equipmentIds: ["barbell"],
   },  {
     id: "z-press",
     isAdvanced: false,
@@ -4706,7 +4706,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     mediaType: 'video',
     mediaKey: "z-press",
     muscles: [{ muscleGroupId: "shoulders", role: "primary" }, { muscleGroupId: "triceps", role: "secondary" }],
-    equipmentIds: ["other"],
+    equipmentIds: ["dumbbell"],
   },  {
     id: "zercher-squat",
     isAdvanced: false,
@@ -4716,7 +4716,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     mediaType: 'video',
     mediaKey: "zercher-squat",
     muscles: [{ muscleGroupId: "quads", role: "primary" }, { muscleGroupId: "glutes", role: "secondary" }, { muscleGroupId: "hamstrings", role: "secondary" }],
-    equipmentIds: ["other"],
+    equipmentIds: ["barbell"],
   },  {
     id: "zottman-curl",
     isAdvanced: false,
