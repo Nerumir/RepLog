@@ -49,3 +49,46 @@ export const splitTypeInfo: Record<
     dayLabels: (n) => Array.from({ length: n }, (_, i) => `Séance ${i + 1}`),
   },
 };
+
+const ALL_MUSCLE_GROUPS = [
+  'chest', 'back', 'lats', 'shoulders', 'biceps', 'triceps', 'forearms', 'traps',
+  'abs', 'quads', 'hamstrings', 'glutes', 'calves',
+];
+
+/** Groupes musculaires ciblés par séance pour chaque split, dans l'ordre des dayLabels (cycle si sessionsPerWeek > longueur). */
+const SPLIT_MUSCLE_GROUPS: Record<SplitType, string[][]> = {
+  full_body: [ALL_MUSCLE_GROUPS],
+  upper_lower: [
+    ['chest', 'back', 'lats', 'shoulders', 'biceps', 'triceps', 'forearms', 'traps'],
+    ['quads', 'hamstrings', 'glutes', 'calves', 'abs'],
+  ],
+  push_pull_legs: [
+    ['chest', 'shoulders', 'triceps'],
+    ['back', 'lats', 'biceps', 'traps', 'forearms'],
+    ['quads', 'hamstrings', 'glutes', 'calves', 'abs'],
+  ],
+  body_part_split: [
+    ['chest'],
+    ['back', 'lats', 'traps'],
+    ['quads', 'hamstrings', 'glutes', 'calves'],
+    ['shoulders'],
+    ['biceps', 'triceps', 'forearms'],
+  ],
+  antagonist_split: [
+    ['chest', 'back', 'lats', 'traps'],
+    ['quads', 'hamstrings', 'glutes', 'calves'],
+    ['shoulders', 'biceps', 'triceps', 'forearms'],
+  ],
+  custom: [ALL_MUSCLE_GROUPS],
+};
+
+/**
+ * Groupes musculaires à cibler pour la N-ième séance (0-indexée) d'un split donné. Les
+ * abdominaux sont toujours inclus en complément (travail léger qui trouve sa place partout),
+ * même quand le split ne les mentionne pas explicitement.
+ */
+export function muscleTargetsForSession(splitType: SplitType, sessionIndex: number): string[] {
+  const groups = SPLIT_MUSCLE_GROUPS[splitType];
+  const base = groups[sessionIndex % groups.length];
+  return Array.from(new Set([...base, 'abs']));
+}

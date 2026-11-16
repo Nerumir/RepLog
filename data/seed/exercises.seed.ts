@@ -10,6 +10,8 @@ export interface ExerciseSeed {
   mediaKey: string;
   muscles: { muscleGroupId: string; role: MuscleRole }[];
   equipmentIds: string[];
+  /** true si le mouvement est technique/risqué et doit être évité en programme débutant (généré automatiquement, classification approximative). */
+  isAdvanced: boolean;
 }
 
 // Généré à partir de movekit.com/library (contenu preview gratuit) : traduction française,
@@ -17,6 +19,7 @@ export interface ExerciseSeed {
 export const exercisesSeed: ExerciseSeed[] = [
   {
     id: "bench-press",
+    isAdvanced: false,
     name: "Barre développé couché",
     nameEn: "Barbell Bench Press",
     description: "Barre développé couché. Cible principalement des pectoraux.",
@@ -26,6 +29,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["barbell"],
   },  {
     id: "back-squat",
+    isAdvanced: false,
     name: "Barre squat",
     nameEn: "Barbell Squat",
     description: "Barre squat. Cible principalement des quadriceps.",
@@ -35,6 +39,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["barbell"],
   },  {
     id: "pull-up",
+    isAdvanced: false,
     name: "Tractions",
     nameEn: "Pull Ups",
     description: "Tractions. Cible principalement du grand dorsal.",
@@ -44,6 +49,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["bodyweight"],
   },  {
     id: "90-90-hip-switches",
+    isAdvanced: false,
     name: "Changements de hanche 90/90",
     nameEn: "90/90 Hip Switches",
     description: "Changements de hanche 90/90. Cible principalement des fessiers.",
@@ -53,6 +59,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "alternating-hammer-curl",
+    isAdvanced: false,
     name: "Alterné curl marteau",
     nameEn: "Alternate Hammer Curl",
     description: "Alterné curl marteau. Cible principalement des biceps.",
@@ -62,6 +69,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "anti-gravity-press",
+    isAdvanced: false,
     name: "Anti-gravity press",
     nameEn: "Anti-Gravity Press",
     description: "Anti-gravity press. Cible principalement des épaules.",
@@ -71,6 +79,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "archer-push-up",
+    isAdvanced: true,
     name: "Pompe archer",
     nameEn: "Archer Push-Up",
     description: "Pompe archer. Cible principalement des pectoraux.",
@@ -80,6 +89,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["bodyweight"],
   },  {
     id: "arnold-press",
+    isAdvanced: false,
     name: "Développé Arnold",
     nameEn: "Arnold Press",
     description: "Développé Arnold. Cible principalement des épaules.",
@@ -89,6 +99,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "assisted-pistol-squat",
+    isAdvanced: true,
     name: "Pistol squat (assisté)",
     nameEn: "Pistol Squat (Assisted)",
     description: "Pistol squat (assisté). Cible principalement des quadriceps.",
@@ -98,6 +109,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "b-stance-hip-thrust",
+    isAdvanced: false,
     name: "B-stance hip thrust",
     nameEn: "B-Stance Hip Thrust",
     description: "B-stance hip thrust. Cible principalement des fessiers.",
@@ -107,6 +119,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "back-extension",
+    isAdvanced: false,
     name: "Extension lombaire",
     nameEn: "Back Extension",
     description: "Extension lombaire. Cible principalement du dos.",
@@ -116,6 +129,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "backpack-curls",
+    isAdvanced: false,
     name: "Backpack curls",
     nameEn: "Backpack Curls",
     description: "Backpack curls. Cible principalement des biceps.",
@@ -125,6 +139,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "backpack-row",
+    isAdvanced: false,
     name: "Backpack rowing",
     nameEn: "Backpack Row",
     description: "Backpack rowing. Cible principalement du dos.",
@@ -134,6 +149,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "barbell-behind-the-back-30-degree-shrug",
+    isAdvanced: false,
     name: "Barre derrière le dos 30 degrés shrug",
     nameEn: "Barbell Behind The Back 30 Degree Shrug",
     description: "Barre derrière le dos 30 degrés shrug. Cible principalement des trapèzes.",
@@ -143,6 +159,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["barbell"],
   },  {
     id: "barbell-bent-over-row",
+    isAdvanced: false,
     name: "Barre rowing buste penché",
     nameEn: "Barbell Bent Over Row",
     description: "Barre rowing buste penché. Cible principalement du dos.",
@@ -152,6 +169,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["barbell"],
   },  {
     id: "barbell-bent-over-row-overhand",
+    isAdvanced: false,
     name: "Barre rowing buste penché - prise pronation",
     nameEn: "Barbell Bent Over Row - Overhand",
     description: "Barre rowing buste penché - prise pronation. Cible principalement du dos.",
@@ -161,6 +179,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["barbell"],
   },  {
     id: "barbell-box-squats",
+    isAdvanced: false,
     name: "Squat sur box",
     nameEn: "Box Squats",
     description: "Squat sur box. Cible principalement des quadriceps.",
@@ -170,6 +189,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "barbell-clean-and-jerk",
+    isAdvanced: true,
     name: "Barre épaulé-jeté",
     nameEn: "Barbell Clean And Jerk",
     description: "Barre épaulé-jeté. Cible principalement des épaules.",
@@ -179,6 +199,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["barbell"],
   },  {
     id: "barbell-clean-and-press",
+    isAdvanced: true,
     name: "Barre épaulé-développé",
     nameEn: "Barbell Clean And Press",
     description: "Barre épaulé-développé. Cible principalement des épaules.",
@@ -188,6 +209,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["barbell"],
   },  {
     id: "barbell-close-grip-bench-press",
+    isAdvanced: false,
     name: "Barre développé prise serrée",
     nameEn: "Barbell Close Grip Bench Press",
     description: "Barre développé prise serrée. Cible principalement des pectoraux.",
@@ -197,6 +219,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["barbell"],
   },  {
     id: "barbell-curl",
+    isAdvanced: false,
     name: "Barre curl",
     nameEn: "Barbell Curl",
     description: "Barre curl. Cible principalement des biceps.",
@@ -206,6 +229,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["barbell"],
   },  {
     id: "barbell-deadlift",
+    isAdvanced: false,
     name: "Barre soulevé de terre",
     nameEn: "Barbell Deadlift",
     description: "Barre soulevé de terre. Cible principalement des fessiers.",
@@ -215,6 +239,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["barbell"],
   },  {
     id: "barbell-drag-curl",
+    isAdvanced: false,
     name: "Barre curl tracté",
     nameEn: "Barbell Drag Curl",
     description: "Barre curl tracté. Cible principalement des biceps.",
@@ -224,6 +249,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["barbell"],
   },  {
     id: "barbell-floor-press",
+    isAdvanced: false,
     name: "Barre développé au sol",
     nameEn: "Barbell Floor Press",
     description: "Barre développé au sol. Cible principalement des pectoraux.",
@@ -233,6 +259,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["barbell"],
   },  {
     id: "barbell-front-rack-step-up-knee-drive",
+    isAdvanced: false,
     name: "Barre prise devant step-up montée de genou",
     nameEn: "Barbell Front Rack Step Up Knee Drive",
     description: "Barre prise devant step-up montée de genou. Cible principalement des quadriceps.",
@@ -242,6 +269,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["barbell"],
   },  {
     id: "barbell-glute-bridge",
+    isAdvanced: false,
     name: "Barre pont fessier",
     nameEn: "Barbell Glute Bridge",
     description: "Barre pont fessier. Cible principalement des fessiers.",
@@ -251,6 +279,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["barbell"],
   },  {
     id: "barbell-hack-squat",
+    isAdvanced: false,
     name: "Barre hack squat",
     nameEn: "Barbell Hack Squat",
     description: "Barre hack squat. Cible principalement des quadriceps.",
@@ -260,6 +289,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["barbell"],
   },  {
     id: "barbell-high-incline-bench-press",
+    isAdvanced: false,
     name: "Barre haut développé incliné",
     nameEn: "Barbell High Incline Bench Press",
     description: "Barre haut développé incliné. Cible principalement des pectoraux.",
@@ -269,6 +299,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["barbell"],
   },  {
     id: "barbell-hip-thrust",
+    isAdvanced: false,
     name: "Barre hip thrust",
     nameEn: "Barbell Hip Thrust",
     description: "Barre hip thrust. Cible principalement des fessiers.",
@@ -278,6 +309,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["barbell"],
   },  {
     id: "barbell-incline-bench-press",
+    isAdvanced: false,
     name: "Barre développé incliné",
     nameEn: "Barbell Incline Bench Press",
     description: "Barre développé incliné. Cible principalement des pectoraux.",
@@ -287,6 +319,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["barbell"],
   },  {
     id: "barbell-landmine-row",
+    isAdvanced: false,
     name: "Barre landmine rowing",
     nameEn: "Barbell Landmine Row",
     description: "Barre landmine rowing. Cible principalement du dos.",
@@ -296,6 +329,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["barbell"],
   },  {
     id: "barbell-lunge",
+    isAdvanced: false,
     name: "Barre fente",
     nameEn: "Barbell Lunge",
     description: "Barre fente. Cible principalement des quadriceps.",
@@ -305,6 +339,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["barbell"],
   },  {
     id: "barbell-muscle-snatch",
+    isAdvanced: true,
     name: "Barre muscle snatch",
     nameEn: "Barbell Muscle Snatch",
     description: "Barre muscle snatch. Cible principalement des épaules.",
@@ -314,6 +349,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["barbell"],
   },  {
     id: "barbell-overhead-press",
+    isAdvanced: false,
     name: "Barre développé militaire",
     nameEn: "Barbell Overhead Press",
     description: "Barre développé militaire. Cible principalement des épaules.",
@@ -323,6 +359,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["barbell"],
   },  {
     id: "barbell-power-snatch",
+    isAdvanced: true,
     name: "Barre power snatch",
     nameEn: "Barbell Power Snatch",
     description: "Barre power snatch. Cible principalement des épaules.",
@@ -332,6 +369,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["barbell"],
   },  {
     id: "barbell-pullover",
+    isAdvanced: false,
     name: "Barre pull-over",
     nameEn: "Barbell Pullover",
     description: "Barre pull-over. Cible principalement du grand dorsal.",
@@ -341,6 +379,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["barbell"],
   },  {
     id: "barbell-rack-pull",
+    isAdvanced: false,
     name: "Barre rack pull",
     nameEn: "Barbell Rack Pull",
     description: "Barre rack pull. Cible principalement des fessiers.",
@@ -350,6 +389,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["barbell"],
   },  {
     id: "barbell-rear-delt-row",
+    isAdvanced: false,
     name: "Barre rowing delt arrière",
     nameEn: "Barbell Rear Delt Row",
     description: "Barre rowing delt arrière. Cible principalement des épaules.",
@@ -359,6 +399,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["barbell"],
   },  {
     id: "barbell-reverse-lunge",
+    isAdvanced: false,
     name: "Barre fente arrière",
     nameEn: "Barbell Reverse Lunge",
     description: "Barre fente arrière. Cible principalement des quadriceps.",
@@ -368,6 +409,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["barbell"],
   },  {
     id: "barbell-romanian-deadlift",
+    isAdvanced: false,
     name: "Barre soulevé de terre roumain",
     nameEn: "Barbell Romanian Deadlift",
     description: "Barre soulevé de terre roumain. Cible principalement des fessiers.",
@@ -377,6 +419,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["barbell"],
   },  {
     id: "barbell-shrug",
+    isAdvanced: false,
     name: "Barre shrug",
     nameEn: "Barbell Shrug",
     description: "Barre shrug. Cible principalement des trapèzes.",
@@ -386,6 +429,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["barbell"],
   },  {
     id: "barbell-skullcrusher",
+    isAdvanced: false,
     name: "Barre extension triceps au front",
     nameEn: "Barbell Skullcrusher",
     description: "Barre extension triceps au front. Cible principalement des triceps.",
@@ -395,6 +439,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["barbell"],
   },  {
     id: "barbell-snatch",
+    isAdvanced: true,
     name: "Barre snatch",
     nameEn: "Barbell Snatch",
     description: "Barre snatch. Cible principalement des épaules.",
@@ -404,6 +449,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["barbell"],
   },  {
     id: "barbell-spinal-jefferson-curl",
+    isAdvanced: true,
     name: "Barre curl spinal Jefferson",
     nameEn: "Barbell Spinal Jefferson Curl",
     description: "Barre curl spinal Jefferson. Cible principalement des biceps.",
@@ -413,6 +459,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["barbell"],
   },  {
     id: "barbell-split-squat",
+    isAdvanced: false,
     name: "Barre fente stationnaire",
     nameEn: "Barbell Split Squat",
     description: "Barre fente stationnaire. Cible principalement des quadriceps.",
@@ -422,6 +469,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["barbell"],
   },  {
     id: "barbell-step-up-knee-drive",
+    isAdvanced: false,
     name: "Barre step-up montée de genou",
     nameEn: "Barbell Step Up Knee Drive",
     description: "Barre step-up montée de genou. Cible principalement des quadriceps.",
@@ -431,6 +479,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["barbell"],
   },  {
     id: "barbell-stiff-leg-deadlifts",
+    isAdvanced: false,
     name: "Barre soulevé de terre jambes tendues",
     nameEn: "Barbell Stiff Leg Deadlifts",
     description: "Barre soulevé de terre jambes tendues. Cible principalement des fessiers.",
@@ -440,6 +489,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["barbell"],
   },  {
     id: "barbell-thruster",
+    isAdvanced: true,
     name: "Barre thruster",
     nameEn: "Barbell Thruster",
     description: "Barre thruster. Cible principalement des épaules.",
@@ -449,6 +499,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["barbell"],
   },  {
     id: "barbell-upright-row",
+    isAdvanced: false,
     name: "Barre rowing menton",
     nameEn: "Barbell Upright Row",
     description: "Barre rowing menton. Cible principalement des épaules.",
@@ -458,6 +509,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["barbell"],
   },  {
     id: "barbell-walking-lunge",
+    isAdvanced: false,
     name: "Barre fente marchée",
     nameEn: "Barbell Walking Lunge",
     description: "Barre fente marchée. Cible principalement des quadriceps.",
@@ -467,6 +519,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["barbell"],
   },  {
     id: "barbell-wrist-curl",
+    isAdvanced: false,
     name: "Barre curl de poignet",
     nameEn: "Barbell Wrist Curl",
     description: "Barre curl de poignet. Cible principalement des biceps.",
@@ -476,6 +529,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["barbell"],
   },  {
     id: "bayesian-curl",
+    isAdvanced: false,
     name: "Curl bayésien",
     nameEn: "Bayesian Curl",
     description: "Curl bayésien. Cible principalement des biceps.",
@@ -485,6 +539,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "behind-the-neck-press",
+    isAdvanced: false,
     name: "Nuque press",
     nameEn: "Behind-the-Neck Press",
     description: "Nuque press. Cible principalement des épaules.",
@@ -494,6 +549,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "belt-squat",
+    isAdvanced: false,
     name: "Squat ceinture",
     nameEn: "Belt Squat",
     description: "Squat ceinture. Cible principalement des quadriceps.",
@@ -503,6 +559,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "bench-dips",
+    isAdvanced: false,
     name: "Banc dips",
     nameEn: "Bench Dips",
     description: "Banc dips. Cible principalement des triceps.",
@@ -512,6 +569,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["bodyweight"],
   },  {
     id: "bent-knee-soleus-raise",
+    isAdvanced: false,
     name: "Bent-genou soleus élévation",
     nameEn: "Bent-Knee Soleus Raise",
     description: "Bent-genou soleus élévation. Cible principalement des mollets.",
@@ -521,6 +579,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "bicycle-crunches",
+    isAdvanced: false,
     name: "Vélo crunchs",
     nameEn: "Bicycle Crunches",
     description: "Vélo crunchs. Cible principalement des abdominaux.",
@@ -530,6 +589,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["bodyweight"],
   },  {
     id: "bird-dog",
+    isAdvanced: false,
     name: "Bird dog",
     nameEn: "Bird Dog",
     description: "Bird dog. Cible principalement des abdominaux.",
@@ -539,6 +599,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["bodyweight"],
   },  {
     id: "bodyweight-alternating-lateral-lunge",
+    isAdvanced: false,
     name: "Alterné fente latérale",
     nameEn: "Bodyweight Alternating Lateral Lunge",
     description: "Alterné fente latérale. Cible principalement des quadriceps.",
@@ -548,6 +609,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["bodyweight"],
   },  {
     id: "bodyweight-alternating-reverse-lunges",
+    isAdvanced: false,
     name: "Alterné fente arrière",
     nameEn: "Bodyweight Alternating Reverse Lunges",
     description: "Alterné fente arrière. Cible principalement des quadriceps.",
@@ -557,6 +619,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["bodyweight"],
   },  {
     id: "bodyweight-box-squat",
+    isAdvanced: false,
     name: "Squat sur box",
     nameEn: "Bodyweight Box Squat",
     description: "Squat sur box. Cible principalement des quadriceps.",
@@ -566,6 +629,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["bodyweight"],
   },  {
     id: "bodyweight-deadlift",
+    isAdvanced: false,
     name: "Soulevé de terre",
     nameEn: "Bodyweight Deadlift",
     description: "Soulevé de terre. Cible principalement des fessiers.",
@@ -575,6 +639,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["bodyweight"],
   },  {
     id: "bodyweight-deficit-reverse-lunge",
+    isAdvanced: false,
     name: "En déficit fente arrière",
     nameEn: "Bodyweight Deficit Reverse Lunge",
     description: "En déficit fente arrière. Cible principalement des quadriceps.",
@@ -584,6 +649,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["bodyweight"],
   },  {
     id: "bodyweight-donkey-calf-raise",
+    isAdvanced: false,
     name: "Donkey mollets",
     nameEn: "Bodyweight Donkey Calf Raise",
     description: "Donkey mollets. Cible principalement des mollets.",
@@ -593,6 +659,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["bodyweight"],
   },  {
     id: "bodyweight-elevated-push-up",
+    isAdvanced: false,
     name: "Surélevé pompe",
     nameEn: "Bodyweight Elevated Push Up",
     description: "Surélevé pompe. Cible principalement des pectoraux.",
@@ -602,6 +669,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["bodyweight"],
   },  {
     id: "bodyweight-hip-abduction",
+    isAdvanced: false,
     name: "Abduction de hanche",
     nameEn: "Bodyweight Hip Abduction",
     description: "Abduction de hanche. Cible principalement des fessiers.",
@@ -611,6 +679,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["bodyweight"],
   },  {
     id: "bodyweight-knee-push-ups",
+    isAdvanced: false,
     name: "Genou pompes",
     nameEn: "Bodyweight Knee Push Ups",
     description: "Genou pompes. Cible principalement des pectoraux.",
@@ -620,6 +689,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["bodyweight"],
   },  {
     id: "bodyweight-reverse-lunge",
+    isAdvanced: false,
     name: "Fente arrière",
     nameEn: "Bodyweight Reverse Lunge",
     description: "Fente arrière. Cible principalement des quadriceps.",
@@ -629,6 +699,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["bodyweight"],
   },  {
     id: "bodyweight-russian-twist",
+    isAdvanced: false,
     name: "Rotation russe",
     nameEn: "Bodyweight Russian Twist",
     description: "Rotation russe. Cible principalement des abdominaux.",
@@ -638,6 +709,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["bodyweight"],
   },  {
     id: "bodyweight-spinal-jefferson-curl",
+    isAdvanced: true,
     name: "Curl spinal Jefferson",
     nameEn: "Bodyweight Spinal Jefferson Curl",
     description: "Curl spinal Jefferson. Cible principalement des biceps.",
@@ -647,6 +719,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["bodyweight"],
   },  {
     id: "bodyweight-squat",
+    isAdvanced: false,
     name: "Squat",
     nameEn: "Bodyweight Squat",
     description: "Squat. Cible principalement des quadriceps.",
@@ -656,6 +729,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["bodyweight"],
   },  {
     id: "bodyweight-squat-to-stand",
+    isAdvanced: false,
     name: "Squat vers debout",
     nameEn: "Bodyweight Squat to Stand",
     description: "Squat vers debout. Cible principalement des quadriceps.",
@@ -665,6 +739,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["bodyweight"],
   },  {
     id: "bounds",
+    isAdvanced: false,
     name: "Bonds",
     nameEn: "Bounds",
     description: "Bonds. Cible principalement des quadriceps.",
@@ -674,6 +749,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["bodyweight"],
   },  {
     id: "box-jump",
+    isAdvanced: true,
     name: "Saut sur box",
     nameEn: "Box Jump",
     description: "Saut sur box. Cible principalement des quadriceps.",
@@ -683,6 +759,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["bodyweight"],
   },  {
     id: "bradford-press",
+    isAdvanced: false,
     name: "Bradford/rocky presses",
     nameEn: "Bradford/Rocky Presses",
     description: "Bradford/rocky presses. Cible principalement des épaules.",
@@ -692,6 +769,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "broad-jump",
+    isAdvanced: true,
     name: "Saut en longueur",
     nameEn: "Broad Jump",
     description: "Saut en longueur. Cible principalement des quadriceps.",
@@ -701,6 +779,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["bodyweight"],
   },  {
     id: "bulgarian-split-squat",
+    isAdvanced: true,
     name: "Squat bulgare",
     nameEn: "Bulgarian Split Squat",
     description: "Squat bulgare. Cible principalement des quadriceps.",
@@ -710,6 +789,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "burpee",
+    isAdvanced: false,
     name: "Burpee",
     nameEn: "Burpee",
     description: "Burpee. Cible principalement des abdominaux.",
@@ -719,6 +799,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["bodyweight"],
   },  {
     id: "cable-30-degree-shrug",
+    isAdvanced: false,
     name: "Poulie 30 degrés shrug",
     nameEn: "Cable 30 Degree Shrug",
     description: "Poulie 30 degrés shrug. Cible principalement des trapèzes.",
@@ -728,6 +809,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["cable"],
   },  {
     id: "cable-bar-curl",
+    isAdvanced: false,
     name: "Poulie bar curl",
     nameEn: "Cable Bar Curl",
     description: "Poulie bar curl. Cible principalement des biceps.",
@@ -737,6 +819,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["cable"],
   },  {
     id: "cable-bar-face-pull",
+    isAdvanced: false,
     name: "Poulie bar face pull",
     nameEn: "Cable Bar Face Pull",
     description: "Poulie bar face pull. Cible principalement des épaules.",
@@ -746,6 +829,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["cable"],
   },  {
     id: "cable-bar-pushdown",
+    isAdvanced: false,
     name: "Poulie bar extension à la poulie",
     nameEn: "Cable Bar Pushdown",
     description: "Poulie bar extension à la poulie. Cible principalement des triceps.",
@@ -755,6 +839,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["cable"],
   },  {
     id: "cable-bench-chest-fly",
+    isAdvanced: false,
     name: "Poulie banc écarté couché",
     nameEn: "Cable Bench Chest Fly",
     description: "Poulie banc écarté couché. Cible principalement des pectoraux.",
@@ -764,6 +849,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["cable"],
   },  {
     id: "cable-bench-press",
+    isAdvanced: false,
     name: "Poulie développé couché",
     nameEn: "Cable Bench Press",
     description: "Poulie développé couché. Cible principalement des pectoraux.",
@@ -773,6 +859,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["cable"],
   },  {
     id: "cable-bench-straight-leg-kickback",
+    isAdvanced: false,
     name: "Poulie banc tendu leg kickback",
     nameEn: "Cable Bench Straight Leg Kickback",
     description: "Poulie banc tendu leg kickback. Cible principalement des fessiers.",
@@ -782,6 +869,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["cable"],
   },  {
     id: "cable-chest-press",
+    isAdvanced: false,
     name: "Poulie développé pectoraux",
     nameEn: "Cable Chest Press",
     description: "Poulie développé pectoraux. Cible principalement des pectoraux.",
@@ -791,6 +879,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["cable"],
   },  {
     id: "cable-chop",
+    isAdvanced: false,
     name: "Bûcheron à la poulie",
     nameEn: "Cable Chop",
     description: "Bûcheron à la poulie. Cible principalement des abdominaux.",
@@ -800,6 +889,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["cable"],
   },  {
     id: "cable-decline-bench-press",
+    isAdvanced: false,
     name: "Poulie développé décliné",
     nameEn: "Cable Decline Bench Press",
     description: "Poulie développé décliné. Cible principalement des pectoraux.",
@@ -809,6 +899,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["cable"],
   },  {
     id: "cable-external-rotation",
+    isAdvanced: false,
     name: "Poulie rotation externe",
     nameEn: "Cable External Rotation",
     description: "Poulie rotation externe. Cible principalement des épaules.",
@@ -818,6 +909,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["cable"],
   },  {
     id: "cable-front-raise",
+    isAdvanced: false,
     name: "Poulie élévation frontale",
     nameEn: "Cable Front Raise",
     description: "Poulie élévation frontale. Cible principalement des épaules.",
@@ -827,6 +919,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["cable"],
   },  {
     id: "cable-high-to-low-fly",
+    isAdvanced: false,
     name: "Poulie haut vers bas écarté",
     nameEn: "Cable High-to-Low Fly",
     description: "Poulie haut vers bas écarté. Cible principalement des pectoraux.",
@@ -836,6 +929,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["cable"],
   },  {
     id: "cable-hip-abduction",
+    isAdvanced: false,
     name: "Poulie abduction de hanche",
     nameEn: "Cable Hip Abduction",
     description: "Poulie abduction de hanche. Cible principalement des fessiers.",
@@ -845,6 +939,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["cable"],
   },  {
     id: "cable-incline-bench-press",
+    isAdvanced: false,
     name: "Poulie développé incliné",
     nameEn: "Cable Incline Bench Press",
     description: "Poulie développé incliné. Cible principalement des pectoraux.",
@@ -854,6 +949,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["cable"],
   },  {
     id: "cable-kickback",
+    isAdvanced: false,
     name: "Poulie kickback",
     nameEn: "Cable Kickback",
     description: "Poulie kickback. Cible principalement des fessiers.",
@@ -863,6 +959,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["cable"],
   },  {
     id: "cable-low-single-arm-lateral-raise",
+    isAdvanced: false,
     name: "Poulie bas unilatéral élévation latérale",
     nameEn: "Cable Low Single Arm Lateral Raise",
     description: "Poulie bas unilatéral élévation latérale. Cible principalement des épaules.",
@@ -872,6 +969,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["cable"],
   },  {
     id: "cable-low-to-high-fly",
+    isAdvanced: false,
     name: "Poulie bas vers haut écarté",
     nameEn: "Cable Low-to-High Fly",
     description: "Poulie bas vers haut écarté. Cible principalement des pectoraux.",
@@ -881,6 +979,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["cable"],
   },  {
     id: "cable-overhead-press",
+    isAdvanced: false,
     name: "Poulie développé militaire",
     nameEn: "Cable Overhead Press",
     description: "Poulie développé militaire. Cible principalement des épaules.",
@@ -890,6 +989,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["cable"],
   },  {
     id: "cable-overhead-straight-bar-extensions",
+    isAdvanced: false,
     name: "Poulie overhead tendu bar extensions",
     nameEn: "Cable Overhead Straight Bar Extensions",
     description: "Poulie overhead tendu bar extensions. Cible principalement des triceps.",
@@ -899,6 +999,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["cable"],
   },  {
     id: "cable-pallof-press",
+    isAdvanced: false,
     name: "Poulie Pallof press",
     nameEn: "Cable Pallof Press",
     description: "Poulie Pallof press. Cible principalement des abdominaux.",
@@ -908,6 +1009,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["cable"],
   },  {
     id: "cable-pec-fly",
+    isAdvanced: false,
     name: "Poulie écarté pectoraux",
     nameEn: "Cable Pec Fly",
     description: "Poulie écarté pectoraux. Cible principalement des pectoraux.",
@@ -917,6 +1019,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["cable"],
   },  {
     id: "cable-pull-through",
+    isAdvanced: false,
     name: "Poulie tirage entre les jambes",
     nameEn: "Cable Pull Through",
     description: "Poulie tirage entre les jambes. Cible principalement des fessiers.",
@@ -926,6 +1029,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["cable"],
   },  {
     id: "cable-rope-hammer-curl",
+    isAdvanced: false,
     name: "Poulie corde curl marteau",
     nameEn: "Cable Rope Hammer Curl",
     description: "Poulie corde curl marteau. Cible principalement des biceps.",
@@ -935,6 +1039,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["cable"],
   },  {
     id: "cable-rope-kneeling-face-pull",
+    isAdvanced: false,
     name: "Poulie corde à genoux face pull",
     nameEn: "Cable Rope Kneeling Face Pull",
     description: "Poulie corde à genoux face pull. Cible principalement des épaules.",
@@ -944,6 +1049,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["cable"],
   },  {
     id: "cable-rope-overhead-tricep-extension",
+    isAdvanced: false,
     name: "Poulie corde extension triceps au-dessus de la tête",
     nameEn: "Cable Rope Overhead Tricep Extension",
     description: "Poulie corde extension triceps au-dessus de la tête. Cible principalement des triceps.",
@@ -953,6 +1059,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["cable"],
   },  {
     id: "cable-rope-pullover",
+    isAdvanced: false,
     name: "Poulie corde pull-over",
     nameEn: "Cable Rope Pullover",
     description: "Poulie corde pull-over. Cible principalement du grand dorsal.",
@@ -962,6 +1069,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["cable"],
   },  {
     id: "cable-rope-pushdown",
+    isAdvanced: false,
     name: "Poulie corde extension à la poulie",
     nameEn: "Cable Rope Pushdown",
     description: "Poulie corde extension à la poulie. Cible principalement des triceps.",
@@ -971,6 +1079,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["cable"],
   },  {
     id: "cable-row-bar-standing-row",
+    isAdvanced: false,
     name: "Poulie rowing bar debout rowing",
     nameEn: "Cable Row Bar Standing Row",
     description: "Poulie rowing bar debout rowing. Cible principalement du dos.",
@@ -980,6 +1089,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["cable"],
   },  {
     id: "cable-seated-rope-face-pull",
+    isAdvanced: false,
     name: "Poulie assis corde face pull",
     nameEn: "Cable Seated Rope Face Pull",
     description: "Poulie assis corde face pull. Cible principalement des épaules.",
@@ -989,6 +1099,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["cable"],
   },  {
     id: "cable-side-bend",
+    isAdvanced: false,
     name: "Poulie flexion latérale",
     nameEn: "Cable Side Bend",
     description: "Poulie flexion latérale. Cible principalement des abdominaux.",
@@ -998,6 +1109,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["cable"],
   },  {
     id: "cable-single-arm-neutral-grip-row",
+    isAdvanced: true,
     name: "Poulie unilatéral prise neutre rowing",
     nameEn: "Cable Single Arm Neutral Grip Row",
     description: "Poulie unilatéral prise neutre rowing. Cible principalement du dos.",
@@ -1007,6 +1119,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["cable"],
   },  {
     id: "cable-single-arm-rear-delt-row",
+    isAdvanced: true,
     name: "Poulie unilatéral rowing delt arrière",
     nameEn: "Cable Single Arm Rear Delt Row",
     description: "Poulie unilatéral rowing delt arrière. Cible principalement des épaules.",
@@ -1016,6 +1129,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["cable"],
   },  {
     id: "cable-single-arm-rope-pushdown",
+    isAdvanced: false,
     name: "Poulie unilatéral corde extension à la poulie",
     nameEn: "Cable Single Arm Rope Pushdown",
     description: "Poulie unilatéral corde extension à la poulie. Cible principalement des triceps.",
@@ -1025,6 +1139,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["cable"],
   },  {
     id: "cable-single-arm-underhand-grip-row",
+    isAdvanced: true,
     name: "Poulie unilatéral prise supination rowing",
     nameEn: "Cable Single Arm Underhand Grip Row",
     description: "Poulie unilatéral prise supination rowing. Cible principalement du dos.",
@@ -1034,6 +1149,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["cable"],
   },  {
     id: "cable-single-leg-laying-leg-curl",
+    isAdvanced: false,
     name: "Machine unijambiste couché leg curl",
     nameEn: "Machine Single Leg Lying Leg Curl",
     description: "Machine unijambiste couché leg curl. Cible principalement des biceps.",
@@ -1043,6 +1159,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["machine"],
   },  {
     id: "cable-standing-low-to-high-wood-chopper",
+    isAdvanced: false,
     name: "Poulie debout bas vers haut bûcheron à la poulie",
     nameEn: "Cable Standing Low To High Wood Chopper",
     description: "Poulie debout bas vers haut bûcheron à la poulie. Cible principalement des abdominaux.",
@@ -1052,6 +1169,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["cable"],
   },  {
     id: "cable-standing-single-arm-chest-press",
+    isAdvanced: true,
     name: "Poulie debout unilatéral développé pectoraux",
     nameEn: "Cable Standing Single Arm Chest Press",
     description: "Poulie debout unilatéral développé pectoraux. Cible principalement des pectoraux.",
@@ -1061,6 +1179,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["cable"],
   },  {
     id: "cable-supinating-row",
+    isAdvanced: false,
     name: "Poulie en supination rowing",
     nameEn: "Cable Supinating Row",
     description: "Poulie en supination rowing. Cible principalement du dos.",
@@ -1070,6 +1189,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["cable"],
   },  {
     id: "cable-tricep-kickback",
+    isAdvanced: false,
     name: "Poulie kickback triceps",
     nameEn: "Cable Tricep Kickback",
     description: "Poulie kickback triceps. Cible principalement des triceps.",
@@ -1079,6 +1199,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["cable"],
   },  {
     id: "cable-wood-chopper",
+    isAdvanced: false,
     name: "Poulie bûcheron à la poulie",
     nameEn: "Cable Wood Chopper",
     description: "Poulie bûcheron à la poulie. Cible principalement des abdominaux.",
@@ -1088,6 +1209,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["cable"],
   },  {
     id: "cable-wrist-curl",
+    isAdvanced: false,
     name: "Poulie curl de poignet",
     nameEn: "Cable Wrist Curl",
     description: "Poulie curl de poignet. Cible principalement des biceps.",
@@ -1097,6 +1219,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["cable"],
   },  {
     id: "captains-chair-knee-raise",
+    isAdvanced: false,
     name: "Captain's chair genou élévation",
     nameEn: "Captain's Chair Knee Raise",
     description: "Captain's chair genou élévation. Cible principalement des abdominaux.",
@@ -1106,6 +1229,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "chest-supported-dumbbell-row",
+    isAdvanced: false,
     name: "Chest-supported haltère rowing",
     nameEn: "Chest-Supported Dumbbell Row",
     description: "Chest-supported haltère rowing. Cible principalement du dos.",
@@ -1115,6 +1239,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "chest-supported-t-bar-row",
+    isAdvanced: false,
     name: "Chest-supported rowing T-bar",
     nameEn: "Chest-Supported T-Bar Row",
     description: "Chest-supported rowing T-bar. Cible principalement du dos.",
@@ -1124,6 +1249,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "chin-ups",
+    isAdvanced: false,
     name: "Tractions prise supination",
     nameEn: "Chin Ups",
     description: "Tractions prise supination. Cible principalement du grand dorsal.",
@@ -1133,6 +1259,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["bodyweight"],
   },  {
     id: "close-grip-barbell-curl",
+    isAdvanced: false,
     name: "Prise serrée barre curl",
     nameEn: "Close-Grip Barbell Curl",
     description: "Prise serrée barre curl. Cible principalement des biceps.",
@@ -1142,6 +1269,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["barbell"],
   },  {
     id: "close-grip-incline-push-up",
+    isAdvanced: false,
     name: "Incliné pompe prise serrée",
     nameEn: "Incline Push-Up Close-Grip",
     description: "Incliné pompe prise serrée. Cible principalement des pectoraux.",
@@ -1151,6 +1279,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["bodyweight"],
   },  {
     id: "cossack-squat",
+    isAdvanced: true,
     name: "Squat cosaque",
     nameEn: "Cossack Squat",
     description: "Squat cosaque. Cible principalement des quadriceps.",
@@ -1160,6 +1289,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "cross-body-cable-tricep-extension",
+    isAdvanced: false,
     name: "Cross-body poulie extension triceps",
     nameEn: "Cross-Body Cable Tricep Extension",
     description: "Cross-body poulie extension triceps. Cible principalement des triceps.",
@@ -1169,6 +1299,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["cable"],
   },  {
     id: "cross-body-hammer-curl",
+    isAdvanced: false,
     name: "Cross-body curl marteau",
     nameEn: "Cross-Body Hammer Curl",
     description: "Cross-body curl marteau. Cible principalement des biceps.",
@@ -1178,6 +1309,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "crunches",
+    isAdvanced: false,
     name: "Crunchs",
     nameEn: "Crunches",
     description: "Crunchs. Cible principalement des abdominaux.",
@@ -1187,6 +1319,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["bodyweight"],
   },  {
     id: "cuban-press",
+    isAdvanced: false,
     name: "Cuban press",
     nameEn: "Cuban Press",
     description: "Cuban press. Cible principalement des épaules.",
@@ -1196,6 +1329,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "dead-bug",
+    isAdvanced: false,
     name: "Dead bug",
     nameEn: "Dead Bug",
     description: "Dead bug. Cible principalement des abdominaux.",
@@ -1205,6 +1339,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["bodyweight"],
   },  {
     id: "dead-bug-weighted",
+    isAdvanced: false,
     name: "Dead bug (lesté)",
     nameEn: "Dead Bug (Weighted)",
     description: "Dead bug (lesté). Cible principalement des abdominaux.",
@@ -1214,6 +1349,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["bodyweight"],
   },  {
     id: "decline-barbell-bench-press",
+    isAdvanced: false,
     name: "Décliné barre développé couché",
     nameEn: "Decline Barbell Bench Press",
     description: "Décliné barre développé couché. Cible principalement des pectoraux.",
@@ -1223,6 +1359,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["barbell"],
   },  {
     id: "decline-crunch",
+    isAdvanced: false,
     name: "Décliné crunch",
     nameEn: "Decline Crunch",
     description: "Décliné crunch. Cible principalement des abdominaux.",
@@ -1232,6 +1369,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["bodyweight"],
   },  {
     id: "decline-machine-chest-press",
+    isAdvanced: false,
     name: "Décliné machine développé pectoraux",
     nameEn: "Decline Machine Chest Press",
     description: "Décliné machine développé pectoraux. Cible principalement des pectoraux.",
@@ -1241,6 +1379,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["machine"],
   },  {
     id: "decline-push-up",
+    isAdvanced: false,
     name: "Décliné pompe",
     nameEn: "Decline Push Up",
     description: "Décliné pompe. Cible principalement des pectoraux.",
@@ -1250,6 +1389,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["bodyweight"],
   },  {
     id: "decline-sit-up",
+    isAdvanced: false,
     name: "Décliné relevé de buste",
     nameEn: "Decline Sit-Up",
     description: "Décliné relevé de buste. Cible principalement des abdominaux.",
@@ -1259,6 +1399,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["bodyweight"],
   },  {
     id: "deficit-barbell-romanian-deadlift",
+    isAdvanced: false,
     name: "Soulevé de terre roumain en déficit",
     nameEn: "Romanian Deadlift from Deficit",
     description: "Soulevé de terre roumain en déficit. Cible principalement des fessiers.",
@@ -1268,6 +1409,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "deficit-deadlift",
+    isAdvanced: false,
     name: "Soulevé de terre en déficit",
     nameEn: "Deficit Deadlift",
     description: "Soulevé de terre en déficit. Cible principalement des fessiers.",
@@ -1277,6 +1419,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "deficit-dumbbell-romanian-deadlift",
+    isAdvanced: false,
     name: "En déficit haltère soulevé de terre roumain",
     nameEn: "Deficit Dumbbell Romanian Deadlift",
     description: "En déficit haltère soulevé de terre roumain. Cible principalement des fessiers.",
@@ -1286,6 +1429,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "diamond-push-ups",
+    isAdvanced: false,
     name: "Pompe diamant",
     nameEn: "Diamond Push Ups",
     description: "Pompe diamant. Cible principalement des pectoraux.",
@@ -1295,6 +1439,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["bodyweight"],
   },  {
     id: "double-kettlebell-clean-and-press",
+    isAdvanced: true,
     name: "Kettlebell épaulé-développé (double)",
     nameEn: "Kettlebell Clean & Press (Double)",
     description: "Kettlebell épaulé-développé (double). Cible principalement des épaules.",
@@ -1304,6 +1449,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["kettlebell"],
   },  {
     id: "dumbbell-alternating-forward-lunge",
+    isAdvanced: false,
     name: "Haltère alterné fente avant",
     nameEn: "Dumbbell Alternating Forward Lunge",
     description: "Haltère alterné fente avant. Cible principalement des quadriceps.",
@@ -1313,6 +1459,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "dumbbell-back-extension",
+    isAdvanced: false,
     name: "Haltère extension lombaire",
     nameEn: "Dumbbell Back Extension",
     description: "Haltère extension lombaire. Cible principalement du dos.",
@@ -1322,6 +1469,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "dumbbell-bench-press",
+    isAdvanced: false,
     name: "Haltère développé couché",
     nameEn: "Dumbbell Bench Press",
     description: "Haltère développé couché. Cible principalement des pectoraux.",
@@ -1331,6 +1479,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "dumbbell-bulgarian-split-squat",
+    isAdvanced: true,
     name: "Haltère squat bulgare",
     nameEn: "Dumbbell Bulgarian Split Squat",
     description: "Haltère squat bulgare. Cible principalement des quadriceps.",
@@ -1340,6 +1489,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "dumbbell-chest-fly",
+    isAdvanced: false,
     name: "Haltère écarté couché",
     nameEn: "Dumbbell Chest Fly",
     description: "Haltère écarté couché. Cible principalement des pectoraux.",
@@ -1349,6 +1499,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "dumbbell-close-grip-push-up",
+    isAdvanced: false,
     name: "Prise serrée pompe sur un haltère",
     nameEn: "Close-Grip Push-Up off a Dumbbell",
     description: "Prise serrée pompe sur un haltère. Cible principalement des pectoraux.",
@@ -1358,6 +1509,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "dumbbell-concentration-curl",
+    isAdvanced: false,
     name: "Haltère curl concentration",
     nameEn: "Dumbbell Concentration Curl",
     description: "Haltère curl concentration. Cible principalement des biceps.",
@@ -1367,6 +1519,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "dumbbell-cossack-squat",
+    isAdvanced: true,
     name: "Haltère squat cosaque",
     nameEn: "Dumbbell Cossack Squat",
     description: "Haltère squat cosaque. Cible principalement des quadriceps.",
@@ -1376,6 +1529,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "dumbbell-cross-body-romanian-deadlift",
+    isAdvanced: false,
     name: "Haltère croisé soulevé de terre roumain",
     nameEn: "Dumbbell Cross Body Romanian Deadlift",
     description: "Haltère croisé soulevé de terre roumain. Cible principalement des fessiers.",
@@ -1385,6 +1539,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "dumbbell-curl",
+    isAdvanced: false,
     name: "Haltère curl",
     nameEn: "Dumbbell Curl",
     description: "Haltère curl. Cible principalement des biceps.",
@@ -1394,6 +1549,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "dumbbell-deadlift",
+    isAdvanced: false,
     name: "Haltère soulevé de terre",
     nameEn: "Dumbbell Deadlift",
     description: "Haltère soulevé de terre. Cible principalement des fessiers.",
@@ -1403,6 +1559,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "dumbbell-decline-bench-press",
+    isAdvanced: false,
     name: "Haltère développé décliné",
     nameEn: "Dumbbell Decline Bench Press",
     description: "Haltère développé décliné. Cible principalement des pectoraux.",
@@ -1412,6 +1569,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "dumbbell-decline-chest-fly",
+    isAdvanced: false,
     name: "Haltère décliné écarté couché",
     nameEn: "Dumbbell Decline Chest Fly",
     description: "Haltère décliné écarté couché. Cible principalement des pectoraux.",
@@ -1421,6 +1579,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "dumbbell-decline-crunch-behind-head",
+    isAdvanced: false,
     name: "Haltère décliné crunch (derrière la tête)",
     nameEn: "Dumbbell Decline Crunch (Behind Head)",
     description: "Haltère décliné crunch (derrière la tête). Cible principalement des abdominaux.",
@@ -1430,6 +1589,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "dumbbell-decline-skullcrusher",
+    isAdvanced: false,
     name: "Haltère décliné extension triceps au front",
     nameEn: "Dumbbell Decline Skullcrusher",
     description: "Haltère décliné extension triceps au front. Cible principalement des triceps.",
@@ -1439,6 +1599,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "dumbbell-feet-elevated-glute-bridge",
+    isAdvanced: false,
     name: "Haltère pieds surélevés pont fessier",
     nameEn: "Dumbbell Feet Elevated Glute Bridge",
     description: "Haltère pieds surélevés pont fessier. Cible principalement des fessiers.",
@@ -1448,6 +1609,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "dumbbell-figure-four-heels-elevated-hip-thrust",
+    isAdvanced: false,
     name: "Haltère figure quatre talons surélevés hip thrust",
     nameEn: "Dumbbell Figure Four Heels Elevated Hip Thrust",
     description: "Haltère figure quatre talons surélevés hip thrust. Cible principalement des fessiers.",
@@ -1457,6 +1619,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "dumbbell-front-raise",
+    isAdvanced: false,
     name: "Haltère élévation frontale",
     nameEn: "Dumbbell Front Raise",
     description: "Haltère élévation frontale. Cible principalement des épaules.",
@@ -1466,6 +1629,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "dumbbell-front-squat",
+    isAdvanced: false,
     name: "Haltère squat avant",
     nameEn: "Dumbbell Front Squat",
     description: "Haltère squat avant. Cible principalement des quadriceps.",
@@ -1475,6 +1639,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "dumbbell-front-squat-tempo",
+    isAdvanced: false,
     name: "Haltère squat avant (tempo)",
     nameEn: "Dumbbell Front Squat (Tempo)",
     description: "Haltère squat avant (tempo). Cible principalement des quadriceps.",
@@ -1484,6 +1649,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "dumbbell-goblet-alternating-curtsy-lunge",
+    isAdvanced: false,
     name: "Haltère goblet alterné fente croisée",
     nameEn: "Dumbbell Goblet Alternating Curtsy Lunge",
     description: "Haltère goblet alterné fente croisée. Cible principalement des quadriceps.",
@@ -1493,6 +1659,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "dumbbell-goblet-bulgarian-split-squat",
+    isAdvanced: true,
     name: "Haltère goblet squat bulgare",
     nameEn: "Dumbbell Goblet Bulgarian Split Squat",
     description: "Haltère goblet squat bulgare. Cible principalement des quadriceps.",
@@ -1502,6 +1669,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "dumbbell-goblet-forward-lunge",
+    isAdvanced: false,
     name: "Haltère goblet fente avant",
     nameEn: "Dumbbell Goblet Forward Lunge",
     description: "Haltère goblet fente avant. Cible principalement des quadriceps.",
@@ -1511,6 +1679,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "dumbbell-goblet-reverse-lunge",
+    isAdvanced: false,
     name: "Haltère goblet fente arrière",
     nameEn: "Dumbbell Goblet Reverse Lunge",
     description: "Haltère goblet fente arrière. Cible principalement des quadriceps.",
@@ -1520,6 +1689,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "dumbbell-goblet-split-squat",
+    isAdvanced: false,
     name: "Haltère goblet fente stationnaire",
     nameEn: "Dumbbell Goblet Split Squat",
     description: "Haltère goblet fente stationnaire. Cible principalement des quadriceps.",
@@ -1529,6 +1699,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "dumbbell-goblet-squat",
+    isAdvanced: false,
     name: "Haltère squat goblet",
     nameEn: "Dumbbell Goblet Squat",
     description: "Haltère squat goblet. Cible principalement des quadriceps.",
@@ -1538,6 +1709,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "dumbbell-good-morning",
+    isAdvanced: false,
     name: "Haltère good morning",
     nameEn: "Dumbbell Good Morning",
     description: "Haltère good morning. Cible principalement du dos.",
@@ -1547,6 +1719,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "dumbbell-halo",
+    isAdvanced: false,
     name: "Haltère halo",
     nameEn: "Dumbbell Halo",
     description: "Haltère halo. Cible principalement des épaules.",
@@ -1556,6 +1729,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "dumbbell-hammer-curl",
+    isAdvanced: false,
     name: "Haltère curl marteau",
     nameEn: "Dumbbell Hammer Curl",
     description: "Haltère curl marteau. Cible principalement des biceps.",
@@ -1565,6 +1739,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "dumbbell-hammer-preacher-curl",
+    isAdvanced: false,
     name: "Haltère hammer curl pupitre",
     nameEn: "Dumbbell Hammer Preacher Curl",
     description: "Haltère hammer curl pupitre. Cible principalement des biceps.",
@@ -1574,6 +1749,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "dumbbell-heels-elevated-hip-thrust",
+    isAdvanced: false,
     name: "Haltère talons surélevés hip thrust",
     nameEn: "Dumbbell Heels Elevated Hip Thrust",
     description: "Haltère talons surélevés hip thrust. Cible principalement des fessiers.",
@@ -1583,6 +1759,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "dumbbell-incline-bench-press",
+    isAdvanced: false,
     name: "Haltère développé incliné",
     nameEn: "Dumbbell Incline Bench Press",
     description: "Haltère développé incliné. Cible principalement des pectoraux.",
@@ -1592,6 +1769,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "dumbbell-incline-chest-fly",
+    isAdvanced: false,
     name: "Haltère incliné écarté couché",
     nameEn: "Dumbbell Incline Chest Fly",
     description: "Haltère incliné écarté couché. Cible principalement des pectoraux.",
@@ -1601,6 +1779,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "dumbbell-incline-curl",
+    isAdvanced: false,
     name: "Haltère incliné curl",
     nameEn: "Dumbbell Incline Curl",
     description: "Haltère incliné curl. Cible principalement des biceps.",
@@ -1610,6 +1789,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "dumbbell-incline-front-raise",
+    isAdvanced: false,
     name: "Haltère incliné élévation frontale",
     nameEn: "Dumbbell Incline Front Raise",
     description: "Haltère incliné élévation frontale. Cible principalement des épaules.",
@@ -1619,6 +1799,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "dumbbell-incline-hammer-curl",
+    isAdvanced: false,
     name: "Haltère incliné curl marteau",
     nameEn: "Dumbbell Incline Hammer Curl",
     description: "Haltère incliné curl marteau. Cible principalement des biceps.",
@@ -1628,6 +1809,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "dumbbell-incline-row",
+    isAdvanced: false,
     name: "Haltère incliné rowing",
     nameEn: "Dumbbell Incline Row",
     description: "Haltère incliné rowing. Cible principalement du dos.",
@@ -1637,6 +1819,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "dumbbell-lateral-lunge",
+    isAdvanced: false,
     name: "Haltère fente latérale",
     nameEn: "Dumbbell Lateral Lunge",
     description: "Haltère fente latérale. Cible principalement des quadriceps.",
@@ -1646,6 +1829,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "dumbbell-lateral-raise",
+    isAdvanced: false,
     name: "Haltère élévation latérale",
     nameEn: "Dumbbell Lateral Raise",
     description: "Haltère élévation latérale. Cible principalement des épaules.",
@@ -1655,6 +1839,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "dumbbell-laying-reverse-fly",
+    isAdvanced: false,
     name: "Haltère couché oiseau",
     nameEn: "Dumbbell Laying Reverse Fly",
     description: "Haltère couché oiseau. Cible principalement des pectoraux.",
@@ -1664,6 +1849,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "dumbbell-leg-curl",
+    isAdvanced: false,
     name: "Haltère leg curl",
     nameEn: "Dumbbell Leg Curl",
     description: "Haltère leg curl. Cible principalement des biceps.",
@@ -1673,6 +1859,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "dumbbell-lying-single-arm-rear-lateral-raise",
+    isAdvanced: false,
     name: "Haltère couché un bras arrière élévation latérale",
     nameEn: "Dumbbell Lying One-Arm Rear Lateral Raise",
     description: "Haltère couché un bras arrière élévation latérale. Cible principalement des épaules.",
@@ -1682,6 +1869,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "dumbbell-neutral-grip-bent-over-row",
+    isAdvanced: false,
     name: "Buste penché deux haltères rowing paumes face à face",
     nameEn: "Bent Over Two-Dumbbell Row Palms In",
     description: "Buste penché deux haltères rowing paumes face à face. Cible principalement du dos.",
@@ -1691,6 +1879,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "dumbbell-neutral-high-incline-bench-press",
+    isAdvanced: false,
     name: "Haltère neutre haut développé incliné",
     nameEn: "Dumbbell Neutral High Incline Bench Press",
     description: "Haltère neutre haut développé incliné. Cible principalement des pectoraux.",
@@ -1700,6 +1889,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "dumbbell-overhead-squat",
+    isAdvanced: true,
     name: "Haltère squat overhead",
     nameEn: "Dumbbell Overhead Squat",
     description: "Haltère squat overhead. Cible principalement des quadriceps.",
@@ -1709,6 +1899,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "dumbbell-preacher-curl",
+    isAdvanced: false,
     name: "Haltère curl pupitre",
     nameEn: "Dumbbell Preacher Curl",
     description: "Haltère curl pupitre. Cible principalement des biceps.",
@@ -1718,6 +1909,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "dumbbell-pullover",
+    isAdvanced: false,
     name: "Haltère pull-over",
     nameEn: "Dumbbell Pullover",
     description: "Haltère pull-over. Cible principalement du grand dorsal.",
@@ -1727,6 +1919,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "dumbbell-push-press",
+    isAdvanced: false,
     name: "Haltère push press",
     nameEn: "Dumbbell Push Press",
     description: "Haltère push press. Cible principalement des épaules.",
@@ -1736,6 +1929,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "dumbbell-rear-delt-fly",
+    isAdvanced: false,
     name: "Haltère oiseau",
     nameEn: "Dumbbell Rear Delt Fly",
     description: "Haltère oiseau. Cible principalement des pectoraux.",
@@ -1745,6 +1939,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "dumbbell-reverse-lunge",
+    isAdvanced: false,
     name: "Haltère arrière fente",
     nameEn: "Dumbbell Rear Lunge",
     description: "Haltère arrière fente. Cible principalement des quadriceps.",
@@ -1754,6 +1949,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "dumbbell-row-bilateral",
+    isAdvanced: false,
     name: "Haltère rowing bilatéral",
     nameEn: "Dumbbell Row Bilateral",
     description: "Haltère rowing bilatéral. Cible principalement du dos.",
@@ -1763,6 +1959,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "dumbbell-row-unilateral",
+    isAdvanced: false,
     name: "Haltère rowing unilatéral",
     nameEn: "Dumbbell Row Unilateral",
     description: "Haltère rowing unilatéral. Cible principalement du dos.",
@@ -1772,6 +1969,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "dumbbell-russian-twist",
+    isAdvanced: false,
     name: "Haltère rotation russe",
     nameEn: "Dumbbell Russian Twist",
     description: "Haltère rotation russe. Cible principalement des abdominaux.",
@@ -1781,6 +1979,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "dumbbell-seated-full-lateral-raise",
+    isAdvanced: false,
     name: "Haltère assis complet élévation latérale",
     nameEn: "Dumbbell Seated Full Lateral Raise",
     description: "Haltère assis complet élévation latérale. Cible principalement des épaules.",
@@ -1790,6 +1989,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "dumbbell-seated-lateral-raises",
+    isAdvanced: false,
     name: "Haltère assis élévation latérale",
     nameEn: "Dumbbell Seated Lateral Raises",
     description: "Haltère assis élévation latérale. Cible principalement des épaules.",
@@ -1799,6 +1999,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "dumbbell-seated-overhead-press",
+    isAdvanced: false,
     name: "Haltère assis développé militaire",
     nameEn: "Dumbbell Seated Overhead Press",
     description: "Haltère assis développé militaire. Cible principalement des épaules.",
@@ -1808,6 +2009,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "dumbbell-seated-overhead-tricep-extension",
+    isAdvanced: false,
     name: "Haltère assis extension triceps au-dessus de la tête",
     nameEn: "Dumbbell Seated Overhead Tricep Extension",
     description: "Haltère assis extension triceps au-dessus de la tête. Cible principalement des triceps.",
@@ -1817,6 +2019,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "dumbbell-seated-rear-delt-fly",
+    isAdvanced: false,
     name: "Haltère assis oiseau",
     nameEn: "Dumbbell Seated Rear Delt Fly",
     description: "Haltère assis oiseau. Cible principalement des pectoraux.",
@@ -1826,6 +2029,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "dumbbell-seated-shrug",
+    isAdvanced: false,
     name: "Haltère assis shrug",
     nameEn: "Dumbbell Seated Shrug",
     description: "Haltère assis shrug. Cible principalement des trapèzes.",
@@ -1835,6 +2039,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "dumbbell-shrug",
+    isAdvanced: false,
     name: "Haltère shrug",
     nameEn: "Dumbbell Shrug",
     description: "Haltère shrug. Cible principalement des trapèzes.",
@@ -1844,6 +2049,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "dumbbell-side-bend",
+    isAdvanced: false,
     name: "Haltère flexion latérale",
     nameEn: "Dumbbell Side Bend",
     description: "Haltère flexion latérale. Cible principalement des abdominaux.",
@@ -1853,6 +2059,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "dumbbell-single-arm-chest-press",
+    isAdvanced: true,
     name: "Haltère unilatéral développé pectoraux",
     nameEn: "Dumbbell Single Arm Chest Press",
     description: "Haltère unilatéral développé pectoraux. Cible principalement des pectoraux.",
@@ -1862,6 +2069,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "dumbbell-single-arm-clean-and-press",
+    isAdvanced: true,
     name: "Haltère unilatéral épaulé-développé",
     nameEn: "Dumbbell Single Arm Clean And Press",
     description: "Haltère unilatéral épaulé-développé. Cible principalement des épaules.",
@@ -1871,6 +2079,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "dumbbell-single-arm-incline-bench-preacher-curl",
+    isAdvanced: false,
     name: "Unilatéral haltère curl pupitre sur dossier de banc incliné",
     nameEn: "Single-Arm Dumbbell Preacher Curl on an Incline Bench Backrest",
     description: "Unilatéral haltère curl pupitre sur dossier de banc incliné. Cible principalement des biceps.",
@@ -1880,6 +2089,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "dumbbell-single-arm-neutral-overhead-press",
+    isAdvanced: true,
     name: "Haltère unilatéral neutre développé militaire",
     nameEn: "Dumbbell Single Arm Neutral Overhead Press",
     description: "Haltère unilatéral neutre développé militaire. Cible principalement des épaules.",
@@ -1889,6 +2099,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "dumbbell-single-arm-row",
+    isAdvanced: true,
     name: "Haltère rowing un bras",
     nameEn: "Dumbbell Single Arm Row",
     description: "Haltère rowing un bras. Cible principalement du dos.",
@@ -1898,6 +2109,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "dumbbell-single-arm-upright-row",
+    isAdvanced: true,
     name: "Haltère unilatéral rowing menton",
     nameEn: "Dumbbell Single Arm Upright Row",
     description: "Haltère unilatéral rowing menton. Cible principalement des épaules.",
@@ -1907,6 +2119,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "dumbbell-single-leg-calf-raise",
+    isAdvanced: false,
     name: "Haltère unijambiste mollets",
     nameEn: "Dumbbell Single Leg Calf Raise",
     description: "Haltère unijambiste mollets. Cible principalement des mollets.",
@@ -1916,6 +2129,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "dumbbell-single-leg-hip-thrust",
+    isAdvanced: false,
     name: "Haltère unijambiste hip thrust",
     nameEn: "Dumbbell Single Leg Hip Thrust",
     description: "Haltère unijambiste hip thrust. Cible principalement des fessiers.",
@@ -1925,6 +2139,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "dumbbell-situp",
+    isAdvanced: false,
     name: "Haltère relevé de buste",
     nameEn: "Dumbbell Situp",
     description: "Haltère relevé de buste. Cible principalement des abdominaux.",
@@ -1934,6 +2149,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "dumbbell-skullcrusher",
+    isAdvanced: false,
     name: "Haltère extension triceps au front",
     nameEn: "Dumbbell Skullcrusher",
     description: "Haltère extension triceps au front. Cible principalement des triceps.",
@@ -1943,6 +2159,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "dumbbell-spinal-jefferson-curl",
+    isAdvanced: true,
     name: "Haltère curl spinal Jefferson",
     nameEn: "Dumbbell Spinal Jefferson Curl",
     description: "Haltère curl spinal Jefferson. Cible principalement des biceps.",
@@ -1952,6 +2169,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "dumbbell-squat",
+    isAdvanced: false,
     name: "Haltère squat",
     nameEn: "Dumbbell Squat",
     description: "Haltère squat. Cible principalement des quadriceps.",
@@ -1961,6 +2179,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "dumbbell-standing-single-arm-curl",
+    isAdvanced: false,
     name: "Haltère debout unilatéral curl",
     nameEn: "Dumbbell Standing Single Arm Curl",
     description: "Haltère debout unilatéral curl. Cible principalement des biceps.",
@@ -1970,6 +2189,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "dumbbell-standing-single-arm-hammer-curl",
+    isAdvanced: false,
     name: "Haltère debout unilatéral curl marteau",
     nameEn: "Dumbbell Standing Single Arm Hammer Curl",
     description: "Haltère debout unilatéral curl marteau. Cible principalement des biceps.",
@@ -1979,6 +2199,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "dumbbell-step-up-high",
+    isAdvanced: false,
     name: "Haltère step-up (haut)",
     nameEn: "Dumbbell Step-Up (High)",
     description: "Haltère step-up (haut). Cible principalement des quadriceps.",
@@ -1988,6 +2209,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "dumbbell-step-up-low",
+    isAdvanced: false,
     name: "Haltère step-up (bas)",
     nameEn: "Dumbbell Step-Up (Low)",
     description: "Haltère step-up (bas). Cible principalement des quadriceps.",
@@ -1997,6 +2219,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "dumbbell-stiff-leg-deadlift",
+    isAdvanced: false,
     name: "Jambes tendues haltère soulevé de terre",
     nameEn: "Stiff-Legged Dumbbell Deadlift",
     description: "Jambes tendues haltère soulevé de terre. Cible principalement des fessiers.",
@@ -2006,6 +2229,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "dumbbell-sumo-squat",
+    isAdvanced: false,
     name: "Haltère sumo squat",
     nameEn: "Dumbbell Sumo Squat",
     description: "Haltère sumo squat. Cible principalement des quadriceps.",
@@ -2015,6 +2239,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "dumbbell-superman",
+    isAdvanced: false,
     name: "Haltère superman",
     nameEn: "Dumbbell Superman",
     description: "Haltère superman. Cible principalement du dos.",
@@ -2024,6 +2249,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "dumbbell-thruster",
+    isAdvanced: true,
     name: "Haltère thruster",
     nameEn: "Dumbbell Thruster",
     description: "Haltère thruster. Cible principalement des épaules.",
@@ -2033,6 +2259,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "dumbbell-tibialis-raise",
+    isAdvanced: false,
     name: "Haltère relevé tibial",
     nameEn: "Dumbbell Tibialis Raise",
     description: "Haltère relevé tibial. Cible principalement des mollets.",
@@ -2042,6 +2269,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "dumbbell-tricep-kickback",
+    isAdvanced: false,
     name: "Haltère kickback triceps",
     nameEn: "Dumbbell Tricep Kickback",
     description: "Haltère kickback triceps. Cible principalement des triceps.",
@@ -2051,6 +2279,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "dumbbell-turkish-get-up",
+    isAdvanced: true,
     name: "Turkish get-up (haltère)",
     nameEn: "Turkish Get-Up (Dumbbell)",
     description: "Turkish get-up (haltère). Cible principalement des épaules.",
@@ -2060,6 +2289,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "dumbbell-upright-row",
+    isAdvanced: false,
     name: "Haltère rowing menton",
     nameEn: "Dumbbell Upright Row",
     description: "Haltère rowing menton. Cible principalement des épaules.",
@@ -2069,6 +2299,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "dumbbell-walking-lunges",
+    isAdvanced: false,
     name: "Haltère fente marchée",
     nameEn: "Dumbbell Walking Lunges",
     description: "Haltère fente marchée. Cible principalement des quadriceps.",
@@ -2078,6 +2309,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "dumbbell-windmill",
+    isAdvanced: true,
     name: "Haltère moulin",
     nameEn: "Dumbbell Windmill",
     description: "Haltère moulin. Cible principalement des épaules.",
@@ -2087,6 +2319,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "dumbbell-wrist-curl",
+    isAdvanced: false,
     name: "Haltère curl de poignet",
     nameEn: "Dumbbell Wrist Curl",
     description: "Haltère curl de poignet. Cible principalement des biceps.",
@@ -2096,6 +2329,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "dumbbell-wrist-extension",
+    isAdvanced: false,
     name: "Haltère extension de poignet",
     nameEn: "Dumbbell Wrist Extension",
     description: "Haltère extension de poignet. Cible principalement des avant-bras.",
@@ -2105,6 +2339,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "eccentric-calf-lowers",
+    isAdvanced: false,
     name: "Eccentric mollet lowers",
     nameEn: "Eccentric Calf Lowers",
     description: "Eccentric mollet lowers. Cible principalement des mollets.",
@@ -2114,6 +2349,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "ez-bar-preacher-curl",
+    isAdvanced: false,
     name: "Barre EZ curl pupitre",
     nameEn: "EZ Bar Preacher Curl",
     description: "Barre EZ curl pupitre. Cible principalement des biceps.",
@@ -2123,6 +2359,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["ez-bar"],
   },  {
     id: "ez-bar-reverse-preacher-curl",
+    isAdvanced: false,
     name: "Barre EZ inversé curl pupitre",
     nameEn: "EZ Bar Reverse Preacher Curl",
     description: "Barre EZ inversé curl pupitre. Cible principalement des biceps.",
@@ -2132,6 +2369,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["ez-bar"],
   },  {
     id: "ez-bar-skullcrusher",
+    isAdvanced: false,
     name: "Barre EZ extension triceps au front",
     nameEn: "EZ Bar Skullcrusher",
     description: "Barre EZ extension triceps au front. Cible principalement des triceps.",
@@ -2141,6 +2379,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["ez-bar"],
   },  {
     id: "fire-hydrants",
+    isAdvanced: false,
     name: "Fire hydrant",
     nameEn: "Fire Hydrants",
     description: "Fire hydrant. Cible principalement des fessiers.",
@@ -2150,6 +2389,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "floor-press",
+    isAdvanced: false,
     name: "Développé au sol",
     nameEn: "Floor Press",
     description: "Développé au sol. Cible principalement des pectoraux.",
@@ -2159,6 +2399,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "forward-lunge",
+    isAdvanced: false,
     name: "Fente avant",
     nameEn: "Forward Lunge",
     description: "Fente avant. Cible principalement des quadriceps.",
@@ -2168,6 +2409,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["bodyweight"],
   },  {
     id: "frog-pump",
+    isAdvanced: false,
     name: "Frog pump",
     nameEn: "Frog Pump",
     description: "Frog pump. Cible principalement des fessiers.",
@@ -2177,6 +2419,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "front-foot-elevated-split-squat",
+    isAdvanced: false,
     name: "Avant-foot-surélevé fente stationnaire",
     nameEn: "Front-Foot-Elevated Split Squat",
     description: "Avant-foot-surélevé fente stationnaire. Cible principalement des quadriceps.",
@@ -2186,6 +2429,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "front-raise-and-pullover",
+    isAdvanced: false,
     name: "Élévation frontale et pull-over",
     nameEn: "Front Raise And Pullover",
     description: "Élévation frontale et pull-over. Cible principalement des épaules.",
@@ -2195,6 +2439,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "front-squat",
+    isAdvanced: false,
     name: "Squat avant",
     nameEn: "Front Squat",
     description: "Squat avant. Cible principalement des quadriceps.",
@@ -2204,6 +2449,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "glute-bridge",
+    isAdvanced: false,
     name: "Pont fessier",
     nameEn: "Glute Bridge",
     description: "Pont fessier. Cible principalement des fessiers.",
@@ -2213,6 +2459,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["bodyweight"],
   },  {
     id: "glute-kickback-machine",
+    isAdvanced: false,
     name: "Fessier kickback machine",
     nameEn: "Glute Kickback Machine",
     description: "Fessier kickback machine. Cible principalement des fessiers.",
@@ -2222,6 +2469,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["machine"],
   },  {
     id: "good-mornings",
+    isAdvanced: false,
     name: "Good morning",
     nameEn: "Good Mornings",
     description: "Good morning. Cible principalement du dos.",
@@ -2231,6 +2479,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "hammer-strength-high-row",
+    isAdvanced: false,
     name: "Hammer Strength haut rowing",
     nameEn: "Hammer Strength High Row",
     description: "Hammer Strength haut rowing. Cible principalement du dos.",
@@ -2240,6 +2489,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "hammer-strength-iso-lateral-row",
+    isAdvanced: false,
     name: "Hammer Strength rowing iso-latéral",
     nameEn: "Hammer Strength Iso-Lateral Row",
     description: "Hammer Strength rowing iso-latéral. Cible principalement du dos.",
@@ -2249,6 +2499,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "hamstring-curl",
+    isAdvanced: false,
     name: "Leg curl",
     nameEn: "Hamstring Curl",
     description: "Leg curl. Cible principalement des biceps.",
@@ -2258,6 +2509,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "hang-clean",
+    isAdvanced: true,
     name: "Clean suspendu",
     nameEn: "Hang Clean",
     description: "Clean suspendu. Cible principalement des épaules.",
@@ -2267,6 +2519,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "hang-power-clean",
+    isAdvanced: true,
     name: "Clean suspendu (power)",
     nameEn: "Hang Power Clean",
     description: "Clean suspendu (power). Cible principalement des épaules.",
@@ -2276,6 +2529,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "hang-snatch",
+    isAdvanced: true,
     name: "Arraché suspendu",
     nameEn: "Hang Snatch",
     description: "Arraché suspendu. Cible principalement des épaules.",
@@ -2285,6 +2539,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "hanging-knee-raises",
+    isAdvanced: false,
     name: "Relevé de genoux suspendu",
     nameEn: "Hanging Knee Raises",
     description: "Relevé de genoux suspendu. Cible principalement des abdominaux.",
@@ -2294,6 +2549,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "heel-elevated-dumbbell-front-squat",
+    isAdvanced: false,
     name: "Talon surélevé haltère squat avant",
     nameEn: "Heel Elevated Dumbbell Front Squat",
     description: "Talon surélevé haltère squat avant. Cible principalement des quadriceps.",
@@ -2303,6 +2559,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "hip-hinge-drill",
+    isAdvanced: false,
     name: "Charnière de hanche exercice",
     nameEn: "Hip Hinge Drill",
     description: "Charnière de hanche exercice. Cible principalement des fessiers.",
@@ -2312,6 +2569,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "hip-hinge-speed-romanian-deadlift",
+    isAdvanced: false,
     name: "Charnière de hanche rapide soulevé de terre roumain",
     nameEn: "Hip Hinge Speed Romanian Deadlift",
     description: "Charnière de hanche rapide soulevé de terre roumain. Cible principalement des fessiers.",
@@ -2321,6 +2579,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "horizontal-leg-press-calf-press",
+    isAdvanced: false,
     name: "Presse mollets",
     nameEn: "Calf Press",
     description: "Presse mollets. Cible principalement des quadriceps.",
@@ -2330,6 +2589,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "incline-dumbbell-fly-with-twist",
+    isAdvanced: false,
     name: "Incliné haltère écartés avec rotation",
     nameEn: "Incline Dumbbell Flyes With A Twist",
     description: "Incliné haltère écartés avec rotation. Cible principalement des pectoraux.",
@@ -2339,6 +2599,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "incline-machine-chest-press",
+    isAdvanced: false,
     name: "Incliné machine développé pectoraux",
     nameEn: "Incline Machine Chest Press",
     description: "Incliné machine développé pectoraux. Cible principalement des pectoraux.",
@@ -2348,6 +2609,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["machine"],
   },  {
     id: "incline-push-up",
+    isAdvanced: false,
     name: "Incliné pompe",
     nameEn: "Incline Push Up",
     description: "Incliné pompe. Cible principalement des pectoraux.",
@@ -2357,6 +2619,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["bodyweight"],
   },  {
     id: "incline-push-up-depth-jump",
+    isAdvanced: true,
     name: "Incliné pompe saut en profondeur",
     nameEn: "Incline Push-Up Depth Jump",
     description: "Incliné pompe saut en profondeur. Cible principalement des pectoraux.",
@@ -2366,6 +2629,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["bodyweight"],
   },  {
     id: "inverted-row",
+    isAdvanced: false,
     name: "Rowing inversé",
     nameEn: "Inverted Row",
     description: "Rowing inversé. Cible principalement du dos.",
@@ -2375,6 +2639,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "jm-press",
+    isAdvanced: false,
     name: "JM press",
     nameEn: "JM Press",
     description: "JM press. Cible principalement des triceps.",
@@ -2384,6 +2649,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "jump-squats",
+    isAdvanced: false,
     name: "Squat sauté",
     nameEn: "Jump Squats",
     description: "Squat sauté. Cible principalement des quadriceps.",
@@ -2393,6 +2659,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "jumping-jack",
+    isAdvanced: false,
     name: "Jumping jack",
     nameEn: "Jumping Jack",
     description: "Jumping jack. Cible principalement des abdominaux.",
@@ -2402,6 +2669,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["bodyweight"],
   },  {
     id: "kettlebell-alternating-curtsy-lunge",
+    isAdvanced: false,
     name: "Kettlebell alterné fente croisée",
     nameEn: "Kettlebell Alternating Curtsy Lunge",
     description: "Kettlebell alterné fente croisée. Cible principalement des quadriceps.",
@@ -2411,6 +2679,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["kettlebell"],
   },  {
     id: "kettlebell-assisted-bulgarian-split-squat",
+    isAdvanced: true,
     name: "Kettlebell assisté squat bulgare",
     nameEn: "Kettlebell Assisted Bulgarian Split Squat",
     description: "Kettlebell assisté squat bulgare. Cible principalement des quadriceps.",
@@ -2420,6 +2689,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["kettlebell"],
   },  {
     id: "kettlebell-bench-press",
+    isAdvanced: false,
     name: "Kettlebell développé couché",
     nameEn: "Kettlebell Bench Press",
     description: "Kettlebell développé couché. Cible principalement des pectoraux.",
@@ -2429,6 +2699,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["kettlebell"],
   },  {
     id: "kettlebell-calf-raise",
+    isAdvanced: false,
     name: "Kettlebell mollets",
     nameEn: "Kettlebell Calf Raise",
     description: "Kettlebell mollets. Cible principalement des mollets.",
@@ -2438,6 +2709,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["kettlebell"],
   },  {
     id: "kettlebell-curl",
+    isAdvanced: false,
     name: "Kettlebell curl",
     nameEn: "Kettlebell Curl",
     description: "Kettlebell curl. Cible principalement des biceps.",
@@ -2447,6 +2719,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["kettlebell"],
   },  {
     id: "kettlebell-front-raise",
+    isAdvanced: false,
     name: "Kettlebell élévation frontale",
     nameEn: "Kettlebell Front Raise",
     description: "Kettlebell élévation frontale. Cible principalement des épaules.",
@@ -2456,6 +2729,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["kettlebell"],
   },  {
     id: "kettlebell-goblet-curl",
+    isAdvanced: false,
     name: "Kettlebell goblet curl",
     nameEn: "Kettlebell Goblet Curl",
     description: "Kettlebell goblet curl. Cible principalement des biceps.",
@@ -2465,6 +2739,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["kettlebell"],
   },  {
     id: "kettlebell-goblet-squat",
+    isAdvanced: false,
     name: "Kettlebell squat goblet",
     nameEn: "Kettlebell Goblet Squat",
     description: "Kettlebell squat goblet. Cible principalement des quadriceps.",
@@ -2474,6 +2749,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["kettlebell"],
   },  {
     id: "kettlebell-gorilla-row",
+    isAdvanced: false,
     name: "Kettlebell gorilla row",
     nameEn: "Kettlebell Gorilla Row",
     description: "Kettlebell gorilla row. Cible principalement du dos.",
@@ -2483,6 +2759,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["kettlebell"],
   },  {
     id: "kettlebell-halo",
+    isAdvanced: false,
     name: "Kettlebell halo",
     nameEn: "Kettlebell Halo",
     description: "Kettlebell halo. Cible principalement des épaules.",
@@ -2492,6 +2769,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["kettlebell"],
   },  {
     id: "kettlebell-hip-thrust",
+    isAdvanced: false,
     name: "Kettlebell hip thrust",
     nameEn: "Kettlebell Hip Thrust",
     description: "Kettlebell hip thrust. Cible principalement des fessiers.",
@@ -2501,6 +2779,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["kettlebell"],
   },  {
     id: "kettlebell-incline-bench-press",
+    isAdvanced: false,
     name: "Kettlebell développé incliné",
     nameEn: "Kettlebell Incline Bench Press",
     description: "Kettlebell développé incliné. Cible principalement des pectoraux.",
@@ -2510,6 +2789,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["kettlebell"],
   },  {
     id: "kettlebell-push-press",
+    isAdvanced: false,
     name: "Kettlebell push press",
     nameEn: "Kettlebell Push Press",
     description: "Kettlebell push press. Cible principalement des épaules.",
@@ -2519,6 +2799,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["kettlebell"],
   },  {
     id: "kettlebell-renegade-rows",
+    isAdvanced: false,
     name: "Kettlebell renegade row",
     nameEn: "Kettlebell Renegade Rows",
     description: "Kettlebell renegade row. Cible principalement du dos.",
@@ -2528,6 +2809,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["kettlebell"],
   },  {
     id: "kettlebell-romanian-deadlift",
+    isAdvanced: false,
     name: "Kettlebell soulevé de terre roumain",
     nameEn: "Kettlebell Romanian Deadlift",
     description: "Kettlebell soulevé de terre roumain. Cible principalement des fessiers.",
@@ -2537,6 +2819,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["kettlebell"],
   },  {
     id: "kettlebell-row",
+    isAdvanced: false,
     name: "Kettlebell rowing",
     nameEn: "Kettlebell Row",
     description: "Kettlebell rowing. Cible principalement du dos.",
@@ -2546,6 +2829,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["kettlebell"],
   },  {
     id: "kettlebell-row-single",
+    isAdvanced: false,
     name: "Kettlebell rowing (single)",
     nameEn: "Kettlebell Row (Single)",
     description: "Kettlebell rowing (single). Cible principalement du dos.",
@@ -2555,6 +2839,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["kettlebell"],
   },  {
     id: "kettlebell-seated-overhead-press",
+    isAdvanced: false,
     name: "Kettlebell assis développé militaire",
     nameEn: "Kettlebell Seated Overhead Press",
     description: "Kettlebell assis développé militaire. Cible principalement des épaules.",
@@ -2564,6 +2849,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["kettlebell"],
   },  {
     id: "kettlebell-shrug",
+    isAdvanced: false,
     name: "Kettlebell shrug",
     nameEn: "Kettlebell Shrug",
     description: "Kettlebell shrug. Cible principalement des trapèzes.",
@@ -2573,6 +2859,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["kettlebell"],
   },  {
     id: "kettlebell-single-arm-row",
+    isAdvanced: true,
     name: "Kettlebell rowing un bras",
     nameEn: "Kettlebell Single Arm Row",
     description: "Kettlebell rowing un bras. Cible principalement du dos.",
@@ -2582,6 +2869,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["kettlebell"],
   },  {
     id: "kettlebell-spinal-jefferson-curl",
+    isAdvanced: true,
     name: "Kettlebell curl spinal Jefferson",
     nameEn: "Kettlebell Spinal Jefferson Curl",
     description: "Kettlebell curl spinal Jefferson. Cible principalement des biceps.",
@@ -2591,6 +2879,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["kettlebell"],
   },  {
     id: "kettlebell-sumo-deadlift",
+    isAdvanced: false,
     name: "Kettlebell soulevé de terre sumo",
     nameEn: "Kettlebell Sumo Deadlift",
     description: "Kettlebell soulevé de terre sumo. Cible principalement des fessiers.",
@@ -2600,6 +2889,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["kettlebell"],
   },  {
     id: "kettlebell-swing",
+    isAdvanced: false,
     name: "Kettlebell swing",
     nameEn: "Kettlebell Swing",
     description: "Kettlebell swing. Cible principalement des épaules.",
@@ -2609,6 +2899,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["kettlebell"],
   },  {
     id: "kettlebell-thruster",
+    isAdvanced: true,
     name: "Kettlebell thruster",
     nameEn: "Kettlebell Thruster",
     description: "Kettlebell thruster. Cible principalement des épaules.",
@@ -2618,6 +2909,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["kettlebell"],
   },  {
     id: "kettlebell-turkish-get-up",
+    isAdvanced: true,
     name: "Kettlebell turkish get-up",
     nameEn: "Kettlebell Turkish Get-Up",
     description: "Kettlebell turkish get-up. Cible principalement des épaules.",
@@ -2627,6 +2919,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["kettlebell"],
   },  {
     id: "kettlebell-walking-lunges",
+    isAdvanced: false,
     name: "Kettlebell fente marchée",
     nameEn: "Kettlebell Walking Lunges",
     description: "Kettlebell fente marchée. Cible principalement des quadriceps.",
@@ -2636,6 +2929,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["kettlebell"],
   },  {
     id: "kettlebell-windmill",
+    isAdvanced: true,
     name: "Kettlebell moulin",
     nameEn: "Kettlebell Windmill",
     description: "Kettlebell moulin. Cible principalement des épaules.",
@@ -2645,6 +2939,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["kettlebell"],
   },  {
     id: "kickstand-dumbbell-romanian-deadlift",
+    isAdvanced: false,
     name: "Kickstand haltère soulevé de terre roumain",
     nameEn: "Kickstand Dumbbell Romanian Deadlift",
     description: "Kickstand haltère soulevé de terre roumain. Cible principalement des fessiers.",
@@ -2654,6 +2949,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "kneeling-cable-crunch",
+    isAdvanced: false,
     name: "À genoux poulie crunch",
     nameEn: "Kneeling Cable Crunch",
     description: "À genoux poulie crunch. Cible principalement des abdominaux.",
@@ -2663,6 +2959,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["cable"],
   },  {
     id: "landmine-press",
+    isAdvanced: false,
     name: "Développé landmine",
     nameEn: "Landmine Press",
     description: "Développé landmine. Cible principalement des épaules.",
@@ -2672,6 +2969,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "landmine-t-bar-rows",
+    isAdvanced: false,
     name: "Landmine rowing T-bar",
     nameEn: "Landmine T Bar Rows",
     description: "Landmine rowing T-bar. Cible principalement du dos.",
@@ -2681,6 +2979,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "lat-pulldown",
+    isAdvanced: false,
     name: "Tirage vertical",
     nameEn: "Lat Pulldown",
     description: "Tirage vertical. Cible principalement du grand dorsal.",
@@ -2690,6 +2989,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "lateral-raise-to-front-raise",
+    isAdvanced: false,
     name: "Élévation latérale vers frontale",
     nameEn: "Side Laterals to Front Raise",
     description: "Élévation latérale vers frontale. Cible principalement des épaules.",
@@ -2699,6 +2999,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "leaning-cable-lateral-raise",
+    isAdvanced: false,
     name: "Incliné latéralement poulie élévation latérale",
     nameEn: "Leaning Cable Lateral Raise",
     description: "Incliné latéralement poulie élévation latérale. Cible principalement des épaules.",
@@ -2708,6 +3009,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["cable"],
   },  {
     id: "leaning-single-arm-dumbbell-lateral-raise",
+    isAdvanced: false,
     name: "Incliné latéralement unilatéral élévation latérale",
     nameEn: "Leaning Single Arm Lateral Raise",
     description: "Incliné latéralement unilatéral élévation latérale. Cible principalement des épaules.",
@@ -2717,6 +3019,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "leg-press-calf-raise",
+    isAdvanced: false,
     name: "Presse à cuisses mollets",
     nameEn: "Leg Press Calf Raise",
     description: "Presse à cuisses mollets. Cible principalement des quadriceps.",
@@ -2726,6 +3029,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "lever-lateral-wide-pulldown",
+    isAdvanced: false,
     name: "Levier lateral large tirage vertical",
     nameEn: "Lever Lateral Wide Pulldown",
     description: "Levier lateral large tirage vertical. Cible principalement du grand dorsal.",
@@ -2735,6 +3039,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "loaded-wrist-extensor-eccentric",
+    isAdvanced: false,
     name: "Lesté wrist-extensor eccentric",
     nameEn: "Loaded Wrist-Extensor Eccentric",
     description: "Lesté wrist-extensor eccentric. Cible principalement des avant-bras.",
@@ -2744,6 +3049,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "loaded-wrist-flexor-eccentric",
+    isAdvanced: false,
     name: "Lesté wrist-flexor eccentric",
     nameEn: "Loaded Wrist-Flexor Eccentric",
     description: "Lesté wrist-flexor eccentric. Cible principalement des avant-bras.",
@@ -2753,6 +3059,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "lunge-walking",
+    isAdvanced: false,
     name: "Fente marchée",
     nameEn: "Walking Lunge",
     description: "Fente marchée. Cible principalement des quadriceps.",
@@ -2762,6 +3069,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["bodyweight"],
   },  {
     id: "lying-cambered-barbell-row",
+    isAdvanced: false,
     name: "Couché cambré barre rowing",
     nameEn: "Lying Cambered Barbell Row",
     description: "Couché cambré barre rowing. Cible principalement du dos.",
@@ -2771,6 +3079,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["barbell"],
   },  {
     id: "lying-leg-curl",
+    isAdvanced: false,
     name: "Couché leg curl",
     nameEn: "Lying Leg Curl",
     description: "Couché leg curl. Cible principalement des biceps.",
@@ -2780,6 +3089,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "lying-single-arm-lateral-raise",
+    isAdvanced: false,
     name: "Couché un bras élévation latérale",
     nameEn: "Lying One-Arm Lateral Raise",
     description: "Couché un bras élévation latérale. Cible principalement des épaules.",
@@ -2789,6 +3099,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "machine-45-degree-back-extension",
+    isAdvanced: false,
     name: "Machine 45 degrés extension lombaire",
     nameEn: "Machine 45 Degree Back Extension",
     description: "Machine 45 degrés extension lombaire. Cible principalement du dos.",
@@ -2798,6 +3109,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["machine"],
   },  {
     id: "machine-assisted-pull-up",
+    isAdvanced: false,
     name: "Machine assisté traction",
     nameEn: "Machine Assisted Pull Up",
     description: "Machine assisté traction. Cible principalement du grand dorsal.",
@@ -2807,6 +3119,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["machine"],
   },  {
     id: "machine-back-extension",
+    isAdvanced: false,
     name: "Machine extension lombaire",
     nameEn: "Machine Back Extension",
     description: "Machine extension lombaire. Cible principalement du dos.",
@@ -2816,6 +3129,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["machine"],
   },  {
     id: "machine-cable-v-bar-push-downs",
+    isAdvanced: false,
     name: "Machine poulie v bar extension à la poulie",
     nameEn: "Machine Cable V Bar Push Downs",
     description: "Machine poulie v bar extension à la poulie. Cible principalement des triceps.",
@@ -2825,6 +3139,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["cable", "machine"],
   },  {
     id: "machine-chest-press",
+    isAdvanced: false,
     name: "Machine développé pectoraux",
     nameEn: "Machine Chest Press",
     description: "Machine développé pectoraux. Cible principalement des pectoraux.",
@@ -2834,6 +3149,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["machine"],
   },  {
     id: "machine-crunch",
+    isAdvanced: false,
     name: "Machine crunch",
     nameEn: "Machine Crunch",
     description: "Machine crunch. Cible principalement des abdominaux.",
@@ -2843,6 +3159,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["machine"],
   },  {
     id: "machine-dips",
+    isAdvanced: false,
     name: "Machine dips",
     nameEn: "Machine Dips",
     description: "Machine dips. Cible principalement des triceps.",
@@ -2852,6 +3169,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["machine"],
   },  {
     id: "machine-face-pulls",
+    isAdvanced: false,
     name: "Poulie corde face pull",
     nameEn: "Cable Rope Face Pulls",
     description: "Poulie corde face pull. Cible principalement des épaules.",
@@ -2861,6 +3179,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["cable"],
   },  {
     id: "machine-front-military-press",
+    isAdvanced: false,
     name: "Machine plate lesté avant développé militaire",
     nameEn: "Machine Plate Loaded Front Military Press",
     description: "Machine plate lesté avant développé militaire. Cible principalement des épaules.",
@@ -2870,6 +3189,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["machine", "other"],
   },  {
     id: "machine-goblet-sissy-squat",
+    isAdvanced: false,
     name: "Machine goblet sissy squat",
     nameEn: "Machine Goblet Sissy Squat",
     description: "Machine goblet sissy squat. Cible principalement des quadriceps.",
@@ -2879,6 +3199,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["machine"],
   },  {
     id: "machine-hack-squat",
+    isAdvanced: false,
     name: "Machine hack squat",
     nameEn: "Machine Hack Squat",
     description: "Machine hack squat. Cible principalement des quadriceps.",
@@ -2888,6 +3209,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["machine"],
   },  {
     id: "machine-hip-abduction",
+    isAdvanced: false,
     name: "Machine abduction de hanche",
     nameEn: "Machine Hip Abduction",
     description: "Machine abduction de hanche. Cible principalement des fessiers.",
@@ -2897,6 +3219,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["machine"],
   },  {
     id: "machine-hip-adduction",
+    isAdvanced: false,
     name: "Machine adduction de hanche",
     nameEn: "Machine Hip Adduction",
     description: "Machine adduction de hanche. Cible principalement des quadriceps.",
@@ -2906,6 +3229,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["machine"],
   },  {
     id: "machine-hip-thrust",
+    isAdvanced: false,
     name: "Machine hip thrust",
     nameEn: "Machine Hip Thrust",
     description: "Machine hip thrust. Cible principalement des fessiers.",
@@ -2915,6 +3239,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["machine"],
   },  {
     id: "machine-horizontal-leg-press",
+    isAdvanced: false,
     name: "Machine horizontal presse à cuisses",
     nameEn: "Machine Horizontal Leg Press",
     description: "Machine horizontal presse à cuisses. Cible principalement des quadriceps.",
@@ -2924,6 +3249,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["machine"],
   },  {
     id: "machine-lat-pullover",
+    isAdvanced: false,
     name: "Machine dorsal pull-over",
     nameEn: "Machine Lat Pullover",
     description: "Machine dorsal pull-over. Cible principalement du grand dorsal.",
@@ -2933,6 +3259,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["machine"],
   },  {
     id: "machine-lateral-raise",
+    isAdvanced: false,
     name: "Machine élévation latérale",
     nameEn: "Machine Lateral Raise",
     description: "Machine élévation latérale. Cible principalement des épaules.",
@@ -2942,6 +3269,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["machine"],
   },  {
     id: "machine-leg-extension",
+    isAdvanced: false,
     name: "Machine extension des jambes",
     nameEn: "Machine Leg Extension",
     description: "Machine extension des jambes. Cible principalement des quadriceps.",
@@ -2951,6 +3279,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["machine"],
   },  {
     id: "machine-leg-press",
+    isAdvanced: false,
     name: "Machine presse à cuisses",
     nameEn: "Machine Leg Press",
     description: "Machine presse à cuisses. Cible principalement des quadriceps.",
@@ -2960,6 +3289,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["machine"],
   },  {
     id: "machine-neutral-row",
+    isAdvanced: false,
     name: "Machine neutre rowing",
     nameEn: "Machine Neutral Row",
     description: "Machine neutre rowing. Cible principalement du dos.",
@@ -2969,6 +3299,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["machine"],
   },  {
     id: "machine-pec-fly",
+    isAdvanced: false,
     name: "Machine écarté pectoraux",
     nameEn: "Machine Pec Fly",
     description: "Machine écarté pectoraux. Cible principalement des pectoraux.",
@@ -2978,6 +3309,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["machine"],
   },  {
     id: "machine-plate-loaded-leg-extension",
+    isAdvanced: false,
     name: "Machine plate lesté extension des jambes",
     nameEn: "Machine Plate Loaded Leg Extension",
     description: "Machine plate lesté extension des jambes. Cible principalement des quadriceps.",
@@ -2987,6 +3319,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["machine", "other"],
   },  {
     id: "machine-plate-loaded-t-bar-row",
+    isAdvanced: false,
     name: "Machine plate lesté rowing T-bar",
     nameEn: "Machine Plate Loaded T Bar Row",
     description: "Machine plate lesté rowing T-bar. Cible principalement du dos.",
@@ -2996,6 +3329,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["machine", "other"],
   },  {
     id: "machine-preacher-curl",
+    isAdvanced: false,
     name: "Machine curl pupitre",
     nameEn: "Machine Preacher Curl",
     description: "Machine curl pupitre. Cible principalement des biceps.",
@@ -3005,6 +3339,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["machine"],
   },  {
     id: "machine-pulldown",
+    isAdvanced: false,
     name: "Machine tirage vertical",
     nameEn: "Machine Pulldown",
     description: "Machine tirage vertical. Cible principalement du grand dorsal.",
@@ -3014,6 +3349,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["machine"],
   },  {
     id: "machine-seated-cable-row",
+    isAdvanced: false,
     name: "Machine assis poulie rowing",
     nameEn: "Machine Seated Cable Row",
     description: "Machine assis poulie rowing. Cible principalement du dos.",
@@ -3023,6 +3359,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["cable", "machine"],
   },  {
     id: "machine-tricep-extension",
+    isAdvanced: false,
     name: "Machine extension triceps",
     nameEn: "Machine Tricep Extension",
     description: "Machine extension triceps. Cible principalement des triceps.",
@@ -3032,6 +3369,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["machine"],
   },  {
     id: "machine-underhand-row",
+    isAdvanced: false,
     name: "Machine prise supination rowing",
     nameEn: "Machine Underhand Row",
     description: "Machine prise supination rowing. Cible principalement du dos.",
@@ -3041,6 +3379,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["machine"],
   },  {
     id: "man-maker",
+    isAdvanced: false,
     name: "Man maker",
     nameEn: "Man Maker",
     description: "Man maker. Cible principalement des épaules.",
@@ -3050,6 +3389,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "meadows-row",
+    isAdvanced: false,
     name: "Rowing Meadows",
     nameEn: "Meadows Row",
     description: "Rowing Meadows. Cible principalement du dos.",
@@ -3059,6 +3399,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "medicine-ball-throw",
+    isAdvanced: false,
     name: "Mb lancer",
     nameEn: "MB Throw",
     description: "Mb lancer. Cible principalement du dos.",
@@ -3068,6 +3409,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["medicine-ball"],
   },  {
     id: "mountain-climber",
+    isAdvanced: false,
     name: "Mountain climber",
     nameEn: "Mountain Climber",
     description: "Mountain climber. Cible principalement des abdominaux.",
@@ -3077,6 +3419,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["bodyweight"],
   },  {
     id: "muscle-up",
+    isAdvanced: true,
     name: "Muscle-up",
     nameEn: "Muscle-up",
     description: "Muscle-up. Cible principalement du grand dorsal.",
@@ -3086,6 +3429,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["bodyweight"],
   },  {
     id: "narrow-pulldown",
+    isAdvanced: false,
     name: "Serré tirage vertical",
     nameEn: "Narrow Pulldown",
     description: "Serré tirage vertical. Cible principalement du grand dorsal.",
@@ -3095,6 +3439,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "neck-curl",
+    isAdvanced: false,
     name: "Curl de nuque",
     nameEn: "Neck Curl",
     description: "Curl de nuque. Cible principalement des biceps.",
@@ -3104,6 +3449,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "neck-extension",
+    isAdvanced: false,
     name: "Extension de nuque",
     nameEn: "Neck Extension",
     description: "Extension de nuque. Cible principalement des trapèzes.",
@@ -3113,6 +3459,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "neutral-grip-dumbbell-bench-press",
+    isAdvanced: false,
     name: "Prise neutre haltère développé couché",
     nameEn: "Neutral-Grip Dumbbell Bench Press",
     description: "Prise neutre haltère développé couché. Cible principalement des pectoraux.",
@@ -3122,6 +3469,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "neutral-grip-lat-pulldown",
+    isAdvanced: false,
     name: "Prise neutre tirage vertical",
     nameEn: "Neutral-Grip Lat Pulldown",
     description: "Prise neutre tirage vertical. Cible principalement du grand dorsal.",
@@ -3131,6 +3479,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "neutral-grip-pull-up",
+    isAdvanced: false,
     name: "Traction prise neutre",
     nameEn: "Neutral-Grip Pull-Up",
     description: "Traction prise neutre. Cible principalement du grand dorsal.",
@@ -3140,6 +3489,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["bodyweight"],
   },  {
     id: "nordic-hamstring-curl",
+    isAdvanced: true,
     name: "Nordic curl",
     nameEn: "Nordic Hamstring Curl",
     description: "Nordic curl. Cible principalement des biceps.",
@@ -3149,6 +3499,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "pallof-press",
+    isAdvanced: false,
     name: "Pallof press",
     nameEn: "Pallof Press",
     description: "Pallof press. Cible principalement des abdominaux.",
@@ -3158,6 +3509,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "parralel-bar-dips",
+    isAdvanced: false,
     name: "Parallel bar dips",
     nameEn: "Parallel Bar Dips",
     description: "Parallel bar dips. Cible principalement des triceps.",
@@ -3167,6 +3519,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["bodyweight"],
   },  {
     id: "pause-squat",
+    isAdvanced: false,
     name: "Squat avec pause",
     nameEn: "Pause Squat",
     description: "Squat avec pause. Cible principalement des quadriceps.",
@@ -3176,6 +3529,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "pendlay-row",
+    isAdvanced: false,
     name: "Rowing Pendlay",
     nameEn: "Pendlay Row",
     description: "Rowing Pendlay. Cible principalement du dos.",
@@ -3185,6 +3539,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "pendulum-squat-v-squat",
+    isAdvanced: false,
     name: "Squat pendulaire / v-squat",
     nameEn: "Pendulum Squat / V-Squat",
     description: "Squat pendulaire / v-squat. Cible principalement des quadriceps.",
@@ -3194,6 +3549,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "pike-push-up",
+    isAdvanced: false,
     name: "Pike pompe/handstand pompe",
     nameEn: "Pike Push-Up/Handstand Push-Up",
     description: "Pike pompe/handstand pompe. Cible principalement des pectoraux.",
@@ -3203,6 +3559,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["bodyweight"],
   },  {
     id: "pistol-squat",
+    isAdvanced: true,
     name: "Pistol squat",
     nameEn: "Pistol Squat",
     description: "Pistol squat. Cible principalement des quadriceps.",
@@ -3212,6 +3569,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "plate-forward-lunge",
+    isAdvanced: false,
     name: "Plate fente avant",
     nameEn: "Plate Forward Lunge",
     description: "Plate fente avant. Cible principalement des quadriceps.",
@@ -3221,6 +3579,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "plate-front-raise",
+    isAdvanced: false,
     name: "Plate élévation frontale",
     nameEn: "Plate Front Raise",
     description: "Plate élévation frontale. Cible principalement des épaules.",
@@ -3230,6 +3589,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "plate-pinch",
+    isAdvanced: false,
     name: "Plate pinch",
     nameEn: "Plate Pinch",
     description: "Plate pinch. Cible principalement des avant-bras.",
@@ -3239,6 +3599,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "plyometric-kettlebell-push-up",
+    isAdvanced: true,
     name: "Plyo kettlebell pompes",
     nameEn: "Plyo Kettlebell Pushups",
     description: "Plyo kettlebell pompes. Cible principalement des pectoraux.",
@@ -3248,6 +3609,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["kettlebell"],
   },  {
     id: "pogo-hops",
+    isAdvanced: false,
     name: "Pogo hops",
     nameEn: "Pogo Hops",
     description: "Pogo hops. Cible principalement des quadriceps.",
@@ -3257,6 +3619,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["bodyweight"],
   },  {
     id: "power-clean",
+    isAdvanced: true,
     name: "Clean - no développé militaire",
     nameEn: "Power Clean - no overhead press",
     description: "Clean - no développé militaire. Cible principalement des épaules.",
@@ -3266,6 +3629,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "press-sit-up",
+    isAdvanced: false,
     name: "Press relevé de buste",
     nameEn: "Press Sit-Up",
     description: "Press relevé de buste. Cible principalement des abdominaux.",
@@ -3275,6 +3639,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["bodyweight"],
   },  {
     id: "prone-lateral-raises",
+    isAdvanced: false,
     name: "À plat ventre élévation latérale",
     nameEn: "Prone Lateral Raises",
     description: "À plat ventre élévation latérale. Cible principalement des épaules.",
@@ -3284,6 +3649,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "prone-y-t-raises",
+    isAdvanced: false,
     name: "Y-T au sol",
     nameEn: "Prone Y-T Raises",
     description: "Y-T au sol. Cible principalement des épaules.",
@@ -3293,6 +3659,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "prying-goblet-squat",
+    isAdvanced: false,
     name: "Prying squat goblet",
     nameEn: "Prying Goblet Squat",
     description: "Prying squat goblet. Cible principalement des quadriceps.",
@@ -3302,6 +3669,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "push-jerk",
+    isAdvanced: true,
     name: "Poussée jerk",
     nameEn: "Push Jerk",
     description: "Poussée jerk. Cible principalement des épaules.",
@@ -3311,6 +3679,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "push-up",
+    isAdvanced: false,
     name: "Pompe",
     nameEn: "Push Up",
     description: "Pompe. Cible principalement des pectoraux.",
@@ -3320,6 +3689,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["bodyweight"],
   },  {
     id: "reverse-crunch",
+    isAdvanced: false,
     name: "Inversé crunch",
     nameEn: "Reverse Crunch",
     description: "Inversé crunch. Cible principalement des abdominaux.",
@@ -3329,6 +3699,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["bodyweight"],
   },  {
     id: "reverse-grip-barbell-bench-press",
+    isAdvanced: false,
     name: "Prise inversée barre développé couché",
     nameEn: "Reverse-Grip Barbell Bench Press",
     description: "Prise inversée barre développé couché. Cible principalement des pectoraux.",
@@ -3338,6 +3709,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["barbell"],
   },  {
     id: "reverse-grip-barbell-curl",
+    isAdvanced: false,
     name: "Prise inversée barre curl",
     nameEn: "Reverse Grip Barbell Curl",
     description: "Prise inversée barre curl. Cible principalement des biceps.",
@@ -3347,6 +3719,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["barbell"],
   },  {
     id: "reverse-grip-incline-push-up",
+    isAdvanced: false,
     name: "Incliné pompe prise inversée",
     nameEn: "Incline Push-Up Reverse Grip",
     description: "Incliné pompe prise inversée. Cible principalement des pectoraux.",
@@ -3356,6 +3729,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["bodyweight"],
   },  {
     id: "reverse-grip-tricep-pushdown",
+    isAdvanced: false,
     name: "Prise inversée extension triceps à la poulie",
     nameEn: "Reverse-Grip Tricep Pushdown",
     description: "Prise inversée extension triceps à la poulie. Cible principalement des triceps.",
@@ -3365,6 +3739,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "reverse-hack-squat",
+    isAdvanced: false,
     name: "Inversé hack squat",
     nameEn: "Reverse Hack Squat",
     description: "Inversé hack squat. Cible principalement des quadriceps.",
@@ -3374,6 +3749,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "reverse-hyperextension",
+    isAdvanced: false,
     name: "Extension lombaire inversée",
     nameEn: "Reverse Hyperextension",
     description: "Extension lombaire inversée. Cible principalement du dos.",
@@ -3383,6 +3759,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "reverse-pec-deck",
+    isAdvanced: false,
     name: "Oiseau à la machine",
     nameEn: "Reverse Pec Deck",
     description: "Oiseau à la machine. Cible principalement des épaules.",
@@ -3392,6 +3769,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "romanian-deadlift-hamstring-sweeps",
+    isAdvanced: false,
     name: "Soulevé de terre roumain ischio-jambiers balayages",
     nameEn: "Romanian Deadlift Hamstring Sweeps",
     description: "Soulevé de terre roumain ischio-jambiers balayages. Cible principalement des ischio-jambiers.",
@@ -3401,6 +3779,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "scapular-pull-up",
+    isAdvanced: false,
     name: "Traction scapulaire",
     nameEn: "Scapular Pull-up",
     description: "Traction scapulaire. Cible principalement du grand dorsal.",
@@ -3410,6 +3789,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["bodyweight"],
   },  {
     id: "seal-row",
+    isAdvanced: false,
     name: "Rowing Seal",
     nameEn: "Seal Row",
     description: "Rowing Seal. Cible principalement du dos.",
@@ -3419,6 +3799,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "seated-barbell-military-press",
+    isAdvanced: false,
     name: "Assis barre développé militaire",
     nameEn: "Seated Barbell Military Press",
     description: "Assis barre développé militaire. Cible principalement des épaules.",
@@ -3428,6 +3809,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["barbell"],
   },  {
     id: "seated-calf-raise",
+    isAdvanced: false,
     name: "Assis mollets",
     nameEn: "Seated Calf Raise",
     description: "Assis mollets. Cible principalement des mollets.",
@@ -3437,6 +3819,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "seated-dumbbell-curl",
+    isAdvanced: false,
     name: "Assis haltère curl",
     nameEn: "Seated Dumbbell Curl",
     description: "Assis haltère curl. Cible principalement des biceps.",
@@ -3446,6 +3829,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "seated-leg-curl",
+    isAdvanced: false,
     name: "Assis leg curl",
     nameEn: "Seated Leg Curl",
     description: "Assis leg curl. Cible principalement des biceps.",
@@ -3455,6 +3839,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "selectorized-overhead-press-machine",
+    isAdvanced: false,
     name: "Selectorized développé militaire machine",
     nameEn: "Selectorized Overhead Press Machine",
     description: "Selectorized développé militaire machine. Cible principalement des épaules.",
@@ -3464,6 +3849,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["machine"],
   },  {
     id: "selectorized-torso-rotation-machine",
+    isAdvanced: false,
     name: "Selectorized torso rotation machine",
     nameEn: "Selectorized Torso Rotation Machine",
     description: "Selectorized torso rotation machine. Cible principalement des abdominaux.",
@@ -3473,6 +3859,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["machine"],
   },  {
     id: "single-arm-cable-fly",
+    isAdvanced: false,
     name: "Unilatéral poulie écarté",
     nameEn: "Single-Arm Cable Fly",
     description: "Unilatéral poulie écarté. Cible principalement des pectoraux.",
@@ -3482,6 +3869,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["cable"],
   },  {
     id: "single-arm-dumbbell-bench-press",
+    isAdvanced: true,
     name: "Un bras haltère développé couché",
     nameEn: "One Arm Dumbbell Bench Press",
     description: "Un bras haltère développé couché. Cible principalement des pectoraux.",
@@ -3491,6 +3879,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "single-arm-dumbbell-overhead-press",
+    isAdvanced: true,
     name: "Unilatéral haltère développé militaire",
     nameEn: "Single-Arm Dumbbell Overhead Press",
     description: "Unilatéral haltère développé militaire. Cible principalement des épaules.",
@@ -3500,6 +3889,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "single-arm-incline-lateral-raise",
+    isAdvanced: false,
     name: "Un bras incliné élévation latérale",
     nameEn: "One-Arm Incline Lateral Raise",
     description: "Un bras incliné élévation latérale. Cible principalement des épaules.",
@@ -3509,6 +3899,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "single-arm-kettlebell-military-press-to-side",
+    isAdvanced: true,
     name: "Un bras kettlebell développé militaire vers le côté",
     nameEn: "One-Arm Kettlebell Military Press To Side",
     description: "Un bras kettlebell développé militaire vers le côté. Cible principalement des épaules.",
@@ -3518,6 +3909,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["kettlebell"],
   },  {
     id: "single-arm-landmine-press",
+    isAdvanced: true,
     name: "Unilatéral développé landmine",
     nameEn: "Single-Arm Landmine Press",
     description: "Unilatéral développé landmine. Cible principalement des épaules.",
@@ -3527,6 +3919,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "single-arm-landmine-row",
+    isAdvanced: true,
     name: "Buste penché un bras barre longue rowing",
     nameEn: "Bent Over One-Arm Long Bar Row",
     description: "Buste penché un bras barre longue rowing. Cible principalement du dos.",
@@ -3536,6 +3929,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "single-arm-lat-pulldown",
+    isAdvanced: false,
     name: "Unilatéral tirage vertical",
     nameEn: "Single-Arm Lat Pulldown",
     description: "Unilatéral tirage vertical. Cible principalement du grand dorsal.",
@@ -3545,6 +3939,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "single-arm-overhead-cable-extension",
+    isAdvanced: false,
     name: "Unilatéral overhead poulie extension",
     nameEn: "Single-Arm Overhead Cable Extension",
     description: "Unilatéral overhead poulie extension. Cible principalement des triceps.",
@@ -3554,6 +3949,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["cable"],
   },  {
     id: "single-arm-tricep-extension",
+    isAdvanced: false,
     name: "Unilatéral extension triceps",
     nameEn: "Single-Arm Tricep Extension",
     description: "Unilatéral extension triceps. Cible principalement des triceps.",
@@ -3563,6 +3959,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "single-leg-back-extension",
+    isAdvanced: false,
     name: "B-stance extension lombaire",
     nameEn: "B-stance Back Extension",
     description: "B-stance extension lombaire. Cible principalement du dos.",
@@ -3572,6 +3969,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "single-leg-barbell-squat",
+    isAdvanced: true,
     name: "Une jambe barre squat",
     nameEn: "One Leg Barbell Squat",
     description: "Une jambe barre squat. Cible principalement des quadriceps.",
@@ -3581,6 +3979,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["barbell"],
   },  {
     id: "single-leg-bound",
+    isAdvanced: false,
     name: "Unijambiste bound",
     nameEn: "Single-Leg Bound",
     description: "Unijambiste bound. Cible principalement des quadriceps.",
@@ -3590,6 +3989,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["bodyweight"],
   },  {
     id: "single-leg-dumbbell-romanian-deadlift",
+    isAdvanced: true,
     name: "Unijambiste haltère soulevé de terre roumain",
     nameEn: "Single-Leg Dumbbell Romanian Deadlift",
     description: "Unijambiste haltère soulevé de terre roumain. Cible principalement des fessiers.",
@@ -3599,6 +3999,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "single-leg-glute-bridge",
+    isAdvanced: false,
     name: "Unijambiste pont fessier",
     nameEn: "Single Leg Glute Bridge",
     description: "Unijambiste pont fessier. Cible principalement des fessiers.",
@@ -3608,6 +4009,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["bodyweight"],
   },  {
     id: "single-leg-hip-thrust",
+    isAdvanced: false,
     name: "Unijambiste hip thrust",
     nameEn: "Single-Leg Hip Thrust",
     description: "Unijambiste hip thrust. Cible principalement des fessiers.",
@@ -3617,6 +4019,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "single-leg-hop",
+    isAdvanced: false,
     name: "Unijambiste hop",
     nameEn: "Single-Leg Hop",
     description: "Unijambiste hop. Cible principalement des quadriceps.",
@@ -3626,6 +4029,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["bodyweight"],
   },  {
     id: "single-leg-kettlebell-romanian-deadlift-deficit",
+    isAdvanced: true,
     name: "Unijambiste kettlebell soulevé de terre roumain (en déficit)",
     nameEn: "Single-Leg Kettlebell Romanian Deadlift (Deficit)",
     description: "Unijambiste kettlebell soulevé de terre roumain (en déficit). Cible principalement des fessiers.",
@@ -3635,6 +4039,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["kettlebell"],
   },  {
     id: "single-leg-press",
+    isAdvanced: true,
     name: "Unijambiste press",
     nameEn: "Single-Leg Press",
     description: "Unijambiste press. Cible principalement des quadriceps.",
@@ -3644,6 +4049,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "single-leg-standing-calf-raise",
+    isAdvanced: false,
     name: "Unijambiste debout mollets",
     nameEn: "Single-Leg Standing Calf Raise",
     description: "Unijambiste debout mollets. Cible principalement des mollets.",
@@ -3653,6 +4059,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "single-leg-step-down",
+    isAdvanced: false,
     name: "Unijambiste step-down",
     nameEn: "Single-Leg Step-Down",
     description: "Unijambiste step-down. Cible principalement des quadriceps.",
@@ -3662,6 +4069,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "single-legged-romanian-deadlifts",
+    isAdvanced: false,
     name: "Unijambiste soulevé de terre roumain",
     nameEn: "Single Legged Romanian Deadlifts",
     description: "Unijambiste soulevé de terre roumain. Cible principalement des fessiers.",
@@ -3671,6 +4079,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "sissy-squat",
+    isAdvanced: false,
     name: "Sissy squat",
     nameEn: "Sissy Squat",
     description: "Sissy squat. Cible principalement des quadriceps.",
@@ -3680,6 +4089,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "sit-up",
+    isAdvanced: false,
     name: "Relevé de buste",
     nameEn: "Sit-Up/Ab Mat Sit-Up",
     description: "Relevé de buste. Cible principalement des abdominaux.",
@@ -3689,6 +4099,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["bodyweight"],
   },  {
     id: "skater-bound",
+    isAdvanced: true,
     name: "Bond latéral",
     nameEn: "Skater Bound",
     description: "Bond latéral. Cible principalement des quadriceps.",
@@ -3698,6 +4109,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["bodyweight"],
   },  {
     id: "slider-leg-curl",
+    isAdvanced: false,
     name: "Slider leg curl",
     nameEn: "Slider Leg Curl",
     description: "Slider leg curl. Cible principalement des biceps.",
@@ -3707,6 +4119,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "smith-machine-bench-press",
+    isAdvanced: false,
     name: "Machine Smith développé couché",
     nameEn: "Smith Machine Bench Press",
     description: "Machine Smith développé couché. Cible principalement des pectoraux.",
@@ -3716,6 +4129,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["smith-machine", "machine"],
   },  {
     id: "smith-machine-bent-over-row",
+    isAdvanced: false,
     name: "Machine Smith rowing buste penché",
     nameEn: "Smith Machine Bent-Over Row",
     description: "Machine Smith rowing buste penché. Cible principalement du dos.",
@@ -3725,6 +4139,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["smith-machine", "machine"],
   },  {
     id: "smith-machine-calf-raise",
+    isAdvanced: false,
     name: "Machine Smith mollets",
     nameEn: "Smith Machine Calf Raise",
     description: "Machine Smith mollets. Cible principalement des mollets.",
@@ -3734,6 +4149,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["smith-machine", "machine"],
   },  {
     id: "smith-machine-close-grip-bench-press",
+    isAdvanced: false,
     name: "Machine Smith développé prise serrée",
     nameEn: "Smith Machine Close Grip Bench Press",
     description: "Machine Smith développé prise serrée. Cible principalement des pectoraux.",
@@ -3743,6 +4159,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["smith-machine", "machine"],
   },  {
     id: "smith-machine-decline-bench-press",
+    isAdvanced: false,
     name: "Machine Smith développé décliné",
     nameEn: "Smith Machine Decline Bench Press",
     description: "Machine Smith développé décliné. Cible principalement des pectoraux.",
@@ -3752,6 +4169,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["smith-machine", "machine"],
   },  {
     id: "smith-machine-front-squat",
+    isAdvanced: false,
     name: "Machine Smith squat avant",
     nameEn: "Smith Machine Front Squat",
     description: "Machine Smith squat avant. Cible principalement des quadriceps.",
@@ -3761,6 +4179,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["smith-machine", "machine"],
   },  {
     id: "smith-machine-incline-bench-press",
+    isAdvanced: false,
     name: "Machine Smith développé incliné",
     nameEn: "Smith Machine Incline Bench Press",
     description: "Machine Smith développé incliné. Cible principalement des pectoraux.",
@@ -3770,6 +4189,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["smith-machine", "machine"],
   },  {
     id: "smith-machine-overhead-press",
+    isAdvanced: false,
     name: "Machine Smith développé militaire",
     nameEn: "Smith Machine Overhead Press",
     description: "Machine Smith développé militaire. Cible principalement des épaules.",
@@ -3779,6 +4199,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["smith-machine", "machine"],
   },  {
     id: "smith-machine-seated-overhead-press",
+    isAdvanced: false,
     name: "Machine Smith assis développé militaire",
     nameEn: "Smith Machine Seated Overhead Press",
     description: "Machine Smith assis développé militaire. Cible principalement des épaules.",
@@ -3788,6 +4209,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["smith-machine", "machine"],
   },  {
     id: "smith-machine-squat",
+    isAdvanced: false,
     name: "Machine Smith squat",
     nameEn: "Smith Machine Squat",
     description: "Machine Smith squat. Cible principalement des quadriceps.",
@@ -3797,6 +4219,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["smith-machine", "machine"],
   },  {
     id: "smith-machine-standing-shrugs",
+    isAdvanced: false,
     name: "Machine Smith debout shrug",
     nameEn: "Smith Machine Standing Shrugs",
     description: "Machine Smith debout shrug. Cible principalement des trapèzes.",
@@ -3806,6 +4229,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["smith-machine", "machine"],
   },  {
     id: "smith-machine-sumo-romanian-deadlift",
+    isAdvanced: false,
     name: "Machine Smith sumo soulevé de terre roumain",
     nameEn: "Smith Machine Sumo Romanian Deadlift",
     description: "Machine Smith sumo soulevé de terre roumain. Cible principalement des fessiers.",
@@ -3815,6 +4239,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["smith-machine", "machine"],
   },  {
     id: "snap-down-landing",
+    isAdvanced: false,
     name: "Snap-down",
     nameEn: "Snap-Down Landing",
     description: "Snap-down. Cible principalement des quadriceps.",
@@ -3824,6 +4249,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "snatch-grip-deadlift",
+    isAdvanced: true,
     name: "Soulevé de terre prise arraché",
     nameEn: "Snatch-Grip Deadlift",
     description: "Soulevé de terre prise arraché. Cible principalement des fessiers.",
@@ -3833,6 +4259,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "snatch-grip-high-pull",
+    isAdvanced: true,
     name: "Snatch-grip haut pull",
     nameEn: "Snatch-Grip High Pull",
     description: "Snatch-grip haut pull. Cible principalement des épaules.",
@@ -3842,6 +4269,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "snatch-pull",
+    isAdvanced: true,
     name: "Tirage d'arraché",
     nameEn: "Snatch Pull",
     description: "Tirage d'arraché. Cible principalement des épaules.",
@@ -3851,6 +4279,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "spider-curl",
+    isAdvanced: false,
     name: "Curl araignée",
     nameEn: "Spider Curl",
     description: "Curl araignée. Cible principalement des biceps.",
@@ -3860,6 +4289,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "split-jerk",
+    isAdvanced: true,
     name: "Split jerk",
     nameEn: "Split Jerk",
     description: "Split jerk. Cible principalement des épaules.",
@@ -3869,6 +4299,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "squat-thrusts",
+    isAdvanced: false,
     name: "Squat thrusts",
     nameEn: "Squat Thrusts",
     description: "Squat thrusts. Cible principalement des quadriceps.",
@@ -3878,6 +4309,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "stability-ball-leg-curl",
+    isAdvanced: false,
     name: "Stability ball leg curl",
     nameEn: "Stability Ball Leg Curl",
     description: "Stability ball leg curl. Cible principalement des biceps.",
@@ -3887,6 +4319,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "standing-alternating-dumbbell-overhead-press",
+    isAdvanced: false,
     name: "Debout alterné haltère press",
     nameEn: "Standing Alternating Dumbbell Press",
     description: "Debout alterné haltère press. Cible principalement des épaules.",
@@ -3896,6 +4329,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "standing-cable-hip-abduction",
+    isAdvanced: false,
     name: "Debout poulie abduction de hanche",
     nameEn: "Standing Cable Hip Abduction",
     description: "Debout poulie abduction de hanche. Cible principalement des fessiers.",
@@ -3905,6 +4339,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["cable"],
   },  {
     id: "standing-calf-raise-machine",
+    isAdvanced: false,
     name: "Debout mollets (machine)",
     nameEn: "Standing Calf Raise (Machine)",
     description: "Debout mollets (machine). Cible principalement des mollets.",
@@ -3914,6 +4349,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["machine"],
   },  {
     id: "standing-dumbbell-overhead-press",
+    isAdvanced: false,
     name: "Debout haltère press",
     nameEn: "Standing Dumbbell Press",
     description: "Debout haltère press. Cible principalement des épaules.",
@@ -3923,6 +4359,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "standing-neutral-grip-dumbbell-overhead-press",
+    isAdvanced: false,
     name: "Debout palms-in haltère press",
     nameEn: "Standing Palms-In Dumbbell Press",
     description: "Debout palms-in haltère press. Cible principalement des épaules.",
@@ -3932,6 +4369,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["dumbbell"],
   },  {
     id: "straight-arm-lat-pulldown",
+    isAdvanced: false,
     name: "Tendu-bras tirage vertical",
     nameEn: "Straight-Arm Lat Pulldown",
     description: "Tendu-bras tirage vertical. Cible principalement du grand dorsal.",
@@ -3941,6 +4379,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "straight-arm-rope-pulldown-light",
+    isAdvanced: false,
     name: "Tendu bras corde tirage vertical (light)",
     nameEn: "Straight Arm Rope Pulldown (Light)",
     description: "Tendu bras corde tirage vertical (light). Cible principalement du grand dorsal.",
@@ -3950,6 +4389,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "straight-bar-bench-mid-row",
+    isAdvanced: false,
     name: "Tendu bar banc mid rowing",
     nameEn: "Straight Bar Bench Mid Rows",
     description: "Tendu bar banc mid rowing. Cible principalement du dos.",
@@ -3959,6 +4399,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "sumo-deadlift",
+    isAdvanced: false,
     name: "Soulevé de terre sumo",
     nameEn: "Sumo Deadlift",
     description: "Soulevé de terre sumo. Cible principalement des fessiers.",
@@ -3968,6 +4409,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "supermans",
+    isAdvanced: false,
     name: "Supermans",
     nameEn: "Supermans",
     description: "Supermans. Cible principalement du dos.",
@@ -3977,6 +4419,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["bodyweight"],
   },  {
     id: "tate-press",
+    isAdvanced: false,
     name: "Tate press",
     nameEn: "Tate Press",
     description: "Tate press. Cible principalement des triceps.",
@@ -3986,6 +4429,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "tibialis-raise",
+    isAdvanced: false,
     name: "Relevé tibial",
     nameEn: "Tibialis Raise",
     description: "Relevé tibial. Cible principalement des mollets.",
@@ -3995,6 +4439,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "toes-to-bar",
+    isAdvanced: false,
     name: "Toes-to-bar",
     nameEn: "Toes-to-Bar",
     description: "Toes-to-bar. Cible principalement des abdominaux.",
@@ -4004,6 +4449,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["bodyweight"],
   },  {
     id: "towel-doorframe-row",
+    isAdvanced: false,
     name: "Towel doorframe rowing",
     nameEn: "Towel Doorframe Row",
     description: "Towel doorframe rowing. Cible principalement du dos.",
@@ -4013,6 +4459,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "towel-slide-leg-curl",
+    isAdvanced: false,
     name: "Towel slide leg curl",
     nameEn: "Towel Slide Leg Curl",
     description: "Towel slide leg curl. Cible principalement des biceps.",
@@ -4022,6 +4469,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "trap-bar-deadlift",
+    isAdvanced: false,
     name: "Barre hexagonale soulevé de terre",
     nameEn: "Trap Bar Deadlift",
     description: "Barre hexagonale soulevé de terre. Cible principalement des fessiers.",
@@ -4031,6 +4479,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["trap-bar"],
   },  {
     id: "trap-bar-shrug",
+    isAdvanced: false,
     name: "Barre hexagonale shrug",
     nameEn: "Trap Bar Shrug",
     description: "Barre hexagonale shrug. Cible principalement des trapèzes.",
@@ -4040,6 +4489,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["trap-bar"],
   },  {
     id: "trx-row",
+    isAdvanced: false,
     name: "Trx rowing",
     nameEn: "TRX Row",
     description: "Trx rowing. Cible principalement du dos.",
@@ -4049,6 +4499,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["trx"],
   },  {
     id: "trx-squat",
+    isAdvanced: false,
     name: "Trx squat",
     nameEn: "TRX Squat",
     description: "Trx squat. Cible principalement des quadriceps.",
@@ -4058,6 +4509,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["trx"],
   },  {
     id: "tuck-jump",
+    isAdvanced: false,
     name: "Saut groupé",
     nameEn: "Tuck Jumps",
     description: "Saut groupé. Cible principalement des quadriceps.",
@@ -4067,6 +4519,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "turkish-get-up",
+    isAdvanced: true,
     name: "Turkish get-up",
     nameEn: "Turkish Get-Up",
     description: "Turkish get-up. Cible principalement des épaules.",
@@ -4076,6 +4529,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "two-arm-kettlebell-military-press",
+    isAdvanced: false,
     name: "Two-bras kettlebell développé militaire",
     nameEn: "Two-Arm Kettlebell Military Press",
     description: "Two-bras kettlebell développé militaire. Cible principalement des épaules.",
@@ -4085,6 +4539,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["kettlebell"],
   },  {
     id: "underhand-barbell-row",
+    isAdvanced: false,
     name: "Prise supination barre rowing",
     nameEn: "Underhand Barbell Row",
     description: "Prise supination barre rowing. Cible principalement du dos.",
@@ -4094,6 +4549,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["barbell"],
   },  {
     id: "v-up",
+    isAdvanced: false,
     name: "V-up",
     nameEn: "V-Up",
     description: "V-up. Cible principalement des abdominaux.",
@@ -4103,6 +4559,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["bodyweight"],
   },  {
     id: "walking-lunge-with-twist",
+    isAdvanced: false,
     name: "Fente marchée with twist",
     nameEn: "Walking Lunge with Twist",
     description: "Fente marchée with twist. Cible principalement des quadriceps.",
@@ -4112,6 +4569,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["bodyweight"],
   },  {
     id: "wall-ball",
+    isAdvanced: false,
     name: "Wall ball",
     nameEn: "Wall Ball",
     description: "Wall ball. Cible principalement des épaules.",
@@ -4121,6 +4579,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "weighted-parallel-bar-straight-leg-raise",
+    isAdvanced: false,
     name: "Lesté parallel-bar tendu-leg élévation",
     nameEn: "Weighted Parallel-Bar Straight-Leg Raise",
     description: "Lesté parallel-bar tendu-leg élévation. Cible principalement des abdominaux.",
@@ -4130,6 +4589,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "weighted-pull-ups",
+    isAdvanced: false,
     name: "Lesté tractions",
     nameEn: "Weighted Pull Ups",
     description: "Lesté tractions. Cible principalement du grand dorsal.",
@@ -4139,6 +4599,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["bodyweight"],
   },  {
     id: "wide-grip-barbell-bench-press",
+    isAdvanced: false,
     name: "Prise large barre développé couché",
     nameEn: "Wide-Grip Barbell Bench Press",
     description: "Prise large barre développé couché. Cible principalement des pectoraux.",
@@ -4148,6 +4609,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["barbell"],
   },  {
     id: "wide-grip-barbell-curl",
+    isAdvanced: false,
     name: "Prise large barre curl",
     nameEn: "Wide-Grip Barbell Curl",
     description: "Prise large barre curl. Cible principalement des biceps.",
@@ -4157,6 +4619,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["barbell"],
   },  {
     id: "wide-grip-lat-pulldown",
+    isAdvanced: false,
     name: "Prise large tirage vertical",
     nameEn: "Wide-Grip Lat Pulldown",
     description: "Prise large tirage vertical. Cible principalement du grand dorsal.",
@@ -4166,6 +4629,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "wide-grip-pull-up",
+    isAdvanced: false,
     name: "Traction prise large",
     nameEn: "Wide-Grip Pull-Up",
     description: "Traction prise large. Cible principalement du grand dorsal.",
@@ -4175,6 +4639,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["bodyweight"],
   },  {
     id: "wide-grip-seated-cable-row",
+    isAdvanced: false,
     name: "Prise large assis poulie rowing",
     nameEn: "Wide-Grip Seated Cable Row",
     description: "Prise large assis poulie rowing. Cible principalement du dos.",
@@ -4184,6 +4649,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["cable"],
   },  {
     id: "wide-incline-push-up",
+    isAdvanced: false,
     name: "Incliné pompe large",
     nameEn: "Incline Push-Up Wide",
     description: "Incliné pompe large. Cible principalement des pectoraux.",
@@ -4193,6 +4659,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["bodyweight"],
   },  {
     id: "wide-push-up",
+    isAdvanced: false,
     name: "Pompe large",
     nameEn: "Push-Up Wide",
     description: "Pompe large. Cible principalement des pectoraux.",
@@ -4202,6 +4669,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["bodyweight"],
   },  {
     id: "wide-push-ups",
+    isAdvanced: false,
     name: "Large pompes",
     nameEn: "Wide Push-Ups",
     description: "Large pompes. Cible principalement des pectoraux.",
@@ -4211,6 +4679,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["bodyweight"],
   },  {
     id: "wrist-roller",
+    isAdvanced: false,
     name: "Wrist roller",
     nameEn: "Wrist Roller",
     description: "Wrist roller. Cible principalement des avant-bras.",
@@ -4220,6 +4689,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "yates-row",
+    isAdvanced: false,
     name: "Rowing Yates",
     nameEn: "Yates Row",
     description: "Rowing Yates. Cible principalement du dos.",
@@ -4229,6 +4699,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "z-press",
+    isAdvanced: false,
     name: "Z press",
     nameEn: "Z Press",
     description: "Z press. Cible principalement des épaules.",
@@ -4238,6 +4709,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "zercher-squat",
+    isAdvanced: false,
     name: "Zercher squat",
     nameEn: "Zercher Squat",
     description: "Zercher squat. Cible principalement des quadriceps.",
@@ -4247,6 +4719,7 @@ export const exercisesSeed: ExerciseSeed[] = [
     equipmentIds: ["other"],
   },  {
     id: "zottman-curl",
+    isAdvanced: false,
     name: "Curl Zottman",
     nameEn: "Zottman Curl",
     description: "Curl Zottman. Cible principalement des biceps.",

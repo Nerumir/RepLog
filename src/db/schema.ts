@@ -21,6 +21,8 @@ export const exercises = sqliteTable('exercises', {
   description: text('description'),
   mediaType: text('media_type', { enum: ['gif', 'image', 'none', 'video'] }).notNull(),
   mediaKey: text('media_key').notNull(),
+  /** true si le mouvement est technique/risqué (exclu des programmes générés pour débutant). */
+  isAdvanced: integer('is_advanced', { mode: 'boolean' }).notNull().default(false),
   createdAt: integer('created_at').notNull(),
 });
 

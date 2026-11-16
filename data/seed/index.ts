@@ -96,6 +96,7 @@ export async function syncExerciseCatalog(db: typeof Db) {
         description: exercise.description,
         mediaType: exercise.mediaType,
         mediaKey: exercise.mediaKey,
+        isAdvanced: exercise.isAdvanced,
         createdAt: Date.now(),
       })
       .onConflictDoUpdate({
@@ -106,6 +107,7 @@ export async function syncExerciseCatalog(db: typeof Db) {
           description: exercise.description,
           mediaType: exercise.mediaType,
           mediaKey: exercise.mediaKey,
+          isAdvanced: exercise.isAdvanced,
         },
       });
 
@@ -139,6 +141,7 @@ export async function runSeedIfEmpty(db: typeof Db) {
       description: exercise.description,
       mediaType: exercise.mediaType,
       mediaKey: exercise.mediaKey,
+      isAdvanced: exercise.isAdvanced,
       createdAt: Date.now(),
     });
 
