@@ -8,8 +8,10 @@ import { ThemedView } from '@/components/themed-view';
 import { Card } from '@/components/ui/Card';
 import { ConfirmDialog, type ConfirmDialogRequest } from '@/components/ui/ConfirmDialog';
 import { GameButton } from '@/components/ui/GameButton';
+import { PremiumGateModal } from '@/components/ui/PremiumGateModal';
 import { Colors, Spacing } from '@/constants/theme';
 import { useColorScheme } from '@/hooks/use-color-scheme';
+import { usePremiumSessionGate } from '@/hooks/use-premium-session-gate';
 import { deleteProgram, getProgramWithSessions, removeSessionFromProgram } from '@/db/queries/programs';
 import { finishWorkoutLog, getActiveWorkoutLog, startWorkoutLog } from '@/db/queries/workoutLogs';
 
@@ -20,6 +22,7 @@ export default function ProgramDetailScreen() {
 
   const [program, setProgram] = useState<Awaited<ReturnType<typeof getProgramWithSessions>>>(null);
   const [confirmRequest, setConfirmRequest] = useState<ConfirmDialogRequest | null>(null);
+  const { gate, runGated, dismiss: dismissGate, retryAfterUnlock } = usePremiumSessionGate();
 
   const load = useCallback(() => {
     getProgramWithSessions(Number(programId)).then(setProgram);
@@ -34,22 +37,24 @@ export default function ProgramDetailScreen() {
 
   async function handleStart(sessionTemplateId: number) {
     const active = await getActiveWorkoutLog();
-    if (!active) {
-      await startNewLog(sessionTemplateId);
-      return;
-    }
-    if (active.sessionTemplateId === sessionTemplateId) {
+    if (active && active.sessionTemplateId === sessionTemplateId) {
       router.push(`/player/${sessionTemplateId}?workoutLogId=${active.id}`);
       return;
     }
-    setConfirmRequest({
-      title: 'Une séance est déjà en cours',
-      message: `« ${active.templateNameSnapshot} » est en cours. L'abandonner pour démarrer celle-ci à la place ?`,
-      confirmLabel: 'Abandonner et démarrer',
-      onConfirm: async () => {
-        await finishWorkoutLog(active.id, 'aborted');
+    await runGated(async () => {
+      if (!active) {
         await startNewLog(sessionTemplateId);
-      },
+        return;
+      }
+      setConfirmRequest({
+        title: 'Une séance est déjà en cours',
+        message: `« ${active.templateNameSnapshot} » est en cours. L'abandonner pour démarrer celle-ci à la place ?`,
+        confirmLabel: 'Abandonner et démarrer',
+        onConfirm: async () => {
+          await finishWorkoutLog(active.id, 'aborted');
+          await startNewLog(sessionTemplateId);
+        },
+      });
     });
   }
 
@@ -147,6 +152,13 @@ export default function ProgramDetailScreen() {
         />
       </SafeAreaView>
       <ConfirmDialog request={confirmRequest} onDismiss={() => setConfirmRequest(null)} />
+      <PremiumGateModal
+        visible={gate !== null}
+        limitReached
+        completedSessions={gate?.completedSessions ?? 0}
+        onDismiss={dismissGate}
+        onUnlocked={retryAfterUnlock}
+      />
     </ThemedView>
   );
 }

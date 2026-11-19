@@ -9,6 +9,7 @@ import m0004 from './0004_fantastic_zodiak.sql';
 import m0005 from './0005_romantic_nick_fury.sql';
 import m0006 from './0006_gorgeous_longshot.sql';
 import m0007 from './0007_polite_zarda.sql';
+import m0008 from './0008_condemned_maximus.sql';
 
   export default {
     journal,
@@ -20,7 +21,8 @@ m0003,
 m0004,
 m0005,
 m0006,
-m0007
+m0007,
+m0008
     }
   }
   

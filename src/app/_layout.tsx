@@ -5,8 +5,10 @@ import { useMigrations } from 'drizzle-orm/expo-sqlite/migrator';
 import { useFonts, Sora_600SemiBold, Sora_700Bold } from '@expo-google-fonts/sora';
 
 import { AnimatedSplashOverlay } from '@/components/animated-icon';
+import { PremiumGateModal } from '@/components/ui/PremiumGateModal';
 import { db } from '@/db/client';
 import migrations from '@/db/migrations/migrations';
+import { getFreeTierStatus } from '@/db/queries/premium';
 import { getUserProfile } from '@/db/queries/profile';
 import { getAppSettings } from '@/db/queries/settings';
 import { useColorScheme } from '@/hooks/use-color-scheme';
@@ -22,6 +24,7 @@ export default function RootLayout() {
   const [fontsLoaded] = useFonts({ Sora_600SemiBold, Sora_700Bold });
   const setThemeMode = useThemeStore((state) => state.setMode);
   const colorScheme = useColorScheme();
+  const [freeTierReminder, setFreeTierReminder] = useState<{ completedSessions: number; limitReached: boolean } | null>(null);
 
   useEffect(() => {
     if (!success) return;
@@ -43,6 +46,13 @@ export default function RootLayout() {
     }
   }, [success, seedReady, error, fontsLoaded]);
 
+  useEffect(() => {
+    if (hasProfile !== true) return;
+    getFreeTierStatus().then(({ unlocked, completedSessions, limitReached }) => {
+      if (!unlocked) setFreeTierReminder({ completedSessions, limitReached });
+    });
+  }, [hasProfile]);
+
   if (error) {
     throw error;
   }
@@ -63,6 +73,13 @@ export default function RootLayout() {
         <Stack.Screen name="player/[templateId]/index" options={{ presentation: 'fullScreenModal' }} />
         <Stack.Screen name="player/[templateId]/summary" options={{ presentation: 'fullScreenModal' }} />
       </Stack>
+      <PremiumGateModal
+        visible={freeTierReminder !== null}
+        limitReached={freeTierReminder?.limitReached ?? false}
+        completedSessions={freeTierReminder?.completedSessions ?? 0}
+        onDismiss={() => setFreeTierReminder(null)}
+        onUnlocked={() => setFreeTierReminder(null)}
+      />
     </ThemeProvider>
   );
 }

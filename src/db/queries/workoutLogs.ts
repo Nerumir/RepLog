@@ -235,6 +235,29 @@ export async function getBestOneRmForExerciseExcludingLog(
   return best;
 }
 
+/** Comme getBestRepsForExercise, mais en excluant une séance donnée (pour détecter un record battu par cette séance). */
+export async function getBestRepsForExerciseExcludingLog(
+  exerciseId: string,
+  excludeWorkoutLogId: number,
+  sinceTimestamp?: number | null,
+): Promise<number | null> {
+  const rows = await db
+    .select({ reps: workoutLogSets.actualReps })
+    .from(workoutLogSets)
+    .innerJoin(workoutLogExercises, eq(workoutLogExercises.id, workoutLogSets.workoutLogExerciseId))
+    .where(
+      and(
+        eq(workoutLogExercises.exerciseId, exerciseId),
+        ne(workoutLogExercises.workoutLogId, excludeWorkoutLogId),
+        isNotNull(workoutLogSets.actualReps),
+        sinceTimestamp ? gte(workoutLogSets.completedAt, sinceTimestamp) : undefined,
+      ),
+    );
+
+  if (rows.length === 0) return null;
+  return Math.max(...rows.map((row) => row.reps ?? 0));
+}
+
 /** Historique dans le temps (1RM calculé par séance) pour un exercice, du plus ancien au plus récent. */
 export async function getOneRmHistoryForExercise(
   exerciseId: string,

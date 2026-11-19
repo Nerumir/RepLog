@@ -21,7 +21,11 @@ import type { AchievementDefinition } from '@/domain/achievements';
 import { getPerformanceStandards } from '@/db/queries/exercises';
 import { getUserProfile } from '@/db/queries/profile';
 import { getAppSettings } from '@/db/queries/settings';
-import { getBestOneRmForExerciseExcludingLog, getWorkoutLogDetail } from '@/db/queries/workoutLogs';
+import {
+  getBestOneRmForExerciseExcludingLog,
+  getBestRepsForExerciseExcludingLog,
+  getWorkoutLogDetail,
+} from '@/db/queries/workoutLogs';
 import { calculateOneRm } from '@/domain/oneRepMax';
 import { computeLevelScore, levelOrder, pickBracket } from '@/domain/performanceLevel';
 import type { PerformanceLevel } from '@/domain/types';
@@ -29,7 +33,8 @@ import type { PerformanceLevel } from '@/domain/types';
 interface ExerciseSummary {
   exerciseId: string;
   exerciseName: string;
-  bestOneRm: number;
+  bestValue: number;
+  metric: 'one_rm_kg' | 'reps';
   levelLabel: string;
   tier: PerformanceLevel | null;
   leveledUp: boolean;
@@ -64,33 +69,35 @@ export default function SessionSummaryScreen() {
         const completedSets = exercise.sets.filter((set) => set.isCompleted && set.actualWeightKg !== null && set.actualReps !== null);
         if (completedSets.length === 0) continue;
 
-        let bestOneRm = 0;
+        const standards = await getPerformanceStandards(exercise.exerciseId);
+        const metric: 'one_rm_kg' | 'reps' = standards[0]?.metric ?? 'one_rm_kg';
+
+        let bestValue = 0;
         for (const set of completedSets) {
-          const oneRm = calculateOneRm(set.actualWeightKg ?? 0, set.actualReps ?? 0, formula);
-          if (oneRm > bestOneRm) bestOneRm = oneRm;
+          const value =
+            metric === 'reps' ? (set.actualReps ?? 0) : calculateOneRm(set.actualWeightKg ?? 0, set.actualReps ?? 0, formula);
+          if (value > bestValue) bestValue = value;
         }
 
-        const standards = await getPerformanceStandards(exercise.exerciseId);
         const bracket = pickBracket(standards, profile.sex, profile.bodyWeightKg);
-        const result = computeLevelScore(bestOneRm, bracket);
+        const result = computeLevelScore(bestValue, bracket);
         const levelLabel =
           result.tier && result.score !== null
             ? `${LevelTierInfo[result.tier].label} · Niveau ${result.score.toFixed(1)}`
             : 'Aucune donnée encore.';
 
-        const previousBest = await getBestOneRmForExerciseExcludingLog(
-          exercise.exerciseId,
-          formula,
-          Number(workoutLogId),
-          profile.performanceResetAt,
-        );
+        const previousBest =
+          metric === 'reps'
+            ? await getBestRepsForExerciseExcludingLog(exercise.exerciseId, Number(workoutLogId), profile.performanceResetAt)
+            : await getBestOneRmForExerciseExcludingLog(exercise.exerciseId, formula, Number(workoutLogId), profile.performanceResetAt);
         const previousTier = previousBest !== null ? computeLevelScore(previousBest, bracket).tier : null;
         const leveledUp = tierIndex(result.tier) > tierIndex(previousTier);
 
         results.push({
           exerciseId: exercise.exerciseId,
           exerciseName: exercise.exerciseNameSnapshot,
-          bestOneRm,
+          bestValue,
+          metric,
           levelLabel,
           tier: result.tier,
           leveledUp,
@@ -132,7 +139,8 @@ export default function SessionSummaryScreen() {
                 )}
               </ThemedView>
               <ThemedText type="small">
-                1RM estimé : <CountUpNumber type="small" value={item.bestOneRm} suffix="kg" />
+                {item.metric === 'reps' ? 'Record de répétitions : ' : '1RM estimé : '}
+                <CountUpNumber type="small" value={item.bestValue} suffix={item.metric === 'reps' ? ' rep.' : 'kg'} />
               </ThemedText>
               <ThemedView style={styles.levelRow}>
                 {item.tier && <Ionicons name="medal" size={16} color={LevelTierInfo[item.tier].color} />}

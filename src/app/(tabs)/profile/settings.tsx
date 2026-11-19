@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'expo-router';
-import { Pressable, StyleSheet } from 'react-native';
+import { Pressable, StyleSheet, TextInput } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { ThemedText } from '@/components/themed-text';
@@ -11,8 +11,10 @@ import { Colors, Spacing } from '@/constants/theme';
 import { useColorScheme } from '@/hooks/use-color-scheme';
 import { resetAchievements } from '@/db/queries/achievements';
 import { exportAllData, importAllData } from '@/db/queries/backup';
+import { getFreeTierStatus, redeemPremiumCode } from '@/db/queries/premium';
 import { getAppSettings, updateAppSettings, type ThemeMode } from '@/db/queries/settings';
 import { resetPerformances } from '@/db/queries/profile';
+import { FREE_SESSION_LIMIT } from '@/domain/premium';
 import type { OneRmFormulaId } from '@/domain/oneRepMax';
 import { exportBackupToFile, pickAndReadBackupFile } from '@/io/backupFile';
 import { useThemeStore } from '@/state/useThemeStore';
@@ -40,7 +42,19 @@ export default function SettingsScreen() {
   const [exporting, setExporting] = useState(false);
   const [importing, setImporting] = useState(false);
   const [importMessage, setImportMessage] = useState<string | null>(null);
+  const [premiumUnlocked, setPremiumUnlocked] = useState(false);
+  const [completedSessions, setCompletedSessions] = useState(0);
+  const [codeInput, setCodeInput] = useState('');
+  const [codeError, setCodeError] = useState<string | null>(null);
+  const [codeSubmitting, setCodeSubmitting] = useState(false);
   const setGlobalThemeMode = useThemeStore((state) => state.setMode);
+
+  function loadPremiumStatus() {
+    getFreeTierStatus().then(({ unlocked, completedSessions: count }) => {
+      setPremiumUnlocked(unlocked);
+      setCompletedSessions(count);
+    });
+  }
 
   useEffect(() => {
     getAppSettings().then((settings) => {
@@ -49,7 +63,21 @@ export default function SettingsScreen() {
       setOneRmFormula(settings.oneRmFormula);
       setDebugModeEnabled(settings.debugModeEnabled);
     });
+    loadPremiumStatus();
   }, []);
+
+  async function handleRedeemCode() {
+    setCodeSubmitting(true);
+    setCodeError(null);
+    const ok = await redeemPremiumCode(codeInput);
+    setCodeSubmitting(false);
+    if (!ok) {
+      setCodeError("Ce code n'est pas valide.");
+      return;
+    }
+    setCodeInput('');
+    loadPremiumStatus();
+  }
 
   async function handleThemeChange(value: ThemeMode) {
     setThemeMode(value);
@@ -127,7 +155,49 @@ export default function SettingsScreen() {
           </GameButton>
         </Link>
 
-        <ThemedText type="smallBold">Thème</ThemedText>
+        <ThemedText type="smallBold" style={styles.sectionSpacing}>
+          Version
+        </ThemedText>
+        {premiumUnlocked ? (
+          <ThemedText type="small" themeColor="accent">
+            ✓ Version illimitée débloquée
+          </ThemedText>
+        ) : (
+          <>
+            <ThemedText type="small" themeColor="textSecondary">
+              Version gratuite : {completedSessions}/{FREE_SESSION_LIMIT} séances utilisées.
+            </ThemedText>
+            <ThemedView style={styles.backupRow}>
+              <TextInput
+                value={codeInput}
+                onChangeText={setCodeInput}
+                placeholder="Code de déblocage"
+                placeholderTextColor={colors.textSecondary}
+                autoCapitalize="characters"
+                autoCorrect={false}
+                style={[styles.codeInput, { color: colors.text, borderColor: colors.border }]}
+              />
+              <GameButton
+                silent
+                onPress={handleRedeemCode}
+                disabled={codeSubmitting || codeInput.trim().length === 0}
+                style={StyleSheet.flatten([styles.backupButton, { borderColor: colors.accent }])}>
+                <ThemedText type="small" themeColor="accent">
+                  {codeSubmitting ? 'Vérification...' : 'Valider'}
+                </ThemedText>
+              </GameButton>
+            </ThemedView>
+            {codeError && (
+              <ThemedText type="small" themeColor="danger">
+                {codeError}
+              </ThemedText>
+            )}
+          </>
+        )}
+
+        <ThemedText type="smallBold" style={styles.sectionSpacing}>
+          Thème
+        </ThemedText>
         <ThemedView style={styles.optionRow} type="backgroundElement">
           {THEME_OPTIONS.map((option) => (
             <Pressable
@@ -240,6 +310,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: Spacing.four,
   },
   backupRow: { flexDirection: 'row', flexWrap: 'wrap', gap: Spacing.two, backgroundColor: 'transparent' },
+  codeInput: { flex: 1, minWidth: 160, borderWidth: 1.5, borderRadius: 999, paddingVertical: Spacing.two, paddingHorizontal: Spacing.three },
   backupButton: {
     borderRadius: 999,
     borderWidth: 1.5,

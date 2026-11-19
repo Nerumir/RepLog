@@ -127,6 +127,9 @@ export const appSettings = sqliteTable('app_settings', {
     .default('epley'),
   defaultRestSeconds: integer('default_rest_seconds').notNull().default(90),
   debugModeEnabled: integer('debug_mode_enabled', { mode: 'boolean' }).notNull().default(false),
+  premiumUnlocked: integer('premium_unlocked', { mode: 'boolean' }).notNull().default(false),
+  premiumUnlockedAt: integer('premium_unlocked_at'),
+  premiumSource: text('premium_source', { enum: ['code', 'purchase'] }),
 });
 
 // --- Programmes / séances (templates) ---
