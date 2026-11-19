@@ -41,9 +41,9 @@ async function buildAchievementStats(): Promise<AchievementStats | null> {
       gatherExercisePerformanceInputs(profile, settings?.oneRmFormula ?? 'epley'),
       getAttendanceProgress(),
       getBiomeSessionCounts(),
-      getCompletedSessionTimestamps(),
-      countCompletedSets(),
-      countCompletedSessions(),
+      getCompletedSessionTimestamps(profile.performanceResetAt),
+      countCompletedSets(profile.performanceResetAt),
+      countCompletedSessions(profile.performanceResetAt),
     ]);
 
   const muscleSummaries = aggregateByMuscleGroup(perExercise, muscleGroups);

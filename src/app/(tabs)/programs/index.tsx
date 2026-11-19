@@ -9,6 +9,7 @@ import { ThemedView } from '@/components/themed-view';
 import { Card } from '@/components/ui/Card';
 import { ConfirmDialog, type ConfirmDialogRequest } from '@/components/ui/ConfirmDialog';
 import { GameButton } from '@/components/ui/GameButton';
+import { HelpButton } from '@/components/ui/HelpButton';
 import { Colors, Spacing } from '@/constants/theme';
 import { useColorScheme } from '@/hooks/use-color-scheme';
 import { listPrograms } from '@/db/queries/programs';
@@ -49,7 +50,17 @@ export default function ProgramsScreen() {
     <ThemedView style={styles.container}>
       <SafeAreaView style={styles.safeArea}>
         <ThemedView style={styles.headerRow}>
-          <ThemedText type="subtitle">Entraînement</ThemedText>
+          <ThemedView style={styles.headerTitleRow}>
+            <ThemedText type="subtitle">Entraînement</ThemedText>
+            <HelpButton
+              title="Entraînement"
+              body={
+                'Crée des programmes composés de plusieurs séances, puis lance une séance pour suivre tes séries en temps réel (poids, répétitions, minuteur de repos).\n\n' +
+                "Le bouton « Générer » te propose un programme aléatoire à partir d'un court questionnaire (matériel disponible, objectif, expérience, temps par séance). Tu peux le régénérer autant de fois que tu veux avant de le sauvegarder, ou créer un programme entièrement à la main avec « + Programme ».\n\n" +
+                'Une séance en cours apparaît en haut de cet onglet pour la reprendre à tout moment.'
+              }
+            />
+          </ThemedView>
           <ThemedView style={styles.headerActions}>
             <Link href="/programs/generate" asChild>
               <GameButton style={StyleSheet.flatten([styles.pillButtonOutline, { borderColor: colors.accent }])}>
@@ -146,6 +157,7 @@ const styles = StyleSheet.create({
   container: { flex: 1 },
   safeArea: { flex: 1, padding: Spacing.four, gap: Spacing.three },
   headerRow: { gap: Spacing.two },
+  headerTitleRow: { flexDirection: 'row', alignItems: 'center', gap: Spacing.one, backgroundColor: 'transparent' },
   headerActions: { flexDirection: 'row', gap: Spacing.two, backgroundColor: 'transparent' },
   pillButton: { borderRadius: 999, paddingVertical: Spacing.two, paddingHorizontal: Spacing.three },
   pillButtonOutline: {

@@ -10,6 +10,7 @@ import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { Confetti } from '@/components/ui/Confetti';
 import { GameButton } from '@/components/ui/GameButton';
+import { HelpButton } from '@/components/ui/HelpButton';
 import { Colors, Spacing } from '@/constants/theme';
 import { useColorScheme } from '@/hooks/use-color-scheme';
 import { applyDebugPenalty, applyLazyPenaltiesIfNeeded, recordAttendanceSession, setPenaltyThresholdDays } from '@/db/queries/attendance';
@@ -111,7 +112,17 @@ export default function AttendanceScreen() {
     <ThemedView style={styles.container}>
       <SafeAreaView style={styles.safeAreaMap} edges={['top', 'left', 'right']}>
         <ThemedView style={styles.headerRow}>
-          <ThemedText type="subtitle">{BIOMES[biomeIndex]?.label ?? 'Assiduité'}</ThemedText>
+          <ThemedView style={styles.headerTitleRow}>
+            <ThemedText type="subtitle">{BIOMES[biomeIndex]?.label ?? 'Assiduité'}</ThemedText>
+            <HelpButton
+              title="Assiduité"
+              body={
+                'Une carte qui gamifie ta régularité : ton personnage avance d\'un point à chaque séance terminée, en traversant 6 biomes (Prairie → Valhalla).\n\n' +
+                "Si tu restes trop longtemps sans t'entraîner (seuil réglable via l'icône ⚙️ en haut à droite), ton personnage recule d'un biome entier en guise de pénalité.\n\n" +
+                'Le nombre total de séances faites dans chaque biome est affiché sur ton profil, et n\'est jamais perdu, même en cas de pénalité.'
+              }
+            />
+          </ThemedView>
           <Link href="/attendance/settings" asChild>
             <Pressable style={styles.settingsButton}>
               <Ionicons name="settings-outline" size={24} color={colors.text} />
@@ -158,6 +169,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'transparent',
   },
   settingsButton: { padding: Spacing.one },
+  headerTitleRow: { flexDirection: 'row', alignItems: 'center', gap: Spacing.one, backgroundColor: 'transparent' },
   mapWrapper: { flex: 1 },
   debugPanel: {
     position: 'absolute',

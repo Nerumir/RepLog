@@ -16,6 +16,7 @@ import Body, { type Slug } from 'react-native-body-highlighter';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { Card } from '@/components/ui/Card';
+import { HelpButton } from '@/components/ui/HelpButton';
 import { LevelProgressBar } from '@/components/ui/LevelProgressBar';
 import { Colors, LevelTierInfo, Spacing, TrophyTierInfo } from '@/constants/theme';
 import { useColorScheme } from '@/hooks/use-color-scheme';
@@ -110,9 +111,19 @@ export default function ProfileScreen() {
     <ThemedView style={styles.container}>
       <SafeAreaView style={styles.safeArea}>
         <ThemedView style={styles.headerRow}>
-          <ThemedText type="subtitle" style={styles.headerTitle} numberOfLines={1}>
-            {nickname || 'Profil'}
-          </ThemedText>
+          <ThemedView style={styles.headerTitleRow}>
+            <ThemedText type="subtitle" style={styles.headerTitle} numberOfLines={1}>
+              {nickname || 'Profil'}
+            </ThemedText>
+            <HelpButton
+              title="Profil"
+              body={
+                'Ta carte d\'identité sportive : ton niveau par groupe musculaire (Débutant → Élite), calculé à partir de tes meilleures performances comparées à des barèmes par sexe et poids de corps.\n\n' +
+                "Tu y retrouves aussi ta progression sur la carte d'assiduité, et tes trophées débloqués (régularité, progression musculaire, spécialisations par matériel...).\n\n" +
+                "Dans les réglages (⚙️), tu peux modifier ton profil, réinitialiser tes performances/trophées, ou exporter/importer toutes tes données pour changer de téléphone."
+              }
+            />
+          </ThemedView>
           <Link href="/profile/settings" asChild>
             <Pressable style={styles.settingsButton}>
               <Ionicons name="settings-outline" size={24} color={colors.text} />
@@ -266,6 +277,7 @@ const styles = StyleSheet.create({
   container: { flex: 1 },
   safeArea: { flex: 1, padding: Spacing.four, gap: Spacing.two },
   headerRow: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', gap: Spacing.two, backgroundColor: 'transparent' },
+  headerTitleRow: { flex: 1, flexDirection: 'row', alignItems: 'center', gap: Spacing.one, backgroundColor: 'transparent' },
   headerTitle: { flexShrink: 1 },
   settingsButton: { padding: Spacing.one },
   diagramContainer: { overflow: 'hidden', justifyContent: 'center' },

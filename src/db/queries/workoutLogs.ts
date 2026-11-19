@@ -31,24 +31,41 @@ export async function listExerciseIdsWithLoggedSets(sinceTimestamp?: number | nu
   return rows.map((row) => row.exerciseId);
 }
 
-/** Nombre total de séances terminées (tout l'historique, indépendant d'un reset de performances). */
-export async function countCompletedSessions(): Promise<number> {
-  const [row] = await db.select({ n: count() }).from(workoutLogs).where(eq(workoutLogs.status, 'completed'));
+/** Nombre total de séances terminées depuis un éventuel reset de performances. */
+export async function countCompletedSessions(sinceTimestamp?: number | null): Promise<number> {
+  const [row] = await db
+    .select({ n: count() })
+    .from(workoutLogs)
+    .where(
+      and(
+        eq(workoutLogs.status, 'completed'),
+        sinceTimestamp ? gte(workoutLogs.completedAt, sinceTimestamp) : undefined,
+      ),
+    );
   return row?.n ?? 0;
 }
 
-/** Nombre total de séries cochées comme complétées (tout l'historique). */
-export async function countCompletedSets(): Promise<number> {
-  const [row] = await db.select({ n: count() }).from(workoutLogSets).where(eq(workoutLogSets.isCompleted, true));
+/** Nombre total de séries cochées comme complétées depuis un éventuel reset de performances. */
+export async function countCompletedSets(sinceTimestamp?: number | null): Promise<number> {
+  const [row] = await db
+    .select({ n: count() })
+    .from(workoutLogSets)
+    .where(and(eq(workoutLogSets.isCompleted, true), sinceTimestamp ? gte(workoutLogSets.completedAt, sinceTimestamp) : undefined));
   return row?.n ?? 0;
 }
 
-/** Horodatages de fin de toutes les séances terminées (tout l'historique), pour les succès de régularité. */
-export async function getCompletedSessionTimestamps(): Promise<number[]> {
+/** Horodatages de fin des séances terminées depuis un éventuel reset de performances, pour les succès de régularité. */
+export async function getCompletedSessionTimestamps(sinceTimestamp?: number | null): Promise<number[]> {
   const rows = await db
     .select({ completedAt: workoutLogs.completedAt })
     .from(workoutLogs)
-    .where(and(eq(workoutLogs.status, 'completed'), isNotNull(workoutLogs.completedAt)));
+    .where(
+      and(
+        eq(workoutLogs.status, 'completed'),
+        isNotNull(workoutLogs.completedAt),
+        sinceTimestamp ? gte(workoutLogs.completedAt, sinceTimestamp) : undefined,
+      ),
+    );
   return rows.map((row) => row.completedAt as number);
 }
 
