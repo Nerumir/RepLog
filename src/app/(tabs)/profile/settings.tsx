@@ -142,6 +142,17 @@ export default function SettingsScreen() {
     });
   }
 
+  function handleResetTrophies() {
+    setConfirmRequest({
+      title: 'Réinitialiser les trophées ?',
+      message: 'Tous tes trophées débloqués seront effacés. Ils se redébloqueront au fil de tes prochaines séances, sans toucher au reste de tes données.',
+      confirmLabel: 'Réinitialiser',
+      onConfirm: async () => {
+        await resetAchievements();
+      },
+    });
+  }
+
   return (
     <ThemedView style={styles.container}>
       <SafeAreaView style={styles.safeArea}>
@@ -245,6 +256,16 @@ export default function SettingsScreen() {
             </Pressable>
           ))}
         </ThemedView>
+        {debugModeEnabled && (
+          <GameButton
+            silent
+            onPress={handleResetTrophies}
+            style={StyleSheet.flatten([styles.resetButton, { borderColor: colors.danger }])}>
+            <ThemedText type="small" style={{ color: colors.danger }}>
+              Réinitialiser les trophées
+            </ThemedText>
+          </GameButton>
+        )}
 
         <ThemedText type="smallBold" style={styles.sectionSpacing}>
           Sauvegarde
