@@ -1,6 +1,7 @@
 export interface MuscleGroupSummary {
   muscleGroupId: string;
   name: string;
+  nameEn: string;
   /** Moyenne des scores (1..5) des exercices où ce muscle est primaire ; null si jamais pratiqué. */
   averageScore: number | null;
   exerciseCount: number;
@@ -19,7 +20,7 @@ export interface ExercisePerformanceInput {
  */
 export function aggregateByMuscleGroup(
   perExercise: ExercisePerformanceInput[],
-  muscleGroups: { id: string; name: string }[],
+  muscleGroups: { id: string; name: string; nameEn: string }[],
 ): MuscleGroupSummary[] {
   const scoresByMuscle = new Map<string, number[]>();
 
@@ -37,6 +38,7 @@ export function aggregateByMuscleGroup(
     return {
       muscleGroupId: muscle.id,
       name: muscle.name,
+      nameEn: muscle.nameEn,
       averageScore: scores.length > 0 ? scores.reduce((a, b) => a + b, 0) / scores.length : null,
       exerciseCount: scores.length,
     };

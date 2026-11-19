@@ -3,31 +3,35 @@ import { Link, useLocalSearchParams } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { Pressable, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { useTranslation } from 'react-i18next';
 
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { Card } from '@/components/ui/Card';
 import { Colors, Spacing } from '@/constants/theme';
 import { useColorScheme } from '@/hooks/use-color-scheme';
+import { useLocalize } from '@/i18n/localize';
 import { getMuscleGroupById, listExercisesByPrimaryMuscleWithEquipment } from '@/db/queries/exercises';
 import { bucketForEquipment, EQUIPMENT_BUCKETS } from '@/domain/exerciseEquipmentBucket';
 
 export default function MuscleGroupCatalogScreen() {
   const { muscleGroupId } = useLocalSearchParams<{ muscleGroupId: string }>();
+  const { t } = useTranslation();
+  const localize = useLocalize();
   const scheme = useColorScheme();
   const colors = Colors[scheme === 'dark' ? 'dark' : 'light'];
 
-  const [muscleName, setMuscleName] = useState('');
+  const [muscle, setMuscle] = useState<Awaited<ReturnType<typeof getMuscleGroupById>> | null>(null);
   const [counts, setCounts] = useState<Record<string, number>>({});
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
     (async () => {
-      const [muscle, exercisesForMuscle] = await Promise.all([
+      const [muscleRow, exercisesForMuscle] = await Promise.all([
         getMuscleGroupById(muscleGroupId),
         listExercisesByPrimaryMuscleWithEquipment(muscleGroupId),
       ]);
-      setMuscleName(muscle?.name ?? '');
+      setMuscle(muscleRow);
       const next: Record<string, number> = {};
       for (const exercise of exercisesForMuscle) {
         const bucket = bucketForEquipment(exercise.equipmentIds);
@@ -43,15 +47,15 @@ export default function MuscleGroupCatalogScreen() {
   return (
     <ThemedView style={styles.container}>
       <SafeAreaView style={styles.safeArea}>
-        <ThemedText type="subtitle">{muscleName}</ThemedText>
+        <ThemedText type="subtitle">{muscle ? localize(muscle.name, muscle.nameEn) : ''}</ThemedText>
         {EQUIPMENT_BUCKETS.map((bucket) => (
           <Link key={bucket.id} href={`/catalog/${muscleGroupId}/${bucket.id}`} asChild>
             <Pressable disabled={!counts[bucket.id]}>
               <Card style={[styles.row, !counts[bucket.id] && styles.rowDisabled]}>
                 <ThemedView style={styles.rowText}>
-                  <ThemedText type="default">{bucket.label}</ThemedText>
+                  <ThemedText type="default">{t(`enums.equipmentBucket.${bucket.id}`)}</ThemedText>
                   <ThemedText type="small" themeColor="textSecondary">
-                    {counts[bucket.id] ?? 0} exercice(s)
+                    {t('catalog.exerciseCount', { count: counts[bucket.id] ?? 0 })}
                   </ThemedText>
                 </ThemedView>
                 <Ionicons name="chevron-forward" size={20} color={colors.textSecondary} />

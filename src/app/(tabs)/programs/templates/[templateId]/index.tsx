@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link, router, useLocalSearchParams } from 'expo-router';
 import { FlatList, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { useTranslation } from 'react-i18next';
 
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
@@ -11,12 +12,15 @@ import { GameButton } from '@/components/ui/GameButton';
 import { PremiumGateModal } from '@/components/ui/PremiumGateModal';
 import { Colors, Spacing } from '@/constants/theme';
 import { useColorScheme } from '@/hooks/use-color-scheme';
+import { useLocalize } from '@/i18n/localize';
 import { usePremiumSessionGate } from '@/hooks/use-premium-session-gate';
 import { listBodyweightOnlyExerciseIds } from '@/db/queries/exercises';
 import { getSessionTemplateDetail } from '@/db/queries/sessionTemplates';
 import { finishWorkoutLog, getActiveWorkoutLog, startWorkoutLog } from '@/db/queries/workoutLogs';
 
 export default function SessionTemplateDetailScreen() {
+  const { t } = useTranslation();
+  const localize = useLocalize();
   const { templateId } = useLocalSearchParams<{ templateId: string }>();
   const scheme = useColorScheme();
   const colors = Colors[scheme === 'dark' ? 'dark' : 'light'];
@@ -47,9 +51,9 @@ export default function SessionTemplateDetailScreen() {
         return;
       }
       setConfirmRequest({
-        title: 'Une séance est déjà en cours',
-        message: `« ${active.templateNameSnapshot} » est en cours. L'abandonner pour démarrer celle-ci à la place ?`,
-        confirmLabel: 'Abandonner et démarrer',
+        title: t('programDetail.activeSessionDialog.title'),
+        message: t('programDetail.activeSessionDialog.message', { name: active.templateNameSnapshot }),
+        confirmLabel: t('programDetail.activeSessionDialog.confirmLabel'),
         onConfirm: async () => {
           await finishWorkoutLog(active.id, 'aborted');
           await startNewLog();
@@ -70,18 +74,18 @@ export default function SessionTemplateDetailScreen() {
           <Link href={`/programs/templates/${templateId}/edit`} asChild>
             <GameButton style={StyleSheet.flatten([styles.editButton, { borderColor: colors.accent }])}>
               <ThemedText type="small" themeColor="accent">
-                Modifier
+                {t('sessionDetail.edit')}
               </ThemedText>
             </GameButton>
           </Link>
         </ThemedView>
         <ThemedText type="small" themeColor="textSecondary">
-          Repos par défaut : {template.defaultRestSeconds}s
+          {t('sessionDetail.defaultRest', { seconds: template.defaultRestSeconds })}
         </ThemedText>
 
         <GameButton style={[styles.startButton, { backgroundColor: colors.accent }]} onPress={handleStart}>
           <ThemedText type="smallBold" style={{ color: '#FFFFFF' }}>
-            Lancer la séance
+            {t('sessionDetail.startSession')}
           </ThemedText>
         </GameButton>
 
@@ -92,24 +96,30 @@ export default function SessionTemplateDetailScreen() {
             <Card style={styles.card}>
               <ThemedView style={styles.exerciseCardHeader}>
                 <ThemedText type="smallBold" style={styles.exerciseCardTitle} numberOfLines={1}>
-                  {item.exerciseName}
+                  {localize(item.exerciseName, item.exerciseNameEn)}
                 </ThemedText>
                 <Link href={`/exercises/${item.exerciseId}`} asChild>
                   <GameButton style={StyleSheet.flatten([styles.detailsButton, { borderColor: colors.accent }])}>
                     <ThemedText type="small" themeColor="accent">
-                      Détails
+                      {t('programs.details')}
                     </ThemedText>
                   </GameButton>
                 </Link>
               </ThemedView>
               <ThemedText type="small" themeColor="textSecondary">
-                {item.sets.length} série(s) · repos{' '}
-                {item.restSecondsOverride ?? template.defaultRestSeconds}s
+                {t('sessionDetail.setsAndRest', {
+                  count: item.sets.length,
+                  seconds: item.restSecondsOverride ?? template.defaultRestSeconds,
+                })}
               </ThemedText>
               {item.sets.map((set) => (
                 <ThemedText key={set.id} type="small">
-                  Série {set.setIndex + 1} :{' '}
-                  {bodyweightIds.has(item.exerciseId) ? `${set.targetReps} reps` : `${set.targetWeightKg}kg × ${set.targetReps}`}
+                  {t('sessionDetail.setLine', {
+                    index: set.setIndex + 1,
+                    detail: bodyweightIds.has(item.exerciseId)
+                      ? t('sessionDetail.repsOnly', { count: set.targetReps })
+                      : t('sessionDetail.weightReps', { weight: set.targetWeightKg, count: set.targetReps }),
+                  })}
                 </ThemedText>
               ))}
             </Card>

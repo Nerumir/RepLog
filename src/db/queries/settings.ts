@@ -7,6 +7,7 @@ import type { OneRmFormulaId } from '@/domain/oneRepMax';
 const SETTINGS_ID = 1;
 
 export type ThemeMode = 'light' | 'dark' | 'system';
+export type AppLanguage = 'fr' | 'en';
 
 export async function getAppSettings() {
   const rows = await db.select().from(appSettings).where(eq(appSettings.id, SETTINGS_ID));
@@ -19,6 +20,7 @@ export async function getAppSettings() {
 
 export async function updateAppSettings(input: {
   themeMode?: ThemeMode;
+  language?: AppLanguage;
   oneRmFormula?: OneRmFormulaId;
   defaultRestSeconds?: number;
   debugModeEnabled?: boolean;

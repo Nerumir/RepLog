@@ -3,6 +3,7 @@ import { useLocalSearchParams } from 'expo-router';
 import { LineChart } from 'react-native-gifted-charts';
 import { ScrollView, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { useTranslation } from 'react-i18next';
 
 import { MuscleBodyDiagram, type MuscleHighlights } from '@/components/exercise/MuscleBodyDiagram';
 import { ExerciseMediaView } from '@/components/exercise/ExerciseMediaView';
@@ -11,6 +12,7 @@ import { ThemedView } from '@/components/themed-view';
 import { LevelProgressBar } from '@/components/ui/LevelProgressBar';
 import { Colors, LevelTierInfo, Spacing } from '@/constants/theme';
 import { useColorScheme } from '@/hooks/use-color-scheme';
+import { useLocalize } from '@/i18n/localize';
 import {
   getExerciseById,
   getExerciseEquipment,
@@ -45,11 +47,9 @@ type ExerciseDetailData = {
   thresholds: PerformanceStandardRow[];
 };
 
-function formatMetricValue(value: number, metric: 'one_rm_kg' | 'reps'): string {
-  return metric === 'reps' ? `${value} rep.` : `${value}kg`;
-}
-
 export default function ExerciseDetailScreen() {
+  const { t } = useTranslation();
+  const localize = useLocalize();
   const { exerciseId } = useLocalSearchParams<{ exerciseId: string }>();
   const scheme = useColorScheme();
   const colors = Colors[scheme === 'dark' ? 'dark' : 'light'];
@@ -102,6 +102,10 @@ export default function ExerciseDetailScreen() {
 
   if (!data) return null;
 
+  function formatMetricValue(value: number, metric: 'one_rm_kg' | 'reps'): string {
+    return metric === 'reps' ? t('metric.reps', { count: value }) : t('metric.kg', { value });
+  }
+
   const highlights: MuscleHighlights = {};
   for (const muscle of data.muscles) {
     highlights[muscle.muscleGroupId] = muscle.role;
@@ -109,43 +113,45 @@ export default function ExerciseDetailScreen() {
 
   const levelLabel =
     data.level?.tier && data.level.score !== null
-      ? `${LevelTierInfo[data.level.tier].label} · Niveau ${data.level.score.toFixed(1)}`
-      : 'Aucune donnée encore.';
+      ? t('exerciseDetail.levelLabel', { tier: t(`enums.levelTier.${data.level.tier}`), score: data.level.score.toFixed(1) })
+      : t('exerciseDetail.noDataYet');
 
   return (
     <ThemedView style={styles.container}>
       <SafeAreaView style={styles.safeArea}>
         <ScrollView contentContainerStyle={styles.content}>
-          <ThemedText type="subtitle">{data.exercise.name}</ThemedText>
+          <ThemedText type="subtitle">{localize(data.exercise.name, data.exercise.nameEn)}</ThemedText>
           <ThemedView style={styles.mediaWrapper}>
             <ExerciseMediaView exerciseId={data.exercise.id} width={300} height={200} />
           </ThemedView>
-          <ThemedText themeColor="textSecondary">{data.exercise.description}</ThemedText>
+          <ThemedText themeColor="textSecondary">{localize(data.exercise.description ?? '', data.exercise.descriptionEn)}</ThemedText>
 
           <ThemedView style={styles.silhouetteRow}>
             <MuscleBodyDiagram view="front" highlights={highlights} />
             <MuscleBodyDiagram view="back" highlights={highlights} />
           </ThemedView>
 
-          <ThemedText type="smallBold">Muscles ciblés</ThemedText>
+          <ThemedText type="smallBold">{t('exerciseDetail.targetedMuscles')}</ThemedText>
           {data.muscles.map((m) => (
             <ThemedText key={m.muscleGroupId} type="small">
-              {m.name} ({m.role === 'primary' ? 'primaire' : 'secondaire'})
+              {localize(m.name, m.nameEn)} ({m.role === 'primary' ? t('exerciseDetail.primary') : t('exerciseDetail.secondary')})
             </ThemedText>
           ))}
 
           <ThemedText type="smallBold" style={styles.sectionSpacing}>
-            Matériel
+            {t('exerciseDetail.equipment')}
           </ThemedText>
-          <ThemedText type="small">{data.equipment.map((e) => e.name).join(', ') || 'Aucun'}</ThemedText>
+          <ThemedText type="small">
+            {data.equipment.map((e) => localize(e.name, e.nameEn)).join(', ') || t('exerciseDetail.equipmentNone')}
+          </ThemedText>
 
           <ThemedText type="smallBold" style={styles.sectionSpacing}>
-            Performance
+            {t('exerciseDetail.performance')}
           </ThemedText>
           <ThemedView style={styles.oneRmRow}>
             <ThemedView style={styles.oneRmColumn}>
               <ThemedText type="small" themeColor="textSecondary">
-                {data.metric === 'reps' ? 'Record de répétitions' : '1RM actuel'}
+                {data.metric === 'reps' ? t('exerciseDetail.repRecord') : t('exerciseDetail.currentOneRm')}
               </ThemedText>
               <ThemedText type="smallBold">
                 {data.bestOneRm !== null ? formatMetricValue(data.bestOneRm, data.metric) : '—'}
@@ -153,13 +159,13 @@ export default function ExerciseDetailScreen() {
             </ThemedView>
             <ThemedView style={[styles.oneRmColumn, styles.oneRmColumnRight]}>
               <ThemedText type="small" themeColor="textSecondary">
-                Objectif niveau suivant
+                {t('exerciseDetail.nextLevelGoal')}
               </ThemedText>
               <ThemedText type="smallBold">
                 {data.level?.nextThresholdKg != null
                   ? formatMetricValue(data.level.nextThresholdKg, data.metric)
                   : data.level?.tier === 'elite'
-                    ? 'Niveau max'
+                    ? t('exerciseDetail.maxLevel')
                     : '—'}
               </ThemedText>
             </ThemedView>
@@ -174,10 +180,10 @@ export default function ExerciseDetailScreen() {
           {data.thresholds.length > 0 && (
             <>
               <ThemedText type="smallBold" style={styles.sectionSpacing}>
-                Objectifs par niveau
+                {t('exerciseDetail.levelGoalsTitle')}
               </ThemedText>
               <ThemedText type="small" themeColor="textSecondary">
-                Pour ton poids et ton sexe renseignés
+                {t('exerciseDetail.levelGoalsHint')}
               </ThemedText>
               {data.thresholds.map((threshold) => {
                 const isCurrent = threshold.level === data.level?.tier;
@@ -185,7 +191,7 @@ export default function ExerciseDetailScreen() {
                 return (
                   <ThemedView key={threshold.level} style={styles.thresholdRow}>
                     <ThemedText type="small" style={{ color: tierColor, fontWeight: isCurrent ? '700' : '500' }}>
-                      {LevelTierInfo[threshold.level].label}
+                      {t(`enums.levelTier.${threshold.level}`)}
                     </ThemedText>
                     <ThemedText type="smallBold" style={!isCurrent && styles.thresholdValueDimmed}>
                       {formatMetricValue(threshold.minOneRmKg, data.metric)}
@@ -199,7 +205,7 @@ export default function ExerciseDetailScreen() {
           {data.history.length > 1 && (
             <>
               <ThemedText type="smallBold" style={styles.sectionSpacing}>
-                Évolution du 1RM
+                {t('exerciseDetail.oneRmEvolution')}
               </ThemedText>
               <LineChart
                 data={data.history}

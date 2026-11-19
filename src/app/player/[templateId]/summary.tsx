@@ -3,6 +3,7 @@ import { router, useLocalSearchParams } from 'expo-router';
 import { FlatList, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
+import { useTranslation } from 'react-i18next';
 
 import { playFanfare } from '@/audio/soundEffects';
 import { ThemedText } from '@/components/themed-text';
@@ -45,6 +46,7 @@ function tierIndex(tier: PerformanceLevel | null) {
 }
 
 export default function SessionSummaryScreen() {
+  const { t } = useTranslation();
   const { workoutLogId } = useLocalSearchParams<{ templateId: string; workoutLogId: string }>();
   const scheme = useColorScheme();
   const colors = Colors[scheme === 'dark' ? 'dark' : 'light'];
@@ -83,8 +85,8 @@ export default function SessionSummaryScreen() {
         const result = computeLevelScore(bestValue, bracket);
         const levelLabel =
           result.tier && result.score !== null
-            ? `${LevelTierInfo[result.tier].label} · Niveau ${result.score.toFixed(1)}`
-            : 'Aucune donnée encore.';
+            ? t('exerciseDetail.levelLabel', { tier: t(`enums.levelTier.${result.tier}`), score: result.score.toFixed(1) })
+            : t('exerciseDetail.noDataYet');
 
         const previousBest =
           metric === 'reps'
@@ -116,13 +118,14 @@ export default function SessionSummaryScreen() {
       const newlyUnlocked = await checkAndUnlockAchievements();
       if (newlyUnlocked.length > 0) setUnlockedAchievements(newlyUnlocked);
     })();
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- ne doit s'exécuter qu'une fois par séance (pas à chaque changement de langue, pour ne pas enregistrer deux fois la séance).
   }, [workoutLogId]);
 
   return (
     <ThemedView style={styles.container}>
       <SafeAreaView style={styles.safeArea}>
         {celebrate && <Confetti />}
-        <ThemedText type="subtitle">Séance terminée !</ThemedText>
+        <ThemedText type="subtitle">{t('sessionSummary.title')}</ThemedText>
         <FlatList
           data={summaries}
           keyExtractor={(item) => item.exerciseId}
@@ -134,13 +137,13 @@ export default function SessionSummaryScreen() {
                 </ThemedText>
                 {item.leveledUp && (
                   <ThemedText type="small" themeColor="accentSecondary">
-                    ⬆ Niveau supérieur !
+                    {t('sessionSummary.leveledUp')}
                   </ThemedText>
                 )}
               </ThemedView>
               <ThemedText type="small">
-                {item.metric === 'reps' ? 'Record de répétitions : ' : '1RM estimé : '}
-                <CountUpNumber type="small" value={item.bestValue} suffix={item.metric === 'reps' ? ' rep.' : 'kg'} />
+                {item.metric === 'reps' ? t('sessionSummary.repRecord') : t('sessionSummary.estimatedOneRm')}
+                <CountUpNumber type="small" value={item.bestValue} suffix={item.metric === 'reps' ? ` ${t('metric.repSuffix')}` : 'kg'} />
               </ThemedText>
               <ThemedView style={styles.levelRow}>
                 {item.tier && <Ionicons name="medal" size={16} color={LevelTierInfo[item.tier].color} />}
@@ -159,7 +162,7 @@ export default function SessionSummaryScreen() {
             )
           }>
           <ThemedText type="smallBold" style={{ color: '#FFFFFF' }}>
-            Voir ma progression →
+            {t('sessionSummary.viewProgress')}
           </ThemedText>
         </GameButton>
       </SafeAreaView>

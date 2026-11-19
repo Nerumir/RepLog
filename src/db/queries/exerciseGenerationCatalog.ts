@@ -9,7 +9,7 @@ import type { EquipmentId } from '@/domain/types';
  */
 export async function listExercisesForGeneration(): Promise<GenerationExerciseRow[]> {
   const [exerciseRows, muscleRows, equipmentRows] = await Promise.all([
-    db.select({ id: exercises.id, name: exercises.name, isAdvanced: exercises.isAdvanced }).from(exercises),
+    db.select({ id: exercises.id, name: exercises.name, nameEn: exercises.nameEn, isAdvanced: exercises.isAdvanced }).from(exercises),
     db
       .select({ exerciseId: exerciseMuscles.exerciseId, muscleGroupId: exerciseMuscles.muscleGroupId, role: exerciseMuscles.role })
       .from(exerciseMuscles),
@@ -36,6 +36,7 @@ export async function listExercisesForGeneration(): Promise<GenerationExerciseRo
     return {
       id: exercise.id,
       name: exercise.name,
+      nameEn: exercise.nameEn,
       isAdvanced: exercise.isAdvanced,
       primaryMuscleIds: [...muscles.primary],
       allMuscleIds: [...muscles.all],

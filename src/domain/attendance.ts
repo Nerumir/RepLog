@@ -1,15 +1,15 @@
 export interface BiomeInfo {
   id: string;
-  label: string;
 }
 
+// Les libellés affichés viennent de i18n (clé enums.biome.<id>), pas de ce fichier.
 export const BIOMES: BiomeInfo[] = [
-  { id: 'prairie', label: 'Prairie' },
-  { id: 'forest', label: 'Forêt' },
-  { id: 'tundra', label: 'Toundra' },
-  { id: 'desert', label: 'Désert' },
-  { id: 'volcano', label: 'Volcan' },
-  { id: 'valhalla', label: 'Valhalla' },
+  { id: 'prairie' },
+  { id: 'forest' },
+  { id: 'tundra' },
+  { id: 'desert' },
+  { id: 'volcano' },
+  { id: 'valhalla' },
 ];
 
 export const POINTS_PER_BIOME = 20;

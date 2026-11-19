@@ -58,7 +58,12 @@ export async function getExerciseById(exerciseId: string) {
 
 export async function getExerciseMuscles(exerciseId: string) {
   return db
-    .select({ muscleGroupId: exerciseMuscles.muscleGroupId, role: exerciseMuscles.role, name: muscleGroups.name })
+    .select({
+      muscleGroupId: exerciseMuscles.muscleGroupId,
+      role: exerciseMuscles.role,
+      name: muscleGroups.name,
+      nameEn: muscleGroups.nameEn,
+    })
     .from(exerciseMuscles)
     .innerJoin(muscleGroups, eq(muscleGroups.id, exerciseMuscles.muscleGroupId))
     .where(eq(exerciseMuscles.exerciseId, exerciseId));
@@ -66,7 +71,7 @@ export async function getExerciseMuscles(exerciseId: string) {
 
 export async function getExerciseEquipment(exerciseId: string) {
   return db
-    .select({ equipmentId: exerciseEquipment.equipmentId, name: equipment.name })
+    .select({ equipmentId: exerciseEquipment.equipmentId, name: equipment.name, nameEn: equipment.nameEn })
     .from(exerciseEquipment)
     .innerJoin(equipment, eq(equipment.id, exerciseEquipment.equipmentId))
     .where(eq(exerciseEquipment.exerciseId, exerciseId));
@@ -79,7 +84,7 @@ export async function getPerformanceStandards(exerciseId: string) {
 /** Tous les exercices ayant ce groupe musculaire en rôle "primary". */
 export async function listExercisesByPrimaryMuscle(muscleGroupId: string) {
   return db
-    .select({ exerciseId: exerciseMuscles.exerciseId, exerciseName: exercises.name })
+    .select({ exerciseId: exerciseMuscles.exerciseId, exerciseName: exercises.name, exerciseNameEn: exercises.nameEn })
     .from(exerciseMuscles)
     .innerJoin(exercises, eq(exercises.id, exerciseMuscles.exerciseId))
     .where(and(eq(exerciseMuscles.muscleGroupId, muscleGroupId), eq(exerciseMuscles.role, 'primary')));

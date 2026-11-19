@@ -2,37 +2,31 @@ import { useEffect, useState } from 'react';
 import { router } from 'expo-router';
 import { Pressable, ScrollView, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { useTranslation } from 'react-i18next';
 
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { GameButton } from '@/components/ui/GameButton';
 import { Colors, Spacing } from '@/constants/theme';
 import { useColorScheme } from '@/hooks/use-color-scheme';
+import { useLocalize } from '@/i18n/localize';
 import { listEquipment } from '@/db/queries/exercises';
 import type { ExperienceLevel, ProgramGoal } from '@/domain/programGenerator';
-import { splitTypeInfo, type SplitType } from '@/domain/splitTypes';
+import { SPLIT_TYPES, type SplitType } from '@/domain/splitTypes';
 import type { EquipmentId } from '@/domain/types';
 
-const SPLIT_TYPES = Object.keys(splitTypeInfo) as SplitType[];
 const SESSIONS_PER_WEEK_OPTIONS = [1, 2, 3, 4, 5, 6, 7];
 const SESSION_MINUTES_OPTIONS = [20, 30, 40, 50, 60, 70, 80];
-
-const GOAL_OPTIONS: { value: ProgramGoal; label: string; description: string }[] = [
-  { value: 'hypertrophy', label: 'Prise de volume', description: 'Favorise des exercices qui isolent un muscle à la fois.' },
-  { value: 'general_fitness', label: 'Forme générale', description: 'Favorise des exercices polyarticulaires, qui travaillent plusieurs muscles à la fois.' },
-];
-
-const EXPERIENCE_OPTIONS: { value: ExperienceLevel; label: string }[] = [
-  { value: 'beginner', label: 'Débutant' },
-  { value: 'intermediate', label: 'Intermédiaire' },
-  { value: 'advanced', label: 'Avancé' },
-];
+const GOAL_OPTIONS: ProgramGoal[] = ['hypertrophy', 'general_fitness'];
+const EXPERIENCE_OPTIONS: ExperienceLevel[] = ['beginner', 'intermediate', 'advanced'];
 
 export default function GenerateQuestionnaireScreen() {
+  const { t } = useTranslation();
+  const localize = useLocalize();
   const scheme = useColorScheme();
   const colors = Colors[scheme === 'dark' ? 'dark' : 'light'];
 
-  const [equipmentOptions, setEquipmentOptions] = useState<{ id: EquipmentId; name: string }[]>([]);
+  const [equipmentOptions, setEquipmentOptions] = useState<{ id: EquipmentId; name: string; nameEn: string }[]>([]);
   const [sessionsPerWeek, setSessionsPerWeek] = useState(3);
   const [availableEquipment, setAvailableEquipment] = useState<Set<EquipmentId>>(new Set(['bodyweight']));
   const [goal, setGoal] = useState<ProgramGoal>('general_fitness');
@@ -41,7 +35,7 @@ export default function GenerateQuestionnaireScreen() {
   const [splitType, setSplitType] = useState<SplitType>('full_body');
 
   useEffect(() => {
-    listEquipment().then((rows) => setEquipmentOptions(rows as { id: EquipmentId; name: string }[]));
+    listEquipment().then((rows) => setEquipmentOptions(rows as { id: EquipmentId; name: string; nameEn: string }[]));
   }, []);
 
   function toggleEquipment(equipmentId: EquipmentId) {
@@ -72,9 +66,9 @@ export default function GenerateQuestionnaireScreen() {
     <ThemedView style={styles.container}>
       <SafeAreaView style={styles.safeArea}>
         <ScrollView contentContainerStyle={styles.content}>
-          <ThemedText type="subtitle">Générer un programme</ThemedText>
+          <ThemedText type="subtitle">{t('generate.title')}</ThemedText>
 
-          <ThemedText type="smallBold">Séances par semaine</ThemedText>
+          <ThemedText type="smallBold">{t('generate.sessionsPerWeekLabel')}</ThemedText>
           <ThemedView style={styles.pillRow}>
             {SESSIONS_PER_WEEK_OPTIONS.map((n) => (
               <Pressable
@@ -88,9 +82,9 @@ export default function GenerateQuestionnaireScreen() {
             ))}
           </ThemedView>
 
-          <ThemedText type="smallBold">Matériel à disposition</ThemedText>
+          <ThemedText type="smallBold">{t('generate.equipmentLabel')}</ThemedText>
           <ThemedText type="small" themeColor="textSecondary">
-            Sélectionne tout ce que tu as, même partiellement.
+            {t('generate.equipmentHint')}
           </ThemedText>
           <ThemedView style={styles.pillRowWrap}>
             {equipmentOptions.map((equipment) => (
@@ -106,47 +100,47 @@ export default function GenerateQuestionnaireScreen() {
                   type="small"
                   themeColor={availableEquipment.has(equipment.id) ? undefined : 'accent'}
                   style={availableEquipment.has(equipment.id) ? styles.pillLabelSelected : undefined}>
-                  {equipment.name}
+                  {localize(equipment.name, equipment.nameEn)}
                 </ThemedText>
               </Pressable>
             ))}
           </ThemedView>
 
-          <ThemedText type="smallBold">Objectif</ThemedText>
-          {GOAL_OPTIONS.map((option) => (
+          <ThemedText type="smallBold">{t('generate.goalLabel')}</ThemedText>
+          {GOAL_OPTIONS.map((value) => (
             <Pressable
-              key={option.value}
-              style={[styles.option, goal === option.value && { borderColor: colors.accent, backgroundColor: colors.backgroundSelected }]}
-              onPress={() => setGoal(option.value)}>
-              <ThemedText type="default">{option.label}</ThemedText>
+              key={value}
+              style={[styles.option, goal === value && { borderColor: colors.accent, backgroundColor: colors.backgroundSelected }]}
+              onPress={() => setGoal(value)}>
+              <ThemedText type="default">{t(`enums.goal.${value}.label`)}</ThemedText>
               <ThemedText type="small" themeColor="textSecondary">
-                {option.description}
+                {t(`enums.goal.${value}.description`)}
               </ThemedText>
             </Pressable>
           ))}
 
-          <ThemedText type="smallBold">Expérience en musculation</ThemedText>
+          <ThemedText type="smallBold">{t('generate.experienceLabel')}</ThemedText>
           <ThemedView style={styles.pillRow}>
-            {EXPERIENCE_OPTIONS.map((option) => (
+            {EXPERIENCE_OPTIONS.map((value) => (
               <Pressable
-                key={option.value}
-                style={[styles.pillFlex, experience === option.value && { backgroundColor: colors.accent }]}
-                onPress={() => setExperience(option.value)}>
-                <ThemedText type="small" style={experience === option.value ? styles.pillLabelSelected : undefined}>
-                  {option.label}
+                key={value}
+                style={[styles.pillFlex, experience === value && { backgroundColor: colors.accent }]}
+                onPress={() => setExperience(value)}>
+                <ThemedText type="small" style={experience === value ? styles.pillLabelSelected : undefined}>
+                  {t(`enums.experience.${value}`)}
                 </ThemedText>
               </Pressable>
             ))}
           </ThemedView>
           {experience === 'beginner' && (
             <ThemedText type="small" themeColor="textSecondary">
-              Les exercices techniques ou délicats à exécuter seront exclus.
+              {t('generate.beginnerHint')}
             </ThemedText>
           )}
 
-          <ThemedText type="smallBold">Temps par séance</ThemedText>
+          <ThemedText type="smallBold">{t('generate.timeLabel')}</ThemedText>
           <ThemedText type="small" themeColor="textSecondary">
-            Environ 10 min par exercice (séries comprises) → {Math.max(1, Math.floor(minutesPerSession / 10))} exercice(s) par séance.
+            {t('generate.timeHint', { count: Math.max(1, Math.floor(minutesPerSession / 10)) })}
           </ThemedText>
           <ThemedView style={styles.pillRowWrap}>
             {SESSION_MINUTES_OPTIONS.map((minutes) => (
@@ -155,21 +149,21 @@ export default function GenerateQuestionnaireScreen() {
                 style={[styles.pill, minutesPerSession === minutes && { backgroundColor: colors.accent }]}
                 onPress={() => setMinutesPerSession(minutes)}>
                 <ThemedText type="small" style={minutesPerSession === minutes ? styles.pillLabelSelected : undefined}>
-                  {minutes} min
+                  {t('generate.minutes', { count: minutes })}
                 </ThemedText>
               </Pressable>
             ))}
           </ThemedView>
 
-          <ThemedText type="smallBold">Type de séance</ThemedText>
+          <ThemedText type="smallBold">{t('generate.splitTypeLabel')}</ThemedText>
           {SPLIT_TYPES.map((type) => (
             <Pressable
               key={type}
               style={[styles.option, splitType === type && { borderColor: colors.accent, backgroundColor: colors.backgroundSelected }]}
               onPress={() => setSplitType(type)}>
-              <ThemedText type="default">{splitTypeInfo[type].label}</ThemedText>
+              <ThemedText type="default">{t(`enums.splitType.${type}.label`)}</ThemedText>
               <ThemedText type="small" themeColor="textSecondary">
-                {splitTypeInfo[type].description}
+                {t(`enums.splitType.${type}.description`)}
               </ThemedText>
             </Pressable>
           ))}
@@ -178,7 +172,7 @@ export default function GenerateQuestionnaireScreen() {
             style={[styles.submit, { backgroundColor: colors.accent }, availableEquipment.size === 0 && styles.submitDisabled]}
             onPress={handleContinue}>
             <ThemedText type="smallBold" style={{ color: '#FFFFFF' }}>
-              Générer
+              {t('programs.generate')}
             </ThemedText>
           </GameButton>
         </ScrollView>

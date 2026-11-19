@@ -1,4 +1,5 @@
 import { Modal, Pressable, StyleSheet } from 'react-native';
+import { useTranslation } from 'react-i18next';
 
 import { ThemedText } from '@/components/themed-text';
 import { GameButton } from '@/components/ui/GameButton';
@@ -21,6 +22,7 @@ interface ConfirmDialogProps {
 
 /** Remplace Alert.alert pour les confirmations d'actions importantes, avec le design de l'app. */
 export function ConfirmDialog({ request, onDismiss }: ConfirmDialogProps) {
+  const { t } = useTranslation();
   const scheme = useColorScheme();
   const colors = Colors[scheme === 'dark' ? 'dark' : 'light'];
 
@@ -41,7 +43,7 @@ export function ConfirmDialog({ request, onDismiss }: ConfirmDialogProps) {
               <GameButton
                 onPress={onDismiss}
                 style={[styles.button, styles.buttonOutline, { borderColor: colors.border }]}>
-                <ThemedText type="smallBold">Annuler</ThemedText>
+                <ThemedText type="smallBold">{t('common.cancel')}</ThemedText>
               </GameButton>
               <GameButton
                 onPress={() => {

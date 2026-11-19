@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { ScrollView, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
+import { useTranslation } from 'react-i18next';
 
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
@@ -14,6 +15,7 @@ import type { AchievementTier } from '@/domain/achievements';
 const TROPHY_TIER_ORDER: AchievementTier[] = ['bronze', 'silver', 'gold', 'diamond', 'ruby'];
 
 export default function AchievementsScreen() {
+  const { t } = useTranslation();
   const scheme = useColorScheme();
   const colors = Colors[scheme === 'dark' ? 'dark' : 'light'];
   const [achievements, setAchievements] = useState<AchievementWithStatus[]>([]);
@@ -27,9 +29,9 @@ export default function AchievementsScreen() {
   return (
     <ThemedView style={styles.container}>
       <SafeAreaView style={styles.safeArea}>
-        <ThemedText type="subtitle">Trophées</ThemedText>
+        <ThemedText type="subtitle">{t('profile.trophiesTab')}</ThemedText>
         <ThemedText type="small" themeColor="textSecondary" style={styles.subtitle}>
-          {unlockedCount} / {achievements.length} succès débloqués
+          {t('achievementsScreen.unlockedCount', { count: unlockedCount, total: achievements.length })}
         </ThemedText>
         <ScrollView contentContainerStyle={styles.content}>
           {TROPHY_TIER_ORDER.map((tier) => {
@@ -38,7 +40,7 @@ export default function AchievementsScreen() {
             return (
               <ThemedView key={tier} style={styles.section}>
                 <ThemedText type="smallBold" style={{ color: TrophyTierInfo[tier].color }}>
-                  {TrophyTierInfo[tier].label}
+                  {t(`enums.trophyTier.${tier}`)}
                 </ThemedText>
                 {tierAchievements.map((achievement) => (
                   <Card key={achievement.id} style={[styles.card, !achievement.unlocked && styles.cardLocked]}>
@@ -50,14 +52,14 @@ export default function AchievementsScreen() {
                       />
                       <ThemedView style={styles.cardText}>
                         <ThemedText type="smallBold" themeColor={achievement.unlocked ? 'text' : 'textSecondary'}>
-                          {achievement.name}
+                          {t(`achievements.${achievement.id}.name`)}
                         </ThemedText>
                         <ThemedText type="small" themeColor="textSecondary">
-                          {achievement.description}
+                          {t(`achievements.${achievement.id}.description`)}
                         </ThemedText>
                         {achievement.unlocked && achievement.unlockedAt && (
                           <ThemedText type="small" themeColor="textSecondary" style={styles.unlockedDate}>
-                            Débloqué le {new Date(achievement.unlockedAt).toLocaleDateString()}
+                            {t('achievementsScreen.unlockedOn', { date: new Date(achievement.unlockedAt).toLocaleDateString() })}
                           </ThemedText>
                         )}
                       </ThemedView>

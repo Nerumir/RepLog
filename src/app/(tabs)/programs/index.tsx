@@ -3,6 +3,7 @@ import { Link, router, useFocusEffect } from 'expo-router';
 import { FlatList, Pressable, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Animated, { FadeInDown } from 'react-native-reanimated';
+import { useTranslation } from 'react-i18next';
 
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
@@ -17,6 +18,7 @@ import { deleteSessionTemplate, listSessionTemplatesWithProgramInfo } from '@/db
 import { getActiveWorkoutLog } from '@/db/queries/workoutLogs';
 
 export default function ProgramsScreen() {
+  const { t } = useTranslation();
   const scheme = useColorScheme();
   const colors = Colors[scheme === 'dark' ? 'dark' : 'light'];
   const [programs, setPrograms] = useState<Awaited<ReturnType<typeof listPrograms>>>([]);
@@ -34,9 +36,9 @@ export default function ProgramsScreen() {
 
   function handleDeleteOrphan(sessionTemplateId: number, name: string) {
     setConfirmRequest({
-      title: 'Supprimer cette séance ?',
-      message: `« ${name} » n'appartient à aucun programme et sera définitivement supprimée.`,
-      confirmLabel: 'Supprimer',
+      title: t('programs.deleteOrphanDialog.title'),
+      message: t('programs.deleteOrphanDialog.message', { name }),
+      confirmLabel: t('common.delete'),
       onConfirm: async () => {
         await deleteSessionTemplate(sessionTemplateId);
         load();
@@ -44,35 +46,28 @@ export default function ProgramsScreen() {
     });
   }
 
-  const orphans = templates.filter((t) => t.isOrphan);
+  const orphans = templates.filter((tmpl) => tmpl.isOrphan);
 
   return (
     <ThemedView style={styles.container}>
       <SafeAreaView style={styles.safeArea}>
         <ThemedView style={styles.headerRow}>
           <ThemedView style={styles.headerTitleRow}>
-            <ThemedText type="subtitle">Entraînement</ThemedText>
-            <HelpButton
-              title="Entraînement"
-              body={
-                'Crée des programmes composés de plusieurs séances, puis lance une séance pour suivre tes séries en temps réel (poids, répétitions, minuteur de repos).\n\n' +
-                "Le bouton « Générer » te propose un programme aléatoire à partir d'un court questionnaire (matériel disponible, objectif, expérience, temps par séance). Tu peux le régénérer autant de fois que tu veux avant de le sauvegarder, ou créer un programme entièrement à la main avec « + Programme ».\n\n" +
-                'Une séance en cours apparaît en haut de cet onglet pour la reprendre à tout moment.'
-              }
-            />
+            <ThemedText type="subtitle">{t('tabs.training')}</ThemedText>
+            <HelpButton title={t('programs.help.title')} body={t('programs.help.body')} />
           </ThemedView>
           <ThemedView style={styles.headerActions}>
             <Link href="/programs/generate" asChild>
               <GameButton style={StyleSheet.flatten([styles.pillButtonOutline, { borderColor: colors.accent }])}>
                 <ThemedText type="small" themeColor="accent">
-                  Générer
+                  {t('programs.generate')}
                 </ThemedText>
               </GameButton>
             </Link>
             <Link href="/programs/new" asChild>
               <GameButton style={StyleSheet.flatten([styles.pillButton, { backgroundColor: colors.accent }])}>
                 <ThemedText type="small" style={styles.pillButtonText}>
-                  + Programme
+                  {t('programs.newProgram')}
                 </ThemedText>
               </GameButton>
             </Link>
@@ -84,7 +79,7 @@ export default function ProgramsScreen() {
             onPress={() => router.push(`/player/${activeLog.sessionTemplateId}?workoutLogId=${activeLog.id}`)}>
             <Card glow="gold" style={styles.activeCard}>
               <ThemedText type="smallBold" style={styles.activeSessionText}>
-                Séance en cours — reprendre « {activeLog.templateNameSnapshot} »
+                {t('programs.resumeActiveSession', { name: activeLog.templateNameSnapshot })}
               </ThemedText>
             </Card>
           </GameButton>
@@ -93,11 +88,7 @@ export default function ProgramsScreen() {
         <FlatList
           data={programs}
           keyExtractor={(item) => String(item.id)}
-          ListEmptyComponent={
-            <ThemedText themeColor="textSecondary">
-              Aucun programme encore. Crée ton premier programme pour commencer à ajouter des séances.
-            </ThemedText>
-          }
+          ListEmptyComponent={<ThemedText themeColor="textSecondary">{t('programs.empty')}</ThemedText>}
           renderItem={({ item, index }) => (
             <Animated.View entering={FadeInDown.delay(index * 40).springify().damping(16)}>
               <Link href={`/programs/${item.id}`} asChild>
@@ -105,7 +96,7 @@ export default function ProgramsScreen() {
                   <Card style={styles.card}>
                     <ThemedText type="smallBold">{item.name}</ThemedText>
                     <ThemedText type="small" themeColor="textSecondary">
-                      {item.sessionsPerWeek} séance(s)/semaine
+                      {t('programs.sessionsPerWeek', { count: item.sessionsPerWeek })}
                     </ThemedText>
                   </Card>
                 </Pressable>
@@ -116,19 +107,19 @@ export default function ProgramsScreen() {
             orphans.length > 0 ? (
               <ThemedView style={styles.orphanSection}>
                 <ThemedText type="smallBold" themeColor="textSecondary">
-                  Séances sans programme
+                  {t('programs.orphanSessions')}
                 </ThemedText>
                 {orphans.map((item) => (
                   <Card key={item.id} style={[styles.card, { borderColor: colors.danger, borderWidth: 1.5 }]}>
                     <ThemedText type="smallBold">{item.name}</ThemedText>
                     <ThemedText type="small" themeColor="textSecondary">
-                      Repos par défaut : {item.defaultRestSeconds}s
+                      {t('programs.defaultRest', { seconds: item.defaultRestSeconds })}
                     </ThemedText>
                     <ThemedView style={styles.orphanActions}>
                       <Link href={`/programs/templates/${item.id}`} asChild>
                         <GameButton style={StyleSheet.flatten([styles.smallPillOutline, { borderColor: colors.accent }])}>
                           <ThemedText type="small" themeColor="accent">
-                            Détails
+                            {t('programs.details')}
                           </ThemedText>
                         </GameButton>
                       </Link>
@@ -137,7 +128,7 @@ export default function ProgramsScreen() {
                         onPress={() => handleDeleteOrphan(item.id, item.name)}
                         style={StyleSheet.flatten([styles.smallPillOutline, { borderColor: colors.danger }])}>
                         <ThemedText type="small" style={{ color: colors.danger }}>
-                          Supprimer
+                          {t('common.delete')}
                         </ThemedText>
                       </GameButton>
                     </ThemedView>

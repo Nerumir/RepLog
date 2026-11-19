@@ -3,6 +3,7 @@ import { Link, useFocusEffect, useLocalSearchParams } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { Pressable, StyleSheet, TextInput } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { useTranslation } from 'react-i18next';
 
 import { playSuccess } from '@/audio/soundEffects';
 import { AttendanceMap } from '@/components/attendance/AttendanceMap';
@@ -18,6 +19,7 @@ import { getAppSettings } from '@/db/queries/settings';
 import { absolutePosition, BIOMES, stateFromAbsolute } from '@/domain/attendance';
 
 export default function AttendanceScreen() {
+  const { t } = useTranslation();
   const scheme = useColorScheme();
   const colors = Colors[scheme === 'dark' ? 'dark' : 'light'];
 
@@ -88,9 +90,9 @@ export default function AttendanceScreen() {
     return (
       <ThemedView style={styles.container}>
         <SafeAreaView style={styles.safeArea}>
-          <ThemedText type="subtitle">Avant de commencer</ThemedText>
+          <ThemedText type="subtitle">{t('attendance.setup.title')}</ThemedText>
           <ThemedText type="default" themeColor="textSecondary">
-            Au bout de combien de jours sans séance veux-tu être pénalisé et reculer sur la carte ?
+            {t('attendance.setup.question')}
           </ThemedText>
           <TextInput
             value={thresholdInput}
@@ -100,7 +102,7 @@ export default function AttendanceScreen() {
           />
           <GameButton style={[styles.confirmButton, { backgroundColor: colors.accent }]} onPress={handleConfirmThreshold}>
             <ThemedText type="smallBold" style={{ color: '#FFFFFF' }}>
-              Valider
+              {t('attendance.setup.validate')}
             </ThemedText>
           </GameButton>
         </SafeAreaView>
@@ -113,15 +115,10 @@ export default function AttendanceScreen() {
       <SafeAreaView style={styles.safeAreaMap} edges={['top', 'left', 'right']}>
         <ThemedView style={styles.headerRow}>
           <ThemedView style={styles.headerTitleRow}>
-            <ThemedText type="subtitle">{BIOMES[biomeIndex]?.label ?? 'Assiduité'}</ThemedText>
-            <HelpButton
-              title="Assiduité"
-              body={
-                'Une carte qui gamifie ta régularité : ton personnage avance d\'un point à chaque séance terminée, en traversant 6 biomes (Prairie → Valhalla).\n\n' +
-                "Si tu restes trop longtemps sans t'entraîner (seuil réglable via l'icône ⚙️ en haut à droite), ton personnage recule d'un biome entier en guise de pénalité.\n\n" +
-                'Le nombre total de séances faites dans chaque biome est affiché sur ton profil, et n\'est jamais perdu, même en cas de pénalité.'
-              }
-            />
+            <ThemedText type="subtitle">
+              {BIOMES[biomeIndex] ? t(`enums.biome.${BIOMES[biomeIndex].id}`) : t('attendance.map.tabFallback')}
+            </ThemedText>
+            <HelpButton title={t('attendance.help.title')} body={t('attendance.help.body')} />
           </ThemedView>
           <Link href="/attendance/settings" asChild>
             <Pressable style={styles.settingsButton}>
@@ -141,12 +138,12 @@ export default function AttendanceScreen() {
             <ThemedView style={styles.debugPanel}>
               <Pressable style={[styles.debugButton, { borderColor: colors.accent }]} onPress={handleDebugAdvance}>
                 <ThemedText type="small" style={{ color: colors.accent }}>
-                  Debug{'\n'}+1 point
+                  {t('attendance.debug.advance')}
                 </ThemedText>
               </Pressable>
               <Pressable style={[styles.debugButton, { borderColor: colors.danger }]} onPress={handleDebugPenalty}>
                 <ThemedText type="small" style={{ color: colors.danger }}>
-                  Debug{'\n'}pénalité
+                  {t('attendance.debug.penalty')}
                 </ThemedText>
               </Pressable>
             </ThemedView>

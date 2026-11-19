@@ -7,6 +7,7 @@ import { useFonts, Sora_600SemiBold, Sora_700Bold } from '@expo-google-fonts/sor
 import { AnimatedSplashOverlay } from '@/components/animated-icon';
 import { PremiumGateModal } from '@/components/ui/PremiumGateModal';
 import { db } from '@/db/client';
+import i18n from '@/i18n';
 import migrations from '@/db/migrations/migrations';
 import { getFreeTierStatus } from '@/db/queries/premium';
 import { getUserProfile } from '@/db/queries/profile';
@@ -34,7 +35,10 @@ export default function RootLayout() {
       .then(() => syncPerformanceStandards(db))
       .then(() => Promise.all([getAppSettings(), getUserProfile()]))
       .then(([settings, profile]) => {
-        if (settings) setThemeMode(settings.themeMode);
+        if (settings) {
+          setThemeMode(settings.themeMode);
+          i18n.changeLanguage(settings.language);
+        }
         setHasProfile(profile !== null);
       })
       .finally(() => setSeedReady(true));

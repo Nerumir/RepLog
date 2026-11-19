@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'expo-router';
 import { Pressable, StyleSheet, TextInput } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { useTranslation } from 'react-i18next';
 
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
@@ -9,21 +10,19 @@ import { ConfirmDialog, type ConfirmDialogRequest } from '@/components/ui/Confir
 import { GameButton } from '@/components/ui/GameButton';
 import { Colors, Spacing } from '@/constants/theme';
 import { useColorScheme } from '@/hooks/use-color-scheme';
+import i18n from '@/i18n';
 import { resetAchievements } from '@/db/queries/achievements';
 import { exportAllData, importAllData } from '@/db/queries/backup';
 import { getFreeTierStatus, redeemPremiumCode } from '@/db/queries/premium';
-import { getAppSettings, updateAppSettings, type ThemeMode } from '@/db/queries/settings';
+import { getAppSettings, updateAppSettings, type AppLanguage, type ThemeMode } from '@/db/queries/settings';
 import { resetPerformances } from '@/db/queries/profile';
 import { FREE_SESSION_LIMIT } from '@/domain/premium';
 import type { OneRmFormulaId } from '@/domain/oneRepMax';
 import { exportBackupToFile, pickAndReadBackupFile } from '@/io/backupFile';
 import { useThemeStore } from '@/state/useThemeStore';
 
-const THEME_OPTIONS: { value: ThemeMode; label: string }[] = [
-  { value: 'system', label: 'Système' },
-  { value: 'light', label: 'Clair' },
-  { value: 'dark', label: 'Sombre' },
-];
+const THEME_OPTIONS: ThemeMode[] = ['system', 'light', 'dark'];
+const LANGUAGE_OPTIONS: AppLanguage[] = ['fr', 'en'];
 
 const FORMULA_OPTIONS: { value: OneRmFormulaId; label: string }[] = [
   { value: 'epley', label: 'Epley' },
@@ -32,10 +31,12 @@ const FORMULA_OPTIONS: { value: OneRmFormulaId; label: string }[] = [
 ];
 
 export default function SettingsScreen() {
+  const { t } = useTranslation();
   const scheme = useColorScheme();
   const colors = Colors[scheme === 'dark' ? 'dark' : 'light'];
 
   const [themeMode, setThemeMode] = useState<ThemeMode>('system');
+  const [language, setLanguage] = useState<AppLanguage>('fr');
   const [oneRmFormula, setOneRmFormula] = useState<OneRmFormulaId>('epley');
   const [debugModeEnabled, setDebugModeEnabled] = useState(false);
   const [confirmRequest, setConfirmRequest] = useState<ConfirmDialogRequest | null>(null);
@@ -60,6 +61,7 @@ export default function SettingsScreen() {
     getAppSettings().then((settings) => {
       if (!settings) return;
       setThemeMode(settings.themeMode);
+      setLanguage(settings.language);
       setOneRmFormula(settings.oneRmFormula);
       setDebugModeEnabled(settings.debugModeEnabled);
     });
@@ -72,7 +74,7 @@ export default function SettingsScreen() {
     const ok = await redeemPremiumCode(codeInput);
     setCodeSubmitting(false);
     if (!ok) {
-      setCodeError("Ce code n'est pas valide.");
+      setCodeError(t('settings.version.invalidCode'));
       return;
     }
     setCodeInput('');
@@ -83,6 +85,12 @@ export default function SettingsScreen() {
     setThemeMode(value);
     setGlobalThemeMode(value);
     await updateAppSettings({ themeMode: value });
+  }
+
+  async function handleLanguageChange(value: AppLanguage) {
+    setLanguage(value);
+    i18n.changeLanguage(value);
+    await updateAppSettings({ language: value });
   }
 
   async function handleFormulaChange(value: OneRmFormulaId) {
@@ -107,10 +115,9 @@ export default function SettingsScreen() {
 
   function handleImport() {
     setConfirmRequest({
-      title: 'Importer des données ?',
-      message:
-        'Toutes tes données actuelles (profil, programmes, historique, trophées, assiduité) seront remplacées par celles du fichier choisi. Cette action est irréversible.',
-      confirmLabel: 'Choisir un fichier',
+      title: t('settings.importDialog.title'),
+      message: t('settings.importDialog.message'),
+      confirmLabel: t('settings.importDialog.confirmLabel'),
       tone: 'danger',
       onConfirm: async () => {
         setImporting(true);
@@ -119,9 +126,9 @@ export default function SettingsScreen() {
           const payload = await pickAndReadBackupFile();
           if (!payload) return;
           await importAllData(payload);
-          setImportMessage('Import réussi. Ferme et rouvre complètement l\'application pour voir tes données.');
+          setImportMessage(t('settings.importDialog.success'));
         } catch {
-          setImportMessage("Échec de l'import : le fichier n'est pas une sauvegarde RepLog valide.");
+          setImportMessage(t('settings.importDialog.failure'));
         } finally {
           setImporting(false);
         }
@@ -131,10 +138,9 @@ export default function SettingsScreen() {
 
   function handleResetPerformances() {
     setConfirmRequest({
-      title: 'Réinitialiser les performances ?',
-      message:
-        "Ton historique de séances est conservé, mais tes niveaux seront recalculés uniquement à partir de tes prochaines performances. Tes trophées débloqués repartiront aussi à zéro.",
-      confirmLabel: 'Réinitialiser',
+      title: t('settings.resetPerformancesDialog.title'),
+      message: t('settings.resetPerformancesDialog.message'),
+      confirmLabel: t('settings.resetPerformancesDialog.confirmLabel'),
       onConfirm: async () => {
         await resetPerformances();
         await resetAchievements();
@@ -144,9 +150,9 @@ export default function SettingsScreen() {
 
   function handleResetTrophies() {
     setConfirmRequest({
-      title: 'Réinitialiser les trophées ?',
-      message: 'Tous tes trophées débloqués seront effacés. Ils se redébloqueront au fil de tes prochaines séances, sans toucher au reste de tes données.',
-      confirmLabel: 'Réinitialiser',
+      title: t('settings.resetTrophiesDialog.title'),
+      message: t('settings.resetTrophiesDialog.message'),
+      confirmLabel: t('settings.resetTrophiesDialog.confirmLabel'),
       onConfirm: async () => {
         await resetAchievements();
       },
@@ -156,33 +162,33 @@ export default function SettingsScreen() {
   return (
     <ThemedView style={styles.container}>
       <SafeAreaView style={styles.safeArea}>
-        <ThemedText type="subtitle">Réglages</ThemedText>
+        <ThemedText type="subtitle">{t('settings.title')}</ThemedText>
 
         <Link href="/profile/edit" asChild>
           <GameButton style={StyleSheet.flatten([styles.editProfileButton, { borderColor: colors.accent }])}>
             <ThemedText type="small" themeColor="accent">
-              Modifier le profil
+              {t('settings.editProfile')}
             </ThemedText>
           </GameButton>
         </Link>
 
         <ThemedText type="smallBold" style={styles.sectionSpacing}>
-          Version
+          {t('settings.version.title')}
         </ThemedText>
         {premiumUnlocked ? (
           <ThemedText type="small" themeColor="accent">
-            ✓ Version illimitée débloquée
+            {t('settings.version.unlocked')}
           </ThemedText>
         ) : (
           <>
             <ThemedText type="small" themeColor="textSecondary">
-              Version gratuite : {completedSessions}/{FREE_SESSION_LIMIT} séances utilisées.
+              {t('settings.version.freeUsage', { count: completedSessions, limit: FREE_SESSION_LIMIT })}
             </ThemedText>
             <ThemedView style={styles.backupRow}>
               <TextInput
                 value={codeInput}
                 onChangeText={setCodeInput}
-                placeholder="Code de déblocage"
+                placeholder={t('settings.version.codePlaceholder')}
                 placeholderTextColor={colors.textSecondary}
                 autoCapitalize="characters"
                 autoCorrect={false}
@@ -194,7 +200,7 @@ export default function SettingsScreen() {
                 disabled={codeSubmitting || codeInput.trim().length === 0}
                 style={StyleSheet.flatten([styles.backupButton, { borderColor: colors.accent }])}>
                 <ThemedText type="small" themeColor="accent">
-                  {codeSubmitting ? 'Vérification...' : 'Valider'}
+                  {codeSubmitting ? t('settings.version.verifying') : t('settings.version.validate')}
                 </ThemedText>
               </GameButton>
             </ThemedView>
@@ -207,23 +213,39 @@ export default function SettingsScreen() {
         )}
 
         <ThemedText type="smallBold" style={styles.sectionSpacing}>
-          Thème
+          {t('settings.language.title')}
         </ThemedText>
         <ThemedView style={styles.optionRow} type="backgroundElement">
-          {THEME_OPTIONS.map((option) => (
+          {LANGUAGE_OPTIONS.map((option) => (
             <Pressable
-              key={option.value}
-              style={[styles.option, themeMode === option.value && { backgroundColor: colors.accent }]}
-              onPress={() => handleThemeChange(option.value)}>
-              <ThemedText type="default" style={themeMode === option.value ? styles.optionLabelSelected : undefined}>
-                {option.label}
+              key={option}
+              style={[styles.option, language === option && { backgroundColor: colors.accent }]}
+              onPress={() => handleLanguageChange(option)}>
+              <ThemedText type="default" style={language === option ? styles.optionLabelSelected : undefined}>
+                {t(`settings.language.${option}`)}
               </ThemedText>
             </Pressable>
           ))}
         </ThemedView>
 
         <ThemedText type="smallBold" style={styles.sectionSpacing}>
-          Formule de calcul du 1RM
+          {t('settings.theme.title')}
+        </ThemedText>
+        <ThemedView style={styles.optionRow} type="backgroundElement">
+          {THEME_OPTIONS.map((option) => (
+            <Pressable
+              key={option}
+              style={[styles.option, themeMode === option && { backgroundColor: colors.accent }]}
+              onPress={() => handleThemeChange(option)}>
+              <ThemedText type="default" style={themeMode === option ? styles.optionLabelSelected : undefined}>
+                {t(`settings.theme.${option}`)}
+              </ThemedText>
+            </Pressable>
+          ))}
+        </ThemedView>
+
+        <ThemedText type="smallBold" style={styles.sectionSpacing}>
+          {t('settings.formula.title')}
         </ThemedText>
         <ThemedView style={styles.optionRow} type="backgroundElement">
           {FORMULA_OPTIONS.map((option) => (
@@ -239,19 +261,19 @@ export default function SettingsScreen() {
         </ThemedView>
 
         <ThemedText type="smallBold" style={styles.sectionSpacing}>
-          Mode de débug
+          {t('settings.debug.title')}
         </ThemedText>
         <ThemedView style={styles.optionRow} type="backgroundElement">
           {([
-            { value: false, label: 'Désactivé' },
-            { value: true, label: 'Activé' },
+            { value: false, labelKey: 'settings.debug.disabled' },
+            { value: true, labelKey: 'settings.debug.enabled' },
           ] as const).map((option) => (
             <Pressable
               key={String(option.value)}
               style={[styles.option, debugModeEnabled === option.value && { backgroundColor: colors.accent }]}
               onPress={() => handleDebugModeChange(option.value)}>
               <ThemedText type="default" style={debugModeEnabled === option.value ? styles.optionLabelSelected : undefined}>
-                {option.label}
+                {t(option.labelKey)}
               </ThemedText>
             </Pressable>
           ))}
@@ -262,16 +284,16 @@ export default function SettingsScreen() {
             onPress={handleResetTrophies}
             style={StyleSheet.flatten([styles.resetButton, { borderColor: colors.danger }])}>
             <ThemedText type="small" style={{ color: colors.danger }}>
-              Réinitialiser les trophées
+              {t('settings.debug.resetTrophies')}
             </ThemedText>
           </GameButton>
         )}
 
         <ThemedText type="smallBold" style={styles.sectionSpacing}>
-          Sauvegarde
+          {t('settings.backup.title')}
         </ThemedText>
         <ThemedText type="small" themeColor="textSecondary">
-          Pour transférer tes données vers un autre téléphone : exporte un fichier ici, puis importe-le sur l&apos;autre appareil.
+          {t('settings.backup.description')}
         </ThemedText>
         <ThemedView style={styles.backupRow}>
           <GameButton
@@ -280,7 +302,7 @@ export default function SettingsScreen() {
             disabled={exporting}
             style={StyleSheet.flatten([styles.backupButton, { borderColor: colors.accent }])}>
             <ThemedText type="small" themeColor="accent">
-              {exporting ? 'Export...' : 'Exporter mes données'}
+              {exporting ? t('settings.backup.exporting') : t('settings.backup.export')}
             </ThemedText>
           </GameButton>
           <GameButton
@@ -289,7 +311,7 @@ export default function SettingsScreen() {
             disabled={importing}
             style={StyleSheet.flatten([styles.backupButton, { borderColor: colors.danger }])}>
             <ThemedText type="small" style={{ color: colors.danger }}>
-              {importing ? 'Import...' : 'Importer des données'}
+              {importing ? t('settings.backup.importing') : t('settings.backup.import')}
             </ThemedText>
           </GameButton>
         </ThemedView>
@@ -300,14 +322,14 @@ export default function SettingsScreen() {
         )}
 
         <ThemedText type="smallBold" style={styles.sectionSpacing}>
-          Zone dangereuse
+          {t('settings.dangerZone.title')}
         </ThemedText>
         <GameButton
           silent
           onPress={handleResetPerformances}
           style={[styles.resetButton, { borderColor: colors.danger }]}>
           <ThemedText type="small" style={{ color: colors.danger }}>
-            Réinitialiser les performances
+            {t('settings.dangerZone.resetPerformances')}
           </ThemedText>
         </GameButton>
       </SafeAreaView>

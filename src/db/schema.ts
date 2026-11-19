@@ -5,20 +5,23 @@ import { index, integer, primaryKey, real, sqliteTable, text } from 'drizzle-orm
 export const muscleGroups = sqliteTable('muscle_groups', {
   id: text('id').primaryKey(), // 'chest', 'lats', 'quads'...
   name: text('name').notNull(),
+  nameEn: text('name_en').notNull().default(''),
   bodyRegion: text('body_region', { enum: ['upper', 'lower', 'core'] }).notNull(),
 });
 
 export const equipment = sqliteTable('equipment', {
   id: text('id').primaryKey(), // 'bodyweight' | 'dumbbell' | 'barbell' | 'bench' | 'machine' | 'other'
   name: text('name').notNull(),
+  nameEn: text('name_en').notNull().default(''),
 });
 
 export const exercises = sqliteTable('exercises', {
   id: text('id').primaryKey(), // slug, ex: 'bench-press'
   name: text('name').notNull(),
-  /** Nom anglais d'origine, jamais affiché : permet de retrouver l'exercice en tapant son nom anglais. */
+  /** Nom anglais : utilisé pour la recherche, et affiché quand la langue de l'app est 'en'. */
   nameEn: text('name_en').notNull().default(''),
   description: text('description'),
+  descriptionEn: text('description_en'),
   mediaType: text('media_type', { enum: ['gif', 'image', 'none', 'video'] }).notNull(),
   mediaKey: text('media_key').notNull(),
   /** true si le mouvement est technique/risqué (exclu des programmes générés pour débutant). */
@@ -122,6 +125,7 @@ export const unlockedAchievements = sqliteTable('unlocked_achievements', {
 export const appSettings = sqliteTable('app_settings', {
   id: integer('id').primaryKey(),
   themeMode: text('theme_mode', { enum: ['light', 'dark', 'system'] }).notNull().default('system'),
+  language: text('language', { enum: ['fr', 'en'] }).notNull().default('fr'),
   oneRmFormula: text('one_rm_formula', { enum: ['epley', 'brzycki', 'lombardi'] })
     .notNull()
     .default('epley'),

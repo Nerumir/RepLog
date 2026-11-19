@@ -51,25 +51,24 @@ export const Glow = {
   gold: '#FDE047',
 } as const;
 
-// Paliers de niveau de performance (Débutant → Élite) : tier numérique, libellé, médaille, couleur + dégradé.
-export const LevelTierInfo: Record<
-  PerformanceLevel,
-  { tier: number; label: string; medal: string; color: string; gradient: readonly [string, string] }
-> = {
-  beginner: { tier: 1, label: 'Débutant', medal: 'Bronze', color: '#92400E', gradient: ['#78350F', '#B45309'] },
-  novice: { tier: 2, label: 'Novice', medal: 'Argent', color: '#CBD5E1', gradient: ['#94A3B8', '#E2E8F0'] },
-  intermediate: { tier: 3, label: 'Intermédiaire', medal: 'Or', color: '#F59E0B', gradient: ['#D97706', '#FDE047'] },
-  advanced: { tier: 4, label: 'Confirmé', medal: 'Diamant', color: '#38BDF8', gradient: ['#0EA5E9', '#7DD3FC'] },
-  elite: { tier: 5, label: 'Élite', medal: 'GrandMaster', color: '#DC2626', gradient: ['#B91C1C', '#F87171'] },
+// Paliers de niveau de performance (Débutant → Élite) : tier numérique, couleur + dégradé.
+// Les libellés affichés viennent de i18n (clé enums.levelTier.<id>), pas de ce fichier.
+export const LevelTierInfo: Record<PerformanceLevel, { tier: number; color: string; gradient: readonly [string, string] }> = {
+  beginner: { tier: 1, color: '#92400E', gradient: ['#78350F', '#B45309'] },
+  novice: { tier: 2, color: '#CBD5E1', gradient: ['#94A3B8', '#E2E8F0'] },
+  intermediate: { tier: 3, color: '#F59E0B', gradient: ['#D97706', '#FDE047'] },
+  advanced: { tier: 4, color: '#38BDF8', gradient: ['#0EA5E9', '#7DD3FC'] },
+  elite: { tier: 5, color: '#DC2626', gradient: ['#B91C1C', '#F87171'] },
 } as const;
 
 // Paliers de trophées de succès (Bronze → Rubis) : mêmes couleurs que les paliers de niveau.
-export const TrophyTierInfo: Record<AchievementTier, { label: string; color: string }> = {
-  bronze: { label: 'Bronze', color: LevelTierInfo.beginner.color },
-  silver: { label: 'Argent', color: LevelTierInfo.novice.color },
-  gold: { label: 'Or', color: LevelTierInfo.intermediate.color },
-  diamond: { label: 'Diamant', color: LevelTierInfo.advanced.color },
-  ruby: { label: 'Rubis', color: LevelTierInfo.elite.color },
+// Les libellés affichés viennent de i18n (clé enums.trophyTier.<id>), pas de ce fichier.
+export const TrophyTierInfo: Record<AchievementTier, { color: string }> = {
+  bronze: { color: LevelTierInfo.beginner.color },
+  silver: { color: LevelTierInfo.novice.color },
+  gold: { color: LevelTierInfo.intermediate.color },
+  diamond: { color: LevelTierInfo.advanced.color },
+  ruby: { color: LevelTierInfo.elite.color },
 } as const;
 
 export const Fonts = Platform.select({

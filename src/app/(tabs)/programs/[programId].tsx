@@ -2,6 +2,7 @@ import { useCallback, useState } from 'react';
 import { FlatList, StyleSheet } from 'react-native';
 import { Link, router, useFocusEffect, useLocalSearchParams } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { useTranslation } from 'react-i18next';
 
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
@@ -16,6 +17,7 @@ import { deleteProgram, getProgramWithSessions, removeSessionFromProgram } from 
 import { finishWorkoutLog, getActiveWorkoutLog, startWorkoutLog } from '@/db/queries/workoutLogs';
 
 export default function ProgramDetailScreen() {
+  const { t } = useTranslation();
   const { programId } = useLocalSearchParams<{ programId: string }>();
   const scheme = useColorScheme();
   const colors = Colors[scheme === 'dark' ? 'dark' : 'light'];
@@ -47,9 +49,9 @@ export default function ProgramDetailScreen() {
         return;
       }
       setConfirmRequest({
-        title: 'Une séance est déjà en cours',
-        message: `« ${active.templateNameSnapshot} » est en cours. L'abandonner pour démarrer celle-ci à la place ?`,
-        confirmLabel: 'Abandonner et démarrer',
+        title: t('programDetail.activeSessionDialog.title'),
+        message: t('programDetail.activeSessionDialog.message', { name: active.templateNameSnapshot }),
+        confirmLabel: t('programDetail.activeSessionDialog.confirmLabel'),
         onConfirm: async () => {
           await finishWorkoutLog(active.id, 'aborted');
           await startNewLog(sessionTemplateId);
@@ -60,9 +62,9 @@ export default function ProgramDetailScreen() {
 
   function handleRemoveSession(sessionTemplateId: number, name: string) {
     setConfirmRequest({
-      title: 'Retirer cette séance ?',
-      message: `« ${name} » sera retirée de ce programme (la séance elle-même n'est pas supprimée).`,
-      confirmLabel: 'Retirer',
+      title: t('programDetail.removeSessionDialog.title'),
+      message: t('programDetail.removeSessionDialog.message', { name }),
+      confirmLabel: t('programDetail.removeSessionDialog.confirmLabel'),
       onConfirm: async () => {
         await removeSessionFromProgram(Number(programId), sessionTemplateId);
         load();
@@ -73,9 +75,9 @@ export default function ProgramDetailScreen() {
   function handleDeleteProgram() {
     if (!program) return;
     setConfirmRequest({
-      title: 'Supprimer ce programme ?',
-      message: `« ${program.name} » sera supprimé. Les séances qu'il contient resteront disponibles.`,
-      confirmLabel: 'Supprimer',
+      title: t('programDetail.deleteProgramDialog.title'),
+      message: t('programDetail.deleteProgramDialog.message', { name: program.name }),
+      confirmLabel: t('common.delete'),
       onConfirm: async () => {
         await deleteProgram(Number(programId));
         router.replace('/programs');
@@ -94,12 +96,12 @@ export default function ProgramDetailScreen() {
           </ThemedText>
           <GameButton silent onPress={handleDeleteProgram} style={[styles.deleteProgramButton, { borderColor: colors.danger }]}>
             <ThemedText type="small" style={{ color: colors.danger }}>
-              Supprimer
+              {t('common.delete')}
             </ThemedText>
           </GameButton>
         </ThemedView>
         <ThemedText type="small" themeColor="textSecondary">
-          {program.sessionsPerWeek} séance(s)/semaine
+          {t('programs.sessionsPerWeek', { count: program.sessionsPerWeek })}
         </ThemedText>
 
         <FlatList
@@ -116,14 +118,14 @@ export default function ProgramDetailScreen() {
                   onPress={() => handleStart(item.id)}
                   style={[styles.actionButton, { backgroundColor: colors.accent }]}>
                   <ThemedText type="small" style={{ color: '#FFFFFF' }}>
-                    Lancer
+                    {t('programDetail.launch')}
                   </ThemedText>
                 </GameButton>
                 <Link href={`/programs/templates/${item.id}`} asChild>
                   <GameButton
                     style={StyleSheet.flatten([styles.actionButton, styles.actionButtonOutline, { borderColor: colors.accent }])}>
                     <ThemedText type="small" themeColor="accent">
-                      Détails
+                      {t('programs.details')}
                     </ThemedText>
                   </GameButton>
                 </Link>
@@ -132,7 +134,7 @@ export default function ProgramDetailScreen() {
                   onPress={() => handleRemoveSession(item.id, item.dayLabel ?? item.name)}
                   style={[styles.actionButton, styles.actionButtonOutline, { borderColor: colors.danger }]}>
                   <ThemedText type="small" style={{ color: colors.danger }}>
-                    Supprimer
+                    {t('common.delete')}
                   </ThemedText>
                 </GameButton>
               </ThemedView>
@@ -143,7 +145,7 @@ export default function ProgramDetailScreen() {
               <Link href={{ pathname: '/programs/templates/new', params: { programId } }} asChild>
                 <GameButton style={StyleSheet.flatten([styles.addSessionButton, { borderColor: colors.accent }])}>
                   <ThemedText type="small" themeColor="accent">
-                    + Ajouter une séance
+                    {t('programDetail.addSession')}
                   </ThemedText>
                 </GameButton>
               </Link>

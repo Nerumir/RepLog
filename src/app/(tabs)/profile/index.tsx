@@ -12,6 +12,7 @@ import Animated, {
   useSharedValue,
 } from 'react-native-reanimated';
 import Body, { type Slug } from 'react-native-body-highlighter';
+import { useTranslation } from 'react-i18next';
 
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
@@ -20,6 +21,7 @@ import { HelpButton } from '@/components/ui/HelpButton';
 import { LevelProgressBar } from '@/components/ui/LevelProgressBar';
 import { Colors, LevelTierInfo, Spacing, TrophyTierInfo } from '@/constants/theme';
 import { useColorScheme } from '@/hooks/use-color-scheme';
+import { useLocalize } from '@/i18n/localize';
 import { getTrophyCountsByTier } from '@/db/queries/achievements';
 import { applyLazyPenaltiesIfNeeded, getBiomeSessionCounts } from '@/db/queries/attendance';
 import { listMuscleGroups } from '@/db/queries/exercises';
@@ -40,6 +42,8 @@ const DIAGRAM_MIN_SCALE = 0.5;
 const COLLAPSE_DISTANCE = 140;
 
 export default function ProfileScreen() {
+  const { t } = useTranslation();
+  const localize = useLocalize();
   const scheme = useColorScheme();
   const colors = Colors[scheme === 'dark' ? 'dark' : 'light'];
 
@@ -113,16 +117,9 @@ export default function ProfileScreen() {
         <ThemedView style={styles.headerRow}>
           <ThemedView style={styles.headerTitleRow}>
             <ThemedText type="subtitle" style={styles.headerTitle} numberOfLines={1}>
-              {nickname || 'Profil'}
+              {nickname || t('profile.defaultTitle')}
             </ThemedText>
-            <HelpButton
-              title="Profil"
-              body={
-                'Ta carte d\'identité sportive : ton niveau par groupe musculaire (Débutant → Élite), calculé à partir de tes meilleures performances comparées à des barèmes par sexe et poids de corps.\n\n' +
-                "Tu y retrouves aussi ta progression sur la carte d'assiduité, et tes trophées débloqués (régularité, progression musculaire, spécialisations par matériel...).\n\n" +
-                "Dans les réglages (⚙️), tu peux modifier ton profil, réinitialiser tes performances/trophées, ou exporter/importer toutes tes données pour changer de téléphone."
-              }
-            />
+            <HelpButton title={t('profile.help.title')} body={t('profile.help.body')} />
           </ThemedView>
           <Link href="/profile/settings" asChild>
             <Pressable style={styles.settingsButton}>
@@ -164,14 +161,14 @@ export default function ProfileScreen() {
                   style={[styles.tabButton, activeTab === 'attendance' && { backgroundColor: colors.backgroundSelected }]}
                   onPress={() => setActiveTab('attendance')}>
                   <ThemedText type="smallBold" themeColor={activeTab === 'attendance' ? 'text' : 'textSecondary'}>
-                    Assiduité
+                    {t('tabs.attendance')}
                   </ThemedText>
                 </Pressable>
                 <Pressable
                   style={[styles.tabButton, activeTab === 'trophies' && { backgroundColor: colors.backgroundSelected }]}
                   onPress={() => setActiveTab('trophies')}>
                   <ThemedText type="smallBold" themeColor={activeTab === 'trophies' ? 'text' : 'textSecondary'}>
-                    Trophées
+                    {t('profile.trophiesTab')}
                   </ThemedText>
                 </Pressable>
               </ThemedView>
@@ -182,13 +179,15 @@ export default function ProfileScreen() {
                       <>
                         <ThemedView style={styles.biomeHeaderRow}>
                           <Ionicons name="trail-sign" size={20} color={colors.accent} />
-                          <ThemedText type="smallBold">Assiduité · {BIOMES[currentBiomeIndex]?.label ?? '—'}</ThemedText>
+                          <ThemedText type="smallBold">
+                            {t('tabs.attendance')} · {BIOMES[currentBiomeIndex] ? t(`enums.biome.${BIOMES[currentBiomeIndex].id}`) : '—'}
+                          </ThemedText>
                         </ThemedView>
                         <ThemedView style={styles.biomeListRow}>
                           {BIOMES.map((biome, index) => (
                             <ThemedView key={biome.id} style={styles.biomeListItem}>
                               <ThemedText type="small" themeColor={index === currentBiomeIndex ? 'accent' : 'textSecondary'}>
-                                {biome.label}
+                                {t(`enums.biome.${biome.id}`)}
                               </ThemedText>
                               <ThemedText type="smallBold" themeColor={index === currentBiomeIndex ? 'accent' : 'text'}>
                                 {biomeSessionCounts[index] ?? 0}
@@ -202,14 +201,14 @@ export default function ProfileScreen() {
                         <ThemedView style={styles.biomeHeaderRow}>
                           <Ionicons name="trophy" size={20} color={colors.accent} />
                           <ThemedText type="smallBold">
-                            Trophées · {Object.values(trophyCounts).reduce((a, b) => a + b, 0)} débloqués
+                            {t('profile.trophiesUnlocked', { count: Object.values(trophyCounts).reduce((a, b) => a + b, 0) })}
                           </ThemedText>
                         </ThemedView>
                         <ThemedView style={styles.biomeListRow}>
                           {TROPHY_TIER_ORDER.map((tier) => (
                             <ThemedView key={tier} style={styles.trophyListItem}>
                               <ThemedText type="small" themeColor="textSecondary">
-                                {TrophyTierInfo[tier].label}
+                                {t(`enums.trophyTier.${tier}`)}
                               </ThemedText>
                               <ThemedText type="smallBold" style={{ color: TrophyTierInfo[tier].color }}>
                                 {trophyCounts[tier]}
@@ -222,7 +221,7 @@ export default function ProfileScreen() {
                   </Card>
                 </Pressable>
               </Link>
-              <ThemedText type="smallBold">Niveaux par groupe musculaire</ThemedText>
+              <ThemedText type="smallBold">{t('profile.levelsByMuscle')}</ThemedText>
             </ThemedView>
           }
           renderItem={({ item, index }) => {
@@ -234,9 +233,9 @@ export default function ProfileScreen() {
                     <Card style={styles.row}>
                       <ThemedView style={styles.rowHeader}>
                         <ThemedView style={styles.rowHeaderText}>
-                          <ThemedText type="default">{item.name}</ThemedText>
+                          <ThemedText type="default">{localize(item.name, item.nameEn)}</ThemedText>
                           <ThemedText type="small" themeColor="textSecondary">
-                            {tier ? `Niveau ${LevelTierInfo[tier].tier}` : '—'}
+                            {tier ? t('profile.levelNumber', { tier: LevelTierInfo[tier].tier }) : '—'}
                           </ThemedText>
                         </ThemedView>
                         <Ionicons name="medal" size={28} color={tier ? LevelTierInfo[tier].color : colors.textSecondary} />

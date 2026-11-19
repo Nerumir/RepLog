@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from 'react';
 import { router, useLocalSearchParams } from 'expo-router';
 import { ScrollView, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { useTranslation } from 'react-i18next';
 
 import { ExerciseMediaView } from '@/components/exercise/ExerciseMediaView';
 import { ThemedText } from '@/components/themed-text';
@@ -10,6 +11,7 @@ import { Card } from '@/components/ui/Card';
 import { GameButton } from '@/components/ui/GameButton';
 import { Colors, Spacing } from '@/constants/theme';
 import { useColorScheme } from '@/hooks/use-color-scheme';
+import { useLocalize } from '@/i18n/localize';
 import { attachSessionTemplateToProgram, createProgram } from '@/db/queries/programs';
 import { listExercisesForGeneration } from '@/db/queries/exerciseGenerationCatalog';
 import { addExerciseToSessionTemplate, createSessionTemplate } from '@/db/queries/sessionTemplates';
@@ -25,6 +27,8 @@ import type { SplitType } from '@/domain/splitTypes';
 import type { EquipmentId } from '@/domain/types';
 
 export default function GeneratedProgramPreviewScreen() {
+  const { t } = useTranslation();
+  const localize = useLocalize();
   const scheme = useColorScheme();
   const colors = Colors[scheme === 'dark' ? 'dark' : 'light'];
   const params = useLocalSearchParams<{
@@ -102,7 +106,7 @@ export default function GeneratedProgramPreviewScreen() {
     return (
       <ThemedView style={styles.container}>
         <SafeAreaView style={styles.safeArea}>
-          <ThemedText themeColor="textSecondary">Génération du programme...</ThemedText>
+          <ThemedText themeColor="textSecondary">{t('generatePreview.generating')}</ThemedText>
         </SafeAreaView>
       </ThemedView>
     );
@@ -114,7 +118,7 @@ export default function GeneratedProgramPreviewScreen() {
         <ScrollView contentContainerStyle={styles.content}>
           <ThemedText type="subtitle">{result.programName}</ThemedText>
           <ThemedText type="small" themeColor="textSecondary">
-            {result.sessionsPerWeek} séance(s)/semaine
+            {t('programs.sessionsPerWeek', { count: result.sessionsPerWeek })}
           </ThemedText>
 
           {result.warnings.map((warning) => (
@@ -128,14 +132,14 @@ export default function GeneratedProgramPreviewScreen() {
               <ThemedText type="smallBold">{session.name}</ThemedText>
               {session.exercises.length === 0 ? (
                 <ThemedText type="small" themeColor="textSecondary">
-                  Aucun exercice ne correspond à tes critères pour cette séance.
+                  {t('generatePreview.noMatchingExercise')}
                 </ThemedText>
               ) : (
                 session.exercises.map((exercise) => (
                   <ThemedView key={exercise.exerciseId} style={styles.exerciseRow}>
                     <ExerciseMediaView exerciseId={exercise.exerciseId} width={48} height={48} autoPlay={false} />
                     <ThemedText type="default" style={styles.exerciseName} numberOfLines={1}>
-                      {exercise.exerciseName}
+                      {localize(exercise.exerciseName, exercise.exerciseNameEn)}
                     </ThemedText>
                   </ThemedView>
                 ))
@@ -147,13 +151,13 @@ export default function GeneratedProgramPreviewScreen() {
             style={StyleSheet.flatten([styles.regenerateButton, { borderColor: colors.accent }])}
             onPress={regenerate}>
             <ThemedText type="smallBold" themeColor="accent">
-              🎲 Régénérer
+              {t('generatePreview.regenerate')}
             </ThemedText>
           </GameButton>
 
           <GameButton style={[styles.submit, { backgroundColor: colors.accent }]} onPress={handleSave} disabled={saving}>
             <ThemedText type="smallBold" style={{ color: '#FFFFFF' }}>
-              {saving ? 'Enregistrement...' : 'Enregistrer ce programme'}
+              {saving ? t('generatePreview.saving') : t('generatePreview.saveProgram')}
             </ThemedText>
           </GameButton>
         </ScrollView>

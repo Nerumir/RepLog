@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { router } from 'expo-router';
 import { Pressable, ScrollView, StyleSheet, TextInput } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { useTranslation } from 'react-i18next';
 
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
@@ -10,11 +11,10 @@ import { Colors, Spacing } from '@/constants/theme';
 import { useColorScheme } from '@/hooks/use-color-scheme';
 import { playError } from '@/audio/soundEffects';
 import { createProgram } from '@/db/queries/programs';
-import { splitTypeInfo, type SplitType } from '@/domain/splitTypes';
-
-const SPLIT_TYPES = Object.keys(splitTypeInfo) as SplitType[];
+import { SPLIT_TYPES, type SplitType } from '@/domain/splitTypes';
 
 export default function NewProgramScreen() {
+  const { t } = useTranslation();
   const scheme = useColorScheme();
   const colors = Colors[scheme === 'dark' ? 'dark' : 'light'];
 
@@ -26,7 +26,7 @@ export default function NewProgramScreen() {
   async function handleSave() {
     if (!name.trim()) {
       playError();
-      setError('Donne un nom à ton programme.');
+      setError(t('newProgram.nameRequired'));
       return;
     }
     const program = await createProgram({
@@ -43,31 +43,31 @@ export default function NewProgramScreen() {
     <ThemedView style={styles.container}>
       <SafeAreaView style={styles.safeArea}>
         <ScrollView contentContainerStyle={styles.content}>
-          <ThemedText type="subtitle">Nouveau programme</ThemedText>
+          <ThemedText type="subtitle">{t('newProgram.title')}</ThemedText>
           <ThemedText type="small" themeColor="textSecondary">
-            Tu pourras ajouter ses séances juste après.
+            {t('newProgram.subtitle')}
           </ThemedText>
 
           <TextInput
-            placeholder="Nom du programme"
+            placeholder={t('newProgram.namePlaceholder')}
             placeholderTextColor={colors.textSecondary}
             value={name}
             onChangeText={setName}
             style={[styles.input, { color: colors.text, borderColor: colors.backgroundSelected }]}
           />
 
-          <ThemedText type="smallBold">Type de split</ThemedText>
+          <ThemedText type="smallBold">{t('newProgram.splitTypeLabel')}</ThemedText>
           {SPLIT_TYPES.map((type) => (
             <Pressable
               key={type}
               style={[styles.option, splitType === type && { borderColor: colors.accent, backgroundColor: colors.backgroundSelected }]}
               onPress={() => setSplitType(type)}>
-              <ThemedText type="default">{splitTypeInfo[type].label}</ThemedText>
+              <ThemedText type="default">{t(`enums.splitType.${type}.label`)}</ThemedText>
             </Pressable>
           ))}
 
           <ThemedText type="smallBold" style={styles.sectionSpacing}>
-            Séances par semaine
+            {t('newProgram.sessionsPerWeekLabel')}
           </ThemedText>
           <TextInput
             value={sessionsPerWeek}
@@ -84,7 +84,7 @@ export default function NewProgramScreen() {
 
           <GameButton style={[styles.submit, { backgroundColor: colors.accent }]} onPress={handleSave}>
             <ThemedText type="smallBold" style={{ color: '#FFFFFF' }}>
-              Créer le programme
+              {t('newProgram.submit')}
             </ThemedText>
           </GameButton>
         </ScrollView>

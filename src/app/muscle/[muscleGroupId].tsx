@@ -3,12 +3,14 @@ import { Link, useLocalSearchParams } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { FlatList, Pressable, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { useTranslation } from 'react-i18next';
 
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { Card } from '@/components/ui/Card';
 import { LevelProgressBar } from '@/components/ui/LevelProgressBar';
 import { LevelTierInfo, Spacing } from '@/constants/theme';
+import { useLocalize } from '@/i18n/localize';
 import { getMuscleGroupById, getPerformanceStandards, listExercisesByPrimaryMuscle } from '@/db/queries/exercises';
 import { getUserProfile } from '@/db/queries/profile';
 import { getAppSettings } from '@/db/queries/settings';
@@ -19,6 +21,7 @@ import type { PerformanceLevel } from '@/domain/types';
 interface ExerciseRow {
   exerciseId: string;
   exerciseName: string;
+  exerciseNameEn: string;
   bestOneRm: number;
   metric: 'one_rm_kg' | 'reps';
   score: number;
@@ -26,30 +29,32 @@ interface ExerciseRow {
   thresholds: PerformanceStandardRow[];
 }
 
-function formatMetricValue(value: number, metric: 'one_rm_kg' | 'reps'): string {
-  return metric === 'reps' ? `${value} rep.` : `${value}kg`;
-}
-
 export default function MuscleGroupDetailScreen() {
+  const { t } = useTranslation();
+  const localize = useLocalize();
   const { muscleGroupId } = useLocalSearchParams<{ muscleGroupId: string }>();
 
-  const [muscleName, setMuscleName] = useState('');
+  function formatMetricValue(value: number, metric: 'one_rm_kg' | 'reps'): string {
+    return metric === 'reps' ? t('metric.reps', { count: value }) : t('metric.kg', { value });
+  }
+
+  const [muscle, setMuscle] = useState<Awaited<ReturnType<typeof getMuscleGroupById>> | null>(null);
   const [rows, setRows] = useState<ExerciseRow[]>([]);
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
     (async () => {
-      const [muscle, profile, settings, exercisesForMuscle] = await Promise.all([
+      const [muscleRow, profile, settings, exercisesForMuscle] = await Promise.all([
         getMuscleGroupById(muscleGroupId),
         getUserProfile(),
         getAppSettings(),
         listExercisesByPrimaryMuscle(muscleGroupId),
       ]);
-      if (!muscle || !profile) {
+      if (!muscleRow || !profile) {
         setLoaded(true);
         return;
       }
-      setMuscleName(muscle.name);
+      setMuscle(muscleRow);
       const formula = settings?.oneRmFormula ?? 'epley';
 
       // Ne garder que les exercices déjà pratiqués : le catalogue peut compter des dizaines
@@ -77,6 +82,7 @@ export default function MuscleGroupDetailScreen() {
         results.push({
           exerciseId: exercise.exerciseId,
           exerciseName: exercise.exerciseName,
+          exerciseNameEn: exercise.exerciseNameEn,
           bestOneRm,
           metric,
           score: result.score,
@@ -94,28 +100,28 @@ export default function MuscleGroupDetailScreen() {
   return (
     <ThemedView style={styles.container}>
       <SafeAreaView style={styles.safeArea}>
-        <ThemedText type="subtitle">{muscleName || 'Groupe musculaire'}</ThemedText>
+        <ThemedText type="subtitle">{muscle ? localize(muscle.name, muscle.nameEn) : t('muscleDetail.fallbackTitle')}</ThemedText>
         <FlatList
           data={rows}
           keyExtractor={(item) => item.exerciseId}
-          ListEmptyComponent={
-            <ThemedText themeColor="textSecondary">
-              Aucun exercice pratiqué pour ce groupe musculaire pour l&apos;instant.
-            </ThemedText>
-          }
+          ListEmptyComponent={<ThemedText themeColor="textSecondary">{t('muscleDetail.empty')}</ThemedText>}
           renderItem={({ item }) => (
             <Link href={`/exercises/${item.exerciseId}`} asChild>
               <Pressable>
                 <Card style={styles.card}>
                   <ThemedView style={styles.cardHeader}>
                     <ThemedText type="smallBold" style={styles.cardTitle} numberOfLines={1}>
-                      {item.exerciseName}
+                      {localize(item.exerciseName, item.exerciseNameEn)}
                     </ThemedText>
                     <Ionicons name="medal" size={24} color={LevelTierInfo[item.tier].color} />
                   </ThemedView>
                   <ThemedText type="small" themeColor="textSecondary">
-                    {LevelTierInfo[item.tier].label} · Niveau {item.score.toFixed(1)} ·{' '}
-                    {item.metric === 'reps' ? 'Record' : '1RM'} {formatMetricValue(item.bestOneRm, item.metric)}
+                    {t('muscleDetail.rowSummary', {
+                      tier: t(`enums.levelTier.${item.tier}`),
+                      score: item.score.toFixed(1),
+                      metricLabel: item.metric === 'reps' ? t('muscleDetail.record') : t('muscleDetail.oneRm'),
+                      value: formatMetricValue(item.bestOneRm, item.metric),
+                    })}
                   </ThemedText>
                   <LevelProgressBar progress={progressWithinTier(item.score)} level={item.tier} />
                   <ThemedView style={styles.thresholdRow}>
@@ -130,8 +136,10 @@ export default function MuscleGroupDetailScreen() {
                           <ThemedText
                             type="small"
                             style={{ color: tierColor, fontWeight: isCurrent ? '700' : '500' }}>
-                            Niv. {LevelTierInfo[threshold.level].tier} ·{' '}
-                            {formatMetricValue(threshold.minOneRmKg, item.metric)}
+                            {t('muscleDetail.thresholdLabel', {
+                              tier: LevelTierInfo[threshold.level].tier,
+                              value: formatMetricValue(threshold.minOneRmKg, item.metric),
+                            })}
                           </ThemedText>
                         </ThemedView>
                       );

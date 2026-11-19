@@ -1,3 +1,5 @@
+import i18n from '@/i18n';
+
 export type SplitType =
   | 'full_body'
   | 'upper_lower'
@@ -5,6 +7,8 @@ export type SplitType =
   | 'body_part_split'
   | 'antagonist_split'
   | 'custom';
+
+export const SPLIT_TYPES: SplitType[] = ['full_body', 'upper_lower', 'push_pull_legs', 'body_part_split', 'antagonist_split', 'custom'];
 
 function rotate(labels: string[], sessionsPerWeek: number): string[] {
   return Array.from({ length: sessionsPerWeek }, (_, i) => {
@@ -14,40 +18,22 @@ function rotate(labels: string[], sessionsPerWeek: number): string[] {
   });
 }
 
-export const splitTypeInfo: Record<
-  SplitType,
-  { label: string; description: string; dayLabels: (sessionsPerWeek: number) => string[] }
-> = {
-  full_body: {
-    label: 'Full Body',
-    description: 'Tout le corps à chaque séance. Idéal pour débuter ou pour 2-3 séances/semaine.',
-    dayLabels: (n) => Array.from({ length: n }, (_, i) => `Full Body ${i + 1}`),
-  },
-  upper_lower: {
-    label: 'Haut / Bas',
-    description: 'Alterne le haut et le bas du corps. Bon compromis fréquence/récupération.',
-    dayLabels: (n) => rotate(['Haut A', 'Bas A', 'Haut B', 'Bas B'], n),
-  },
-  push_pull_legs: {
-    label: 'Push / Pull / Legs',
-    description: 'Pousser (pecs/épaules/triceps), Tirer (dos/biceps), Jambes. Très répandu à 3-6 séances/semaine.',
-    dayLabels: (n) => rotate(['Push', 'Pull', 'Legs'], n),
-  },
-  body_part_split: {
-    label: 'Split par groupe musculaire',
-    description: 'Un ou deux groupes musculaires ciblés par séance ("bro split"). Demande un volume de séances élevé.',
-    dayLabels: (n) => rotate(['Pecs', 'Dos', 'Jambes', 'Épaules', 'Bras'], n),
-  },
-  antagonist_split: {
-    label: 'Antagonistes',
-    description: 'Associe des groupes musculaires opposés dans la même séance (ex: pecs/dos).',
-    dayLabels: (n) => rotate(['Pecs / Dos', 'Jambes', 'Épaules / Bras'], n),
-  },
-  custom: {
-    label: 'Personnalisé',
-    description: 'Structure libre, sans schéma de split imposé.',
-    dayLabels: (n) => Array.from({ length: n }, (_, i) => `Séance ${i + 1}`),
-  },
+function numbered(base: string, n: number): string[] {
+  return Array.from({ length: n }, (_, i) => `${base} ${i + 1}`);
+}
+
+/**
+ * Noms de séance générés pour chaque split type, dans la langue active au moment de l'appel
+ * (i18n.t statique : ces noms sont enregistrés tels quels en base, comme un instantané, et ne se
+ * retraduisent pas rétroactivement si l'utilisateur change de langue après coup).
+ */
+export const splitTypeInfo: Record<SplitType, { dayLabels: (sessionsPerWeek: number) => string[] }> = {
+  full_body: { dayLabels: (n) => numbered(i18n.t('enums.splitType.full_body.dayBase'), n) },
+  upper_lower: { dayLabels: (n) => rotate(i18n.t('enums.splitType.upper_lower.dayBases', { returnObjects: true }) as string[], n) },
+  push_pull_legs: { dayLabels: (n) => rotate(i18n.t('enums.splitType.push_pull_legs.dayBases', { returnObjects: true }) as string[], n) },
+  body_part_split: { dayLabels: (n) => rotate(i18n.t('enums.splitType.body_part_split.dayBases', { returnObjects: true }) as string[], n) },
+  antagonist_split: { dayLabels: (n) => rotate(i18n.t('enums.splitType.antagonist_split.dayBases', { returnObjects: true }) as string[], n) },
+  custom: { dayLabels: (n) => numbered(i18n.t('enums.splitType.custom.dayBase'), n) },
 };
 
 const ALL_MUSCLE_GROUPS = [

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { StyleSheet, TextInput } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { useTranslation } from 'react-i18next';
 
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
@@ -11,6 +12,7 @@ import { useColorScheme } from '@/hooks/use-color-scheme';
 import { getAttendanceProgress, resetAttendanceProgress, setPenaltyThresholdDays } from '@/db/queries/attendance';
 
 export default function AttendanceSettingsScreen() {
+  const { t } = useTranslation();
   const scheme = useColorScheme();
   const colors = Colors[scheme === 'dark' ? 'dark' : 'light'];
 
@@ -33,9 +35,9 @@ export default function AttendanceSettingsScreen() {
 
   function handleResetAttendance() {
     setConfirmRequest({
-      title: "Réinitialiser l'assiduité ?",
-      message: 'Ta position sur la carte et le nombre de séances par biome repartiront de zéro. Ton seuil de pénalité est conservé.',
-      confirmLabel: 'Réinitialiser',
+      title: t('attendance.settings.resetDialog.title'),
+      message: t('attendance.settings.resetDialog.message'),
+      confirmLabel: t('attendance.settings.resetDialog.confirmLabel'),
       onConfirm: async () => {
         await resetAttendanceProgress();
       },
@@ -45,8 +47,8 @@ export default function AttendanceSettingsScreen() {
   return (
     <ThemedView style={styles.container}>
       <SafeAreaView style={styles.safeArea}>
-        <ThemedText type="subtitle">Réglages — Assiduité</ThemedText>
-        <ThemedText type="smallBold">Jours sans séance avant pénalité</ThemedText>
+        <ThemedText type="subtitle">{t('attendance.settings.title')}</ThemedText>
+        <ThemedText type="smallBold">{t('attendance.settings.thresholdLabel')}</ThemedText>
         <TextInput
           value={thresholdInput}
           onChangeText={(value) => {
@@ -58,16 +60,16 @@ export default function AttendanceSettingsScreen() {
         />
         <GameButton style={[styles.saveButton, { backgroundColor: colors.accent }]} onPress={handleSave}>
           <ThemedText type="smallBold" style={{ color: '#FFFFFF' }}>
-            {saved ? 'Enregistré ✓' : 'Enregistrer'}
+            {saved ? t('attendance.settings.saved') : t('attendance.settings.save')}
           </ThemedText>
         </GameButton>
 
         <ThemedText type="smallBold" style={styles.sectionSpacing}>
-          Zone dangereuse
+          {t('attendance.settings.dangerZone')}
         </ThemedText>
         <GameButton silent onPress={handleResetAttendance} style={[styles.resetButton, { borderColor: colors.danger }]}>
           <ThemedText type="small" style={{ color: colors.danger }}>
-            Réinitialiser l&apos;assiduité
+            {t('attendance.settings.resetButton')}
           </ThemedText>
         </GameButton>
       </SafeAreaView>

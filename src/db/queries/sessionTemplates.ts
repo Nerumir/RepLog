@@ -29,6 +29,7 @@ export async function getSessionTemplateDetail(sessionTemplateId: number) {
       id: sessionTemplateExercises.id,
       exerciseId: sessionTemplateExercises.exerciseId,
       exerciseName: exercises.name,
+      exerciseNameEn: exercises.nameEn,
       orderIndex: sessionTemplateExercises.orderIndex,
       restSecondsOverride: sessionTemplateExercises.restSecondsOverride,
     })

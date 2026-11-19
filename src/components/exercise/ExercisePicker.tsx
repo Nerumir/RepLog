@@ -1,11 +1,13 @@
 import { useMemo, useState } from 'react';
 import { FlatList, Pressable, StyleSheet, TextInput } from 'react-native';
+import { useTranslation } from 'react-i18next';
 
 import { ExerciseMediaView } from '@/components/exercise/ExerciseMediaView';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { Colors, Spacing } from '@/constants/theme';
 import { useColorScheme } from '@/hooks/use-color-scheme';
+import { useLocalize } from '@/i18n/localize';
 
 function normalizeForSearch(value: string): string {
   return value
@@ -17,7 +19,7 @@ function normalizeForSearch(value: string): string {
 
 interface ExercisePickerProps {
   catalog: { id: string; name: string; nameEn?: string }[];
-  onSelect: (exerciseId: string, exerciseName: string) => void;
+  onSelect: (exerciseId: string, exerciseName: string, exerciseNameEn: string) => void;
 }
 
 /**
@@ -26,6 +28,8 @@ interface ExercisePickerProps {
  * exercice même en tapant son nom anglais plutôt que sa traduction française.
  */
 export function ExercisePicker({ catalog, onSelect }: ExercisePickerProps) {
+  const { t } = useTranslation();
+  const localize = useLocalize();
   const scheme = useColorScheme();
   const colors = Colors[scheme === 'dark' ? 'dark' : 'light'];
   const [query, setQuery] = useState('');
@@ -56,7 +60,7 @@ export function ExercisePicker({ catalog, onSelect }: ExercisePickerProps) {
   return (
     <ThemedView type="backgroundElement" style={styles.container}>
       <TextInput
-        placeholder="Rechercher un exercice..."
+        placeholder={t('exercisePicker.searchPlaceholder')}
         placeholderTextColor={colors.textSecondary}
         value={query}
         onChangeText={handleQueryChange}
@@ -75,16 +79,16 @@ export function ExercisePicker({ catalog, onSelect }: ExercisePickerProps) {
           if (visible.length < filtered.length) setPage((p) => p + 1);
         }}
         renderItem={({ item: exercise }) => (
-          <Pressable onPress={() => onSelect(exercise.id, exercise.name)} style={styles.row}>
+          <Pressable onPress={() => onSelect(exercise.id, exercise.name, exercise.nameEn ?? '')} style={styles.row}>
             <ThemedText type="default" style={styles.rowLabel} numberOfLines={1}>
-              {exercise.name}
+              {localize(exercise.name, exercise.nameEn)}
             </ThemedText>
             <ExerciseMediaView exerciseId={exercise.id} width={48} height={48} autoPlay={false} />
           </Pressable>
         )}
         ListEmptyComponent={
           <ThemedText themeColor="textSecondary">
-            {catalog.length === 0 ? 'Catalogue vide.' : 'Aucun exercice trouvé.'}
+            {catalog.length === 0 ? t('exercisePicker.emptyCatalog') : t('exercisePicker.noResults')}
           </ThemedText>
         }
       />

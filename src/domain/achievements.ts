@@ -5,71 +5,70 @@ export type AchievementTier = 'bronze' | 'silver' | 'gold' | 'diamond' | 'ruby';
 
 export interface AchievementDefinition {
   id: string;
-  name: string;
-  description: string;
   tier: AchievementTier;
 }
 
+// Les noms/descriptions affichés viennent de i18n (clé achievements.<id>.name / .description), pas de ce fichier.
 const MUSCLE_ACHIEVEMENTS: Omit<AchievementDefinition, 'tier'>[] = [
-  { id: 'abs-confirmed', name: 'Tablette de chocolat', description: 'Atteindre le niveau Confirmé aux abdominaux.' },
-  { id: 'back-confirmed', name: "Dos d'acier", description: 'Atteindre le niveau Confirmé au dos.' },
-  { id: 'biceps-confirmed', name: 'Bras de fer', description: 'Atteindre le niveau Confirmé aux biceps.' },
-  { id: 'calves-confirmed', name: 'Mollets de gazelle', description: 'Atteindre le niveau Confirmé aux mollets.' },
-  { id: 'chest-confirmed', name: 'Torse bombé', description: 'Atteindre le niveau Confirmé aux pectoraux.' },
-  { id: 'forearms-confirmed', name: 'Poigne de crabe', description: 'Atteindre le niveau Confirmé aux avant-bras.' },
-  { id: 'glutes-confirmed', name: 'Fessiers de béton', description: 'Atteindre le niveau Confirmé aux fessiers.' },
-  { id: 'hamstrings-confirmed', name: 'Ischios en titane', description: 'Atteindre le niveau Confirmé aux ischio-jambiers.' },
-  { id: 'lats-confirmed', name: 'Envergure de condor', description: 'Atteindre le niveau Confirmé aux dorsaux.' },
-  { id: 'quads-confirmed', name: 'Quadriceps de sprinteur', description: 'Atteindre le niveau Confirmé aux quadriceps.' },
-  { id: 'shoulders-confirmed', name: 'Épaules de déménageur', description: 'Atteindre le niveau Confirmé aux épaules.' },
-  { id: 'traps-confirmed', name: 'Cou de taureau', description: 'Atteindre le niveau Confirmé aux trapèzes.' },
-  { id: 'triceps-confirmed', name: 'Triceps qui claquent', description: 'Atteindre le niveau Confirmé aux triceps.' },
+  { id: 'abs-confirmed' },
+  { id: 'back-confirmed' },
+  { id: 'biceps-confirmed' },
+  { id: 'calves-confirmed' },
+  { id: 'chest-confirmed' },
+  { id: 'forearms-confirmed' },
+  { id: 'glutes-confirmed' },
+  { id: 'hamstrings-confirmed' },
+  { id: 'lats-confirmed' },
+  { id: 'quads-confirmed' },
+  { id: 'shoulders-confirmed' },
+  { id: 'traps-confirmed' },
+  { id: 'triceps-confirmed' },
 ];
 
 export const ACHIEVEMENTS: AchievementDefinition[] = [
   ...MUSCLE_ACHIEVEMENTS.map((a) => ({ ...a, tier: 'gold' as const })),
 
-  { id: 'all-muscles-novice', name: 'Tout-terrain', description: 'Atteindre au moins le niveau Novice sur les 13 groupes musculaires.', tier: 'bronze' },
-  { id: 'all-muscles-intermediate', name: 'Corps harmonieux', description: 'Atteindre au moins le niveau Intermédiaire sur les 13 groupes musculaires.', tier: 'silver' },
-  { id: 'all-muscles-advanced', name: 'Spécimen complet', description: 'Atteindre au moins le niveau Confirmé sur les 13 groupes musculaires.', tier: 'diamond' },
-  { id: 'all-muscles-elite', name: 'Demi-dieu de la fonte', description: 'Atteindre le niveau Élite sur les 13 groupes musculaires.', tier: 'ruby' },
+  { id: 'all-muscles-novice', tier: 'bronze' },
+  { id: 'all-muscles-intermediate', tier: 'silver' },
+  { id: 'all-muscles-advanced', tier: 'diamond' },
+  { id: 'all-muscles-elite', tier: 'ruby' },
 
-  { id: 'bodyweight-master', name: 'Maître du corps', description: 'Atteindre en moyenne le niveau Confirmé sur les exercices au poids du corps.', tier: 'gold' },
-  { id: 'free-weight-master', name: 'Roi de la fonte', description: 'Atteindre en moyenne le niveau Confirmé sur les exercices avec poids, haltères et barres.', tier: 'gold' },
-  { id: 'machine-master', name: 'As de la machine', description: 'Atteindre en moyenne le niveau Confirmé sur les exercices à la machine.', tier: 'gold' },
-  { id: 'triathlon-master', name: 'Triathlète de la fonte', description: 'Atteindre en moyenne le niveau Élite dans les 3 catégories de matériel à la fois.', tier: 'ruby' },
+  { id: 'bodyweight-master', tier: 'gold' },
+  { id: 'free-weight-master', tier: 'gold' },
+  { id: 'machine-master', tier: 'gold' },
+  { id: 'triathlon-master', tier: 'ruby' },
 
-  { id: 'biome-forest', name: 'Dans les bois', description: 'Atteindre le biome Forêt sur la carte d\'assiduité.', tier: 'bronze' },
-  { id: 'biome-tundra', name: 'Grand froid', description: 'Atteindre le biome Toundra.', tier: 'bronze' },
-  { id: 'biome-desert', name: 'Traversée du désert', description: 'Atteindre le biome Désert.', tier: 'silver' },
-  { id: 'biome-volcano', name: 'Enfer sur terre', description: 'Atteindre le biome Volcan.', tier: 'gold' },
-  { id: 'biome-valhalla', name: 'Aux portes du Valhalla', description: 'Atteindre le biome Valhalla.', tier: 'diamond' },
-  { id: 'biome-valhalla-flawless', name: 'Einherjar', description: 'Atteindre le Valhalla sans jamais avoir subi de pénalité.', tier: 'ruby' },
+  { id: 'biome-forest', tier: 'bronze' },
+  { id: 'biome-tundra', tier: 'bronze' },
+  { id: 'biome-desert', tier: 'silver' },
+  { id: 'biome-volcano', tier: 'gold' },
+  { id: 'biome-valhalla', tier: 'diamond' },
+  { id: 'biome-valhalla-flawless', tier: 'ruby' },
 
-  { id: 'weekly-3', name: 'Trio de la semaine', description: 'Faire 3 séances au cours d\'une même semaine.', tier: 'bronze' },
-  { id: 'weekly-4', name: 'Quatuor imparable', description: 'Faire 4 séances au cours d\'une même semaine.', tier: 'silver' },
-  { id: 'weekly-5', name: 'Cinq sur cinq', description: 'Faire 5 séances au cours d\'une même semaine.', tier: 'gold' },
-  { id: 'weekly-6', name: 'Workaholic de la fonte', description: 'Faire 6 séances ou plus au cours d\'une même semaine.', tier: 'diamond' },
+  { id: 'weekly-3', tier: 'bronze' },
+  { id: 'weekly-4', tier: 'silver' },
+  { id: 'weekly-5', tier: 'gold' },
+  { id: 'weekly-6', tier: 'diamond' },
 
-  { id: 'sessions-10', name: 'Dixième séance', description: 'Terminer 10 séances au total.', tier: 'bronze' },
-  { id: 'sessions-50', name: 'Cinquantenaire', description: 'Terminer 50 séances au total.', tier: 'silver' },
-  { id: 'sessions-100', name: 'Centurion', description: 'Terminer 100 séances au total.', tier: 'gold' },
-  { id: 'sessions-250', name: 'Vétéran', description: 'Terminer 250 séances au total.', tier: 'diamond' },
-  { id: 'sessions-500', name: 'Légende vivante', description: 'Terminer 500 séances au total.', tier: 'ruby' },
+  { id: 'sessions-10', tier: 'bronze' },
+  { id: 'sessions-50', tier: 'silver' },
+  { id: 'sessions-100', tier: 'gold' },
+  { id: 'sessions-250', tier: 'diamond' },
+  { id: 'sessions-500', tier: 'ruby' },
 
-  { id: 'streak-4', name: 'Un mois sans faillir', description: 'S\'entraîner au moins une fois par semaine pendant 4 semaines consécutives.', tier: 'bronze' },
-  { id: 'streak-12', name: 'Saison complète', description: 'S\'entraîner au moins une fois par semaine pendant 12 semaines consécutives.', tier: 'silver' },
-  { id: 'streak-26', name: 'Semestre de fonte', description: 'S\'entraîner au moins une fois par semaine pendant 26 semaines consécutives.', tier: 'gold' },
-  { id: 'streak-52', name: 'Une année sans craquer', description: 'S\'entraîner au moins une fois par semaine pendant 52 semaines consécutives.', tier: 'diamond' },
+  { id: 'streak-4', tier: 'bronze' },
+  { id: 'streak-12', tier: 'silver' },
+  { id: 'streak-26', tier: 'gold' },
+  { id: 'streak-52', tier: 'diamond' },
 
-  { id: 'first-session', name: 'Premiers pas', description: 'Terminer sa première séance.', tier: 'bronze' },
-  { id: 'sets-50', name: 'Carnet bien rempli', description: 'Enregistrer 50 séries au total.', tier: 'bronze' },
-  { id: 'sets-500', name: 'Carnet légendaire', description: 'Enregistrer 500 séries au total.', tier: 'silver' },
-  { id: 'exercises-20', name: 'Touche-à-tout', description: 'Pratiquer au moins 20 exercices différents.', tier: 'bronze' },
-  { id: 'exercises-75', name: 'Encyclopédie vivante', description: 'Pratiquer au moins 75 exercices différents.', tier: 'silver' },
-  { id: 'early-bird', name: 'Lève-tôt', description: 'Terminer une séance avant 7h du matin.', tier: 'bronze' },
-  { id: 'night-owl', name: 'Oiseau de nuit', description: 'Terminer une séance après 22h.', tier: 'bronze' },
-  { id: 'new-year', name: 'Résolution tenue', description: 'Terminer une séance le 1ᵉʳ janvier.', tier: 'bronze' },
+  { id: 'first-session', tier: 'bronze' },
+  { id: 'sets-50', tier: 'bronze' },
+  { id: 'sets-500', tier: 'silver' },
+  { id: 'exercises-20', tier: 'bronze' },
+  { id: 'exercises-75', tier: 'silver' },
+  { id: 'early-bird', tier: 'bronze' },
+  { id: 'night-owl', tier: 'bronze' },
+  { id: 'new-year', tier: 'bronze' },
 ];
 
 export const achievementById = new Map(ACHIEVEMENTS.map((a) => [a.id, a]));

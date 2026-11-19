@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { router, useLocalSearchParams } from 'expo-router';
 import { Pressable, ScrollView, StyleSheet, TextInput } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { useTranslation } from 'react-i18next';
 
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
@@ -10,6 +11,7 @@ import { ExercisePicker } from '@/components/exercise/ExercisePicker';
 import { GameButton } from '@/components/ui/GameButton';
 import { Colors, Spacing } from '@/constants/theme';
 import { useColorScheme } from '@/hooks/use-color-scheme';
+import { useLocalize } from '@/i18n/localize';
 import { playError } from '@/audio/soundEffects';
 import { getExerciseMuscles, listBodyweightOnlyExerciseIds, listExercises } from '@/db/queries/exercises';
 import { getSessionTemplateDetail, replaceSessionTemplateExercises, updateSessionTemplate } from '@/db/queries/sessionTemplates';
@@ -23,11 +25,14 @@ interface DraftSet {
 interface DraftExercise {
   exerciseId: string;
   exerciseName: string;
+  exerciseNameEn: string;
   restSecondsOverride: string;
   sets: DraftSet[];
 }
 
 export default function EditSessionTemplateScreen() {
+  const { t } = useTranslation();
+  const localize = useLocalize();
   const { templateId } = useLocalSearchParams<{ templateId: string }>();
   const scheme = useColorScheme();
   const colors = Colors[scheme === 'dark' ? 'dark' : 'light'];
@@ -50,6 +55,7 @@ export default function EditSessionTemplateScreen() {
         template.exercises.map((exercise) => ({
           exerciseId: exercise.exerciseId,
           exerciseName: exercise.exerciseName,
+          exerciseNameEn: exercise.exerciseNameEn,
           restSecondsOverride: exercise.restSecondsOverride ? String(exercise.restSecondsOverride) : '',
           sets: exercise.sets.map((set) => ({
             targetReps: String(set.targetReps),
@@ -61,13 +67,14 @@ export default function EditSessionTemplateScreen() {
     });
   }, [templateId]);
 
-  function addExercise(exerciseId: string, exerciseName: string) {
+  function addExercise(exerciseId: string, exerciseName: string, exerciseNameEn: string) {
     const defaultWeight = bodyweightIds.has(exerciseId) ? '0' : '20';
     setExercises((prev) => [
       ...prev,
       {
         exerciseId,
         exerciseName,
+        exerciseNameEn,
         restSecondsOverride: '',
         sets: [
           { targetReps: '8', targetWeightKg: defaultWeight },
@@ -126,7 +133,7 @@ export default function EditSessionTemplateScreen() {
   async function handleSave() {
     if (exercises.length === 0) {
       playError();
-      setError('Ajoute au moins un exercice.');
+      setError(t('sessionEdit.needExercise'));
       return;
     }
 
@@ -134,7 +141,7 @@ export default function EditSessionTemplateScreen() {
     for (const exercise of exercises) {
       const muscles = await getExerciseMuscles(exercise.exerciseId);
       for (const muscle of muscles) {
-        if (muscle.role === 'primary') primaryMuscleNames.push(muscle.name);
+        if (muscle.role === 'primary') primaryMuscleNames.push(localize(muscle.name, muscle.nameEn));
       }
     }
 
@@ -166,9 +173,9 @@ export default function EditSessionTemplateScreen() {
     <ThemedView style={styles.container}>
       <SafeAreaView style={styles.safeArea}>
         <ScrollView contentContainerStyle={styles.content}>
-          <ThemedText type="subtitle">Modifier la séance</ThemedText>
+          <ThemedText type="subtitle">{t('sessionEdit.title')}</ThemedText>
 
-          <ThemedText type="small">Repos par défaut entre séries (s)</ThemedText>
+          <ThemedText type="small">{t('sessionEdit.defaultRestLabel')}</ThemedText>
           <TextInput
             value={defaultRestSeconds}
             onChangeText={setDefaultRestSeconds}
@@ -180,7 +187,7 @@ export default function EditSessionTemplateScreen() {
             <Card key={`${exercise.exerciseId}-${exerciseIndex}`} style={styles.card}>
               <ThemedView style={styles.cardHeader}>
                 <ThemedText type="smallBold" style={styles.cardHeaderTitle} numberOfLines={1}>
-                  {exercise.exerciseName}
+                  {localize(exercise.exerciseName, exercise.exerciseNameEn)}
                 </ThemedText>
                 <ThemedView style={styles.cardHeaderActions}>
                   <GameButton
@@ -204,7 +211,7 @@ export default function EditSessionTemplateScreen() {
                     onPress={() => removeExercise(exerciseIndex)}
                     style={StyleSheet.flatten([styles.smallPillOutline, { borderColor: colors.danger }])}>
                     <ThemedText type="small" style={{ color: colors.danger }}>
-                      Retirer
+                      {t('sessionEdit.remove')}
                     </ThemedText>
                   </GameButton>
                 </ThemedView>
@@ -212,13 +219,13 @@ export default function EditSessionTemplateScreen() {
 
               <ThemedView style={styles.restOverrideRow}>
                 <ThemedText type="small" themeColor="textSecondary">
-                  Repos (sec)
+                  {t('sessionEdit.restSeconds')}
                 </ThemedText>
                 <TextInput
                   value={exercise.restSecondsOverride}
                   onChangeText={(value) => updateExerciseField(exerciseIndex, 'restSecondsOverride', value)}
                   keyboardType="numeric"
-                  placeholder="défaut"
+                  placeholder={t('sessionEdit.restDefault')}
                   placeholderTextColor={colors.textSecondary}
                   style={[styles.restOverrideInput, { color: colors.text, borderColor: colors.backgroundSelected }]}
                 />
@@ -227,7 +234,7 @@ export default function EditSessionTemplateScreen() {
               {exercise.sets.map((set, setIndex) => (
                 <ThemedView key={setIndex} style={styles.setRow}>
                   <ThemedText type="small" style={styles.setLabel}>
-                    Série {setIndex + 1}
+                    {t('sessionEdit.setLabel', { index: setIndex + 1 })}
                   </ThemedText>
                   {!bodyweightIds.has(exercise.exerciseId) && (
                     <>
@@ -237,7 +244,7 @@ export default function EditSessionTemplateScreen() {
                         keyboardType="numeric"
                         style={[styles.setInput, { color: colors.text, borderColor: colors.backgroundSelected }]}
                       />
-                      <ThemedText type="small">kg ×</ThemedText>
+                      <ThemedText type="small">{t('sessionEdit.kgTimes')}</ThemedText>
                     </>
                   )}
                   <TextInput
@@ -247,7 +254,7 @@ export default function EditSessionTemplateScreen() {
                     maxLength={2}
                     style={[styles.setInputReps, { color: colors.text, borderColor: colors.backgroundSelected }]}
                   />
-                  <ThemedText type="small">reps</ThemedText>
+                  <ThemedText type="small">{t('sessionEdit.reps')}</ThemedText>
                   <GameButton
                     silent
                     onPress={() => removeSet(exerciseIndex, setIndex)}
@@ -263,7 +270,7 @@ export default function EditSessionTemplateScreen() {
                 onPress={() => addSet(exerciseIndex)}
                 style={StyleSheet.flatten([styles.smallPillOutline, { borderColor: colors.accent, alignSelf: 'flex-start' }])}>
                 <ThemedText type="small" themeColor="accent">
-                  + Série
+                  {t('sessionEdit.addSet')}
                 </ThemedText>
               </GameButton>
             </Card>
@@ -273,7 +280,7 @@ export default function EditSessionTemplateScreen() {
             style={StyleSheet.flatten([styles.addExerciseButton, { borderColor: colors.accent }])}
             onPress={() => setPickerOpen(true)}>
             <ThemedText type="smallBold" themeColor="accent">
-              + Ajouter un exercice
+              {t('sessionEdit.addExercise')}
             </ThemedText>
           </GameButton>
 
@@ -286,7 +293,7 @@ export default function EditSessionTemplateScreen() {
 
           <GameButton style={[styles.submit, { backgroundColor: colors.accent }]} onPress={handleSave}>
             <ThemedText type="smallBold" style={{ color: '#FFFFFF' }}>
-              Enregistrer les modifications
+              {t('sessionEdit.saveChanges')}
             </ThemedText>
           </GameButton>
         </ScrollView>
@@ -295,13 +302,13 @@ export default function EditSessionTemplateScreen() {
           <Pressable style={styles.pickerBackdrop} onPress={() => setPickerOpen(false)}>
             <Pressable style={[styles.pickerOverlay, { backgroundColor: colors.background }]} onPress={() => {}}>
               <ThemedView style={styles.pickerOverlayHeader}>
-                <ThemedText type="smallBold">Choisir un exercice</ThemedText>
+                <ThemedText type="smallBold">{t('sessionEdit.chooseExercise')}</ThemedText>
                 <GameButton
                   silent
                   onPress={() => setPickerOpen(false)}
                   style={StyleSheet.flatten([styles.smallPillOutline, { borderColor: colors.accent }])}>
                   <ThemedText type="small" themeColor="accent">
-                    Fermer
+                    {t('common.close')}
                   </ThemedText>
                 </GameButton>
               </ThemedView>

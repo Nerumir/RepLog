@@ -2,6 +2,7 @@ import { useEffect, useMemo } from 'react';
 import { Group, matchFont, Path, RoundedRect, Text } from '@shopify/react-native-skia';
 import { Platform } from 'react-native';
 import { type SharedValue, useDerivedValue, useSharedValue, withRepeat, withSequence, withTiming } from 'react-native-reanimated';
+import { useTranslation } from 'react-i18next';
 
 import { GroundShadow } from './Decor';
 import { polygonPath } from './shapes';
@@ -25,6 +26,7 @@ export interface PlayerMarkerProps {
  * `x`/`y` peuvent être des valeurs animées (Reanimated) pour glisser le long de la route.
  */
 export function PlayerMarker({ x, y, scale = 1, color, stepNumber }: PlayerMarkerProps) {
+  const { t } = useTranslation();
   const bob = useSharedValue(0);
   useEffect(() => {
     bob.value = withRepeat(withSequence(withTiming(-9 * scale, { duration: 650 }), withTiming(0, { duration: 650 })), -1, true);
@@ -45,7 +47,8 @@ export function PlayerMarker({ x, y, scale = 1, color, stepNumber }: PlayerMarke
   );
 
   const stepLabel = String(stepNumber);
-  const smallWidth = labelFontSmall.measureText('Étape').width;
+  const stepWord = t('attendance.map.step');
+  const smallWidth = labelFontSmall.measureText(stepWord).width;
   const bigWidth = labelFontBig.measureText(stepLabel).width;
   const numberY = -36 * scale;
   const etapeY = numberY - 20 * scale;
@@ -67,7 +70,7 @@ export function PlayerMarker({ x, y, scale = 1, color, stepNumber }: PlayerMarke
         r={10 * scale}
         color="rgba(255,255,255,0.92)"
       />
-      <Text x={-smallWidth / 2} y={etapeY} text="Étape" font={labelFontSmall} color={color} />
+      <Text x={-smallWidth / 2} y={etapeY} text={stepWord} font={labelFontSmall} color={color} />
       <Text x={-bigWidth / 2} y={numberY} text={stepLabel} font={labelFontBig} color={color} />
     </Group>
   );

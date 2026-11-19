@@ -1,3 +1,4 @@
+import i18n from '@/i18n';
 import type { EquipmentId } from '@/domain/types';
 import { muscleTargetsForSession, splitTypeInfo, type SplitType } from '@/domain/splitTypes';
 
@@ -10,6 +11,7 @@ const MINUTES_PER_EXERCISE = 10;
 export interface GenerationExerciseRow {
   id: string;
   name: string;
+  nameEn: string;
   isAdvanced: boolean;
   primaryMuscleIds: string[];
   /** Primaire + secondaire, dédupliqués : sert à estimer si le mouvement est polyarticulaire. */
@@ -30,6 +32,7 @@ export interface ProgramGeneratorInput {
 export interface GeneratedExercise {
   exerciseId: string;
   exerciseName: string;
+  exerciseNameEn: string;
   isBodyweight: boolean;
 }
 
@@ -133,7 +136,12 @@ export function generateProgram(input: ProgramGeneratorInput, catalog: Generatio
     const chosen = pickSessionExercises(rankedPool, targetMuscles, exerciseCount, usedAcrossProgram);
     if (chosen.length < exerciseCount) {
       warnings.push(
-        `Séance ${sessionIndex + 1} (${dayLabels[sessionIndex]}) : seulement ${chosen.length}/${exerciseCount} exercice(s) disponible(s) avec tes critères.`,
+        i18n.t('programGenerator.notEnoughExercises', {
+          sessionIndex: sessionIndex + 1,
+          dayLabel: dayLabels[sessionIndex],
+          available: chosen.length,
+          requested: exerciseCount,
+        }),
       );
     }
     for (const ex of chosen) usedAcrossProgram.add(ex.id);
@@ -144,13 +152,14 @@ export function generateProgram(input: ProgramGeneratorInput, catalog: Generatio
       exercises: chosen.map((ex) => ({
         exerciseId: ex.id,
         exerciseName: ex.name,
+        exerciseNameEn: ex.nameEn,
         isBodyweight: ex.equipmentIds.includes('bodyweight'),
       })),
     });
   }
 
   return {
-    programName: `Programme ${splitTypeInfo[input.splitType].label}`,
+    programName: i18n.t('programGenerator.programName', { splitLabel: i18n.t(`enums.splitType.${input.splitType}.label`) }),
     splitType: input.splitType,
     sessionsPerWeek: input.sessionsPerWeek,
     sessions,

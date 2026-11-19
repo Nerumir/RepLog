@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Modal, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
+import { useTranslation } from 'react-i18next';
 
 import { playAchievement } from '@/audio/soundEffects';
 import { ThemedText } from '@/components/themed-text';
@@ -18,6 +19,7 @@ interface AchievementUnlockedModalProps {
 
 /** Pop-up plein écran affichée à la réception d'un ou plusieurs succès, un à la fois. */
 export function AchievementUnlockedModal({ queue, onDismissAll }: AchievementUnlockedModalProps) {
+  const { t } = useTranslation();
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
@@ -41,14 +43,14 @@ export function AchievementUnlockedModal({ queue, onDismissAll }: AchievementUnl
           <Confetti key={`${achievement.id}-${index}`} />
           <ThemedView style={styles.center}>
             <ThemedText type="small" style={styles.unlockedLabel}>
-              Trophée {tierInfo.label} débloqué !
+              {t('achievementUnlocked.label', { tier: t(`enums.trophyTier.${achievement.tier}`) })}
             </ThemedText>
             <Ionicons name="trophy" size={120} color="#FFFFFF" style={styles.trophyIcon} />
             <ThemedText type="subtitle" style={styles.name}>
-              {achievement.name}
+              {t(`achievements.${achievement.id}.name`)}
             </ThemedText>
             <ThemedText type="small" style={styles.description}>
-              {achievement.description}
+              {t(`achievements.${achievement.id}.description`)}
             </ThemedText>
           </ThemedView>
           <GameButton
@@ -58,7 +60,7 @@ export function AchievementUnlockedModal({ queue, onDismissAll }: AchievementUnl
               else setIndex(index + 1);
             }}>
             <ThemedText type="smallBold" style={styles.buttonLabel}>
-              {isLast ? 'Super !' : 'Suivant →'}
+              {isLast ? t('achievementUnlocked.great') : t('achievementUnlocked.next')}
             </ThemedText>
           </GameButton>
         </SafeAreaView>

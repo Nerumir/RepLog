@@ -2,33 +2,41 @@ import { useEffect, useState } from 'react';
 import { Link, useLocalSearchParams } from 'expo-router';
 import { FlatList, Pressable, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { useTranslation } from 'react-i18next';
 
 import { ExerciseMediaView } from '@/components/exercise/ExerciseMediaView';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { Card } from '@/components/ui/Card';
 import { Spacing } from '@/constants/theme';
+import { useLocalize } from '@/i18n/localize';
 import { getMuscleGroupById, listExercisesByPrimaryMuscleWithEquipment } from '@/db/queries/exercises';
-import { bucketForEquipment, EQUIPMENT_BUCKETS, type ExerciseEquipmentBucket } from '@/domain/exerciseEquipmentBucket';
+import { bucketForEquipment, type ExerciseEquipmentBucket } from '@/domain/exerciseEquipmentBucket';
 
 export default function MuscleGroupBucketCatalogScreen() {
   const { muscleGroupId, bucket } = useLocalSearchParams<{ muscleGroupId: string; bucket: ExerciseEquipmentBucket }>();
+  const { t } = useTranslation();
+  const localize = useLocalize();
 
-  const [muscleName, setMuscleName] = useState('');
-  const [rows, setRows] = useState<{ exerciseId: string; exerciseName: string }[]>([]);
+  const [muscle, setMuscle] = useState<Awaited<ReturnType<typeof getMuscleGroupById>> | null>(null);
+  const [rows, setRows] = useState<{ exerciseId: string; exerciseName: string; exerciseNameEn: string }[]>([]);
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
     (async () => {
-      const [muscle, exercisesForMuscle] = await Promise.all([
+      const [muscleRow, exercisesForMuscle] = await Promise.all([
         getMuscleGroupById(muscleGroupId),
         listExercisesByPrimaryMuscleWithEquipment(muscleGroupId),
       ]);
-      setMuscleName(muscle?.name ?? '');
+      setMuscle(muscleRow);
       setRows(
         exercisesForMuscle
           .filter((exercise) => bucketForEquipment(exercise.equipmentIds) === bucket)
-          .map((exercise) => ({ exerciseId: exercise.exerciseId, exerciseName: exercise.exerciseName })),
+          .map((exercise) => ({
+            exerciseId: exercise.exerciseId,
+            exerciseName: exercise.exerciseName,
+            exerciseNameEn: exercise.exerciseNameEn,
+          })),
       );
       setLoaded(true);
     })();
@@ -36,14 +44,12 @@ export default function MuscleGroupBucketCatalogScreen() {
 
   if (!loaded) return null;
 
-  const bucketLabel = EQUIPMENT_BUCKETS.find((b) => b.id === bucket)?.label ?? '';
-
   return (
     <ThemedView style={styles.container}>
       <SafeAreaView style={styles.safeArea}>
-        <ThemedText type="subtitle">{muscleName}</ThemedText>
+        <ThemedText type="subtitle">{muscle ? localize(muscle.name, muscle.nameEn) : ''}</ThemedText>
         <ThemedText type="small" themeColor="textSecondary">
-          {bucketLabel}
+          {t(`enums.equipmentBucket.${bucket}`)}
         </ThemedText>
         <FlatList
           style={styles.list}
@@ -56,16 +62,14 @@ export default function MuscleGroupBucketCatalogScreen() {
               <Pressable>
                 <Card style={styles.row}>
                   <ThemedText type="default" style={styles.rowLabel} numberOfLines={1}>
-                    {item.exerciseName}
+                    {localize(item.exerciseName, item.exerciseNameEn)}
                   </ThemedText>
                   <ExerciseMediaView exerciseId={item.exerciseId} width={56} height={56} autoPlay={false} />
                 </Card>
               </Pressable>
             </Link>
           )}
-          ListEmptyComponent={
-            <ThemedText themeColor="textSecondary">Aucun exercice dans cette catégorie pour l&apos;instant.</ThemedText>
-          }
+          ListEmptyComponent={<ThemedText themeColor="textSecondary">{t('catalog.emptyBucket')}</ThemedText>}
         />
       </SafeAreaView>
     </ThemedView>

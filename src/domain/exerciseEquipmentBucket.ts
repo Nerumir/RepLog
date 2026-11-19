@@ -1,10 +1,7 @@
 export type ExerciseEquipmentBucket = 'bodyweight' | 'free-weight' | 'machine';
 
-export const EQUIPMENT_BUCKETS: { id: ExerciseEquipmentBucket; label: string }[] = [
-  { id: 'free-weight', label: 'Poids, haltères et barres' },
-  { id: 'machine', label: 'Machines' },
-  { id: 'bodyweight', label: 'Poids du corps' },
-];
+// Les libellés affichés viennent de i18n (clé enums.equipmentBucket.<id>), pas de ce fichier.
+export const EQUIPMENT_BUCKETS: { id: ExerciseEquipmentBucket }[] = [{ id: 'free-weight' }, { id: 'machine' }, { id: 'bodyweight' }];
 
 const FREE_WEIGHT_EQUIPMENT = new Set(['dumbbell', 'barbell', 'kettlebell', 'ez-bar', 'trap-bar', 'medicine-ball']);
 

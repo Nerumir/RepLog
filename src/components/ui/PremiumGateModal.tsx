@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Modal, Pressable, StyleSheet, TextInput } from 'react-native';
+import { useTranslation } from 'react-i18next';
 
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
@@ -21,6 +22,7 @@ interface PremiumGateModalProps {
 
 /** Rappel non bloquant (à chaque ouverture) ou mur bloquant (séances épuisées) pour la limite de la version gratuite. */
 export function PremiumGateModal({ visible, limitReached, completedSessions, onDismiss, onUnlocked }: PremiumGateModalProps) {
+  const { t } = useTranslation();
   const scheme = useColorScheme();
   const colors = Colors[scheme === 'dark' ? 'dark' : 'light'];
   const [showCodeInput, setShowCodeInput] = useState(false);
@@ -40,7 +42,7 @@ export function PremiumGateModal({ visible, limitReached, completedSessions, onD
     const ok = await redeemPremiumCode(code);
     setSubmitting(false);
     if (!ok) {
-      setError('Ce code n\'est pas valide.');
+      setError(t('settings.version.invalidCode'));
       return;
     }
     reset();
@@ -59,12 +61,12 @@ export function PremiumGateModal({ visible, limitReached, completedSessions, onD
       <ThemedView style={styles.backdrop}>
         <ThemedView style={[styles.card, { backgroundColor: colors.background }]}>
           <ThemedText type="subtitle" style={styles.title}>
-            {limitReached ? 'Limite de la version gratuite atteinte' : 'Version d\'essai'}
+            {limitReached ? t('premiumGate.limitReachedTitle') : t('premiumGate.trialTitle')}
           </ThemedText>
           <ThemedText type="default" themeColor="textSecondary" style={styles.message}>
             {limitReached
-              ? `Tu as terminé tes ${FREE_SESSION_LIMIT} séances gratuites. Le reste de l'app (programmes, catalogue, profil, assiduité) reste accessible, mais il faut débloquer la version illimitée pour démarrer une nouvelle séance.`
-              : `Tu es sur la version gratuite de RepLog : tu peux tester 100% des fonctionnalités pendant tes ${FREE_SESSION_LIMIT} premières séances (${completedSessions}/${FREE_SESSION_LIMIT} déjà faites) avant de décider si ça vaut le coup pour toi de l'acheter.`}
+              ? t('premiumGate.limitReachedMessage', { limit: FREE_SESSION_LIMIT })
+              : t('premiumGate.trialMessage', { limit: FREE_SESSION_LIMIT, count: completedSessions })}
           </ThemedText>
 
           {showCodeInput ? (
@@ -88,14 +90,14 @@ export function PremiumGateModal({ visible, limitReached, completedSessions, onD
                 disabled={submitting || code.trim().length === 0}
                 style={[styles.button, { backgroundColor: colors.accent }]}>
                 <ThemedText type="smallBold" style={{ color: '#FFFFFF' }}>
-                  {submitting ? 'Vérification…' : 'Débloquer avec ce code'}
+                  {submitting ? t('settings.version.verifying') : t('premiumGate.unlockWithCode')}
                 </ThemedText>
               </GameButton>
             </>
           ) : (
             <Pressable onPress={() => setShowCodeInput(true)}>
               <ThemedText type="small" themeColor="accent" style={styles.codeLink}>
-                J&apos;ai un code de déblocage
+                {t('premiumGate.haveACode')}
               </ThemedText>
             </Pressable>
           )}
@@ -106,7 +108,7 @@ export function PremiumGateModal({ visible, limitReached, completedSessions, onD
               onDismiss();
             }}
             style={[styles.button, styles.buttonOutline, { borderColor: colors.border }]}>
-            <ThemedText type="smallBold">{limitReached ? 'Plus tard' : 'Compris'}</ThemedText>
+            <ThemedText type="smallBold">{limitReached ? t('premiumGate.later') : t('common.gotIt')}</ThemedText>
           </GameButton>
         </ThemedView>
       </ThemedView>

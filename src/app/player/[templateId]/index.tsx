@@ -3,6 +3,7 @@ import { router, useLocalSearchParams } from 'expo-router';
 import { useKeepAwake } from 'expo-keep-awake';
 import { ScrollView, StyleSheet, TextInput } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { useTranslation } from 'react-i18next';
 
 import { playTick } from '@/audio/soundEffects';
 import { MuscleBodyDiagram, type MuscleHighlights } from '@/components/exercise/MuscleBodyDiagram';
@@ -24,6 +25,7 @@ interface SetResultInputsProps {
 }
 
 function SetResultInputs({ defaultWeightKg, defaultReps, isBodyweight, onSubmit }: SetResultInputsProps) {
+  const { t } = useTranslation();
   const scheme = useColorScheme();
   const colors = Colors[scheme === 'dark' ? 'dark' : 'light'];
   const [weightInput, setWeightInput] = useState(String(defaultWeightKg));
@@ -40,7 +42,7 @@ function SetResultInputs({ defaultWeightKg, defaultReps, isBodyweight, onSubmit 
               keyboardType="numeric"
               style={[styles.input, { color: colors.text, borderColor: colors.backgroundSelected }]}
             />
-            <ThemedText type="default">kg ×</ThemedText>
+            <ThemedText type="default">{t('sessionEdit.kgTimes')}</ThemedText>
           </>
         )}
         <TextInput
@@ -49,14 +51,14 @@ function SetResultInputs({ defaultWeightKg, defaultReps, isBodyweight, onSubmit 
           keyboardType="numeric"
           style={[styles.input, { color: colors.text, borderColor: colors.backgroundSelected }]}
         />
-        <ThemedText type="default">reps</ThemedText>
+        <ThemedText type="default">{t('sessionEdit.reps')}</ThemedText>
       </ThemedView>
 
       <GameButton
         style={[styles.primaryButton, { backgroundColor: colors.accent }]}
         onPress={() => onSubmit(isBodyweight ? 0 : Number(weightInput) || 0, Number(repsInput) || 0)}>
         <ThemedText type="smallBold" style={{ color: '#FFFFFF' }}>
-          Terminé
+          {t('player.done')}
         </ThemedText>
       </GameButton>
     </>
@@ -65,6 +67,7 @@ function SetResultInputs({ defaultWeightKg, defaultReps, isBodyweight, onSubmit 
 
 export default function SessionPlayerScreen() {
   useKeepAwake();
+  const { t } = useTranslation();
   const { templateId, workoutLogId } = useLocalSearchParams<{ templateId: string; workoutLogId: string }>();
   const scheme = useColorScheme();
   const colors = Colors[scheme === 'dark' ? 'dark' : 'light'];
@@ -127,19 +130,19 @@ export default function SessionPlayerScreen() {
       <ThemedView style={styles.container}>
         <SafeAreaView style={styles.safeArea}>
           <ThemedView style={styles.restContent}>
-            <ThemedText type="subtitle">Repos</ThemedText>
+            <ThemedText type="subtitle">{t('player.rest')}</ThemedText>
             <RestCountdownRing remainingSeconds={remainingSeconds} totalSeconds={phase.totalRestSeconds} />
             <ThemedText type="default" themeColor="textSecondary">
-              Prochaine série : {restExercise.exerciseNameSnapshot}
+              {t('player.nextSet', { name: restExercise.exerciseNameSnapshot })}
             </ThemedText>
             <GameButton style={[styles.primaryButton, { backgroundColor: colors.accent }]} onPress={skipRest}>
               <ThemedText type="smallBold" style={{ color: '#FFFFFF' }}>
-                Passer le repos
+                {t('player.skipRest')}
               </ThemedText>
             </GameButton>
             <GameButton silent onPress={handleAbandon} style={[styles.abandonButton, { borderColor: colors.danger }]}>
               <ThemedText type="small" style={{ color: colors.danger }}>
-                Abandonner la séance
+                {t('player.abandonSession')}
               </ThemedText>
             </GameButton>
           </ThemedView>
@@ -155,8 +158,12 @@ export default function SessionPlayerScreen() {
       <SafeAreaView style={styles.safeArea}>
         <ScrollView contentContainerStyle={styles.content}>
           <ThemedText type="small" themeColor="textSecondary">
-            Exercice {phase.exerciseIndex + 1}/{detail.exercises.length} · Série {phase.setIndex + 1}/
-            {currentExercise.sets.length}
+            {t('player.progress', {
+              exerciseIndex: phase.exerciseIndex + 1,
+              exerciseCount: detail.exercises.length,
+              setIndex: phase.setIndex + 1,
+              setCount: currentExercise.sets.length,
+            })}
           </ThemedText>
           <ThemedText type="subtitle">{currentExercise.exerciseNameSnapshot}</ThemedText>
 
@@ -168,7 +175,11 @@ export default function SessionPlayerScreen() {
           </ThemedView>
 
           <ThemedText type="default">
-            Cible : {isBodyweight ? `${currentSet.targetReps} reps` : `${currentSet.targetWeightKg}kg × ${currentSet.targetReps}`}
+            {t('player.target', {
+              detail: isBodyweight
+                ? t('player.targetReps', { count: currentSet.targetReps })
+                : t('player.targetWeightReps', { weight: currentSet.targetWeightKg, count: currentSet.targetReps }),
+            })}
           </ThemedText>
 
           <SetResultInputs
@@ -181,13 +192,13 @@ export default function SessionPlayerScreen() {
 
           <GameButton silent onPress={skipSet} style={styles.skipButton}>
             <ThemedText type="small" themeColor="textSecondary">
-              Passer cette série
+              {t('player.skipSet')}
             </ThemedText>
           </GameButton>
 
           <GameButton silent onPress={handleAbandon} style={[styles.abandonButton, { borderColor: colors.danger }]}>
             <ThemedText type="small" style={{ color: colors.danger }}>
-              Abandonner la séance
+              {t('player.abandonSession')}
             </ThemedText>
           </GameButton>
         </ScrollView>

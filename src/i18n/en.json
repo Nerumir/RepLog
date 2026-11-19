@@ -1,0 +1,450 @@
+{
+  "common": {
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "delete": "Delete",
+    "save": "Save",
+    "close": "Close",
+    "back": "Back",
+    "reset": "Reset",
+    "gotIt": "Got it"
+  },
+  "settings": {
+    "title": "Settings",
+    "editProfile": "Edit profile",
+    "version": {
+      "title": "Version",
+      "unlocked": "✓ Unlimited version unlocked",
+      "freeUsage": "Free version: {{count}}/{{limit}} sessions used.",
+      "codePlaceholder": "Unlock code",
+      "verifying": "Checking...",
+      "validate": "Redeem",
+      "invalidCode": "This code isn't valid."
+    },
+    "language": {
+      "title": "Language",
+      "fr": "Français",
+      "en": "English"
+    },
+    "theme": {
+      "title": "Theme",
+      "system": "System",
+      "light": "Light",
+      "dark": "Dark"
+    },
+    "formula": {
+      "title": "1RM calculation formula"
+    },
+    "debug": {
+      "title": "Debug mode",
+      "disabled": "Off",
+      "enabled": "On",
+      "resetTrophies": "Reset trophies"
+    },
+    "backup": {
+      "title": "Backup",
+      "description": "To move your data to another phone: export a file here, then import it on the other device.",
+      "exporting": "Exporting...",
+      "export": "Export my data",
+      "importing": "Importing...",
+      "import": "Import data"
+    },
+    "importDialog": {
+      "title": "Import data?",
+      "message": "All your current data (profile, programs, history, trophies, attendance) will be replaced by the chosen file's data. This action is irreversible.",
+      "confirmLabel": "Choose a file",
+      "success": "Import successful. Fully close and reopen the app to see your data.",
+      "failure": "Import failed: this file isn't a valid RepLog backup."
+    },
+    "dangerZone": {
+      "title": "Danger zone",
+      "resetPerformances": "Reset performances"
+    },
+    "resetPerformancesDialog": {
+      "title": "Reset performances?",
+      "message": "Your session history is kept, but your levels will be recalculated starting only from your next performances. Your unlocked trophies will also reset to zero.",
+      "confirmLabel": "Reset"
+    },
+    "resetTrophiesDialog": {
+      "title": "Reset trophies?",
+      "message": "All your unlocked trophies will be cleared. They'll unlock again as you keep training, without affecting the rest of your data.",
+      "confirmLabel": "Reset"
+    }
+  },
+  "muscleDetail": {
+    "fallbackTitle": "Muscle group",
+    "empty": "No exercises practiced for this muscle group yet.",
+    "rowSummary": "{{tier}} · Level {{score}} · {{metricLabel}} {{value}}",
+    "record": "Record",
+    "oneRm": "1RM",
+    "thresholdLabel": "Lvl {{tier}} · {{value}}"
+  },
+  "metric": {
+    "reps": "{{count}} rep.",
+    "kg": "{{value}}kg",
+    "repSuffix": "rep."
+  },
+  "sessionSummary": {
+    "title": "Session complete!",
+    "leveledUp": "⬆ Level up!",
+    "repRecord": "Rep record: ",
+    "estimatedOneRm": "Estimated 1RM: ",
+    "viewProgress": "See my progress →"
+  },
+  "exerciseDetail": {
+    "targetedMuscles": "Targeted muscles",
+    "primary": "primary",
+    "secondary": "secondary",
+    "equipment": "Equipment",
+    "equipmentNone": "None",
+    "performance": "Performance",
+    "repRecord": "Rep record",
+    "currentOneRm": "Current 1RM",
+    "nextLevelGoal": "Next level goal",
+    "maxLevel": "Max level",
+    "levelLabel": "{{tier}} · Level {{score}}",
+    "noDataYet": "No data yet.",
+    "levelGoalsTitle": "Goals by level",
+    "levelGoalsHint": "For your recorded weight and sex",
+    "oneRmEvolution": "1RM progress"
+  },
+  "achievementsScreen": {
+    "unlockedCount": "{{count}} / {{total}} achievements unlocked",
+    "unlockedOn": "Unlocked on {{date}}"
+  },
+  "achievementUnlocked": {
+    "label": "{{tier}} trophy unlocked!",
+    "great": "Awesome!",
+    "next": "Next →"
+  },
+  "achievements": {
+    "abs-confirmed": { "name": "Six-Pack", "description": "Reach Advanced level in abs." },
+    "back-confirmed": { "name": "Iron Back", "description": "Reach Advanced level in back." },
+    "biceps-confirmed": { "name": "Arm Wrestler", "description": "Reach Advanced level in biceps." },
+    "calves-confirmed": { "name": "Gazelle Calves", "description": "Reach Advanced level in calves." },
+    "chest-confirmed": { "name": "Barrel Chest", "description": "Reach Advanced level in chest." },
+    "forearms-confirmed": { "name": "Crab Grip", "description": "Reach Advanced level in forearms." },
+    "glutes-confirmed": { "name": "Steel Glutes", "description": "Reach Advanced level in glutes." },
+    "hamstrings-confirmed": { "name": "Titanium Hamstrings", "description": "Reach Advanced level in hamstrings." },
+    "lats-confirmed": { "name": "Condor Wingspan", "description": "Reach Advanced level in lats." },
+    "quads-confirmed": { "name": "Sprinter Quads", "description": "Reach Advanced level in quads." },
+    "shoulders-confirmed": { "name": "Mover's Shoulders", "description": "Reach Advanced level in shoulders." },
+    "traps-confirmed": { "name": "Bull Neck", "description": "Reach Advanced level in traps." },
+    "triceps-confirmed": { "name": "Snapping Triceps", "description": "Reach Advanced level in triceps." },
+    "all-muscles-novice": { "name": "All-Terrain", "description": "Reach at least Novice level in all 13 muscle groups." },
+    "all-muscles-intermediate": { "name": "Balanced Physique", "description": "Reach at least Intermediate level in all 13 muscle groups." },
+    "all-muscles-advanced": { "name": "Complete Specimen", "description": "Reach at least Advanced level in all 13 muscle groups." },
+    "all-muscles-elite": { "name": "Demigod of Iron", "description": "Reach Elite level in all 13 muscle groups." },
+    "bodyweight-master": { "name": "Bodyweight Master", "description": "Reach Advanced level on average across bodyweight exercises." },
+    "free-weight-master": { "name": "King of Iron", "description": "Reach Advanced level on average across weights/dumbbells/barbells exercises." },
+    "machine-master": { "name": "Machine Ace", "description": "Reach Advanced level on average across machine exercises." },
+    "triathlon-master": { "name": "Iron Triathlete", "description": "Reach Elite level on average across all 3 equipment categories at once." },
+    "biome-forest": { "name": "Into the Woods", "description": "Reach the Forest biome on the attendance map." },
+    "biome-tundra": { "name": "Deep Freeze", "description": "Reach the Tundra biome." },
+    "biome-desert": { "name": "Desert Crossing", "description": "Reach the Desert biome." },
+    "biome-volcano": { "name": "Hell on Earth", "description": "Reach the Volcano biome." },
+    "biome-valhalla": { "name": "Gates of Valhalla", "description": "Reach the Valhalla biome." },
+    "biome-valhalla-flawless": { "name": "Einherjar", "description": "Reach Valhalla without ever being penalized." },
+    "weekly-3": { "name": "Weekly Trio", "description": "Complete 3 sessions within the same week." },
+    "weekly-4": { "name": "Unstoppable Quartet", "description": "Complete 4 sessions within the same week." },
+    "weekly-5": { "name": "Five for Five", "description": "Complete 5 sessions within the same week." },
+    "weekly-6": { "name": "Iron Workaholic", "description": "Complete 6 or more sessions within the same week." },
+    "sessions-10": { "name": "Tenth Session", "description": "Complete 10 sessions total." },
+    "sessions-50": { "name": "Fifty Club", "description": "Complete 50 sessions total." },
+    "sessions-100": { "name": "Centurion", "description": "Complete 100 sessions total." },
+    "sessions-250": { "name": "Veteran", "description": "Complete 250 sessions total." },
+    "sessions-500": { "name": "Living Legend", "description": "Complete 500 sessions total." },
+    "streak-4": { "name": "A Month Without Faltering", "description": "Train at least once a week for 4 consecutive weeks." },
+    "streak-12": { "name": "Full Season", "description": "Train at least once a week for 12 consecutive weeks." },
+    "streak-26": { "name": "Half-Year of Iron", "description": "Train at least once a week for 26 consecutive weeks." },
+    "streak-52": { "name": "A Year Without Cracking", "description": "Train at least once a week for 52 consecutive weeks." },
+    "first-session": { "name": "First Steps", "description": "Complete your first session." },
+    "sets-50": { "name": "Well-Filled Notebook", "description": "Log 50 sets total." },
+    "sets-500": { "name": "Legendary Notebook", "description": "Log 500 sets total." },
+    "exercises-20": { "name": "Jack of All Trades", "description": "Practice at least 20 different exercises." },
+    "exercises-75": { "name": "Living Encyclopedia", "description": "Practice at least 75 different exercises." },
+    "early-bird": { "name": "Early Bird", "description": "Finish a session before 7am." },
+    "night-owl": { "name": "Night Owl", "description": "Finish a session after 10pm." },
+    "new-year": { "name": "Resolution Kept", "description": "Finish a session on January 1st." }
+  },
+  "generate": {
+    "title": "Generate a program",
+    "sessionsPerWeekLabel": "Sessions per week",
+    "equipmentLabel": "Available equipment",
+    "equipmentHint": "Select everything you have, even partially.",
+    "goalLabel": "Goal",
+    "experienceLabel": "Strength training experience",
+    "beginnerHint": "Technical or tricky exercises will be excluded.",
+    "timeLabel": "Time per session",
+    "timeHint_one": "About 10 min per exercise (sets included) → {{count}} exercise per session.",
+    "timeHint_other": "About 10 min per exercise (sets included) → {{count}} exercises per session.",
+    "minutes": "{{count}} min",
+    "splitTypeLabel": "Session type"
+  },
+  "sessionLabel": {
+    "fallback": "Session"
+  },
+  "profileEdit": {
+    "title": "Edit profile"
+  },
+  "onboarding": {
+    "welcome": "Welcome",
+    "subtitle": "A few details to calibrate your performance levels.",
+    "nicknamePlaceholder": "Nickname",
+    "birthDatePlaceholder": "Date of birth (DD/MM/YYYY)",
+    "male": "Male",
+    "female": "Female",
+    "heightPlaceholder": "Height (cm)",
+    "weightPlaceholder": "Weight (kg)",
+    "fillAllFields": "Please fill in all fields (date in DD/MM/YYYY format).",
+    "start": "Get started"
+  },
+  "player": {
+    "done": "Done",
+    "rest": "Rest",
+    "nextSet": "Next set: {{name}}",
+    "skipRest": "Skip rest",
+    "abandonSession": "Abandon session",
+    "progress": "Exercise {{exerciseIndex}}/{{exerciseCount}} · Set {{setIndex}}/{{setCount}}",
+    "target": "Target: {{detail}}",
+    "targetReps": "{{count}} reps",
+    "targetWeightReps": "{{weight}}kg × {{count}}",
+    "skipSet": "Skip this set"
+  },
+  "generatePreview": {
+    "generating": "Generating program...",
+    "noMatchingExercise": "No exercise matches your criteria for this session.",
+    "regenerate": "🎲 Regenerate",
+    "saving": "Saving...",
+    "saveProgram": "Save this program"
+  },
+  "sessionNew": {
+    "title": "New session",
+    "submit": "Save session"
+  },
+  "sessionEdit": {
+    "title": "Edit session",
+    "defaultRestLabel": "Default rest between sets (s)",
+    "needExercise": "Add at least one exercise.",
+    "remove": "Remove",
+    "restSeconds": "Rest (sec)",
+    "restDefault": "default",
+    "setLabel": "Set {{index}}",
+    "kgTimes": "kg ×",
+    "reps": "reps",
+    "addSet": "+ Set",
+    "addExercise": "+ Add an exercise",
+    "saveChanges": "Save changes",
+    "chooseExercise": "Choose an exercise"
+  },
+  "exercisePicker": {
+    "searchPlaceholder": "Search for an exercise...",
+    "emptyCatalog": "Catalog is empty.",
+    "noResults": "No exercise found."
+  },
+  "sessionDetail": {
+    "edit": "Edit",
+    "defaultRest": "Default rest: {{seconds}}s",
+    "startSession": "Start session",
+    "setsAndRest_one": "{{count}} set · rest {{seconds}}s",
+    "setsAndRest_other": "{{count}} sets · rest {{seconds}}s",
+    "setLine": "Set {{index}}: {{detail}}",
+    "repsOnly": "{{count}} reps",
+    "weightReps": "{{weight}}kg × {{count}}"
+  },
+  "programDetail": {
+    "launch": "Start",
+    "addSession": "+ Add a session",
+    "activeSessionDialog": {
+      "title": "A session is already in progress",
+      "message": "« {{name}} » is in progress. Abandon it to start this one instead?",
+      "confirmLabel": "Abandon and start"
+    },
+    "removeSessionDialog": {
+      "title": "Remove this session?",
+      "message": "« {{name}} » will be removed from this program (the session itself isn't deleted).",
+      "confirmLabel": "Remove"
+    },
+    "deleteProgramDialog": {
+      "title": "Delete this program?",
+      "message": "« {{name}} » will be deleted. The sessions it contains will remain available."
+    }
+  },
+  "newProgram": {
+    "title": "New program",
+    "subtitle": "You'll be able to add its sessions right after.",
+    "namePlaceholder": "Program name",
+    "nameRequired": "Give your program a name.",
+    "splitTypeLabel": "Split type",
+    "sessionsPerWeekLabel": "Sessions per week",
+    "submit": "Create program"
+  },
+  "programs": {
+    "generate": "Generate",
+    "newProgram": "+ Program",
+    "resumeActiveSession": "Session in progress — resume « {{name}} »",
+    "empty": "No programs yet. Create your first program to start adding sessions.",
+    "sessionsPerWeek_one": "{{count}} session/week",
+    "sessionsPerWeek_other": "{{count}} sessions/week",
+    "orphanSessions": "Sessions without a program",
+    "defaultRest": "Default rest: {{seconds}}s",
+    "details": "Details",
+    "deleteOrphanDialog": {
+      "title": "Delete this session?",
+      "message": "« {{name}} » doesn't belong to any program and will be permanently deleted."
+    },
+    "help": {
+      "title": "Training",
+      "body": "Create programs made of several sessions, then start a session to track your sets in real time (weight, reps, rest timer).\n\nThe «Generate» button suggests a random program from a short questionnaire (available equipment, goal, experience, time per session). You can regenerate it as many times as you want before saving it, or build a program entirely by hand with «+ Program».\n\nAn in-progress session shows up at the top of this tab so you can resume it anytime."
+    }
+  },
+  "tabs": {
+    "training": "Training",
+    "exercises": "Exercises",
+    "attendance": "Attendance",
+    "profile": "Profile"
+  },
+  "profile": {
+    "defaultTitle": "Profile",
+    "trophiesTab": "Trophies",
+    "trophiesUnlocked": "Trophies · {{count}} unlocked",
+    "levelsByMuscle": "Levels by muscle group",
+    "levelNumber": "Level {{tier}}",
+    "help": {
+      "title": "Profile",
+      "body": "Your sports ID card: your level per muscle group (Beginner → Elite), computed from your best performances compared to standards by sex and body weight.\n\nYou'll also find your progress on the attendance map here, and your unlocked trophies (consistency, muscle progression, equipment specializations...).\n\nIn settings (⚙️), you can edit your profile, reset your performances/trophies, or export/import all your data to switch phones."
+    }
+  },
+  "catalog": {
+    "title": "Exercises",
+    "subtitle": "Pick a muscle group to browse the catalog.",
+    "exerciseCount_one": "{{count}} exercise",
+    "exerciseCount_other": "{{count}} exercises",
+    "emptyBucket": "No exercises in this category yet.",
+    "help": {
+      "title": "Exercises",
+      "body": "Browse the full exercise catalog, organized by muscle group. Each exercise has a page with a demo video, the required equipment, and your performance history (1RM or reps depending on the exercise).\n\nThis is where you can check your progress on a specific exercise in detail, regardless of which sessions you practiced it in."
+    }
+  },
+  "attendance": {
+    "map": {
+      "step": "Step",
+      "tabFallback": "Attendance"
+    },
+    "help": {
+      "title": "Attendance",
+      "body": "A map that gamifies your consistency: your character advances one point each time you finish a session, crossing 6 biomes (Prairie → Valhalla).\n\nIf you go too long without training (threshold configurable via the ⚙️ icon top right), your character falls back a whole biome as a penalty.\n\nThe total number of sessions done in each biome is shown on your profile, and is never lost, even after a penalty."
+    },
+    "setup": {
+      "title": "Before you start",
+      "question": "After how many days without a session do you want to be penalized and move back on the map?",
+      "validate": "Confirm"
+    },
+    "debug": {
+      "advance": "Debug\n+1 point",
+      "penalty": "Debug\npenalty"
+    },
+    "settings": {
+      "title": "Settings — Attendance",
+      "thresholdLabel": "Days without a session before penalty",
+      "saved": "Saved ✓",
+      "save": "Save",
+      "dangerZone": "Danger zone",
+      "resetButton": "Reset attendance",
+      "resetDialog": {
+        "title": "Reset attendance?",
+        "message": "Your position on the map and your session count per biome will restart from zero. Your penalty threshold is kept.",
+        "confirmLabel": "Reset"
+      }
+    }
+  },
+  "premiumGate": {
+    "limitReachedTitle": "Free version limit reached",
+    "trialTitle": "Trial version",
+    "limitReachedMessage": "You've completed your {{limit}} free sessions. The rest of the app (programs, catalog, profile, attendance) stays available, but you need to unlock the unlimited version to start a new session.",
+    "trialMessage": "You're on RepLog's free version: you can try 100% of the features for your first {{limit}} sessions ({{count}}/{{limit}} done so far) before deciding whether it's worth buying.",
+    "unlockWithCode": "Unlock with this code",
+    "haveACode": "I have an unlock code",
+    "later": "Later"
+  },
+  "programGenerator": {
+    "programName": "{{splitLabel}} Program",
+    "notEnoughExercises": "Session {{sessionIndex}} ({{dayLabel}}): only {{available}}/{{requested}} exercise(s) available with your criteria."
+  },
+  "enums": {
+    "levelTier": {
+      "beginner": "Beginner",
+      "novice": "Novice",
+      "intermediate": "Intermediate",
+      "advanced": "Advanced",
+      "elite": "Elite"
+    },
+    "trophyTier": {
+      "bronze": "Bronze",
+      "silver": "Silver",
+      "gold": "Gold",
+      "diamond": "Diamond",
+      "ruby": "Ruby"
+    },
+    "biome": {
+      "prairie": "Prairie",
+      "forest": "Forest",
+      "tundra": "Tundra",
+      "desert": "Desert",
+      "volcano": "Volcano",
+      "valhalla": "Valhalla"
+    },
+    "goal": {
+      "hypertrophy": {
+        "label": "Muscle gain",
+        "description": "Favors exercises that isolate one muscle at a time."
+      },
+      "general_fitness": {
+        "label": "General fitness",
+        "description": "Favors compound exercises that work several muscles at once."
+      }
+    },
+    "experience": {
+      "beginner": "Beginner",
+      "intermediate": "Intermediate",
+      "advanced": "Advanced"
+    },
+    "equipmentBucket": {
+      "free-weight": "Weights, dumbbells and barbells",
+      "machine": "Machines",
+      "bodyweight": "Bodyweight"
+    },
+    "splitType": {
+      "full_body": {
+        "label": "Full Body",
+        "description": "The whole body every session. Ideal for beginners or 2-3 sessions/week.",
+        "dayBase": "Full Body"
+      },
+      "upper_lower": {
+        "label": "Upper / Lower",
+        "description": "Alternates upper and lower body. Good frequency/recovery balance.",
+        "dayBases": ["Upper A", "Lower A", "Upper B", "Lower B"]
+      },
+      "push_pull_legs": {
+        "label": "Push / Pull / Legs",
+        "description": "Push (chest/shoulders/triceps), Pull (back/biceps), Legs. Very common at 3-6 sessions/week.",
+        "dayBases": ["Push", "Pull", "Legs"]
+      },
+      "body_part_split": {
+        "label": "Muscle group split",
+        "description": "One or two muscle groups targeted per session (\"bro split\"). Requires a high session volume.",
+        "dayBases": ["Chest", "Back", "Legs", "Shoulders", "Arms"]
+      },
+      "antagonist_split": {
+        "label": "Antagonist split",
+        "description": "Pairs opposing muscle groups in the same session (e.g. chest/back).",
+        "dayBases": ["Chest / Back", "Legs", "Shoulders / Arms"]
+      },
+      "custom": {
+        "label": "Custom",
+        "description": "Free-form structure, with no imposed split pattern.",
+        "dayBase": "Session"
+      }
+    }
+  }
+}

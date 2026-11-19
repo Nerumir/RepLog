@@ -1,0 +1,450 @@
+{
+  "common": {
+    "cancel": "Annuler",
+    "confirm": "Confirmer",
+    "delete": "Supprimer",
+    "save": "Enregistrer",
+    "close": "Fermer",
+    "back": "Retour",
+    "reset": "Réinitialiser",
+    "gotIt": "Compris"
+  },
+  "settings": {
+    "title": "Réglages",
+    "editProfile": "Modifier le profil",
+    "version": {
+      "title": "Version",
+      "unlocked": "✓ Version illimitée débloquée",
+      "freeUsage": "Version gratuite : {{count}}/{{limit}} séances utilisées.",
+      "codePlaceholder": "Code de déblocage",
+      "verifying": "Vérification...",
+      "validate": "Valider",
+      "invalidCode": "Ce code n'est pas valide."
+    },
+    "language": {
+      "title": "Langue",
+      "fr": "Français",
+      "en": "English"
+    },
+    "theme": {
+      "title": "Thème",
+      "system": "Système",
+      "light": "Clair",
+      "dark": "Sombre"
+    },
+    "formula": {
+      "title": "Formule de calcul du 1RM"
+    },
+    "debug": {
+      "title": "Mode de débug",
+      "disabled": "Désactivé",
+      "enabled": "Activé",
+      "resetTrophies": "Réinitialiser les trophées"
+    },
+    "backup": {
+      "title": "Sauvegarde",
+      "description": "Pour transférer tes données vers un autre téléphone : exporte un fichier ici, puis importe-le sur l'autre appareil.",
+      "exporting": "Export...",
+      "export": "Exporter mes données",
+      "importing": "Import...",
+      "import": "Importer des données"
+    },
+    "importDialog": {
+      "title": "Importer des données ?",
+      "message": "Toutes tes données actuelles (profil, programmes, historique, trophées, assiduité) seront remplacées par celles du fichier choisi. Cette action est irréversible.",
+      "confirmLabel": "Choisir un fichier",
+      "success": "Import réussi. Ferme et rouvre complètement l'application pour voir tes données.",
+      "failure": "Échec de l'import : le fichier n'est pas une sauvegarde RepLog valide."
+    },
+    "dangerZone": {
+      "title": "Zone dangereuse",
+      "resetPerformances": "Réinitialiser les performances"
+    },
+    "resetPerformancesDialog": {
+      "title": "Réinitialiser les performances ?",
+      "message": "Ton historique de séances est conservé, mais tes niveaux seront recalculés uniquement à partir de tes prochaines performances. Tes trophées débloqués repartiront aussi à zéro.",
+      "confirmLabel": "Réinitialiser"
+    },
+    "resetTrophiesDialog": {
+      "title": "Réinitialiser les trophées ?",
+      "message": "Tous tes trophées débloqués seront effacés. Ils se redébloqueront au fil de tes prochaines séances, sans toucher au reste de tes données.",
+      "confirmLabel": "Réinitialiser"
+    }
+  },
+  "muscleDetail": {
+    "fallbackTitle": "Groupe musculaire",
+    "empty": "Aucun exercice pratiqué pour ce groupe musculaire pour l'instant.",
+    "rowSummary": "{{tier}} · Niveau {{score}} · {{metricLabel}} {{value}}",
+    "record": "Record",
+    "oneRm": "1RM",
+    "thresholdLabel": "Niv. {{tier}} · {{value}}"
+  },
+  "metric": {
+    "reps": "{{count}} rep.",
+    "kg": "{{value}}kg",
+    "repSuffix": "rep."
+  },
+  "sessionSummary": {
+    "title": "Séance terminée !",
+    "leveledUp": "⬆ Niveau supérieur !",
+    "repRecord": "Record de répétitions : ",
+    "estimatedOneRm": "1RM estimé : ",
+    "viewProgress": "Voir ma progression →"
+  },
+  "exerciseDetail": {
+    "targetedMuscles": "Muscles ciblés",
+    "primary": "primaire",
+    "secondary": "secondaire",
+    "equipment": "Matériel",
+    "equipmentNone": "Aucun",
+    "performance": "Performance",
+    "repRecord": "Record de répétitions",
+    "currentOneRm": "1RM actuel",
+    "nextLevelGoal": "Objectif niveau suivant",
+    "maxLevel": "Niveau max",
+    "levelLabel": "{{tier}} · Niveau {{score}}",
+    "noDataYet": "Aucune donnée encore.",
+    "levelGoalsTitle": "Objectifs par niveau",
+    "levelGoalsHint": "Pour ton poids et ton sexe renseignés",
+    "oneRmEvolution": "Évolution du 1RM"
+  },
+  "achievementsScreen": {
+    "unlockedCount": "{{count}} / {{total}} succès débloqués",
+    "unlockedOn": "Débloqué le {{date}}"
+  },
+  "achievementUnlocked": {
+    "label": "Trophée {{tier}} débloqué !",
+    "great": "Super !",
+    "next": "Suivant →"
+  },
+  "achievements": {
+    "abs-confirmed": { "name": "Tablette de chocolat", "description": "Atteindre le niveau Confirmé aux abdominaux." },
+    "back-confirmed": { "name": "Dos d'acier", "description": "Atteindre le niveau Confirmé au dos." },
+    "biceps-confirmed": { "name": "Bras de fer", "description": "Atteindre le niveau Confirmé aux biceps." },
+    "calves-confirmed": { "name": "Mollets de gazelle", "description": "Atteindre le niveau Confirmé aux mollets." },
+    "chest-confirmed": { "name": "Torse bombé", "description": "Atteindre le niveau Confirmé aux pectoraux." },
+    "forearms-confirmed": { "name": "Poigne de crabe", "description": "Atteindre le niveau Confirmé aux avant-bras." },
+    "glutes-confirmed": { "name": "Fessiers de béton", "description": "Atteindre le niveau Confirmé aux fessiers." },
+    "hamstrings-confirmed": { "name": "Ischios en titane", "description": "Atteindre le niveau Confirmé aux ischio-jambiers." },
+    "lats-confirmed": { "name": "Envergure de condor", "description": "Atteindre le niveau Confirmé aux dorsaux." },
+    "quads-confirmed": { "name": "Quadriceps de sprinteur", "description": "Atteindre le niveau Confirmé aux quadriceps." },
+    "shoulders-confirmed": { "name": "Épaules de déménageur", "description": "Atteindre le niveau Confirmé aux épaules." },
+    "traps-confirmed": { "name": "Cou de taureau", "description": "Atteindre le niveau Confirmé aux trapèzes." },
+    "triceps-confirmed": { "name": "Triceps qui claquent", "description": "Atteindre le niveau Confirmé aux triceps." },
+    "all-muscles-novice": { "name": "Tout-terrain", "description": "Atteindre au moins le niveau Novice sur les 13 groupes musculaires." },
+    "all-muscles-intermediate": { "name": "Corps harmonieux", "description": "Atteindre au moins le niveau Intermédiaire sur les 13 groupes musculaires." },
+    "all-muscles-advanced": { "name": "Spécimen complet", "description": "Atteindre au moins le niveau Confirmé sur les 13 groupes musculaires." },
+    "all-muscles-elite": { "name": "Demi-dieu de la fonte", "description": "Atteindre le niveau Élite sur les 13 groupes musculaires." },
+    "bodyweight-master": { "name": "Maître du corps", "description": "Atteindre en moyenne le niveau Confirmé sur les exercices au poids du corps." },
+    "free-weight-master": { "name": "Roi de la fonte", "description": "Atteindre en moyenne le niveau Confirmé sur les exercices avec poids, haltères et barres." },
+    "machine-master": { "name": "As de la machine", "description": "Atteindre en moyenne le niveau Confirmé sur les exercices à la machine." },
+    "triathlon-master": { "name": "Triathlète de la fonte", "description": "Atteindre en moyenne le niveau Élite dans les 3 catégories de matériel à la fois." },
+    "biome-forest": { "name": "Dans les bois", "description": "Atteindre le biome Forêt sur la carte d'assiduité." },
+    "biome-tundra": { "name": "Grand froid", "description": "Atteindre le biome Toundra." },
+    "biome-desert": { "name": "Traversée du désert", "description": "Atteindre le biome Désert." },
+    "biome-volcano": { "name": "Enfer sur terre", "description": "Atteindre le biome Volcan." },
+    "biome-valhalla": { "name": "Aux portes du Valhalla", "description": "Atteindre le biome Valhalla." },
+    "biome-valhalla-flawless": { "name": "Einherjar", "description": "Atteindre le Valhalla sans jamais avoir subi de pénalité." },
+    "weekly-3": { "name": "Trio de la semaine", "description": "Faire 3 séances au cours d'une même semaine." },
+    "weekly-4": { "name": "Quatuor imparable", "description": "Faire 4 séances au cours d'une même semaine." },
+    "weekly-5": { "name": "Cinq sur cinq", "description": "Faire 5 séances au cours d'une même semaine." },
+    "weekly-6": { "name": "Workaholic de la fonte", "description": "Faire 6 séances ou plus au cours d'une même semaine." },
+    "sessions-10": { "name": "Dixième séance", "description": "Terminer 10 séances au total." },
+    "sessions-50": { "name": "Cinquantenaire", "description": "Terminer 50 séances au total." },
+    "sessions-100": { "name": "Centurion", "description": "Terminer 100 séances au total." },
+    "sessions-250": { "name": "Vétéran", "description": "Terminer 250 séances au total." },
+    "sessions-500": { "name": "Légende vivante", "description": "Terminer 500 séances au total." },
+    "streak-4": { "name": "Un mois sans faillir", "description": "S'entraîner au moins une fois par semaine pendant 4 semaines consécutives." },
+    "streak-12": { "name": "Saison complète", "description": "S'entraîner au moins une fois par semaine pendant 12 semaines consécutives." },
+    "streak-26": { "name": "Semestre de fonte", "description": "S'entraîner au moins une fois par semaine pendant 26 semaines consécutives." },
+    "streak-52": { "name": "Une année sans craquer", "description": "S'entraîner au moins une fois par semaine pendant 52 semaines consécutives." },
+    "first-session": { "name": "Premiers pas", "description": "Terminer sa première séance." },
+    "sets-50": { "name": "Carnet bien rempli", "description": "Enregistrer 50 séries au total." },
+    "sets-500": { "name": "Carnet légendaire", "description": "Enregistrer 500 séries au total." },
+    "exercises-20": { "name": "Touche-à-tout", "description": "Pratiquer au moins 20 exercices différents." },
+    "exercises-75": { "name": "Encyclopédie vivante", "description": "Pratiquer au moins 75 exercices différents." },
+    "early-bird": { "name": "Lève-tôt", "description": "Terminer une séance avant 7h du matin." },
+    "night-owl": { "name": "Oiseau de nuit", "description": "Terminer une séance après 22h." },
+    "new-year": { "name": "Résolution tenue", "description": "Terminer une séance le 1ᵉʳ janvier." }
+  },
+  "generate": {
+    "title": "Générer un programme",
+    "sessionsPerWeekLabel": "Séances par semaine",
+    "equipmentLabel": "Matériel à disposition",
+    "equipmentHint": "Sélectionne tout ce que tu as, même partiellement.",
+    "goalLabel": "Objectif",
+    "experienceLabel": "Expérience en musculation",
+    "beginnerHint": "Les exercices techniques ou délicats à exécuter seront exclus.",
+    "timeLabel": "Temps par séance",
+    "timeHint_one": "Environ 10 min par exercice (séries comprises) → {{count}} exercice par séance.",
+    "timeHint_other": "Environ 10 min par exercice (séries comprises) → {{count}} exercices par séance.",
+    "minutes": "{{count}} min",
+    "splitTypeLabel": "Type de séance"
+  },
+  "sessionLabel": {
+    "fallback": "Séance"
+  },
+  "profileEdit": {
+    "title": "Modifier le profil"
+  },
+  "onboarding": {
+    "welcome": "Bienvenue",
+    "subtitle": "Quelques infos pour calibrer tes niveaux de performance.",
+    "nicknamePlaceholder": "Pseudo",
+    "birthDatePlaceholder": "Date de naissance (JJ/MM/AAAA)",
+    "male": "Homme",
+    "female": "Femme",
+    "heightPlaceholder": "Taille (cm)",
+    "weightPlaceholder": "Poids (kg)",
+    "fillAllFields": "Merci de remplir tous les champs (date au format JJ/MM/AAAA).",
+    "start": "Commencer"
+  },
+  "player": {
+    "done": "Terminé",
+    "rest": "Repos",
+    "nextSet": "Prochaine série : {{name}}",
+    "skipRest": "Passer le repos",
+    "abandonSession": "Abandonner la séance",
+    "progress": "Exercice {{exerciseIndex}}/{{exerciseCount}} · Série {{setIndex}}/{{setCount}}",
+    "target": "Cible : {{detail}}",
+    "targetReps": "{{count}} reps",
+    "targetWeightReps": "{{weight}}kg × {{count}}",
+    "skipSet": "Passer cette série"
+  },
+  "generatePreview": {
+    "generating": "Génération du programme...",
+    "noMatchingExercise": "Aucun exercice ne correspond à tes critères pour cette séance.",
+    "regenerate": "🎲 Régénérer",
+    "saving": "Enregistrement...",
+    "saveProgram": "Enregistrer ce programme"
+  },
+  "sessionNew": {
+    "title": "Nouvelle séance",
+    "submit": "Enregistrer la séance"
+  },
+  "sessionEdit": {
+    "title": "Modifier la séance",
+    "defaultRestLabel": "Repos par défaut entre séries (s)",
+    "needExercise": "Ajoute au moins un exercice.",
+    "remove": "Retirer",
+    "restSeconds": "Repos (sec)",
+    "restDefault": "défaut",
+    "setLabel": "Série {{index}}",
+    "kgTimes": "kg ×",
+    "reps": "reps",
+    "addSet": "+ Série",
+    "addExercise": "+ Ajouter un exercice",
+    "saveChanges": "Enregistrer les modifications",
+    "chooseExercise": "Choisir un exercice"
+  },
+  "exercisePicker": {
+    "searchPlaceholder": "Rechercher un exercice...",
+    "emptyCatalog": "Catalogue vide.",
+    "noResults": "Aucun exercice trouvé."
+  },
+  "sessionDetail": {
+    "edit": "Modifier",
+    "defaultRest": "Repos par défaut : {{seconds}}s",
+    "startSession": "Lancer la séance",
+    "setsAndRest_one": "{{count}} série · repos {{seconds}}s",
+    "setsAndRest_other": "{{count}} séries · repos {{seconds}}s",
+    "setLine": "Série {{index}} : {{detail}}",
+    "repsOnly": "{{count}} reps",
+    "weightReps": "{{weight}}kg × {{count}}"
+  },
+  "programDetail": {
+    "launch": "Lancer",
+    "addSession": "+ Ajouter une séance",
+    "activeSessionDialog": {
+      "title": "Une séance est déjà en cours",
+      "message": "« {{name}} » est en cours. L'abandonner pour démarrer celle-ci à la place ?",
+      "confirmLabel": "Abandonner et démarrer"
+    },
+    "removeSessionDialog": {
+      "title": "Retirer cette séance ?",
+      "message": "« {{name}} » sera retirée de ce programme (la séance elle-même n'est pas supprimée).",
+      "confirmLabel": "Retirer"
+    },
+    "deleteProgramDialog": {
+      "title": "Supprimer ce programme ?",
+      "message": "« {{name}} » sera supprimé. Les séances qu'il contient resteront disponibles."
+    }
+  },
+  "newProgram": {
+    "title": "Nouveau programme",
+    "subtitle": "Tu pourras ajouter ses séances juste après.",
+    "namePlaceholder": "Nom du programme",
+    "nameRequired": "Donne un nom à ton programme.",
+    "splitTypeLabel": "Type de split",
+    "sessionsPerWeekLabel": "Séances par semaine",
+    "submit": "Créer le programme"
+  },
+  "programs": {
+    "generate": "Générer",
+    "newProgram": "+ Programme",
+    "resumeActiveSession": "Séance en cours — reprendre « {{name}} »",
+    "empty": "Aucun programme encore. Crée ton premier programme pour commencer à ajouter des séances.",
+    "sessionsPerWeek_one": "{{count}} séance/semaine",
+    "sessionsPerWeek_other": "{{count}} séances/semaine",
+    "orphanSessions": "Séances sans programme",
+    "defaultRest": "Repos par défaut : {{seconds}}s",
+    "details": "Détails",
+    "deleteOrphanDialog": {
+      "title": "Supprimer cette séance ?",
+      "message": "« {{name}} » n'appartient à aucun programme et sera définitivement supprimée."
+    },
+    "help": {
+      "title": "Entraînement",
+      "body": "Crée des programmes composés de plusieurs séances, puis lance une séance pour suivre tes séries en temps réel (poids, répétitions, minuteur de repos).\n\nLe bouton « Générer » te propose un programme aléatoire à partir d'un court questionnaire (matériel disponible, objectif, expérience, temps par séance). Tu peux le régénérer autant de fois que tu veux avant de le sauvegarder, ou créer un programme entièrement à la main avec « + Programme ».\n\nUne séance en cours apparaît en haut de cet onglet pour la reprendre à tout moment."
+    }
+  },
+  "tabs": {
+    "training": "Entraînement",
+    "exercises": "Exercices",
+    "attendance": "Assiduité",
+    "profile": "Profil"
+  },
+  "profile": {
+    "defaultTitle": "Profil",
+    "trophiesTab": "Trophées",
+    "trophiesUnlocked": "Trophées · {{count}} débloqués",
+    "levelsByMuscle": "Niveaux par groupe musculaire",
+    "levelNumber": "Niveau {{tier}}",
+    "help": {
+      "title": "Profil",
+      "body": "Ta carte d'identité sportive : ton niveau par groupe musculaire (Débutant → Élite), calculé à partir de tes meilleures performances comparées à des barèmes par sexe et poids de corps.\n\nTu y retrouves aussi ta progression sur la carte d'assiduité, et tes trophées débloqués (régularité, progression musculaire, spécialisations par matériel...).\n\nDans les réglages (⚙️), tu peux modifier ton profil, réinitialiser tes performances/trophées, ou exporter/importer toutes tes données pour changer de téléphone."
+    }
+  },
+  "catalog": {
+    "title": "Exercices",
+    "subtitle": "Choisis un groupe musculaire pour parcourir le catalogue.",
+    "exerciseCount_one": "{{count}} exercice",
+    "exerciseCount_other": "{{count}} exercices",
+    "emptyBucket": "Aucun exercice dans cette catégorie pour l'instant.",
+    "help": {
+      "title": "Exercices",
+      "body": "Parcours le catalogue complet des exercices, classé par groupe musculaire. Chaque exercice a une fiche avec une vidéo de démonstration, le matériel nécessaire, et l'historique de tes performances (1RM ou répétitions selon l'exercice).\n\nC'est ici que tu peux consulter en détail tes progrès sur un exercice précis, indépendamment des séances où tu l'as pratiqué."
+    }
+  },
+  "attendance": {
+    "map": {
+      "step": "Étape",
+      "tabFallback": "Assiduité"
+    },
+    "help": {
+      "title": "Assiduité",
+      "body": "Une carte qui gamifie ta régularité : ton personnage avance d'un point à chaque séance terminée, en traversant 6 biomes (Prairie → Valhalla).\n\nSi tu restes trop longtemps sans t'entraîner (seuil réglable via l'icône ⚙️ en haut à droite), ton personnage recule d'un biome entier en guise de pénalité.\n\nLe nombre total de séances faites dans chaque biome est affiché sur ton profil, et n'est jamais perdu, même en cas de pénalité."
+    },
+    "setup": {
+      "title": "Avant de commencer",
+      "question": "Au bout de combien de jours sans séance veux-tu être pénalisé et reculer sur la carte ?",
+      "validate": "Valider"
+    },
+    "debug": {
+      "advance": "Debug\n+1 point",
+      "penalty": "Debug\npénalité"
+    },
+    "settings": {
+      "title": "Réglages — Assiduité",
+      "thresholdLabel": "Jours sans séance avant pénalité",
+      "saved": "Enregistré ✓",
+      "save": "Enregistrer",
+      "dangerZone": "Zone dangereuse",
+      "resetButton": "Réinitialiser l'assiduité",
+      "resetDialog": {
+        "title": "Réinitialiser l'assiduité ?",
+        "message": "Ta position sur la carte et le nombre de séances par biome repartiront de zéro. Ton seuil de pénalité est conservé.",
+        "confirmLabel": "Réinitialiser"
+      }
+    }
+  },
+  "premiumGate": {
+    "limitReachedTitle": "Limite de la version gratuite atteinte",
+    "trialTitle": "Version d'essai",
+    "limitReachedMessage": "Tu as terminé tes {{limit}} séances gratuites. Le reste de l'app (programmes, catalogue, profil, assiduité) reste accessible, mais il faut débloquer la version illimitée pour démarrer une nouvelle séance.",
+    "trialMessage": "Tu es sur la version gratuite de RepLog : tu peux tester 100% des fonctionnalités pendant tes {{limit}} premières séances ({{count}}/{{limit}} déjà faites) avant de décider si ça vaut le coup pour toi de l'acheter.",
+    "unlockWithCode": "Débloquer avec ce code",
+    "haveACode": "J'ai un code de déblocage",
+    "later": "Plus tard"
+  },
+  "programGenerator": {
+    "programName": "Programme {{splitLabel}}",
+    "notEnoughExercises": "Séance {{sessionIndex}} ({{dayLabel}}) : seulement {{available}}/{{requested}} exercice(s) disponible(s) avec tes critères."
+  },
+  "enums": {
+    "levelTier": {
+      "beginner": "Débutant",
+      "novice": "Novice",
+      "intermediate": "Intermédiaire",
+      "advanced": "Confirmé",
+      "elite": "Élite"
+    },
+    "trophyTier": {
+      "bronze": "Bronze",
+      "silver": "Argent",
+      "gold": "Or",
+      "diamond": "Diamant",
+      "ruby": "Rubis"
+    },
+    "biome": {
+      "prairie": "Prairie",
+      "forest": "Forêt",
+      "tundra": "Toundra",
+      "desert": "Désert",
+      "volcano": "Volcan",
+      "valhalla": "Valhalla"
+    },
+    "goal": {
+      "hypertrophy": {
+        "label": "Prise de volume",
+        "description": "Favorise des exercices qui isolent un muscle à la fois."
+      },
+      "general_fitness": {
+        "label": "Forme générale",
+        "description": "Favorise des exercices polyarticulaires, qui travaillent plusieurs muscles à la fois."
+      }
+    },
+    "experience": {
+      "beginner": "Débutant",
+      "intermediate": "Intermédiaire",
+      "advanced": "Avancé"
+    },
+    "equipmentBucket": {
+      "free-weight": "Poids, haltères et barres",
+      "machine": "Machines",
+      "bodyweight": "Poids du corps"
+    },
+    "splitType": {
+      "full_body": {
+        "label": "Full Body",
+        "description": "Tout le corps à chaque séance. Idéal pour débuter ou pour 2-3 séances/semaine.",
+        "dayBase": "Full Body"
+      },
+      "upper_lower": {
+        "label": "Haut / Bas",
+        "description": "Alterne le haut et le bas du corps. Bon compromis fréquence/récupération.",
+        "dayBases": ["Haut A", "Bas A", "Haut B", "Bas B"]
+      },
+      "push_pull_legs": {
+        "label": "Push / Pull / Legs",
+        "description": "Pousser (pecs/épaules/triceps), Tirer (dos/biceps), Jambes. Très répandu à 3-6 séances/semaine.",
+        "dayBases": ["Push", "Pull", "Legs"]
+      },
+      "body_part_split": {
+        "label": "Split par groupe musculaire",
+        "description": "Un ou deux groupes musculaires ciblés par séance (\"bro split\"). Demande un volume de séances élevé.",
+        "dayBases": ["Pecs", "Dos", "Jambes", "Épaules", "Bras"]
+      },
+      "antagonist_split": {
+        "label": "Antagonistes",
+        "description": "Associe des groupes musculaires opposés dans la même séance (ex: pecs/dos).",
+        "dayBases": ["Pecs / Dos", "Jambes", "Épaules / Bras"]
+      },
+      "custom": {
+        "label": "Personnalisé",
+        "description": "Structure libre, sans schéma de split imposé.",
+        "dayBase": "Séance"
+      }
+    }
+  }
+}

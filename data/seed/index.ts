@@ -83,8 +83,18 @@ export async function removeDeprecatedExercises(db: typeof Db) {
  * tables de jonction (muscles/équipement) sont remises à plat.
  */
 export async function syncExerciseCatalog(db: typeof Db) {
-  await db.insert(equipment).values(equipmentSeed).onConflictDoNothing();
-  await db.insert(muscleGroups).values(muscleGroupsSeed).onConflictDoNothing();
+  for (const row of equipmentSeed) {
+    await db
+      .insert(equipment)
+      .values(row)
+      .onConflictDoUpdate({ target: equipment.id, set: { name: row.name, nameEn: row.nameEn } });
+  }
+  for (const row of muscleGroupsSeed) {
+    await db
+      .insert(muscleGroups)
+      .values(row)
+      .onConflictDoUpdate({ target: muscleGroups.id, set: { name: row.name, nameEn: row.nameEn, bodyRegion: row.bodyRegion } });
+  }
 
   for (const exercise of exercisesSeed) {
     await db
@@ -94,6 +104,7 @@ export async function syncExerciseCatalog(db: typeof Db) {
         name: exercise.name,
         nameEn: exercise.nameEn,
         description: exercise.description,
+        descriptionEn: exercise.descriptionEn,
         mediaType: exercise.mediaType,
         mediaKey: exercise.mediaKey,
         isAdvanced: exercise.isAdvanced,
@@ -105,6 +116,7 @@ export async function syncExerciseCatalog(db: typeof Db) {
           name: exercise.name,
           nameEn: exercise.nameEn,
           description: exercise.description,
+          descriptionEn: exercise.descriptionEn,
           mediaType: exercise.mediaType,
           mediaKey: exercise.mediaKey,
           isAdvanced: exercise.isAdvanced,
@@ -138,7 +150,9 @@ export async function runSeedIfEmpty(db: typeof Db) {
     await db.insert(exercises).values({
       id: exercise.id,
       name: exercise.name,
+      nameEn: exercise.nameEn,
       description: exercise.description,
+      descriptionEn: exercise.descriptionEn,
       mediaType: exercise.mediaType,
       mediaKey: exercise.mediaKey,
       isAdvanced: exercise.isAdvanced,

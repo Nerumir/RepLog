@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { router } from 'expo-router';
 import { Pressable, ScrollView, StyleSheet, TextInput } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { useTranslation } from 'react-i18next';
 
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
@@ -14,6 +15,7 @@ import { formatFrenchDateInput, parseFrenchDate, toFrenchDate } from '@/domain/f
 import type { Sex } from '@/domain/types';
 
 export default function EditProfileScreen() {
+  const { t } = useTranslation();
   const scheme = useColorScheme();
   const colors = Colors[scheme === 'dark' ? 'dark' : 'light'];
 
@@ -41,7 +43,7 @@ export default function EditProfileScreen() {
   async function handleSave() {
     if (!isValid || !isoBirthDate) {
       playError();
-      setError('Merci de remplir tous les champs (date au format JJ/MM/AAAA).');
+      setError(t('onboarding.fillAllFields'));
       return;
     }
     await updateProfile({
@@ -58,17 +60,17 @@ export default function EditProfileScreen() {
     <ThemedView style={styles.container}>
       <SafeAreaView style={styles.safeArea}>
         <ScrollView contentContainerStyle={styles.content}>
-          <ThemedText type="subtitle">Modifier le profil</ThemedText>
+          <ThemedText type="subtitle">{t('profileEdit.title')}</ThemedText>
 
           <TextInput
-            placeholder="Pseudo"
+            placeholder={t('onboarding.nicknamePlaceholder')}
             placeholderTextColor={colors.textSecondary}
             value={nickname}
             onChangeText={setNickname}
             style={[styles.input, { color: colors.text, borderColor: colors.backgroundSelected }]}
           />
           <TextInput
-            placeholder="Date de naissance (JJ/MM/AAAA)"
+            placeholder={t('onboarding.birthDatePlaceholder')}
             placeholderTextColor={colors.textSecondary}
             value={birthDate}
             onChangeText={(value) => setBirthDate(formatFrenchDateInput(value))}
@@ -81,17 +83,21 @@ export default function EditProfileScreen() {
             <Pressable
               style={[styles.sexOption, sex === 'male' && { backgroundColor: colors.accent }]}
               onPress={() => setSex('male')}>
-              <ThemedText type="default" style={sex === 'male' ? styles.sexOptionLabelSelected : undefined}>Homme</ThemedText>
+              <ThemedText type="default" style={sex === 'male' ? styles.sexOptionLabelSelected : undefined}>
+                {t('onboarding.male')}
+              </ThemedText>
             </Pressable>
             <Pressable
               style={[styles.sexOption, sex === 'female' && { backgroundColor: colors.accent }]}
               onPress={() => setSex('female')}>
-              <ThemedText type="default" style={sex === 'female' ? styles.sexOptionLabelSelected : undefined}>Femme</ThemedText>
+              <ThemedText type="default" style={sex === 'female' ? styles.sexOptionLabelSelected : undefined}>
+                {t('onboarding.female')}
+              </ThemedText>
             </Pressable>
           </ThemedView>
 
           <TextInput
-            placeholder="Taille (cm)"
+            placeholder={t('onboarding.heightPlaceholder')}
             placeholderTextColor={colors.textSecondary}
             value={heightCm}
             onChangeText={setHeightCm}
@@ -99,7 +105,7 @@ export default function EditProfileScreen() {
             style={[styles.input, { color: colors.text, borderColor: colors.backgroundSelected }]}
           />
           <TextInput
-            placeholder="Poids (kg)"
+            placeholder={t('onboarding.weightPlaceholder')}
             placeholderTextColor={colors.textSecondary}
             value={bodyWeightKg}
             onChangeText={setBodyWeightKg}
@@ -111,7 +117,7 @@ export default function EditProfileScreen() {
 
           <GameButton style={[styles.submit, { backgroundColor: colors.accent }]} onPress={handleSave}>
             <ThemedText type="smallBold" style={{ color: '#FFFFFF' }}>
-              Enregistrer
+              {t('common.save')}
             </ThemedText>
           </GameButton>
         </ScrollView>

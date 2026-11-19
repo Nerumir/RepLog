@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Ionicons } from '@expo/vector-icons';
 import { Modal, Pressable, ScrollView, StyleSheet } from 'react-native';
+import { useTranslation } from 'react-i18next';
 
 import { ThemedText } from '@/components/themed-text';
 import { GameButton } from '@/components/ui/GameButton';
@@ -14,6 +15,7 @@ interface HelpButtonProps {
 
 /** Bouton "i" rond affiché dans l'en-tête d'un onglet, qui explique son fonctionnement dans une modale. */
 export function HelpButton({ title, body }: HelpButtonProps) {
+  const { t } = useTranslation();
   const scheme = useColorScheme();
   const colors = Colors[scheme === 'dark' ? 'dark' : 'light'];
   const [visible, setVisible] = useState(false);
@@ -38,7 +40,7 @@ export function HelpButton({ title, body }: HelpButtonProps) {
             </ScrollView>
             <GameButton onPress={() => setVisible(false)} style={[styles.closeButton, { backgroundColor: colors.accent }]}>
               <ThemedText type="smallBold" style={{ color: '#FFFFFF' }}>
-                Compris
+                {t('common.gotIt')}
               </ThemedText>
             </GameButton>
           </Pressable>

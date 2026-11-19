@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { router } from 'expo-router';
 import { Pressable, ScrollView, StyleSheet, TextInput } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { useTranslation } from 'react-i18next';
 
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
@@ -14,6 +15,7 @@ import { formatFrenchDateInput, parseFrenchDate } from '@/domain/frenchDate';
 import type { Sex } from '@/domain/types';
 
 export default function OnboardingScreen() {
+  const { t } = useTranslation();
   const scheme = useColorScheme();
   const colors = Colors[scheme === 'dark' ? 'dark' : 'light'];
 
@@ -30,7 +32,7 @@ export default function OnboardingScreen() {
   async function handleSubmit() {
     if (!isValid || !isoBirthDate) {
       playError();
-      setError('Merci de remplir tous les champs (date au format JJ/MM/AAAA).');
+      setError(t('onboarding.fillAllFields'));
       return;
     }
     await completeOnboarding({
@@ -48,21 +50,21 @@ export default function OnboardingScreen() {
       <SafeAreaView style={styles.safeArea}>
         <ScrollView contentContainerStyle={styles.content}>
           <ThemedText type="title" style={styles.title}>
-            Bienvenue
+            {t('onboarding.welcome')}
           </ThemedText>
           <ThemedText type="default" themeColor="textSecondary">
-            Quelques infos pour calibrer tes niveaux de performance.
+            {t('onboarding.subtitle')}
           </ThemedText>
 
           <TextInput
-            placeholder="Pseudo"
+            placeholder={t('onboarding.nicknamePlaceholder')}
             placeholderTextColor={colors.textSecondary}
             value={nickname}
             onChangeText={setNickname}
             style={[styles.input, { color: colors.text, borderColor: colors.backgroundSelected }]}
           />
           <TextInput
-            placeholder="Date de naissance (JJ/MM/AAAA)"
+            placeholder={t('onboarding.birthDatePlaceholder')}
             placeholderTextColor={colors.textSecondary}
             value={birthDate}
             onChangeText={(value) => setBirthDate(formatFrenchDateInput(value))}
@@ -75,17 +77,21 @@ export default function OnboardingScreen() {
             <Pressable
               style={[styles.sexOption, sex === 'male' && { backgroundColor: colors.accent }]}
               onPress={() => setSex('male')}>
-              <ThemedText type="default" style={sex === 'male' ? styles.sexOptionLabelSelected : undefined}>Homme</ThemedText>
+              <ThemedText type="default" style={sex === 'male' ? styles.sexOptionLabelSelected : undefined}>
+                {t('onboarding.male')}
+              </ThemedText>
             </Pressable>
             <Pressable
               style={[styles.sexOption, sex === 'female' && { backgroundColor: colors.accent }]}
               onPress={() => setSex('female')}>
-              <ThemedText type="default" style={sex === 'female' ? styles.sexOptionLabelSelected : undefined}>Femme</ThemedText>
+              <ThemedText type="default" style={sex === 'female' ? styles.sexOptionLabelSelected : undefined}>
+                {t('onboarding.female')}
+              </ThemedText>
             </Pressable>
           </ThemedView>
 
           <TextInput
-            placeholder="Taille (cm)"
+            placeholder={t('onboarding.heightPlaceholder')}
             placeholderTextColor={colors.textSecondary}
             value={heightCm}
             onChangeText={setHeightCm}
@@ -93,7 +99,7 @@ export default function OnboardingScreen() {
             style={[styles.input, { color: colors.text, borderColor: colors.backgroundSelected }]}
           />
           <TextInput
-            placeholder="Poids (kg)"
+            placeholder={t('onboarding.weightPlaceholder')}
             placeholderTextColor={colors.textSecondary}
             value={bodyWeightKg}
             onChangeText={setBodyWeightKg}
@@ -105,7 +111,7 @@ export default function OnboardingScreen() {
 
           <GameButton style={[styles.submit, { backgroundColor: colors.accent }]} onPress={handleSubmit}>
             <ThemedText type="smallBold" style={{ color: '#FFFFFF' }}>
-              Commencer
+              {t('onboarding.start')}
             </ThemedText>
           </GameButton>
         </ScrollView>
